@@ -28,25 +28,52 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.0.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Consulta.cs" />
+    <Compile Include="ConsultaFlujoTrabajo.cs" />
+    <Compile Include="ControladorBD.cs" />
+    <Compile Include="FlujoTrabajo.cs" />
+    <Compile Include="FormConexiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormConexiones.Designer.cs">
+      <DependentUpon>FormConexiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConstructor.Designer.cs">
+      <DependentUpon>FormConstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="FormConexiones.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Form1.cs</DependentUpon>
+      <DependentUpon>FormConexiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConstructor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormConstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
