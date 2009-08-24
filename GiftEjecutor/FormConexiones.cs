@@ -40,7 +40,7 @@ namespace GiftEjecutor
         {
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada);
             formPrincipal.Show();
-          
+            this.Dispose();          
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

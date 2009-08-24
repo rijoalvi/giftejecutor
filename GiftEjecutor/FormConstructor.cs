@@ -20,5 +20,6 @@ namespace GiftEjecutor
             FlujoTrabajo flujo = new FlujoTrabajo();
             dataGridFlujosTrabajo.DataSource = flujo.getDataTableTodosLosFlujosDeTrabajo();
         }
+
     }
 }
