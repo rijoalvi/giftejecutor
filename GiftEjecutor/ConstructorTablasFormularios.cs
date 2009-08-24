@@ -6,10 +6,12 @@ namespace GiftEjecutor
 {
     class ConstructorTablasFormularios
     {
+        ConsultaConstructorTablasFormularios consultaBD;
 
         public void buscarFormularios(String workflow) { 
             //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
             //puede ser crear un string dnd cada ';' sea un nuevo form
+            String[] IDsFormularios = consultaBD.getIDsFormulariosDelFlujo(1);
 
 
             //se dividen todos esos formularios y a cada uno se le investiga los campos q tienen
@@ -27,10 +29,11 @@ namespace GiftEjecutor
         /// Busca en la BD los formularios asociados al workflow
         /// </summary>
         /// <param name="workflow"></param>         
-        public void buscarFormularios(String workflow)
+        public void buscarFormulariosasdf(String workflow)
         {
             //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
             //puede ser crear un string dnd cada ';' sea un nuevo form
+            
 
         }
     }

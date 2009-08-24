@@ -9,8 +9,9 @@ namespace GiftEjecutor
     /// </summary>
     class ConsultaConstructorTablasFormularios : Consulta
     {
-        public MySqlDataReader getTodosLosFormulariosDelFlujo(int IDflujo)
+        public String[] getIDsFormulariosDelFlujo(int IDflujo)
         {
+            
             //Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO "+
@@ -19,9 +20,14 @@ namespace GiftEjecutor
                                  "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando "+
                                  "AND COMANDO.IDFormulario = FORMULARIO.correlativo;";                
             MySqlDataReader datos = this.controladoBD.hacerConsulta(strConsulta);
-            return datos;
+            Console.WriteLine("hay " + datos.FieldCount + " numero de datos");
+            String[] IDs = new string[datos.FieldCount];
+            for (int i = 0; i < datos.FieldCount; i++) {
+                IDs[i] = ""+datos.GetValue(i)+";";
+            }
+            return IDs;
         }
 
-       
+
     }
 }

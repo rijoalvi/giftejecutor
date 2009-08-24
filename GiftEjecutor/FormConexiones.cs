@@ -40,7 +40,7 @@ namespace GiftEjecutor
         {
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada);
             formPrincipal.Show();
-            this.Dispose();          
+            //this.Close(); ni este ni dispose me estan funcionando porq mata todo el programa... :s
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

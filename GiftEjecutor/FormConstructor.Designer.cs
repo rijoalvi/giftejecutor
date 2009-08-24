@@ -39,7 +39,6 @@ namespace GiftEjecutor
             this.dataGridFlujosTrabajo.Name = "dataGridFlujosTrabajo";
             this.dataGridFlujosTrabajo.Size = new System.Drawing.Size(468, 150);
             this.dataGridFlujosTrabajo.TabIndex = 0;
-            this.dataGridFlujosTrabajo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFlujosTrabajo_CellContentClick);
             // 
             // FormConstructor
             // 
