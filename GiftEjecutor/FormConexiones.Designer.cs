@@ -29,10 +29,12 @@ namespace GiftEjecutor
         private void InitializeComponent()
         {
             this.groupBoxConexiones = new System.Windows.Forms.GroupBox();
-            this.radioButtonMYSQL = new System.Windows.Forms.RadioButton();
-            this.radioButtonSQLServer = new System.Windows.Forms.RadioButton();
-            this.buttonIniciar = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.radioButtonSQLServer = new System.Windows.Forms.RadioButton();
+            this.radioButtonMYSQL = new System.Windows.Forms.RadioButton();
+            this.buttonIniciar = new System.Windows.Forms.Button();
+            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.groupBoxConexiones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,27 @@ namespace GiftEjecutor
             this.groupBoxConexiones.TabStop = false;
             this.groupBoxConexiones.Text = "Conexiones";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(125, 21);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(167, 13);
+            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "http://www.bluechiphosting.com/";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // radioButtonSQLServer
+            // 
+            this.radioButtonSQLServer.AutoSize = true;
+            this.radioButtonSQLServer.Location = new System.Drawing.Point(21, 42);
+            this.radioButtonSQLServer.Name = "radioButtonSQLServer";
+            this.radioButtonSQLServer.Size = new System.Drawing.Size(107, 17);
+            this.radioButtonSQLServer.TabIndex = 2;
+            this.radioButtonSQLServer.Text = "SQLServer, ECCI";
+            this.radioButtonSQLServer.UseVisualStyleBackColor = true;
+            // 
             // radioButtonMYSQL
             // 
             this.radioButtonMYSQL.AutoSize = true;
@@ -61,16 +84,6 @@ namespace GiftEjecutor
             this.radioButtonMYSQL.UseVisualStyleBackColor = true;
             this.radioButtonMYSQL.CheckedChanged += new System.EventHandler(this.radioButtonMYSQL_CheckedChanged);
             // 
-            // radioButtonSQLServer
-            // 
-            this.radioButtonSQLServer.AutoSize = true;
-            this.radioButtonSQLServer.Location = new System.Drawing.Point(21, 42);
-            this.radioButtonSQLServer.Name = "radioButtonSQLServer";
-            this.radioButtonSQLServer.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonSQLServer.TabIndex = 2;
-            this.radioButtonSQLServer.Text = "SQLServer, ECCI";
-            this.radioButtonSQLServer.UseVisualStyleBackColor = true;
-            // 
             // buttonIniciar
             // 
             this.buttonIniciar.Location = new System.Drawing.Point(99, 111);
@@ -81,16 +94,19 @@ namespace GiftEjecutor
             this.buttonIniciar.UseVisualStyleBackColor = true;
             this.buttonIniciar.Click += new System.EventHandler(this.buttonIniciar_Click);
             // 
-            // linkLabel1
+            // sqlConnection1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(125, 21);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(167, 13);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "http://www.bluechiphosting.com/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.sqlConnection1.ConnectionString = "Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=us" +
+                "uarioInge1_g2;Password=ui1_g2";
+            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
+            this.sqlConnection1.InfoMessage += new System.Data.SqlClient.SqlInfoMessageEventHandler(this.sqlConnection1_InfoMessage);
+            // 
+            // mySqlDataAdapter1
+            // 
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
             // 
             // FormConexiones
             // 
@@ -116,5 +132,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.RadioButton radioButtonMYSQL;
         private System.Windows.Forms.Button buttonIniciar;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Data.SqlClient.SqlConnection sqlConnection1;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
     }
 }

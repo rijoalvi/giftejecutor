@@ -42,7 +42,9 @@
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs" />
+    <Compile Include="ConsultaFllujoTrabajoMySQL.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
+    <Compile Include="ConsultaFlujoTrabajoSQLServer.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="FlujoTrabajo.cs" />
     <Compile Include="FormConexiones.cs">

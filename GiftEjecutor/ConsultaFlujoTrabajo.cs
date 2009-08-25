@@ -2,16 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+
 namespace GiftEjecutor
 {
-    
-    class ConsultaFlujoTrabajo : Consulta
+
+    abstract class ConsultaFlujoTrabajo : Consulta
     {
 
-        public MySqlDataReader getTodosLosFlujosTrabajo()
-        {
-            MySqlDataReader datos= this.controladoBD.hacerConsulta("SELECT correlativo, nombre, descripcion, actividadRaiz, fechaActualizacion FROM FLUJO;");
-            return datos;
+        public abstract Object getTodosLosFlujosTrabajo();
+
+        public static ConsultaFlujoTrabajo getInstancia(){
+            ConsultaFlujoTrabajo consultaFlujoSeleccionado=null;
+            if (ControladorBD.conexionSelecciona == ControladorBD.SQLSERVER)
+            {
+                consultaFlujoSeleccionado = new ConsultaFlujoTrabajoSQLServer();
+            }
+            if (ControladorBD.conexionSelecciona == ControladorBD.MYSQL)
+            {
+                consultaFlujoSeleccionado = new ConsultaFllujoTrabajoMySQL();
+            }
+            return consultaFlujoSeleccionado;
         }
     }
 }

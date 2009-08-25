@@ -40,7 +40,7 @@ namespace GiftEjecutor
         {
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada);
             formPrincipal.Show();
-            //this.Close(); ni este ni dispose me estan funcionando porq mata todo el programa... :s
+            //this.Close(); ni este ni dispose me estan funcionando porq mata todo el programa... :s -- es que formPrincipal esta declarado aquì, tons cuando ud mata Formconexiones, esta matando a form principal, luisk
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -51,6 +51,16 @@ namespace GiftEjecutor
         // Otherwise, display it in a message box.
 
            System.Diagnostics.Process.Start("http://www.bluechiphosting.com/");
+
+        }
+
+        private void mySqlConnection1_StateChange(object sender, StateChangeEventArgs e)
+        {
+
+        }
+
+        private void sqlConnection1_InfoMessage(object sender, System.Data.SqlClient.SqlInfoMessageEventArgs e)
+        {
 
         }
     }

@@ -18,7 +18,7 @@ namespace GiftEjecutor
             for (int i = 0; i < IDsFormularios.Length; ++i)
             {
                 //busca para cada formulario
-                String[] IDsTiposCampo = consultaBD.getIDsFormulariosDelFlujo( IDsFormularios[i]);
+               // String[] IDsTiposCampo = consultaBD.getIDsFormulariosDelFlujo( IDsFormularios[i]);
                 //Para el tamaño del campo se ve el campo de "tamaño" en los de texto
                 //para los binarios nada mas un true o false que indiq si ese campo esta activo.
 

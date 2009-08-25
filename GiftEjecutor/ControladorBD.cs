@@ -1,18 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+
 namespace GiftEjecutor
 {
     class ControladorBD
     {//MySqlConnection mySqlConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
-        private const int MYSQL = 1;
-        private const int SQLSERVER = 2;
+        public const int MYSQL = 1;
+        public const int SQLSERVER = 2;
         private MySqlConnection MYSQLConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
-        private MySqlConnection SQLServerConexion = new MySqlConnection("datasource=lucachaco.bluechiphosting.com;username=lucachac_user;password=todosepuede;database=lucachac_db");
+        private SqlConnection SQLServerConexion = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
         public static int conexionSelecciona;
-        public MySqlDataReader hacerConsulta(string sentenciaMySql)
+
+        public MySqlDataReader hacerConsultaMySQL(string sentenciaMySql)
         {
             MySqlDataReader datos = null;
             MySqlCommand comando=null;
@@ -25,7 +29,7 @@ namespace GiftEjecutor
                         comando = new MySqlCommand(sentenciaMySql, MYSQLConexion);
                     break;
                     case SQLSERVER:
-                        comando = new MySqlCommand(sentenciaMySql, SQLServerConexion);
+                      //  comando = new MySqlCommand(sentenciaMySql, SQLServerConexion);
                     break;
                     default:
                         MessageBox.Show("No se pudo conectar al servidor " , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,6 +45,27 @@ namespace GiftEjecutor
                 MessageBox.Show(ex.Message);
             }
 
+
+            return datos;
+        }
+
+        public SqlDataReader hacerConsultaSQLServer(string sentenciaSQLServer)
+        {
+            SqlDataReader datos = null;
+            SqlCommand comando = null;
+            SQLServerConexion.Open();
+
+            try
+            {
+                comando = new SqlCommand (sentenciaSQLServer, SQLServerConexion);
+                datos = comando.ExecuteReader();
+
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
             return datos;
         }

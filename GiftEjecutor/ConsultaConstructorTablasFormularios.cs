@@ -18,7 +18,7 @@ namespace GiftEjecutor
         public String[] getIDsFormulariosDelFlujo(int IDflujo)
         {
             
-            //Toma todos los IDs de los formularios q trabajan con ese flujo
+            /*//Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO "+
                                  "WHERE FLUJO.correlativo = '"+ IDflujo + "' " + //aqui compara cn el flujo escogido
@@ -32,7 +32,8 @@ namespace GiftEjecutor
             for (int i = 0; i < datos.FieldCount; i++) {
                 IDs[i] = ""+datos.GetValue(i)+";";
             }
-            return IDs;
+            return IDs;*/
+            return null;
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace GiftEjecutor
         /// <param name="IDFormulario"></param>
         /// <returns></returns>
         public String[] getIDsTiposCampo(int IDFormulario){
-        //Toma todos los IDs de los formularios q trabajan con ese flujo
+        /*//Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT MIEMBROFORMULARIO.IDTipoCampo "+
                                 "FROM FORMULARIO, MIEMBROFORMULARIO "+
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '"+ IDFormulario +"' "+
@@ -53,7 +54,8 @@ namespace GiftEjecutor
                 IDs[i] = ""+datos.GetValue(i)+";";
             }
             return IDs;
-        
+        */
+            return null;
         }
 
 

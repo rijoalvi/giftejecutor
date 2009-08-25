@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 
+using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 namespace GiftEjecutor
 {
@@ -10,11 +11,13 @@ namespace GiftEjecutor
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
         public FlujoTrabajo() {
-            consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+            //consultaFlujoTrabajo = new ConsultaFlujoTrabajoSQLServer();
+            consultaFlujoTrabajo = ConsultaFlujoTrabajo.getInstancia();
         }
         public DataTable getDataTableTodosLosFlujosDeTrabajo()
         {
-            MySqlDataReader datos = consultaFlujoTrabajo.getTodosLosFlujosTrabajo();
+            object datos;
+            datos = consultaFlujoTrabajo.getTodosLosFlujosTrabajo();
 
             DataTable tabla = new DataTable();
             DataRow fila;
@@ -35,23 +38,33 @@ namespace GiftEjecutor
             tabla.Columns.Add(nombre);
             tabla.Columns.Add(descripcion);
 
-            if (datos != null)
-            {
-    
-                while (datos.Read())
+            System.Console.Write("(" + datos.GetType() + ")");
+
+
+            if (datos != null){
+                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
                 {
-
-
-                    fila = tabla.NewRow();
-                    fila["IDFlujo"] = datos.GetValue(0);//el nueve tiene la cantidad
-                    fila["nombre"] = datos.GetValue(1);
-                    fila["descripcion"] = datos.GetValue(2).ToString();
-
-                    tabla.Rows.Add(fila);
+                    while (((SqlDataReader)(datos)).Read())
+                    {
+                        fila = tabla.NewRow();
+                        fila["IDFlujo"] = ((SqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
+                        fila["nombre"] = ((SqlDataReader)(datos)).GetValue(1);
+                        fila["descripcion"] = ((SqlDataReader)(datos)).GetValue(2).ToString();
+                        tabla.Rows.Add(fila);
+                    }
                 }
-
+                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                {
+                    while (((MySqlDataReader)(datos)).Read())
+                    {
+                        fila = tabla.NewRow();
+                        fila["IDFlujo"] = ((MySqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
+                        fila["nombre"] = ((MySqlDataReader)(datos)).GetValue(1);
+                        fila["descripcion"] = ((MySqlDataReader)(datos)).GetValue(2).ToString();
+                        tabla.Rows.Add(fila);
+                    }
+                }
             }
-
             return tabla;
         }
     }
