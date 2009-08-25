@@ -10,6 +10,18 @@ namespace GiftEjecutor
 {
     public partial class FormPrincipal : Form
     {
+        /**
+         * Para recordar!!!
+         * //Son los macros que se usan para seleccion del combo box.
+         * static final int NUMERO = 1;
+         * static final int BINARIO = 2;
+         * static final int FECHAHORA = 3;
+         * static final int TEXTO = 4;
+         * static final int INCREMENTAL = 5;         
+         * static final int JERARQUIA = 6
+         * static final int LISTA = 7;
+         */
+
         public FormPrincipal()
         {
             InitializeComponent();

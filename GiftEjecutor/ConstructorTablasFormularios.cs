@@ -15,14 +15,23 @@ namespace GiftEjecutor
 
 
             //se dividen todos esos formularios y a cada uno se le investiga los campos q tienen
-            //se van creando entradas para cada campo, para desp crear la tabla cn todo.
-            //como ir haciendo cada vez mas grande un string de "dataReader"
+            for (int i = 0; i < IDsFormularios.Length; ++i)
+            {
+                //busca para cada formulario
+                String[] IDsTiposCampo = consultaBD.getIDsFormulariosDelFlujo( IDsFormularios[i]);
+                //Para el tamaño del campo se ve el campo de "tamaño" en los de texto
+                //para los binarios nada mas un true o false que indiq si ese campo esta activo.
 
-            //Para el tamaño del campo se ve el campo de "tamaño" en los de texto
-            //para los binarios nada mas un true o false que indiq si ese campo esta activo.
+                //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
+                //
+                //se van creando entradas para cada campo, para desp crear la tabla cn todo.
+                //como ir haciendo cada vez mas grande un string de "dataReader"
 
-            //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
-            //
+                //al final de este for se tiene q crear una tabla...
+                //"CREATE TABLE '"+ nombre + "' y desp todos los valores..."
+            }
+
+            
         }
 
         /// <summary>
