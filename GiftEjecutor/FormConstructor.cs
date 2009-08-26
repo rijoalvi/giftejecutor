@@ -21,7 +21,38 @@ namespace GiftEjecutor
             dataGridFlujosTrabajo.DataSource = flujo.getDataTableTodosLosFlujosDeTrabajo();
         }
 
-            string queryString = "SELECT DISTINCT CustomerID FROM Orders";
+           // string queryString = "SELECT DISTINCT CustomerID FROM Orders";
+
+        private void dataGridFlujosTrabajo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         //   textBoxIDFlujoTrabajo.Text=dataGridFlujosTrabajo[0,dataGridFlujosTrabajo.sele]
+        }
+
+        private void dataGridFlujosTrabajo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          //  btnDetalles.Enabled = true;
+            System.Windows.Forms.DataGridViewCellStyle b = new DataGridViewCellStyle();
+            b.BackColor = System.Drawing.Color.White;
+           // txtCanton.Text = "hola";
+           // txtCanton.Text = this.dataGridView1.CurrentRow.Index.ToString();
+            for (int j = 0; j < 3; j++)
+            {
+                for (int i = 0; i < dataGridFlujosTrabajo.RowCount; i++)
+                {
+                    this.dataGridFlujosTrabajo[j, i].Style = b;
+
+                }
+            }
+            //this.dataGridView1.CurrentRow.co
+            System.Windows.Forms.DataGridViewCellStyle azul = new DataGridViewCellStyle();
+            azul.BackColor = System.Drawing.Color.RoyalBlue;
+            azul.ForeColor = Color.White;
+
+            for (int i = 0; i < 3; i++){
+                this.dataGridFlujosTrabajo[i, this.dataGridFlujosTrabajo.CurrentRow.Index].Style = azul;
+            }
+            textBoxIDFlujoTrabajo.Text = this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString();
+        }
 
 /*public static void ReadData(string connectionString)
 {
