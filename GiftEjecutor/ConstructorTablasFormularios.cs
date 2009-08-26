@@ -47,18 +47,25 @@ namespace GiftEjecutor
                 String[] IDsTiposCampo = buscarTiposCampoDelFormulario(IDsFormularios[i]);
                 for (int j = 0; j < IDsTiposCampo.Length-1; ++j) { 
                     //Si es de tipo numero
-                    if(IDsTiposCampo[j+1] == "1"){
-                        consultaCreaTabla += IDsTiposCampo[j] +" int, ";
-                    }
-                    else{
-                        //Si es de tipoBinario
-                        if(IDsTiposCampo[j+1] == "2"){
-                            consultaCreaTabla += IDsTiposCampo[j] +" varchar(6), ";
+                    if (IDsTiposCampo[j + 1] != null)
+                    {
+                        if (IDsTiposCampo[j + 1] == "1")
+                        {
+                            consultaCreaTabla += IDsTiposCampo[j] + " int, ";
                         }
+                        else
+                        {
+                            //Si es de tipoBinario
+                            if (IDsTiposCampo[j + 1] == "2")
+                            {
+                                consultaCreaTabla += IDsTiposCampo[j] + " varchar(6), ";
+                            }
                             //de momento todo el resto los tomamos iguales, con un tamaño preestablecido
-                        else{
-                            const int TAMANOBD = 30;
-                            consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                            else
+                            {
+                                const int TAMANOBD = 30;
+                                consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                            }
                         }
                     }
                     j++; //pasa el valor del tipoCampo
@@ -152,18 +159,21 @@ namespace GiftEjecutor
                     {
                         fila = tabla.NewRow();
                         fila["IDTipoCampo"] = ((SqlDataReader)(datos)).GetValue(0);
-                        fila["NombreTipoCampo"] = ((SqlDataReader)(datos)).GetValue(0);
+                        fila["NombreTipoCampo"] = ((SqlDataReader)(datos)).GetValue(1);
                         tabla.Rows.Add(fila);
                     }
                 }
-                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                else
                 {
-                    while (((MySqlDataReader)(datos)).Read())
+                    if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                     {
-                        fila = tabla.NewRow();
-                        fila["IDTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
-                        fila["NombreTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
-                        tabla.Rows.Add(fila);
+                        while (((MySqlDataReader)(datos)).Read())
+                        {
+                            fila = tabla.NewRow();
+                            fila["IDTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
+                            fila["NombreTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(1);
+                            tabla.Rows.Add(fila);
+                        }
                     }
                 }
             }
@@ -180,9 +190,9 @@ namespace GiftEjecutor
                 {
                     temporal += tmp[k];
                 }
-                valores[i * 2] = temporal;
-                valores[(i * 2) + 1] = tabla.Rows[i][1].ToString();
-                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " ID: " + valores[i * 2 + 1]);
+                valores[i  * 2] = temporal;
+                valores[(i  * 2) + 1] = tabla.Rows[i][1].ToString();                
+                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " ID: " + valores[i * 2 + 1]);                ++i; //pasa un valor mas
             }
             return valores;
         }

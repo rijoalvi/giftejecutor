@@ -9,7 +9,7 @@ namespace GiftEjecutor
         public override Object getTodosLosFlujosTrabajo()
         {
             Object dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaMySQL("select * from Flujo;");
+            dataReader = this.controladoBD.hacerConsultaSQLServer("select * from Flujo;");
             return dataReader;
         }
     }
