@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Otros_recursos\Creacion_Tablas.txt" />
+    <Content Include="Otros_recursos\tablas SQL Server.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

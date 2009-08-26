@@ -69,6 +69,17 @@ namespace GiftEjecutor
             return nombre;        
         }
 
+
+        /// <summary>
+        /// Devuelve la coneccion que esta siendo utilizada
+        /// </summary>
+        /// <returns></returns>
+        public override void agregarFlujoConstruido(String consulta)
+        {
+            this.controladoBD.hacerConsultaSQLServer(consulta);
+        }
+
+
         public override void crearTablaFormulario(String consulta) {
             this.controladoBD.hacerConsultaMySQL(consulta);
         }

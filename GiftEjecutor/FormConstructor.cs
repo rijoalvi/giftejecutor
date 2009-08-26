@@ -59,6 +59,7 @@ namespace GiftEjecutor
             //Aqui se construyen las tablas!!!
             ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
             tmp.construirTablas(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString());
+            tmp.agregarFlujoTablaFlujos((int)(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value));
         }
 
 /*public static void ReadData(string connectionString)

@@ -83,9 +83,9 @@ namespace GiftEjecutor
         /// Devuelve la coneccion que esta siendo utilizada
         /// </summary>
         /// <returns></returns>
-        public int getConeccion()
+        public override void agregarFlujoConstruido(String consulta)
         {
-            return this.controladoBD.getConeccionSeleccionada();
+            this.controladoBD.hacerConsultaSQLServer(consulta);
         }
 
 

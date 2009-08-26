@@ -196,5 +196,19 @@ namespace GiftEjecutor
             }
             return valores;
         }
+        public void agregarFlujoTablaFlujos(int IDFlujo){
+            string consulta = "";
+
+             if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                {
+                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";
+                    
+                }
+                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                {
+                    
+                }
+                consultaBD.agregarFlujoConstruido(consulta);
+        }
     }
 }

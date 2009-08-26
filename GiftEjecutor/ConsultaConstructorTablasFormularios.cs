@@ -28,6 +28,9 @@ namespace GiftEjecutor
 
         public abstract void crearTablaFormulario(String consulta);
 
+        public abstract void agregarFlujoConstruido(String consulta);
+
+
         public static ConsultaConstructorTablasFormularios getInstancia()
         {
             ConsultaConstructorTablasFormularios consultaTablasFormularioSeleccionado = null;
