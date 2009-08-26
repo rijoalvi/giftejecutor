@@ -69,5 +69,13 @@ namespace GiftEjecutor
 
             return datos;
         }
+
+        /// <summary>
+        /// Devuelve la coneccion que esta siendo utilizada
+        /// </summary>
+        /// <returns></returns>
+        public int getConeccionSeleccionada() {
+            return conexionSelecciona;
+        }
     }
 }

@@ -15,10 +15,11 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="IDflujo"></param>
         /// <returns></returns>
-        public String[] getIDsFormulariosDelFlujo(int IDflujo)
+        public String[] getIDsFormulariosDelFlujo(String IDflujo)
         {
             
-            /*//Toma todos los IDs de los formularios q trabajan con ese flujo
+            /*
+            //Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO "+
                                  "WHERE FLUJO.correlativo = '"+ IDflujo + "' " + //aqui compara cn el flujo escogido
@@ -32,7 +33,8 @@ namespace GiftEjecutor
             for (int i = 0; i < datos.FieldCount; i++) {
                 IDs[i] = ""+datos.GetValue(i)+";";
             }
-            return IDs;*/
+            return IDs;
+             */
             return null;
         }
 
@@ -41,9 +43,10 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="IDFormulario"></param>
         /// <returns></returns>
-        public String[] getIDsTiposCampo(int IDFormulario){
-        /*//Toma todos los IDs de los formularios q trabajan con ese flujo
-            string strConsulta = "SELECT MIEMBROFORMULARIO.IDTipoCampo "+
+        public String[] getIDsTiposCampo(String IDFormulario){
+            /*
+            //Toma todos los IDs de los formularios q trabajan con ese flujo
+            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo "+
                                 "FROM FORMULARIO, MIEMBROFORMULARIO "+
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '"+ IDFormulario +"' "+
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";              
@@ -54,8 +57,27 @@ namespace GiftEjecutor
                 IDs[i] = ""+datos.GetValue(i)+";";
             }
             return IDs;
-        */
+            */
             return null;
+        }
+
+        public String getNombreFormulario( String IDFormulario){
+
+            string strConsulta = "SELECT FORMULARIO.nombre " +
+                                "FROM FORMULARIO " +
+                                "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
+            MySqlDataReader datos = this.controladoBD.hacerConsulta(strConsulta);
+            String nombre = datos.GetValue(1);
+            return nombre;
+            /* */
+        }
+
+        /// <summary>
+        /// Devuelve la coneccion que esta siendo utilizada
+        /// </summary>
+        /// <returns></returns>
+        public int getConeccion() {
+            return this.controladoBD.getConeccionSeleccionada();
         }
 
 

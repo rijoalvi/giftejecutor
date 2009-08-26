@@ -8,17 +8,32 @@ namespace GiftEjecutor
     {
         ConsultaConstructorTablasFormularios consultaBD;
 
-        public void buscarFormularios(String workflow) { 
+        public void buscarFormularios(String workflow) {
+
             //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
             //puede ser crear un string dnd cada ';' sea un nuevo form
             String[] IDsFormularios = consultaBD.getIDsFormulariosDelFlujo(1);
 
 
             //se dividen todos esos formularios y a cada uno se le investiga los campos q tienen
+            //busca para cada formulario
             for (int i = 0; i < IDsFormularios.Length; ++i)
             {
-                //busca para cada formulario
-               // String[] IDsTiposCampo = consultaBD.getIDsFormulariosDelFlujo( IDsFormularios[i]);
+                String consultaCreaTabla = "CREATE TABLE ";
+                //Busca el nombre del formulario y lo agrega a la consulta
+                consultaCreaTabla += consultaBD.getNombreFormulario(IDsFormularios[i]);
+                if (consultaBD.getConeccion() == 1) //MYSQL
+                {
+                    consultaCreaTabla += "( correlativo int auto_increment NOT NULL, ";
+                }
+                else {
+                    if (consultaBD.getConeccion() == 2) { //SQLServer
+                        consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
+                    }
+                }
+                
+                //busca el ID y nombre de los tipos de campo
+                String[] IDsTiposCampo = consultaBD.getIDsFormulariosDelFlujo( IDsFormularios[i]);
                 //Para el tamaño del campo se ve el campo de "tamaño" en los de texto
                 //para los binarios nada mas un true o false que indiq si ese campo esta activo.
 
