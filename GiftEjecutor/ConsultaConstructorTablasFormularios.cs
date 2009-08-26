@@ -61,16 +61,16 @@ namespace GiftEjecutor
             return null;
         }
 
-        public String getNombreFormulario( String IDFormulario){
+        /*public String getNombreFormulario( String IDFormulario){
 
-            string strConsulta = "SELECT FORMULARIO.nombre " +
+            /*string strConsulta = "SELECT FORMULARIO.nombre " +
                                 "FROM FORMULARIO " +
                                 "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
             MySqlDataReader datos = this.controladoBD.hacerConsulta(strConsulta);
             String nombre = datos.GetValue(1);
             return nombre;
-            /* */
-        }
+        
+        }*/
 
         /// <summary>
         /// Devuelve la coneccion que esta siendo utilizada

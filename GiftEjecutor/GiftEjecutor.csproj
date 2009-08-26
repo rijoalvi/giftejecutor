@@ -28,7 +28,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=5.0.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.0.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -42,9 +42,9 @@
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs" />
-    <Compile Include="ConsultaFllujoTrabajoMySQL.cs" />
-    <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFlujoTrabajoSQLServer.cs" />
+    <Compile Include="ConsultaFlujoTrabajoMySQL.cs" />
+    <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="FlujoTrabajo.cs" />
     <Compile Include="FormConexiones.cs">

@@ -8,7 +8,7 @@ namespace GiftEjecutor
     {
         ConsultaConstructorTablasFormularios consultaBD;
 
-        public void buscarFormularios(String workflow) {
+     /*   public void buscarFormularios(String workflow) {
 
             //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
             //puede ser crear un string dnd cada ';' sea un nuevo form
@@ -47,7 +47,7 @@ namespace GiftEjecutor
             }
 
             
-        }
+        }*/
 
         /// <summary>
         /// Busca en la BD los formularios asociados al workflow

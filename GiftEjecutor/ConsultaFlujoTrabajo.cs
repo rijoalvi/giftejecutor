@@ -20,7 +20,7 @@ namespace GiftEjecutor
             }
             if (ControladorBD.conexionSelecciona == ControladorBD.MYSQL)
             {
-                consultaFlujoSeleccionado = new ConsultaFllujoTrabajoMySQL();
+                consultaFlujoSeleccionado = new ConsultaFlujoTrabajoMySQL();
             }
             return consultaFlujoSeleccionado;
         }

@@ -38,7 +38,7 @@ namespace GiftEjecutor
             tabla.Columns.Add(nombre);
             tabla.Columns.Add(descripcion);
 
-            System.Console.Write("(" + datos.GetType() + ")");
+            //System.Console.Write("(" + datos.GetType() + ")");
 
 
             if (datos != null){
