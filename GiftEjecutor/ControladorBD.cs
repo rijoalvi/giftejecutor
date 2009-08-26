@@ -18,6 +18,7 @@ namespace GiftEjecutor
 
         public MySqlDataReader hacerConsultaMySQL(string sentenciaMySql)
         {
+            MYSQLConexion.Close();
             MySqlDataReader datos = null;
             MySqlCommand comando=null;
             MYSQLConexion.Open();
@@ -35,22 +36,20 @@ namespace GiftEjecutor
                         MessageBox.Show("No se pudo conectar al servidor " , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
-
                 datos = comando.ExecuteReader();
-
             }
             catch (MySqlException ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-
-
+            //MYSQLConexion.Close();
             return datos;
         }
 
         public SqlDataReader hacerConsultaSQLServer(string sentenciaSQLServer)
         {
+            SQLServerConexion.Close();
             SqlDataReader datos = null;
             SqlCommand comando = null;
             SQLServerConexion.Open();
@@ -59,14 +58,13 @@ namespace GiftEjecutor
             {
                 comando = new SqlCommand (sentenciaSQLServer, SQLServerConexion);
                 datos = comando.ExecuteReader();
-
             }
             catch (SqlException ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-
+            //SQLServerConexion.Close();
             return datos;
         }
 

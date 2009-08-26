@@ -54,6 +54,13 @@ namespace GiftEjecutor
             textBoxIDFlujoTrabajo.Text = this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString();
         }
 
+        private void buttonConstruir_Click(object sender, EventArgs e)
+        {
+            //Aqui se construyen las tablas!!!
+            ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
+            tmp.construirTablas(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString());
+        }
+
 /*public static void ReadData(string connectionString)
 {
     string queryString = "SELECT DISTINCT CustomerID FROM Orders";

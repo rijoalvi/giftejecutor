@@ -53,6 +53,7 @@ namespace GiftEjecutor
             this.buttonConstruir.TabIndex = 1;
             this.buttonConstruir.Text = "Construir";
             this.buttonConstruir.UseVisualStyleBackColor = true;
+            this.buttonConstruir.Click += new System.EventHandler(this.buttonConstruir_Click);
             // 
             // labelIDFlujo
             // 

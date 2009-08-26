@@ -46,6 +46,8 @@
     <Compile Include="ConsultaFlujoTrabajoMySQL.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ControladorBD.cs" />
+    <Compile Include="ConsultaConstructorTablasFormulariosMySQL.cs" />
+    <Compile Include="ConsultaConstructorTablasFormulariosSQLServer.cs" />
     <Compile Include="FlujoTrabajo.cs" />
     <Compile Include="FormConexiones.cs">
       <SubType>Form</SubType>
@@ -87,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
