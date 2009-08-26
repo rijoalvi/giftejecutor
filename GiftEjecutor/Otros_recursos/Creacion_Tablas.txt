@@ -1,0 +1,9 @@
+-- Tabla: "FLUJOSACTIVOS"
+drop table FLUJOSACTIVOS;
+CREATE TABLE FLUJOSACTIVOS(
+  correlativo int auto_increment NOT NULL,
+  idFlujo int NOT NULL,
+  activo int NOT NULL,
+  ultimaActualizacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (correlativo)
+);
