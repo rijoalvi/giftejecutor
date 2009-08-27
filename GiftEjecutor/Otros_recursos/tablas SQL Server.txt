@@ -1,7 +1,7 @@
 -- Tabla: "FLUJOSACTIVOS"
 drop table FLUJOSACTIVOS;
 CREATE TABLE FLUJOSACTIVOS(
-  correlativo int auto_increment NOT NULL,
+  correlativo int identity (1,1) NOT NULL,
   idFlujo int NOT NULL,
   activo int NOT NULL,
   ultimaActualizacion SMALLDATETIME DEFAULT GetDATE(),

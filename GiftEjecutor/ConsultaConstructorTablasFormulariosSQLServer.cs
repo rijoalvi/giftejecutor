@@ -40,8 +40,7 @@ namespace GiftEjecutor
         /// <param name="IDFormulario"></param>
         /// <returns></returns>
         public override object getIDsTiposCampo(String IDFormulario)
-        {
-            
+        {            
             //Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo "+
                                 "FROM FORMULARIO, MIEMBROFORMULARIO "+
@@ -89,8 +88,15 @@ namespace GiftEjecutor
             String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
                             "where IDFormularioMaestro = '" + IDFormulario + "';";
             object datos = this.controladoBD.hacerConsultaSQLServer(consulta);
-            String IDFormDetalle = ((SqlDataReader)(datos)).GetValue(0).ToString(); 
-            return IDFormDetalle;
+            if (datos != null)
+            {
+                if (((SqlDataReader)(datos)).Read())
+                {
+                    String IDFormDetalle = ((SqlDataReader)(datos)).GetValue(0).ToString();
+                    return IDFormDetalle;
+                }
+            }
+            return null;
         }
 
         /// <summary>
