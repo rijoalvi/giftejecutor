@@ -30,6 +30,7 @@ namespace GiftEjecutor
 
         public abstract void agregarFlujoConstruido(String consulta);
 
+        public abstract String soyMaestro(String IDFormulario);
 
         public static ConsultaConstructorTablasFormularios getInstancia()
         {

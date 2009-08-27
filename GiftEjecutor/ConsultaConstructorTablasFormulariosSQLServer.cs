@@ -80,6 +80,20 @@ namespace GiftEjecutor
         }
 
         /// <summary>
+        /// Devuelve el ID del formulario detalle, si es q este es un maestro, de lo contrario devuelve un NULL
+        /// </summary>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
+        public override String soyMaestro(String IDFormulario)
+        {
+            String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
+                            "where IDFormularioMaestro = '" + IDFormulario + "';";
+            object datos = this.controladoBD.hacerConsultaSQLServer(consulta);
+            String IDFormDetalle = ((SqlDataReader)(datos)).GetValue(0).ToString(); 
+            return IDFormDetalle;
+        }
+
+        /// <summary>
         /// Devuelve la coneccion que esta siendo utilizada
         /// </summary>
         /// <returns></returns>

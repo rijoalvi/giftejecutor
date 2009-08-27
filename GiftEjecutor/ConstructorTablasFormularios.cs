@@ -5,6 +5,7 @@ using System.Data;
 
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 namespace GiftEjecutor
 {
     class ConstructorTablasFormularios
@@ -23,7 +24,7 @@ namespace GiftEjecutor
 
             //Esto es temporeal, el parametro dbe pasar el ID del workflow...
             String[] IDsFormularios = buscarFormularios(IDWorkflow);
-
+            String nombreFormulario = "";
             
             //se dividen todos esos formularios y a cada uno se le investiga los campos q tienen
             //busca para cada formulario
@@ -31,7 +32,8 @@ namespace GiftEjecutor
             {
                 String consultaCreaTabla = "CREATE TABLE ";
                 //Busca el nombre del formulario y lo agrega a la consulta
-                consultaCreaTabla += consultaBD.getNombreFormulario(IDsFormularios[i]);
+                nombreFormulario = consultaBD.getNombreFormulario(IDsFormularios[i]);
+                consultaCreaTabla += nombreFormulario;
                 if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona) //MYSQL
                 {
                     consultaCreaTabla += "( correlativo int auto_increment NOT NULL, ";
@@ -41,6 +43,20 @@ namespace GiftEjecutor
                     { 
                         consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
                     }
+                }
+
+                //crea un campo para poder almacenar la llave foranea a aquellos q son form maestros
+                consultaCreaTabla += "formularioDetalle int ";
+                //Revisa si es maestro de algun detalle
+                String IDFormDetalle = consultaBD.soyMaestro(IDsFormularios[i]);
+                if (IDFormDetalle != null)
+                {
+                    //pone el valor del detalle cmo default
+                    consultaCreaTabla += "NOT NULL DEFAULT '" + IDFormDetalle + "', ";
+                }
+                else {
+                    //nada mas va a dejar el campo vacio 
+                    consultaCreaTabla += ", ";
                 }
                 
                 //busca el ID y nombre de los tipos de campo
@@ -63,8 +79,29 @@ namespace GiftEjecutor
                             //de momento todo el resto los tomamos iguales, con un tamaño preestablecido
                             else
                             {
-                                const int TAMANOBD = 30;
-                                consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                                //Tipo texto, el largo importa mucho
+                                if (IDsTiposCampo[j + 1] == "4")
+                                {
+                                    //Aqui falta!!!!
+                                    //int tamanoTexto = getLongitudDeTexto(IDsTiposCampo[
+                                    const int TAMANOBD = 25;
+                                    consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                                }
+                                else
+                                {
+                                    //Tipo jerarquia, campo mas grande
+                                    if (IDsTiposCampo[j + 1] == "6")
+                                    {
+                                        const int TAMANOBD = 100;
+                                        consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                                    }
+                                    else
+                                    {
+                                        //resto :p
+                                        const int TAMANOBD = 30;
+                                        consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
+                                    }
+                                }
                             }
                         }
                     }
@@ -80,9 +117,9 @@ namespace GiftEjecutor
 
                 //se termina la expresion para crear la tabla.
                 consultaCreaTabla += "PRIMARY KEY (correlativo) );";
-                //Console.WriteLine("VOY A CREAR!");
+                Console.WriteLine("VOY A CREAR!");
                 consultaBD.crearTablaFormulario(consultaCreaTabla);
-                Console.WriteLine("Cree la tabla");
+                MessageBox.Show("Se acaba de crear la tabla correspondiente para el formulario "+nombreFormulario+"! ", "Aviso");                
             } //fin for
         /* */
         }
@@ -192,7 +229,8 @@ namespace GiftEjecutor
                 }
                 valores[i  * 2] = temporal;
                 valores[(i  * 2) + 1] = tabla.Rows[i][1].ToString();                
-                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " ID: " + valores[i * 2 + 1]);                ++i; //pasa un valor mas
+                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " ID: " + valores[i * 2 + 1]); 
+                //++i; //pasa un valor mas
             }
             return valores;
         }
@@ -201,12 +239,11 @@ namespace GiftEjecutor
 
              if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
                 {
-                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";
-                    
+                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";                    
                 }
                 if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                 {
-                    
+                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";
                 }
                 consultaBD.agregarFlujoConstruido(consulta);
         }
