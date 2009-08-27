@@ -62,7 +62,7 @@ namespace GiftEjecutor
             
             
             //MAE RICARDO ESTO NO ESTA SIRVIENDO SE CAE X SQL EXCEPTION:
-            //tmp.agregarFlujoTablaFlujos(int.Parse(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString()));             
+            tmp.agregarFlujoTablaFlujos(Int32.Parse(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString()));             
 
 
         }

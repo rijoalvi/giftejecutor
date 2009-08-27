@@ -76,7 +76,7 @@ namespace GiftEjecutor
         /// <returns></returns>
         public override void agregarFlujoConstruido(String consulta)
         {
-            this.controladoBD.hacerConsultaSQLServer(consulta);
+            this.controladoBD.hacerConsultaMySQL(consulta);
         }
 
 

@@ -239,11 +239,12 @@ namespace GiftEjecutor
 
              if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
                 {
-                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";                    
+                    consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','"+ 0 +"')";
+                
                 }
                 if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                 {
-                    consulta = "insert into FLUJOSACTIVOS idFlujo = " + IDFlujo + ", activo = " + 0 + ";";
+                    consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','" + 0 + "')";
                 }
                 consultaBD.agregarFlujoConstruido(consulta);
         }
