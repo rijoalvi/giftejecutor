@@ -38,9 +38,9 @@ namespace GiftEjecutor
         {
             
             //Toma todos los IDs de los formularios q trabajan con ese flujo
-            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo "+
-                                "FROM FORMULARIO, MIEMBROFORMULARIO "+
-                                "WHERE MIEMBROFORMULARIO.IDFormulario = '"+ IDFormulario +"' "+
+            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo, MIEMBROFORMULARIO.IDCampo " +
+                                "FROM FORMULARIO, MIEMBROFORMULARIO " +
+                                "WHERE MIEMBROFORMULARIO.IDFormulario = '" + IDFormulario + "' " +
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
             Object datos = this.controladoBD.hacerConsultaMySQL(strConsulta);
             return datos;
@@ -67,6 +67,31 @@ namespace GiftEjecutor
             for (int i = 0; i < tmp.Length; ++i)
                 nombre += tmp[i];
             return nombre;        
+        }
+
+        /// <summary>
+        /// Indica el largo del texto, para asi crear el campo en la BD del tamaño maximo
+        /// </summary>
+        /// <param name="IDTipoCampo"></param>
+        /// <returns></returns>
+        public override int getLongitudDeTexto(String IDTipoCampo)
+        {
+            Console.WriteLine("busco el tamano del texto");
+            string strConsulta = "SELECT TEXTO.tamano " +
+                                "FROM TEXTO " +
+                                "WHERE TEXTO.correlativo = '" + IDTipoCampo + "' ;";
+            Object datos = this.controladoBD.hacerConsultaMySQL(strConsulta);
+            String strLargo = "";
+            if (datos != null)
+            {
+                while (((MySqlDataReader)(datos)).Read())
+                {
+                    strLargo = ((MySqlDataReader)(datos)).GetValue(0).ToString();
+                }
+            }
+            int largo = int.Parse(strLargo);
+            Console.WriteLine("largo = " + largo);
+            return largo;
         }
 
 

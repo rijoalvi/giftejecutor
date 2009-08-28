@@ -26,6 +26,8 @@ namespace GiftEjecutor
 
         public abstract String getNombreFormulario(String IDFormulario);
 
+        public abstract int getLongitudDeTexto(String IDTipoCampo);
+
         public abstract void crearTablaFormulario(String consulta);
 
         public abstract void agregarFlujoConstruido(String consulta);

@@ -48,6 +48,7 @@ namespace GiftEjecutor
                         }
                     }
 
+                    /*
                     //crea un campo para poder almacenar la llave foranea a aquellos q son form maestros
                     consultaCreaTabla += "formularioDetalle int ";
                     //Revisa si es maestro de algun detalle
@@ -62,6 +63,8 @@ namespace GiftEjecutor
                         //nada mas va a dejar el campo vacio 
                         consultaCreaTabla += ", ";
                     }
+                    */
+
 
                     //busca el ID y nombre de los tipos de campo
                     String[] IDsTiposCampo = buscarTiposCampoDelFormulario(IDsFormularios[i]);
@@ -70,56 +73,42 @@ namespace GiftEjecutor
                         //Si es de tipo numero
                         if (IDsTiposCampo[j + 1] != null)
                         {
-                            if (IDsTiposCampo[j + 1] == "1")
-                            {
-                                consultaCreaTabla += IDsTiposCampo[j] + " int, ";
-                            }
-                            else
-                            {
-                                //Si es de tipoBinario
-                                if (IDsTiposCampo[j + 1] == "2")
-                                {
+                            switch(int.Parse(IDsTiposCampo[j+1])){
+                                case 1: //numero
+                                    consultaCreaTabla += IDsTiposCampo[j] + " int, ";
+                                    break;
+                                case 2: //Binario
+                                    //para los binarios nada mas un true o false que indiq si ese campo esta activo.                    
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(6), ";
-                                }
-                                //de momento todo el resto los tomamos iguales, con un tamaño preestablecido
-                                else
-                                {
-                                    //Tipo texto, el largo importa mucho
-                                    if (IDsTiposCampo[j + 1] == "4")
-                                    {
-                                        //Aqui falta!!!!
-                                        //int tamanoTexto = getLongitudDeTexto(IDsTiposCampo[
-                                        const int TAMANOBD = 25;
-                                        consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
-                                    }
+                                    break;
+                                case 3: //FechaHora
+                                    if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                                        consultaCreaTabla += IDsTiposCampo[j] + " SMALLDATETIME, ";
                                     else
-                                    {
-                                        //Tipo jerarquia, campo mas grande
-                                        if (IDsTiposCampo[j + 1] == "6")
-                                        {
-                                            const int TAMANOBD = 100;
-                                            consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
-                                        }
-                                        else
-                                        {
-                                            //resto :p
-                                            const int TAMANOBD = 30;
-                                            consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + TAMANOBD + "), ";
-                                        }
-                                    }
-                                }
+                                        if(ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                                            consultaCreaTabla += IDsTiposCampo[j] + " TIMESTAMP, ";
+                                    break;
+                                case 4: //Texto
+                                    int tamanoTexto = consultaBD.getLongitudDeTexto(IDsTiposCampo[j + 2]);
+                                    consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + tamanoTexto + "), ";
+                                    break;
+                                case 5: //Incremental
+                                    consultaCreaTabla += IDsTiposCampo[j] + " int, ";
+                                    break;
+                                case 6: //Jerarquia
+                                    //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
+                                    int tamañoPath = 100;
+                                    consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + tamañoPath + "), ";
+                                    break; 
+                                case 7: //Lista
+                                    int size = 30;
+                                    consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + size + "), ";
+                                    break;
                             }
-                        }
-                        j++; //pasa el valor del tipoCampo
-                    }
-
-                    //Para el tamaño del campo se ve el campo de "tamaño" en los de texto
-                    //para los binarios nada mas un true o false que indiq si ese campo esta activo.
-                    //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
-                    //
-                    //se van creando entradas para cada campo, para desp crear la tabla cn todo.
-                    //como ir haciendo cada vez mas grande un string de "dataReader"
-
+                        }                        
+                        j+=2; //pasa al inicio del sig miembroFormulario
+                    } //fin for
+                    
                     //se termina la expresion para crear la tabla.
                     consultaCreaTabla += "PRIMARY KEY (correlativo) );";
                     Console.WriteLine("VOY A CREAR! " + consultaCreaTabla);
@@ -206,17 +195,22 @@ namespace GiftEjecutor
 
             DataTable tabla = new DataTable();
             DataRow fila;
-            DataColumn IDTipoCampo = new DataColumn();
             DataColumn NombreTipoCampo = new DataColumn();
-
-            IDTipoCampo.ColumnName = "IDTipoCampo";
-            IDTipoCampo.DataType = Type.GetType("System.String");
+            DataColumn IDTipoCampo = new DataColumn();
+            DataColumn IDCampo = new DataColumn();
 
             NombreTipoCampo.ColumnName = "NombreTipoCampo";
             NombreTipoCampo.DataType = Type.GetType("System.String");
 
-            tabla.Columns.Add(IDTipoCampo);
+            IDTipoCampo.ColumnName = "IDTipoCampo";
+            IDTipoCampo.DataType = Type.GetType("System.String");
+
+            IDCampo.ColumnName = "IDCampo";
+            IDCampo.DataType = Type.GetType("System.String");            
+                        
             tabla.Columns.Add(NombreTipoCampo);
+            tabla.Columns.Add(IDTipoCampo);
+            tabla.Columns.Add(IDCampo);
             if (datos != null)
             {
                 Console.WriteLine("entre");
@@ -225,8 +219,9 @@ namespace GiftEjecutor
                     while (((SqlDataReader)(datos)).Read())
                     {
                         fila = tabla.NewRow();
-                        fila["IDTipoCampo"] = ((SqlDataReader)(datos)).GetValue(0);
-                        fila["NombreTipoCampo"] = ((SqlDataReader)(datos)).GetValue(1);
+                        fila["NombreTipoCampo"] = ((SqlDataReader)(datos)).GetValue(0); 
+                        fila["IDTipoCampo"] = ((SqlDataReader)(datos)).GetValue(1);                        
+                        fila["IDCampo"] = ((SqlDataReader)(datos)).GetValue(2);
                         tabla.Rows.Add(fila);
                     }
                 }
@@ -237,37 +232,36 @@ namespace GiftEjecutor
                         while (((MySqlDataReader)(datos)).Read())
                         {
                             fila = tabla.NewRow();
-                            fila["IDTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
-                            fila["NombreTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(1);
+                            fila["NombreTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
+                            fila["IDTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(1);
+                            fila["IDCampo"] = ((MySqlDataReader)(datos)).GetValue(2);
                             tabla.Rows.Add(fila);
                         }
                     }
                 }
             }
+
+            ////////pasa del dataTable a un array de strings
             Console.WriteLine("count = " + tabla.Rows.Count);
             //entre ID y nombre hay un ';'
-            String[] valores = new String[tabla.Rows.Count * 2];
+            String[] valores = new String[tabla.Rows.Count * 3];
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 //toma el nombre, pero puede q venga con espacios
-                String temporal = tabla.Rows[i][0].ToString();
+                String temporal = tabla.Rows[i]["NombreTipoCampo"].ToString();
                 String[] tmp = temporal.Split(' ');
                 temporal = "";
                 for (int k = 0; k < tmp.Length; ++k)
                 {
                     temporal += tmp[k];
                 }
-                valores[i  * 2] = temporal;
-                valores[(i  * 2) + 1] = tabla.Rows[i][1].ToString();                
-                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " ID: " + valores[i * 2 + 1]);
-
-
-                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                {
-                    i+=3; //suma uno, solo en la ECCI lo ocupo, no c xq
-                }
-                //++i; //pasa un valor mas
+                valores[i  * 3] = temporal;
+                valores[(i * 3) + 1] = tabla.Rows[i]["IDTipoCampo"].ToString();
+                valores[(i * 3) + 2] = tabla.Rows[i]["IDCampo"].ToString();
+                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);
             }
+            ///////////////////
+
             return valores;
         }
 

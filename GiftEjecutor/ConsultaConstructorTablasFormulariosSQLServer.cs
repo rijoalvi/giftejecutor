@@ -42,7 +42,7 @@ namespace GiftEjecutor
         public override object getIDsTiposCampo(String IDFormulario)
         {            
             //Toma todos los IDs de los formularios q trabajan con ese flujo
-            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo "+
+            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo, MIEMBROFORMULARIO.IDCampo " +
                                 "FROM FORMULARIO, MIEMBROFORMULARIO "+
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '"+ IDFormulario +"' "+
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
@@ -52,7 +52,6 @@ namespace GiftEjecutor
 
         public override String getNombreFormulario(String IDFormulario)
         {
-
             string strConsulta = "SELECT FORMULARIO.nombre " +
                                 "FROM FORMULARIO " +
                                 "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
@@ -70,9 +69,34 @@ namespace GiftEjecutor
             nombre = "";
             for (int i = 0; i < tmp.Length; ++i)
                 nombre += tmp[i];
-            return nombre;    
-            return nombre;                        
+            return nombre;                     
         }
+
+        /// <summary>
+        /// Indica el largo del texto, para asi crear el campo en la BD del tamaño maximo
+        /// </summary>
+        /// <param name="IDTipoCampo"></param>
+        /// <returns></returns>
+        public override int getLongitudDeTexto(String IDTipoCampo)
+        {
+            Console.WriteLine("busco el tamano del texto");
+            string strConsulta = "SELECT TEXTO.largo " +
+                                "FROM TEXTO " +
+                                "WHERE TEXTO.correlativo = '" + IDTipoCampo + "' ;";
+            Object datos = this.controladoBD.hacerConsultaSQLServer(strConsulta);
+            String strLargo = "";
+            if (datos != null)
+            {
+                while (((SqlDataReader)(datos)).Read())
+                {
+                    strLargo = ((SqlDataReader)(datos)).GetValue(0).ToString();
+                }
+            }
+            int largo = int.Parse(strLargo);
+            Console.WriteLine("largo = "+largo);            
+            return largo;  
+        }
+
 
         public override void crearTablaFormulario(String consulta) {
             this.controladoBD.hacerConsultaSQLServer(consulta);
