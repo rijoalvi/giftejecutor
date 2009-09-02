@@ -59,9 +59,7 @@ namespace GiftEjecutor
             //Aqui se construyen las tablas!!!
             ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
             tmp.construirTablas(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString());
-            
-            
-            //MAE RICARDO ESTO NO ESTA SIRVIENDO SE CAE X SQL EXCEPTION:
+            //agrego al flujo la tabla creada
             tmp.agregarFlujoTablaFlujos(Int32.Parse(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString()));             
 
 

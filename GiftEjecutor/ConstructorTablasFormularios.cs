@@ -66,6 +66,37 @@ namespace GiftEjecutor
                     */
 
 
+                    /*
+                    //AQUI VOY A BUSCAR LOS ELEM SIMETRICOS
+                    string relaciones[][] = buscarRelacionesSimetricas(IDsFormularios);
+                    string consulta;
+                    string correlativo1;
+                    string correlativo2;
+                    int temp;
+                    
+                    while (relaciones[temp][0]!=NULL){
+
+                        correlativo1= //consultaBD.getNombreFormulario(relaciones[temp][0]); //HAY QUE HACER LA CONSULTA DE ESTO
+                        correlativo1= //select correlativo from correlativo1.toString();  //HAY QUE HACER LA CONSULTA DE ESTO
+                        
+                     correlativo2= //consultaBD.getNombreFormulario(relaciones[temp][1]); //HAY QUE HACER LA CONSULTA DE ESTO
+                     correlativo2= //select correlativo from correlativo2.toString();  //HAY QUE HACER LA CONSULTA DE ESTO
+                    
+                    
+                        if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                        {
+                            consulta = "insert into RELACIONESSIMETRICAS (idFormulario1, idFormulario2, idRelacionConfigurador) VALUES ('" + correlativo1 + "','" + correlativo2 + "','" + relaciones[temp][2] + "')'")";
+                        }
+                        if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                        {
+                            consulta = "insert into RELACIONESSIMETRICAS (idFormulario1, idFormulario2, idRelacionConfigurador) VALUES ('" + correlativo1 + "','" + correlativo2 + "','" + relaciones[temp][2] + "')'")";
+                        }
+                        consultaBD.agregarRelacionSimetrica(consulta);
+                     }
+                    
+                    */
+
+
                     //busca el ID y nombre de los tipos de campo
                     String[] IDsTiposCampo = buscarTiposCampoDelFormulario(IDsFormularios[i]);
                     for (int j = 0; j < IDsTiposCampo.Length - 1; ++j)
@@ -280,6 +311,18 @@ namespace GiftEjecutor
                     consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','" + 0 + "')";
                 }
                 consultaBD.agregarFlujoConstruido(consulta);
+        }
+
+        public string[][] buscarRelacionesSimetricas(string[] formulariosActivos){
+            int fila = 0;
+            int columna = 0;
+            string resultado[][];
+            while (fila < formulariosActivos.Length)
+            {
+                //necesito buscar en SIMETRICOS todos en los que IDForm1 sea = formulariosActivos[fila]
+                //y meter en resultado[fila][columna] el IDForm1, IDForm2, y correlativo de SIMETRICOS que use. 
+            }
+            return resultado;
         }
     }
 }
