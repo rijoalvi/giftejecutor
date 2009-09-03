@@ -45,6 +45,8 @@
     <Compile Include="ConsultaFlujoTrabajoSQLServer.cs" />
     <Compile Include="ConsultaFlujoTrabajoMySQL.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
+    <Compile Include="ConsultaFormulario.cs" />
+    <Compile Include="ConsultaFormularioMySQL.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaConstructorTablasFormulariosMySQL.cs" />
     <Compile Include="ConsultaConstructorTablasFormulariosSQLServer.cs" />
@@ -61,12 +63,19 @@
     <Compile Include="FormConstructor.Designer.cs">
       <DependentUpon>FormConstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFormulario.Designer.cs">
+      <DependentUpon>FormFormulario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormConexiones.resx">
@@ -76,6 +85,10 @@
     <EmbeddedResource Include="FormConstructor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormConstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFormulario.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormFormulario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <SubType>Designer</SubType>

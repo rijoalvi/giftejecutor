@@ -47,5 +47,13 @@ namespace GiftEjecutor
             ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
             tmp.construirTablas("1");
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+            //FormFormulario formFormulario = new FormFormulario(1);
+            Formulario miForm = new Formulario(1);
+            miForm.getMiembro(1);            
+        }
     }
 }

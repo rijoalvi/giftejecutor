@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data;
 
+using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
@@ -314,6 +314,7 @@ namespace GiftEjecutor
         }
 
         public string[][] buscarRelacionesSimetricas(string[] formulariosActivos){
+            /* MAE RICARDO ESTO NO COMPILA
             int fila = 0;
             int columna = 0;
             string resultado[][];
@@ -323,6 +324,8 @@ namespace GiftEjecutor
                 //y meter en resultado[fila][columna] el IDForm1, IDForm2, y correlativo de SIMETRICOS que use. 
             }
             return resultado;
+             */
+            return null;
         }
     }
 }

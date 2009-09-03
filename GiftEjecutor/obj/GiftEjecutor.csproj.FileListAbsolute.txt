@@ -58,3 +58,4 @@ C:\Documents and Settings\ea60289\Desktop\bla\GiftEjecutor\obj\Debug\GiftEjecuto
 C:\Documents and Settings\ea60289\Desktop\bla\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
 C:\Documents and Settings\ea60289\Desktop\bla\GiftEjecutor\bin\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea60289\Desktop\bla\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
