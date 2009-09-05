@@ -26,6 +26,17 @@ namespace GiftEjecutor
             this.nombreTipo = ConfiguracionProyecto.VALOR_DEFECTO_TEXTO;
             this.fechaActualizacion = new DateTime(1111, 1, 11);
         }
+        public int getID() {
+            return this.ID;
+        }
+        public string getNombre()
+        {
+            return this.nombre;
+        }
+        public string getDescripcion()
+        {
+            return this.descripcion;
+        }
 
         /**
          * 
@@ -51,14 +62,15 @@ namespace GiftEjecutor
                     this.nombreTipo = "Máscara";
                     break;
                 default:
-                    this.nombreTipo = "Mal especifícado";
+                    this.nombreTipo = "[Mal especifícado]";
                     break;
             }
             
         }
         public override string ToString()
         {
-            return "Nombre: " + this.nombre;
+            return "[Nombre: " + this.nombre + "] [Tipo: " + this.nombreTipo + "]";
+                ;
         }
 
     }

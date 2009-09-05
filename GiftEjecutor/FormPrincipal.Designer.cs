@@ -73,9 +73,9 @@ namespace GiftEjecutor
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(167, 155);
+            this.button2.Location = new System.Drawing.Point(12, 205);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(180, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "buttonProbarActividadSimle";
             this.button2.UseVisualStyleBackColor = true;

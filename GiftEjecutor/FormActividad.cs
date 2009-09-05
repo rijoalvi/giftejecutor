@@ -19,6 +19,12 @@ namespace GiftEjecutor
         {
             Actividad actividadPrueba = new Actividad();
             label1.Text = actividadPrueba.getComandoPrueba().ToString();
+            this.cargarDataGridComandos();
+        }
+        private void cargarDataGridComandos() { 
+            Actividad actividadPrueba = new Actividad();
+            this.dataGridComandos.DataSource = actividadPrueba.getDataTableConComandosDeLaActividad();
+            dataGridComandos.Refresh();
         }
     }
 }

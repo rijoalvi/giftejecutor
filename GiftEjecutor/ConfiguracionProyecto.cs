@@ -6,6 +6,6 @@ namespace GiftEjecutor
 {
     class ConfiguracionProyecto
     {
-        public const string VALOR_DEFECTO_TEXTO = "No especificado";
+        public const string VALOR_DEFECTO_TEXTO = "[No especificado]";
     }
 }
