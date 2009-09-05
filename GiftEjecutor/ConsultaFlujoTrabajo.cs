@@ -1,28 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
 
-    abstract class ConsultaFlujoTrabajo : Consulta
+    class ConsultaFlujoTrabajo : Consulta
     {
 
-        public abstract Object getTodosLosFlujosTrabajo();
-
-        public static ConsultaFlujoTrabajo getInstancia(){
-            ConsultaFlujoTrabajo consultaFlujoSeleccionado=null;
-            if (ControladorBD.conexionSelecciona == ControladorBD.SQLSERVER)
-            {
-                consultaFlujoSeleccionado = new ConsultaFlujoTrabajoSQLServer();
-            }
-            if (ControladorBD.conexionSelecciona == ControladorBD.MYSQL)
-            {
-                consultaFlujoSeleccionado = new ConsultaFlujoTrabajoMySQL();
-            }
-            return consultaFlujoSeleccionado;
+        public SqlDataReader getTodosLosFlujosTrabajo() {
+            SqlDataReader dataReader = null;
+            //dataReader = this.controladoBD.hacerConsultaSQLServer("select * from Flujo;");
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select * from Flujo;");
+            return dataReader;
         }
+
+
     }
 }

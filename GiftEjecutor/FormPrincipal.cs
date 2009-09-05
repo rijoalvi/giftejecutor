@@ -29,6 +29,8 @@ namespace GiftEjecutor
         public FormPrincipal(int conexionSeleccionada)
         {
             ControladorBD.conexionSelecciona = conexionSeleccionada;
+
+            //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
         }
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)

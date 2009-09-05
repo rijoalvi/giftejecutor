@@ -2,21 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
+
 namespace GiftEjecutor
 {
     class FlujoTrabajo
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
         public FlujoTrabajo() {
-            //consultaFlujoTrabajo = new ConsultaFlujoTrabajoSQLServer();
-            consultaFlujoTrabajo = ConsultaFlujoTrabajo.getInstancia();
+
+            consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
         }
         public DataTable getDataTableTodosLosFlujosDeTrabajo()
         {
-            object datos;
+            SqlDataReader datos;
             datos = consultaFlujoTrabajo.getTodosLosFlujosTrabajo();
 
             DataTable tabla = new DataTable();
@@ -42,27 +41,13 @@ namespace GiftEjecutor
 
 
             if (datos != null){
-                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                while (datos.Read())
                 {
-                    while (((SqlDataReader)(datos)).Read())
-                    {
-                        fila = tabla.NewRow();
-                        fila["IDFlujo"] = ((SqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
-                        fila["nombre"] = ((SqlDataReader)(datos)).GetValue(1);
-                        fila["descripcion"] = ((SqlDataReader)(datos)).GetValue(2).ToString();
-                        tabla.Rows.Add(fila);
-                    }
-                }
-                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                {
-                    while (((MySqlDataReader)(datos)).Read())
-                    {
-                        fila = tabla.NewRow();
-                        fila["IDFlujo"] = ((MySqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
-                        fila["nombre"] = ((MySqlDataReader)(datos)).GetValue(1);
-                        fila["descripcion"] = ((MySqlDataReader)(datos)).GetValue(2).ToString();
-                        tabla.Rows.Add(fila);
-                    }
+                    fila = tabla.NewRow();
+                    fila["IDFlujo"] = ((SqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
+                    fila["nombre"] = ((SqlDataReader)(datos)).GetValue(1);
+                    fila["descripcion"] = ((SqlDataReader)(datos)).GetValue(2).ToString();
+                    tabla.Rows.Add(fila);
                 }
             }
             return tabla;

@@ -45,8 +45,6 @@
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs" />
-    <Compile Include="ConsultaFlujoTrabajoSQLServer.cs" />
-    <Compile Include="ConsultaFlujoTrabajoMySQL.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
     <Compile Include="ConsultaFormularioMySQL.cs" />
@@ -92,6 +90,11 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario.cs" />
+    <Compile Include="GiftConfiguradorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormActividad.resx">
@@ -135,6 +138,17 @@
     </None>
     <None Include="EjecutorUserDataSet.xss">
       <DependentUpon>EjecutorUserDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GiftConfiguradorDataSet.xsc">
+      <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GiftConfiguradorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GiftConfiguradorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GiftConfiguradorDataSet.xss">
+      <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -13,16 +13,19 @@ namespace GiftEjecutor
         public const int MYSQL = 1;
         public const int SQLSERVER = 2;
 
+        public const int CONEXION_EXTERNA = 1;
+        public const int CONEXION_ECCI = 2;
 
-
-        private MySqlConnection MYSQLConexionConfiguracion = new MySqlConnection("Pronto");
-        private MySqlConnection MYSQLConexionEjecucion = new MySqlConnection("Pronto");
-
+  
 
 
         private MySqlConnection MYSQLConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
         private SqlConnection SQLServerConexion = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
+
+        private SqlConnection conexionConfigurador;
         public static int conexionSelecciona;
+
+        public static int conexionConfiguracionSeleccionada;
 
         public MySqlDataReader hacerConsultaMySQL(string sentenciaMySql)
         {
@@ -76,12 +79,56 @@ namespace GiftEjecutor
             return datos;
         }
 
+
+
+
         /// <summary>
         /// Devuelve la coneccion que esta siendo utilizada
         /// </summary>
         /// <returns></returns>
         public int getConeccionSeleccionada() {
             return conexionSelecciona;
+        }
+
+
+
+        //por default es sqlServer
+        public SqlDataReader hacerConsultaConfigurador(string sentencia)
+        {
+            //ConexionConfigurador.Close();
+            SqlDataReader datos = null;
+            SqlCommand comando = null;
+            this.conexionConfigurador = this.getConnectionConfigurador();
+            this.conexionConfigurador.Open();
+
+            try
+            {
+                comando = new SqlCommand(sentencia, this.conexionConfigurador);
+                datos = comando.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            //SQLServerConexion.Close();
+            return datos;
+        }
+        public SqlConnection getConnectionConfigurador()
+        {
+            SqlConnection connectionStringConfigurador = null;
+            if(ControladorBD.conexionConfiguracionSeleccionada==ControladorBD.CONEXION_EXTERNA){
+                connectionStringConfigurador = new SqlConnection("Data Source=GiftConfigurador.db.3946477.hostedresource.com;Initial Catalog=GiftConfigurador;Persist Security Info=True;User ID=GiftConfigurador;Password=Qwerty123");
+            }else{
+                connectionStringConfigurador = new SqlConnection("----");
+            }
+            return connectionStringConfigurador;
+        }
+        public SqlConnection getConnectionStringEjecutor()
+        {
+
+            return null;
+
         }
     }
 }
