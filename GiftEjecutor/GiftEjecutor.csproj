@@ -28,7 +28,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=5.0.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.0.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividad.cs" />
+    <Compile Include="Comando.cs" />
+    <Compile Include="ConfiguracionProyecto.cs" />
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs" />
@@ -47,10 +50,23 @@
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
     <Compile Include="ConsultaFormularioMySQL.cs" />
+    <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaConstructorTablasFormulariosMySQL.cs" />
     <Compile Include="ConsultaConstructorTablasFormulariosSQLServer.cs" />
+    <Compile Include="Ejecutor.cs" />
+    <Compile Include="EjecutorUserDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EjecutorUserDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FlujoTrabajo.cs" />
+    <Compile Include="FormActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActividad.Designer.cs">
+      <DependentUpon>FormActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConexiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +94,10 @@
     <Compile Include="Formulario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormActividad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConexiones.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormConexiones.cs</DependentUpon>
@@ -104,6 +124,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
+    <None Include="EjecutorUserDataSet.xsc">
+      <DependentUpon>EjecutorUserDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EjecutorUserDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EjecutorUserDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="EjecutorUserDataSet.xss">
+      <DependentUpon>EjecutorUserDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

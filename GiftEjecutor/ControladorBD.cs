@@ -12,6 +12,14 @@ namespace GiftEjecutor
     {//MySqlConnection mySqlConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
         public const int MYSQL = 1;
         public const int SQLSERVER = 2;
+
+
+
+        private MySqlConnection MYSQLConexionConfiguracion = new MySqlConnection("Pronto");
+        private MySqlConnection MYSQLConexionEjecucion = new MySqlConnection("Pronto");
+
+
+
         private MySqlConnection MYSQLConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
         private SqlConnection SQLServerConexion = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
         public static int conexionSelecciona;

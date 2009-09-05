@@ -22,5 +22,16 @@ namespace GiftEjecutor.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EjecutorUser.db.3946477.hostedresource.com;Initial Catalog=EjecutorUs" +
+            "er;Persist Security Info=True;User ID=EjecutorUser;Password=Qwerty123")]
+        public string EjecutorSQLServerEEUUConnectionString {
+            get {
+                return ((string)(this["EjecutorSQLServerEEUUConnectionString"]));
+            }
+        }
     }
 }

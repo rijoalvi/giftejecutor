@@ -106,7 +106,7 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                        TreeView treeView1;
+                      //  TreeView treeView1;
                         /* FALTA!!!!
                         campo = agregarTipoJerarquia(nombre, id);
                         actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());
@@ -122,7 +122,7 @@ namespace GiftEjecutor
                         break;
                     case 7:
                         //Lista
-                        ComboBox comboBox1;
+                    //    ComboBox comboBox1;
                         /* FALTA!!!!!!!!
                         campo = agregarTipoLista(nombre, id);
                         actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());

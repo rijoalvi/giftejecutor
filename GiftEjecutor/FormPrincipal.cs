@@ -55,5 +55,11 @@ namespace GiftEjecutor
             Formulario miForm = new Formulario(1);
             miForm.getMiembro(1);            
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormActividad formActividad = new FormActividad();
+            formActividad.Show();
+        }
     }
 }
