@@ -62,3 +62,5 @@ C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debu
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources

@@ -27,9 +27,10 @@ namespace GiftEjecutor
                                  "AND MIEMBROACTIVIDADSIMPLE.correlativoMadre = ACTIVIDAD.correlativo " +
                                  "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
                                  "AND COMANDO.IDFormulario = FORMULARIO.correlativo;";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********Object datos = this.controladoBD.hacerConsultaSQLServer(strConsulta);
-            //return datos;
-            return null;
+            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
+            //Creo q asi... :p Beto
+            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            return datos;            
         }
 
         /// <summary>
@@ -44,9 +45,9 @@ namespace GiftEjecutor
                                 "FROM FORMULARIO, MIEMBROFORMULARIO " +
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '" + IDFormulario + "' " +
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********Object datos = this.controladoBD.hacerConsultaSQLServer(strConsulta);
-            //return datos;
-            return null;
+            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
+            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            return datos;            
         }
 
         public String getNombreFormulario(String IDFormulario)
@@ -54,16 +55,9 @@ namespace GiftEjecutor
             string strConsulta = "SELECT FORMULARIO.nombre " +
                                 "FROM FORMULARIO " +
                                 "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********Object datos = this.controladoBD.hacerConsultaSQLServer(strConsulta);
-            Object datos = null;//************
-            String nombre = "";
-            if (datos != null)
-            {
-                /*while (((SqlDataReader)datos)).Read())///************
-                {
-                    nombre = ((SqlDataReader)(datos)).GetValue(0).ToString();
-                }*/
-            }
+            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
+            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            String nombre = datos.ToString();
             nombre = nombre.Trim();
             String[] tmp = nombre.Split(' ');
             nombre = "";
@@ -83,15 +77,8 @@ namespace GiftEjecutor
             string strConsulta = "SELECT TEXTO.largo " +
                                 "FROM TEXTO " +
                                 "WHERE TEXTO.correlativo = '" + IDTipoCampo + "' ;";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********Object datos = this.controladoBD.hacerConsultaSQLServer(strConsulta);
-            String strLargo = "";
-           /* if (datos != null)
-            {
-                //******ATENCION AQUI NO SE COMO ARREGLARLO***********while (((SqlDataReader)(datos)).Read())
-                //{
-                //    strLargo = ((SqlDataReader)(datos)).GetValue(0).ToString();
-               // }
-            }*/
+            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            String strLargo = datos.ToString();
             int largo = int.Parse(strLargo);
             Console.WriteLine("largo = " + largo);
             return largo;
@@ -99,7 +86,6 @@ namespace GiftEjecutor
 
         public void crearTablaFormulario(String consulta)
         {
-            //this.controladoBD.hacerConsultaSQLServer(consulta);
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
@@ -109,7 +95,6 @@ namespace GiftEjecutor
         /// <returns></returns>
         public void agregarFlujoConstruido(String consulta)
         {
-            //this.controladoBD.hacerConsultaSQLServer(consulta);
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
@@ -122,16 +107,10 @@ namespace GiftEjecutor
         {
             String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
                             "where IDFormularioMaestro = '" + IDFormulario + "';";
-            //NO SE ARREGLAR ESTOobject datos = this.controladoBD.hacerConsultaSQLServer(consulta);
-            /*if (datos != null)
-            {
-                if (((SqlDataReader)(datos)).Read())
-                {
-                    String IDFormDetalle = ((SqlDataReader)(datos)).GetValue(0).ToString();
-                    return IDFormDetalle;
-                }
-            }*/
-            return null;
+            //NO SE ARREGLAR ESTO
+            object datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            String IDFormDetalle = datos.ToString();
+            return IDFormDetalle;
         }
 
         /*public static ConsultaConstructorTablasFormularios getInstancia()
