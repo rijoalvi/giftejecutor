@@ -28,7 +28,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.0.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -44,14 +43,13 @@
     <Compile Include="ConfiguracionProyecto.cs" />
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
-    <Compile Include="ConsultaConstructorTablasFormularios.cs" />
+    <Compile Include="ConsultaConstructorTablasFormularios.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
-    <Compile Include="ConsultaFormularioMySQL.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
-    <Compile Include="ConsultaConstructorTablasFormulariosMySQL.cs" />
-    <Compile Include="ConsultaConstructorTablasFormulariosSQLServer.cs" />
     <Compile Include="Ejecutor.cs" />
     <Compile Include="EjecutorUserDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

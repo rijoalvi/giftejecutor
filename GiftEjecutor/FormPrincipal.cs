@@ -28,7 +28,7 @@ namespace GiftEjecutor
         }
         public FormPrincipal(int conexionSeleccionada)
         {
-            ControladorBD.conexionSelecciona = conexionSeleccionada;
+           //ControladorBD.conexionSelecciona = conexionSeleccionada;
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();

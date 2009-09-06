@@ -34,7 +34,7 @@ namespace GiftEjecutor
             this.radioButtonMySQLEjecutor = new System.Windows.Forms.RadioButton();
             this.buttonIniciar = new System.Windows.Forms.Button();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            //this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButtonConexionExternaConfigurador = new System.Windows.Forms.RadioButton();
             this.radioButtonConexionECCIConfigurador = new System.Windows.Forms.RadioButton();
@@ -108,10 +108,10 @@ namespace GiftEjecutor
             // 
             // mySqlDataAdapter1
             // 
-            this.mySqlDataAdapter1.DeleteCommand = null;
+           /* this.mySqlDataAdapter1.DeleteCommand = null;
             this.mySqlDataAdapter1.InsertCommand = null;
             this.mySqlDataAdapter1.SelectCommand = null;
-            this.mySqlDataAdapter1.UpdateCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;*/
             // 
             // groupBox1
             // 
@@ -176,7 +176,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonIniciar;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
-        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
+        //private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButtonConexionECCIConfigurador;
         private System.Windows.Forms.RadioButton radioButtonConexionExternaConfigurador;

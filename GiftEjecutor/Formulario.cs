@@ -4,7 +4,7 @@ using System.Text;
 
 using System.Data;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
+
 using System.Windows.Forms;
 namespace GiftEjecutor
 {
@@ -23,7 +23,8 @@ namespace GiftEjecutor
         /// </summary>
         public Formulario(int IDFormulario)
         {
-            consultaBD = ConsultaFormulario.getInstancia();
+            //consultaBD = ConsultaFormulario.getInstancia();
+            consultaBD = new ConsultaFormulario();
             IDForm = IDFormulario;
             getTodosLosMiembros();
             
@@ -94,8 +95,8 @@ namespace GiftEjecutor
             if (datos != null)
             {
                 //Console.WriteLine("entre");
-                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                {
+               // if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+               // {
                     while (((SqlDataReader)(datos)).Read())
                     {
                         fila = miembrosFormulario.NewRow();
@@ -115,7 +116,7 @@ namespace GiftEjecutor
                         miembrosFormulario.Rows.Add(fila);
                     }
                 }
-                else
+                /*else
                 {
                     if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                     {
@@ -139,7 +140,7 @@ namespace GiftEjecutor
                         }
                     }
                 }
-            } //Termina la lectura d los datos hacia el dataTable
+            } *///Termina la lectura d los datos hacia el dataTable
         } //fin método
 
         /// <summary>

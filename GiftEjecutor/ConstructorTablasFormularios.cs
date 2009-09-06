@@ -4,7 +4,7 @@ using System.Text;
 
 using System.Data;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 namespace GiftEjecutor
 {
@@ -14,7 +14,8 @@ namespace GiftEjecutor
 
         public ConstructorTablasFormularios()
         {
-            consultaBD = ConsultaConstructorTablasFormularios.getInstancia();
+            //consultaBD = ConsultaConstructorTablasFormularios.getInstancia();
+            consultaBD = new ConsultaConstructorTablasFormularios();
         }
 
         public void construirTablas(String IDWorkflow) {
@@ -36,17 +37,17 @@ namespace GiftEjecutor
                     //Busca el nombre del formulario y lo agrega a la consulta
                     nombreFormulario = consultaBD.getNombreFormulario(IDsFormularios[i]);
                     consultaCreaTabla += nombreFormulario;
-                    if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona) //MYSQL
+                    /*if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona) //MYSQL
                     {
                         consultaCreaTabla += "( correlativo int auto_increment NOT NULL, ";
                     }
                     else
                     {
                         if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona) //SQLServer
-                        {
+                        {*/
                             consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
-                        }
-                    }
+                   //     }
+                   // }
 
                     /*
                     //crea un campo para poder almacenar la llave foranea a aquellos q son form maestros
@@ -113,11 +114,11 @@ namespace GiftEjecutor
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(6), ";
                                     break;
                                 case 3: //FechaHora
-                                    if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                                    //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
                                         consultaCreaTabla += IDsTiposCampo[j] + " SMALLDATETIME, ";
-                                    else
-                                        if(ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                                            consultaCreaTabla += IDsTiposCampo[j] + " TIMESTAMP, ";
+                                   // else
+                                    //    if(ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                                    //        consultaCreaTabla += IDsTiposCampo[j] + " TIMESTAMP, ";
                                     break;
                                 case 4: //Texto
                                     int tamanoTexto = consultaBD.getLongitudDeTexto(IDsTiposCampo[j + 2]);
@@ -170,16 +171,16 @@ namespace GiftEjecutor
             tabla.Columns.Add(IDFormulario);
             if (datos != null)
             {
-                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                {
+                //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+                //{
                     while (((SqlDataReader)(datos)).Read())
                     {
                         fila = tabla.NewRow();
                         fila["IDFormulario"] = ((SqlDataReader)(datos)).GetValue(0);
                         tabla.Rows.Add(fila);
                     }
-                }
-                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+               // }
+               /* if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                 {
                     while (((MySqlDataReader)(datos)).Read())
                     {
@@ -187,7 +188,7 @@ namespace GiftEjecutor
                         fila["IDFormulario"] = ((MySqlDataReader)(datos)).GetValue(0);
                         tabla.Rows.Add(fila);
                     }
-                }
+                }*/
             }
             Console.WriteLine("count = "+ tabla.Rows.Count);
             String[] IDs = new String[tabla.Rows.Count];
@@ -245,8 +246,8 @@ namespace GiftEjecutor
             if (datos != null)
             {
                 Console.WriteLine("entre");
-                if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                {
+               // if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+               // {
                     while (((SqlDataReader)(datos)).Read())
                     {
                         fila = tabla.NewRow();
@@ -255,8 +256,8 @@ namespace GiftEjecutor
                         fila["IDCampo"] = ((SqlDataReader)(datos)).GetValue(2);
                         tabla.Rows.Add(fila);
                     }
-                }
-                else
+               // }
+               /* else
                 {
                     if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                     {
@@ -269,7 +270,7 @@ namespace GiftEjecutor
                             tabla.Rows.Add(fila);
                         }
                     }
-                }
+                }*/
             }
 
             ////////pasa del dataTable a un array de strings
@@ -301,15 +302,15 @@ namespace GiftEjecutor
         public void agregarFlujoTablaFlujos(int IDFlujo){
             string consulta = "";
 
-             if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                {
+             //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
+             //   {
                     consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','"+ 0 +"')";
                 
-                }
-                if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+            //    }
+             /*   if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                 {
                     consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','" + 0 + "')";
-                }
+                }*/
                 consultaBD.agregarFlujoConstruido(consulta);
         }
 

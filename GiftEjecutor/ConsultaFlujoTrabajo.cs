@@ -11,7 +11,6 @@ namespace GiftEjecutor
 
         public SqlDataReader getTodosLosFlujosTrabajo() {
             SqlDataReader dataReader = null;
-            //dataReader = this.controladoBD.hacerConsultaSQLServer("select * from Flujo;");
             dataReader = this.controladoBD.hacerConsultaConfigurador("select * from Flujo;");
             return dataReader;
         }
