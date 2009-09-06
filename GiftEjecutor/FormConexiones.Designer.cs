@@ -29,22 +29,19 @@ namespace GiftEjecutor
         private void InitializeComponent()
         {
             this.groupBoxConexiones = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.radioButtonSQLServerConfigurador = new System.Windows.Forms.RadioButton();
             this.radioButtonMySQLEjecutor = new System.Windows.Forms.RadioButton();
             this.buttonIniciar = new System.Windows.Forms.Button();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            //this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonConexionExternaConfigurador = new System.Windows.Forms.RadioButton();
             this.radioButtonConexionECCIConfigurador = new System.Windows.Forms.RadioButton();
+            this.radioButtonConexionExternaConfigurador = new System.Windows.Forms.RadioButton();
             this.groupBoxConexiones.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxConexiones
             // 
-            this.groupBoxConexiones.Controls.Add(this.linkLabel1);
             this.groupBoxConexiones.Controls.Add(this.radioButtonSQLServerConfigurador);
             this.groupBoxConexiones.Controls.Add(this.radioButtonMySQLEjecutor);
             this.groupBoxConexiones.Location = new System.Drawing.Point(12, 24);
@@ -53,17 +50,6 @@ namespace GiftEjecutor
             this.groupBoxConexiones.TabIndex = 0;
             this.groupBoxConexiones.TabStop = false;
             this.groupBoxConexiones.Text = "Ejecutor";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(114, 21);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(37, 13);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "check";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // radioButtonSQLServerConfigurador
             // 
@@ -82,10 +68,10 @@ namespace GiftEjecutor
             this.radioButtonMySQLEjecutor.Checked = true;
             this.radioButtonMySQLEjecutor.Location = new System.Drawing.Point(21, 19);
             this.radioButtonMySQLEjecutor.Name = "radioButtonMySQLEjecutor";
-            this.radioButtonMySQLEjecutor.Size = new System.Drawing.Size(98, 17);
+            this.radioButtonMySQLEjecutor.Size = new System.Drawing.Size(113, 17);
             this.radioButtonMySQLEjecutor.TabIndex = 1;
             this.radioButtonMySQLEjecutor.TabStop = true;
-            this.radioButtonMySQLEjecutor.Text = "MYSQL, EEUU";
+            this.radioButtonMySQLEjecutor.Text = "SQLServer, EEUU";
             this.radioButtonMySQLEjecutor.UseVisualStyleBackColor = true;
             this.radioButtonMySQLEjecutor.CheckedChanged += new System.EventHandler(this.radioButtonMYSQL_CheckedChanged);
             // 
@@ -106,13 +92,6 @@ namespace GiftEjecutor
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             this.sqlConnection1.InfoMessage += new System.Data.SqlClient.SqlInfoMessageEventHandler(this.sqlConnection1_InfoMessage);
             // 
-            // mySqlDataAdapter1
-            // 
-           /* this.mySqlDataAdapter1.DeleteCommand = null;
-            this.mySqlDataAdapter1.InsertCommand = null;
-            this.mySqlDataAdapter1.SelectCommand = null;
-            this.mySqlDataAdapter1.UpdateCommand = null;*/
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButtonConexionECCIConfigurador);
@@ -123,6 +102,17 @@ namespace GiftEjecutor
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurador";
+            // 
+            // radioButtonConexionECCIConfigurador
+            // 
+            this.radioButtonConexionECCIConfigurador.AutoSize = true;
+            this.radioButtonConexionECCIConfigurador.Location = new System.Drawing.Point(17, 42);
+            this.radioButtonConexionECCIConfigurador.Name = "radioButtonConexionECCIConfigurador";
+            this.radioButtonConexionECCIConfigurador.Size = new System.Drawing.Size(160, 17);
+            this.radioButtonConexionECCIConfigurador.TabIndex = 3;
+            this.radioButtonConexionECCIConfigurador.TabStop = true;
+            this.radioButtonConexionECCIConfigurador.Text = "Conexión ECCI (SQL Server)";
+            this.radioButtonConexionECCIConfigurador.UseVisualStyleBackColor = true;
             // 
             // radioButtonConexionExternaConfigurador
             // 
@@ -136,17 +126,6 @@ namespace GiftEjecutor
             this.radioButtonConexionExternaConfigurador.Text = "Conexión Externa (SQL Server)";
             this.radioButtonConexionExternaConfigurador.UseVisualStyleBackColor = true;
             this.radioButtonConexionExternaConfigurador.CheckedChanged += new System.EventHandler(this.radioButtonConexionExternaConfigurador_CheckedChanged);
-            // 
-            // radioButtonConexionECCIConfigurador
-            // 
-            this.radioButtonConexionECCIConfigurador.AutoSize = true;
-            this.radioButtonConexionECCIConfigurador.Location = new System.Drawing.Point(17, 42);
-            this.radioButtonConexionECCIConfigurador.Name = "radioButtonConexionECCIConfigurador";
-            this.radioButtonConexionECCIConfigurador.Size = new System.Drawing.Size(160, 17);
-            this.radioButtonConexionECCIConfigurador.TabIndex = 3;
-            this.radioButtonConexionECCIConfigurador.TabStop = true;
-            this.radioButtonConexionECCIConfigurador.Text = "Conexión ECCI (SQL Server)";
-            this.radioButtonConexionECCIConfigurador.UseVisualStyleBackColor = true;
             // 
             // FormConexiones
             // 
@@ -174,7 +153,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.RadioButton radioButtonSQLServerConfigurador;
         private System.Windows.Forms.RadioButton radioButtonMySQLEjecutor;
         private System.Windows.Forms.Button buttonIniciar;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         //private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.GroupBox groupBox1;
