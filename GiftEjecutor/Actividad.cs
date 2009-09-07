@@ -14,6 +14,8 @@ namespace GiftEjecutor
 
         public Comando getComandoPrueba() {
             return comandoPrueba;
+            //ConsultaComando c = new ConsultaComando();
+            //c.
         }
         public DataTable  getDataTableConComandosDeLaActividad(){
             

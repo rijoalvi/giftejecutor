@@ -43,6 +43,7 @@
     <Compile Include="ConfiguracionProyecto.cs" />
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
+    <Compile Include="ConsultaComando.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs">
       <SubType>Code</SubType>
     </Compile>

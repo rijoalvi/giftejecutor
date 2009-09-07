@@ -151,7 +151,7 @@ namespace GiftEjecutor
             SqlConnection connectionStringEjecutor = null;
             if (ControladorBD.conexionConfiguracionSeleccionada == ControladorBD.CONEXION_EXTERNA)
             {
-                connectionStringEjecutor = new SqlConnection("Data Source=GiftConfigurador.db.3946477.hostedresource.com;Initial Catalog=GiftConfigurador;Persist Security Info=True;User ID=GiftConfigurador;Password=Qwerty123");
+                connectionStringEjecutor = new SqlConnection("Data Source=GiftEjecutor.db.3946477.hostedresource.com;Initial Catalog=GiftEjecutor;Persist Security Info=True;User ID=GiftEjecutor;Password=Qwerty123");
             }
             else//Conexion ECCI
             {
