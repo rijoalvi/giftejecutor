@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using System.Data.SqlClient;
 namespace GiftEjecutor
 {
     class ConsultaFormulario : Consulta
@@ -20,24 +21,45 @@ namespace GiftEjecutor
         public String getMascaraNumero(int IDCampo)
         {
             String consulta = "SELECT mascara FROM NUMERO WHERE correlativo = " + IDCampo;
-            Object dato = this.controladoBD.hacerConsultaConfigurador(consulta);
-            return dato.ToString();            
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (dato.Read())
+                return dato.GetValue(0).ToString();
+            return null;
         }
 
         public String getTextoDefecto(int IDCampo)
         {
-            String consulta = "SELECT textoDefecto FROM NUMERO WHERE correlativo = " + IDCampo;
-            Object dato = this.controladoBD.hacerConsultaConfigurador(consulta);
-            return dato.ToString();            
+            String consulta = "SELECT textoDefecto FROM TEXTO WHERE correlativo = " + IDCampo;
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (dato.Read())
+                return dato.GetValue(0).ToString();
+            return null;
         }
 
         public String getValInicialIncremental(int IDCampo)
         {
             String consulta = "SELECT valInicial FROM INCREMENTAL WHERE correlativo = " + IDCampo;
-            Object dato = this.controladoBD.hacerConsultaConfigurador(consulta);
-            return dato.ToString();
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if(dato.Read())
+                return dato.GetValue(0).ToString();
+            return null;
         }
 
+        public Object getMiembrosLista(int IDCampo)
+        {
+            String consulta = "SELECT valor FROM MIEMBROLISTA WHERE IDLista = " + IDCampo;
+            Object datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            return datos;
+        }
+
+        public int getMaxLengthTexto(int IDCampo)
+        {
+            String consulta = "SELECT tamano FROM TEXTO WHERE correlativo = " + IDCampo;
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (dato.Read())
+                return int.Parse(dato.GetValue(0).ToString());
+            return -1;
+        }
 
     }
 }

@@ -26,8 +26,7 @@ namespace GiftEjecutor
             //consultaBD = ConsultaFormulario.getInstancia();
             consultaBD = new ConsultaFormulario();
             IDForm = IDFormulario;
-            getTodosLosMiembros();
-            
+            getTodosLosMiembros();            
         }
 
         /// <summary>
@@ -115,8 +114,8 @@ namespace GiftEjecutor
                         fila["estiloLetra"] = ((SqlDataReader)(datos)).GetValue(12);
                         miembrosFormulario.Rows.Add(fila);
                     }
-                }
-                /*else
+                /*}
+                else
                 {
                     if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
                     {
@@ -139,8 +138,8 @@ namespace GiftEjecutor
                             miembrosFormulario.Rows.Add(fila);
                         }
                     }
-                }
-            } *///Termina la lectura d los datos hacia el dataTable
+                } */
+            } //Termina la lectura d los datos hacia el dataTable
         } //fin método
 
         /// <summary>
@@ -188,5 +187,46 @@ namespace GiftEjecutor
         public String getValInicial(int IDCampo){
             return consultaBD.getValInicialIncremental(IDCampo);
         }
+
+        /// <summary>
+        /// Devuelve un vector de strings con todos los diferentes valores de los miembros de la lista
+        /// </summary>
+        /// <param name="IDCampo"></param>
+        /// <returns></returns>
+        public String[] getMiembrosLista(int IDCampo) {
+            object datos = consultaBD.getMiembrosLista(IDCampo);
+            
+            DataTable miembrosLista = new DataTable();
+            DataRow fila;
+            DataColumn valor = new DataColumn();
+            
+            valor.ColumnName = "valor";
+            valor.DataType = Type.GetType("System.String");
+
+            miembrosLista.Columns.Add(valor);
+            if (datos != null)
+            {
+                while (((SqlDataReader)(datos)).Read())
+                {
+                    fila = miembrosLista.NewRow();
+                    fila["valor"] = ((SqlDataReader)(datos)).GetValue(0);
+                    miembrosLista.Rows.Add(fila);
+                }
+            }
+
+            int count = miembrosLista.Rows.Count;
+            String[] miembros = new String[count];
+            for (int i = 0; i < count; ++i)
+            {
+                miembros[i] = miembrosLista.Rows[i]["valor"].ToString();
+                Console.WriteLine(miembros[i]);
+            }
+            return miembros;
+        }
+
+        public int getMaxLengthTexto(int IDCampo) {
+            return consultaBD.getMaxLengthTexto(IDCampo);
+        }
+
     }
 }

@@ -53,9 +53,8 @@ namespace GiftEjecutor
         private void button1_Click_1(object sender, EventArgs e)
         {
             
-            //FormFormulario formFormulario = new FormFormulario(1);
-            Formulario miForm = new Formulario(1);
-            miForm.getMiembro(1);            
+            FormFormulario formFormulario = new FormFormulario(2);
+            formFormulario.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
 namespace GiftEjecutor
 {
     public partial class FormFormulario : Form
@@ -45,6 +46,7 @@ namespace GiftEjecutor
                     case 0:
                         //Etiqueta
                         Label etiqueta = new Label();
+                        miembro[1] = miembro[1].Substring(4);
                         etiqueta.Text = miembro[1];
                         etiqueta.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         this.Controls.Add(etiqueta);
@@ -53,6 +55,7 @@ namespace GiftEjecutor
                         //Numero
                         string mascara = miFormulario.getMascaraNumero(int.Parse(miembro[10]));
                         MaskedTextBox numero = new MaskedTextBox(mascara);
+                        numero.Name = miembro[1];
                         numero.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         numero.TabIndex = int.Parse(miembro[11]);
                         this.Controls.Add(numero);
@@ -60,6 +63,7 @@ namespace GiftEjecutor
                     case 2:
                         //Binario
                         RadioButton radio1 = new RadioButton();
+                        radio1.Name = miembro[1];
                         radio1.Text = miembro[1];
                         radio1.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         radio1.TabIndex = int.Parse(miembro[11]);
@@ -69,6 +73,7 @@ namespace GiftEjecutor
                         ++i;
                         miembro = miFormulario.getMiembro(i);
                         RadioButton radio2 = new RadioButton();
+                        radio2.Name = miembro[1];
                         radio2.Text = miembro[1];
                         radio2.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         radio2.TabIndex = int.Parse(miembro[11]);
@@ -81,7 +86,8 @@ namespace GiftEjecutor
                     case 3:
                         //FechaHora
                         DateTimePicker fecha = new DateTimePicker();
-                        fecha.Text = miembro[1];
+                        fecha.Name = miembro[1];
+                        //fecha.Text = miembro[1];
                         fecha.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         fecha.TabIndex = int.Parse(miembro[11]);
                         this.Controls.Add(fecha);
@@ -89,8 +95,10 @@ namespace GiftEjecutor
                     case 4:
                         //Texto
                         TextBox texto = new TextBox();
+                        texto.Name = miembro[1];
                         string textoDefecto = miFormulario.getTextoDefecto(int.Parse(miembro[10]));
-                        texto.Text = textoDefecto;
+                        texto.MaxLength = miFormulario.getMaxLengthTexto(int.Parse(miembro[10]));
+                        texto.Text = textoDefecto.Trim();
                         texto.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         texto.TabIndex = int.Parse(miembro[11]);
                         this.Controls.Add(texto);
@@ -98,6 +106,7 @@ namespace GiftEjecutor
                     case 5:
                         //Incremental
                         TextBox incremental = new TextBox();
+                        incremental.Name = miembro[1];
                         string valInicial = miFormulario.getValInicial(int.Parse(miembro[10]));
                         incremental.Text = valInicial;
                         incremental.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
@@ -106,7 +115,11 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                      //  TreeView treeView1;
+                        //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
+                        //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
+                        
+                        TreeView jerarquia = new TreeView();
+                        jerarquia.Name = miembro[1];
                         /* FALTA!!!!
                         campo = agregarTipoJerarquia(nombre, id);
                         actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());
@@ -122,24 +135,21 @@ namespace GiftEjecutor
                         break;
                     case 7:
                         //Lista
-                    //    ComboBox comboBox1;
-                        /* FALTA!!!!!!!!
-                        campo = agregarTipoLista(nombre, id);
-                        actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());
-                        campo.setName("" + IDEnUso);
-                        campo.addMouseListener(listener);
-                        campo.addMouseMotionListener(motionListener);
-                        frameVistaPrevia.add(campo);
-                        campo.setBounds(valx, valy, 100, 20);
-                        frameVistaPrevia.repaint();
-                        componentes[tabIndex] = campo;
-                        idsComponentes[tabIndex] = IDEnUso;
-                        */ 
+                        ComboBox comboBox = new ComboBox();
+                        comboBox.Name = miembro[1];                        
+                        String[] miembrosLista = miFormulario.getMiembrosLista(int.Parse(miembro[10]));
+                        for (int k = 0; k < miembrosLista.Length; ++k)
+                        {
+                            comboBox.Items.Add(miembrosLista[k].Trim());
+                        }                          
+                        comboBox.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
+                        comboBox.TabIndex = int.Parse(miembro[11]);
+                        this.Controls.Add(comboBox);                        
                         break;
                     default:                         
                         break;
                 }
-            }
+            } //Fin for que agrega miembros
 
         }
 
