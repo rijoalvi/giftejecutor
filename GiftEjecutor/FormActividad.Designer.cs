@@ -30,6 +30,7 @@ namespace GiftEjecutor
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridComandos = new System.Windows.Forms.DataGridView();
+            this.buttonEjecutarComando = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComandos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,16 +46,29 @@ namespace GiftEjecutor
             // dataGridComandos
             // 
             this.dataGridComandos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridComandos.Location = new System.Drawing.Point(27, 85);
+            this.dataGridComandos.Location = new System.Drawing.Point(12, 85);
             this.dataGridComandos.Name = "dataGridComandos";
-            this.dataGridComandos.Size = new System.Drawing.Size(511, 150);
+            this.dataGridComandos.Size = new System.Drawing.Size(617, 150);
             this.dataGridComandos.TabIndex = 1;
+            this.dataGridComandos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellClick);
+            // 
+            // buttonEjecutarComando
+            // 
+            this.buttonEjecutarComando.Enabled = false;
+            this.buttonEjecutarComando.Location = new System.Drawing.Point(121, 254);
+            this.buttonEjecutarComando.Name = "buttonEjecutarComando";
+            this.buttonEjecutarComando.Size = new System.Drawing.Size(119, 23);
+            this.buttonEjecutarComando.TabIndex = 2;
+            this.buttonEjecutarComando.Text = "EjecutarComando";
+            this.buttonEjecutarComando.UseVisualStyleBackColor = true;
+            this.buttonEjecutarComando.Click += new System.EventHandler(this.buttonEjecutarComando_Click);
             // 
             // FormActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 298);
+            this.ClientSize = new System.Drawing.Size(641, 298);
+            this.Controls.Add(this.buttonEjecutarComando);
             this.Controls.Add(this.dataGridComandos);
             this.Controls.Add(this.label1);
             this.Name = "FormActividad";
@@ -70,5 +84,6 @@ namespace GiftEjecutor
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridComandos;
+        private System.Windows.Forms.Button buttonEjecutarComando;
     }
 }
