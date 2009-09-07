@@ -28,13 +28,35 @@ namespace GiftEjecutor
         /// </summary>
         private void InitializeComponent()
         {
+            this.botonAceptar = new System.Windows.Forms.Button();
+            this.botonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // botonAceptar
+            // 
+            this.botonAceptar.Location = new System.Drawing.Point(377, 602);
+            this.botonAceptar.Name = "botonAceptar";
+            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.botonAceptar.TabIndex = 0;
+            this.botonAceptar.Text = "Aceptar";
+            this.botonAceptar.UseVisualStyleBackColor = true;
+            // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(470, 602);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botonCancelar.TabIndex = 1;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
             // 
             // FormFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 511);
+            this.ClientSize = new System.Drawing.Size(568, 647);
+            this.Controls.Add(this.botonCancelar);
+            this.Controls.Add(this.botonAceptar);
             this.Name = "FormFormulario";
             this.Text = "FormFormulario";
             this.ResumeLayout(false);
@@ -42,6 +64,9 @@ namespace GiftEjecutor
         }
 
         #endregion
+
+        private System.Windows.Forms.Button botonAceptar;
+        private System.Windows.Forms.Button botonCancelar;
 
     }
 }
