@@ -13,10 +13,11 @@ namespace GiftEjecutor
     public class Formulario
     {
         //Miembros
-        ConsultaFormulario consultaBD;
-        DataTable miembrosFormulario;            
+        private ConsultaFormulario consultaBD;
+        private DataTable miembrosFormulario;
+        private String nombre;
         //object[] miembrosFormulario;
-        int IDForm;
+        private int IDForm;
 
         /// <summary>
         /// Constructor que indica si se esta trabajando con MySQL o SQLServer
@@ -26,6 +27,7 @@ namespace GiftEjecutor
             //consultaBD = ConsultaFormulario.getInstancia();
             consultaBD = new ConsultaFormulario();
             IDForm = IDFormulario;
+            nombre = consultaBD.getNombreFormulario(IDForm);
             getTodosLosMiembros();            
         }
 
@@ -226,6 +228,10 @@ namespace GiftEjecutor
 
         public int getMaxLengthTexto(int IDCampo) {
             return consultaBD.getMaxLengthTexto(IDCampo);
+        }
+
+        public String getNombre() {
+            return nombre;
         }
 
     }

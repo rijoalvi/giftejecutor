@@ -61,5 +61,13 @@ namespace GiftEjecutor
             return -1;
         }
 
+        public String getNombreFormulario(int IDForm)
+        {
+            String consulta = "SELECT nombre FROM FORMULARIO WHERE correlativo = " + IDCampo;
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (dato.Read())
+                return dato.GetValue(0).ToString();
+            return -1;
+        }
     }
 }
