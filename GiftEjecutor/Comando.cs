@@ -17,6 +17,8 @@ namespace GiftEjecutor
         private string nombreTipo;
         private DateTime fechaActualizacion;
 
+        private int IDExpediente;//falta cargarlo
+
         public Comando() {
             consultaComando = new ConsultaComando();
             //this.configuracion = new ConfiguracionProyecto();
@@ -30,6 +32,9 @@ namespace GiftEjecutor
         }
         public int getID() {
             return this.ID;
+        }
+        public void setIDExpediente(int IDExpediente) {
+            this.IDExpediente = IDExpediente;
         }
         public string getNombre()
         {
@@ -159,7 +164,8 @@ namespace GiftEjecutor
                 "Descripción: " + this.descripcion + "" + '\n' +
                 "Tipo: " + this.tipo + "" + '\n' +                
                 "NombreTipo: " + this.nombreTipo + "" + '\n' +
-                "IDFormularioATrabajar: " + this.IDFormularioATrabajar + "" + '\n' + 
+                "IDFormularioATrabajar: " + this.IDFormularioATrabajar + "" + '\n' +
+                "IDExpediente: " + this.IDExpediente + "" + '\n' + 
                 "Fecha Actualización: " + this.fechaActualizacion + ""// + '\n' + 
                 ;
         }
