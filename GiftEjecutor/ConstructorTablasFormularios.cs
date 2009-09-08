@@ -223,7 +223,7 @@ namespace GiftEjecutor
 
         public String[] buscarTiposCampoDelFormulario(String IDForm)
         {
-            object datos = consultaBD.getIDsTiposCampo(IDForm);
+            SqlDataReader datos = consultaBD.getIDsTiposCampo(IDForm);
 
             DataTable tabla = new DataTable();
             DataRow fila;
@@ -248,12 +248,12 @@ namespace GiftEjecutor
                 Console.WriteLine("entre");
                // if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
                // {
-                    while (((SqlDataReader)(datos)).Read())
+                    while (datos.Read())
                     {
                         fila = tabla.NewRow();
-                        fila["NombreTipoCampo"] = ((SqlDataReader)(datos)).GetValue(0); 
-                        fila["IDTipoCampo"] = ((SqlDataReader)(datos)).GetValue(1);                        
-                        fila["IDCampo"] = ((SqlDataReader)(datos)).GetValue(2);
+                        fila["NombreTipoCampo"] = datos.GetValue(0); 
+                        fila["IDTipoCampo"] = datos.GetValue(1);                        
+                        fila["IDCampo"] = datos.GetValue(2);
                         tabla.Rows.Add(fila);
                     }
                // }
@@ -291,6 +291,7 @@ namespace GiftEjecutor
                 valores[(i * 3) + 1] = tabla.Rows[i]["IDTipoCampo"].ToString();
                 valores[(i * 3) + 2] = tabla.Rows[i]["IDCampo"].ToString();
                 Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);
+                i += 3;
             }
             ///////////////////
 

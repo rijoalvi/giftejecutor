@@ -155,7 +155,7 @@ namespace GiftEjecutor
             }
             else//Conexion ECCI
             {
-                connectionStringEjecutor = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
+                connectionStringEjecutor = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2_ejecucion;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
             }
             return connectionStringEjecutor;
         }

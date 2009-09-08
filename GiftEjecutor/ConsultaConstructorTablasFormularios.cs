@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using System.Data.SqlClient;
 namespace GiftEjecutor
 {
     /// <summary>
@@ -38,7 +39,7 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="IDFormulario"></param>
         /// <returns></returns>
-        public object getIDsTiposCampo(String IDFormulario)
+        public SqlDataReader getIDsTiposCampo(String IDFormulario)
         {
             //Toma todos los IDs de los formularios q trabajan con ese flujo
             string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo, MIEMBROFORMULARIO.IDCampo " +
@@ -46,7 +47,7 @@ namespace GiftEjecutor
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '" + IDFormulario + "' " +
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
             //******ATENCION AQUI NO SE COMO ARREGLARLO***********
-            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
             return datos;            
         }
 
@@ -56,8 +57,9 @@ namespace GiftEjecutor
                                 "FROM FORMULARIO " +
                                 "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
             //******ATENCION AQUI NO SE COMO ARREGLARLO***********
-            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
-            String nombre = datos.ToString();
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            datos.Read();
+            String nombre = datos.GetValue(0).ToString();
             nombre = nombre.Trim();
             String[] tmp = nombre.Split(' ');
             nombre = "";
@@ -74,11 +76,12 @@ namespace GiftEjecutor
         public int getLongitudDeTexto(String IDTipoCampo)
         {
             Console.WriteLine("busco el tamano del texto");
-            string strConsulta = "SELECT TEXTO.largo " +
+            string strConsulta = "SELECT tamano " +
                                 "FROM TEXTO " +
-                                "WHERE TEXTO.correlativo = '" + IDTipoCampo + "' ;";
-            Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
-            String strLargo = datos.ToString();
+                                "WHERE correlativo = '" + IDTipoCampo + "' ;";
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
+            datos.Read();
+            String strLargo = datos.GetValue(0).ToString();
             int largo = int.Parse(strLargo);
             Console.WriteLine("largo = " + largo);
             return largo;
@@ -108,8 +111,9 @@ namespace GiftEjecutor
             String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
                             "where IDFormularioMaestro = '" + IDFormulario + "';";
             //NO SE ARREGLAR ESTO
-            object datos = this.controladoBD.hacerConsultaConfigurador(consulta);
-            String IDFormDetalle = datos.ToString();
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            datos.Read();
+            String IDFormDetalle = datos.GetValue(0).ToString();
             return IDFormDetalle;
         }
 
