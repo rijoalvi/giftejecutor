@@ -100,18 +100,33 @@ namespace GiftEjecutor
         }
 
         /// <summary>
-        /// Devuelve el ID del formulario detalle, si es q este es un maestro, de lo contrario devuelve un NULL
+        /// Indica si este formularo es un maestro
         /// </summary>
         /// <param name="IDFormulario"></param>
         /// <returns></returns>
-        public String soyMaestro(String IDFormulario)
+        public bool soyMaestro(String IDFormulario)
         {
             String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
                             "where IDFormularioMaestro = '" + IDFormulario + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
-            datos.Read();
-            String IDFormDetalle = datos.GetValue(0).ToString();
-            return IDFormDetalle;
+            if(datos.Read())
+                return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Indica si este formularo es un detalle
+        /// </summary>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
+        public bool soyDetalle(String IDFormulario)
+        {
+            String consulta = "select IDFormularioMaestro from MAESTRODETALLE " +
+                            "where IDFormularioDetalle = '" + IDFormulario + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if(datos.Read())
+                return true;
+            return false;
         }
     }
 }

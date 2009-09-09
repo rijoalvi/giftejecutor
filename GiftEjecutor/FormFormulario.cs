@@ -14,12 +14,16 @@ namespace GiftEjecutor
         //Miembros
         private int IDForm; //ID del formulario con el q se esta trabajando
         private int IDExpediente; //ID del expediente al cual pertenecen los datos
+        private int IDTupla;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
      //   private System.Windows.Forms[] componentes;
         private Component[] componentes;
+        private bool modificacion;
+        private String[] nombresCamposTupla;
+
 
         /// <summary>
-        /// Constructor que abre un formulario creado en el constructor
+        /// Constructor que muestra un formulario creado en el constructor
         /// </summary>
         /// <param name="IDForm"></param>
         public FormFormulario(int IDFormulario)
@@ -27,7 +31,26 @@ namespace GiftEjecutor
             InitializeComponent();
             IDForm = IDFormulario;
             miFormulario = new Formulario(IDForm);
+            modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
+            nombresCamposTupla = new String[miFormulario.getNumMiembros()];
             crearFormulario();
+        }
+
+        /// <summary>
+        /// Constructor que abre un formulario que anteriormente fue llenado
+        /// </summary>
+        /// <param name="IDForm"></param>
+        public FormFormulario(int IDFormulario, int IDdatos)
+        {
+            InitializeComponent();
+            IDForm = IDFormulario;
+            IDTupla = IDdatos;
+            miFormulario = new Formulario(IDForm);
+            modificacion = true; //xq se va a modificar una tupla, no crear una nueva
+            nombresCamposTupla = new String[miFormulario.getNumMiembros()]; 
+            crearFormulario();
+            //llena los datos al leer la tupla especifica
+            llenarFormulario();
         }
 
         /// <summary>
@@ -42,7 +65,7 @@ namespace GiftEjecutor
                 //Orden de los datos dentro de miembro:
                 //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
                 //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
-                miembro = miFormulario.getMiembro(i);
+                miembro = miFormulario.getMiembro(i);                
                 int tipoCampo = int.Parse(miembro[9]);
                 switch (tipoCampo) {
                     case 0:
@@ -53,6 +76,7 @@ namespace GiftEjecutor
                         etiqueta.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         componentes[i] = etiqueta;
                         this.Controls.Add(etiqueta);
+                        nombresCamposTupla[i] = null;
                         break;
                     case 1:
                         //Numero
@@ -63,6 +87,7 @@ namespace GiftEjecutor
                         numero.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = numero;
                         this.Controls.Add(numero);
+                        nombresCamposTupla[i] = miembro[1];
                         break;
                     case 2:
                         //Binario
@@ -73,7 +98,8 @@ namespace GiftEjecutor
                         radio1.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = radio1;
                         this.Controls.Add(radio1);
-
+                        nombresCamposTupla[i] = miembro[1];
+                        
                         //Agrega el otro radio
                         ++i;
                         miembro = miFormulario.getMiembro(i);
@@ -84,7 +110,8 @@ namespace GiftEjecutor
                         radio2.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = radio2;
                         this.Controls.Add(radio2);
-
+                        nombresCamposTupla[i] = miembro[1];
+                        
                         //Podrian meterse dentro de un panel, para asi poder tener varios grupos de radios por aparte sin q se anulen entre si...
                         //Ver aqui, la parte de "comentarios":
                         //http://msdn.microsoft.com/es-es/library/system.windows.forms.radiobutton%28VS.80%29.aspx
@@ -98,6 +125,7 @@ namespace GiftEjecutor
                         fecha.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = fecha;
                         this.Controls.Add(fecha);
+                        nombresCamposTupla[i] = miembro[1];
                         break;
                     case 4:
                         //Texto
@@ -110,6 +138,7 @@ namespace GiftEjecutor
                         texto.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = texto;
                         this.Controls.Add(texto);
+                        nombresCamposTupla[i] = miembro[1];
                         break;
                     case 5:
                         //Incremental
@@ -121,6 +150,7 @@ namespace GiftEjecutor
                         incremental.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = incremental;
                         this.Controls.Add(incremental);
+                        nombresCamposTupla[i] = miembro[1];
                         break;
                     case 6:
                         //Jerarquia
@@ -130,6 +160,7 @@ namespace GiftEjecutor
                         TreeView jerarquia = new TreeView();
                         jerarquia.Name = miembro[1];
                         //componentes[i] = texto;
+                        nombresCamposTupla[i] = miembro[1];
                         /* FALTA!!!!
                         campo = agregarTipoJerarquia(nombre, id);
                         actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());
@@ -155,7 +186,8 @@ namespace GiftEjecutor
                         comboBox.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         comboBox.TabIndex = int.Parse(miembro[11]);
                         componentes[i] = comboBox;
-                        this.Controls.Add(comboBox);                        
+                        this.Controls.Add(comboBox);
+                        nombresCamposTupla[i] = miembro[1];
                         break;
                     default:                         
                         break;
@@ -166,13 +198,22 @@ namespace GiftEjecutor
 
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            ingresarNuevaTuplaDinamica();
+            //Si se va a modificar una tupla
+            if (modificacion)
+            {
+                actualizarTupla();
+            }
+            else //Si se va a crear una nueva tupla
+            {
+                ingresarNuevaTupla();
+            }
         }
 
         /// <summary>
         /// Ingresa una tupla segun el formulario que el usuario haya estado mostrando
         /// </summary>
-        private void ingresarNuevaTuplaDinamica() {
+        private void ingresarNuevaTupla()
+        {
             int cant = miFormulario.getNumMiembros();
             String[] miembro = new String[13];
             String nombreForm = miFormulario.getNombre();
@@ -198,22 +239,22 @@ namespace GiftEjecutor
                         MaskedTextBox tmp = (MaskedTextBox)(componentes[i]);
                         nombresCampos += tmp.Name;
                         valoresCampos += tmp.Text.ToString();
-                        if ((i+1) < cant )
+                        if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     case 2:
                         //Binario
                         RadioButton radio = (RadioButton)(componentes[i]);
                         nombresCampos += radio.Name;
-                        valoresCampos += "'" + radio.Checked+"'";
+                        valoresCampos += "'" + radio.Checked + "'";
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     case 3:
                         //FechaHora
@@ -225,7 +266,7 @@ namespace GiftEjecutor
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     case 4:
                         //Texto
@@ -236,7 +277,7 @@ namespace GiftEjecutor
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     case 5:
                         //Incremental
@@ -247,7 +288,7 @@ namespace GiftEjecutor
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     case 6:
                         //Jerarquia
@@ -268,18 +309,18 @@ namespace GiftEjecutor
                         ComboBox lista = (ComboBox)(componentes[i]);
                         nombresCampos += lista.Name;
                         valoresCampos += "'" + lista.SelectedItem.ToString() + "'";
-                            //lista.SelectedText;
+                        //lista.SelectedText;
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
-                        } 
+                        }
                         break;
                     default:
                         //Soy una etiqueta, no hago nada :p
                         break;
                 }
-                
+
 
 
             } //fin for
@@ -289,6 +330,176 @@ namespace GiftEjecutor
             Console.WriteLine(ingresoTupla);
             miFormulario.ejecutarConsultaEjecutor(ingresoTupla);
             this.Visible = false;
+        }
+
+        /// <summary>
+        /// Actualiza una tupla segun el formulario que el usuario haya estado mostrando
+        /// </summary>
+        private void actualizarTupla()
+        {
+            int cant = miFormulario.getNumMiembros();
+            String[] miembro = new String[13];
+            String nombreForm = miFormulario.getNombre();
+            //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
+            //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
+            //update Vehiculo (Placa, Dueño, Estadoorden, Fecharecibido) 
+            //Values(123456, 'Beto', 'recibido', '8-9-2009');
+            String consultaTupla = "UPDATE " + nombreForm + " set ";
+            
+            for (int i = 0; i < cant; i++)
+            {
+                miembro = miFormulario.getMiembro(i);
+                int tipoCampo = int.Parse(miembro[9]);
+                //Mientras no sea una etiqueta
+                switch (tipoCampo)
+                {
+                    case 1:
+                        //Numero                        
+                        MaskedTextBox tmp = (MaskedTextBox)(componentes[i]);
+                        consultaTupla += tmp.Name + " = " + tmp.Text.ToString();
+                        if ((i + 1) < cant)                        
+                            consultaTupla += ", ";                                                  
+                        break;
+                    case 2:
+                        //Binario
+                        RadioButton radio = (RadioButton)(componentes[i]);
+                        consultaTupla += radio.Name + " = '" + radio.Checked + "'";
+                        if ((i + 1) < cant)
+                            consultaTupla += ", ";
+                        break;
+                    case 3:
+                        //FechaHora
+                        DateTimePicker fecha = (DateTimePicker)(componentes[i]);
+                        String laFecha = fecha.Value.ToString();
+                        consultaTupla += fecha.Name + " = '" + laFecha.Substring(0, 10) + "'";
+                        if ((i + 1) < cant)
+                            consultaTupla += ", ";
+                        break;
+                    case 4:
+                        //Texto
+                        TextBox texto = (TextBox)(componentes[i]);
+                        consultaTupla += texto.Name + " = '" + texto.Text.ToString() + "'";
+                        if ((i + 1) < cant)
+                            consultaTupla += ", ";
+                        break;
+                    case 5:
+                        //Incremental
+                        TextBox inc = (TextBox)(componentes[i]);
+                        consultaTupla += inc.Name + " = '" + inc.Text.ToString() + "'";
+                        if ((i + 1) < cant)
+                            consultaTupla += ", ";
+                        break;
+                    case 6:
+                        //Jerarquia
+                        /*
+                        TreeView jera = (TreeView)(componentes[i]);                        
+                        //este no sirve!!! ->
+                        consultaTupla += jera.Name " = '"+ jera.Text.ToString()+"'";                        
+                        if ((i + 1) < cant)                        
+                            consultaTupla += ", ";                                                  
+                        */
+                        break;
+                    case 7:
+                        //Lista
+                        ComboBox lista = (ComboBox)(componentes[i]);
+                        consultaTupla += lista.Name + " = '" + lista.SelectedItem.ToString() + "'";
+                        //lista.SelectedText;
+                        if ((i + 1) < cant)
+                            consultaTupla += ", ";
+                        break;
+                    default:
+                        //Soy una etiqueta, no hago nada :p
+                        break;
+                }
+
+            } //fin for
+            consultaTupla += " where correlativo = " + IDTupla + ";";
+            Console.WriteLine(consultaTupla);
+            miFormulario.ejecutarConsultaEjecutor(consultaTupla);
+            this.Visible = false;
+        }
+
+        private void llenarFormulario() {            
+            /*
+            String consultaTupla = "";
+            for (int i = 0; i < nombresCamposTupla.Length; ++i) {
+                consultaTupla = "select ";
+                
+                //siempre q no sea una etiqueta
+                if (nombresCamposTupla[i] != null) {
+                    consultaTupla += nombresCamposTupla[i];
+                    if ((i + 1) < nombresCamposTupla.Length)
+                        consultaTupla += ", ";
+                }
+            }//for nombres
+            consultaTupla += " FROM " + miFormulario.getNombre() + " WHERE correlativo = " + IDTupla + ";";
+             */
+            String consultaTupla = "SELECT * FROM " + miFormulario.getNombre() + " WHERE correlativo = " + IDTupla + ";";
+            SqlDataReader datos = miFormulario.ejecutarConsultaEjecutor(consultaTupla);
+            if(datos.Read()){ //Mientras hayan datos
+                String[] miembro = new String[13];
+                int valor = 1;
+                for (int i = 0; i < nombresCamposTupla.Length; ++i)
+                {
+                    //siempre q no sea una etiqueta
+                    if (nombresCamposTupla[i] != null)
+                    {
+                        miembro = miFormulario.getMiembro(i);
+                        int tipoCampo = int.Parse(miembro[9]);
+                        //Mientras no sea una etiqueta
+                        switch (tipoCampo)
+                        {
+                            case 1:
+                                //Numero                        
+                                MaskedTextBox tmp = (MaskedTextBox)(componentes[i]);
+                                tmp.Text = datos.GetValue(valor).ToString();
+                                break;
+                            case 2:
+                                //Binario
+                                RadioButton radio = (RadioButton)(componentes[i]);
+                                if (datos.GetValue(valor).ToString().Equals("True"))
+                                    radio.Checked = true;
+                                else
+                                    radio.Checked = false;
+                                break;
+                            case 3:
+                                //FechaHora
+                                DateTimePicker fecha = (DateTimePicker)(componentes[i]);
+                                fecha.Value = ((System.DateTime)(datos.GetValue(valor)));
+                                break;
+                            case 4:
+                                //Texto
+                                TextBox texto = (TextBox)(componentes[i]);
+                                texto.Text = datos.GetValue(valor).ToString();
+                                break;
+                            case 5:
+                                //Incremental
+                                TextBox inc = (TextBox)(componentes[i]);
+                                inc.Text = datos.GetValue(valor).ToString();
+                                break;
+                            case 6:
+                                //Jerarquia
+                                /*
+                                TreeView jera = (TreeView)(componentes[i]);                        
+                                //este no sirve!!! ->
+                                consultaTupla += jera.Name " = '"+ jera.Text.ToString()+"'";                        
+                                jera.Text = datos.GetValue(valor).ToString();                                             
+                                */
+                                break;
+                            case 7:
+                                //Lista
+                                ComboBox lista = (ComboBox)(componentes[i]);
+                                lista.SelectedItem = datos.GetValue(valor).ToString();
+                                break;
+                            default:
+                                //Soy una etiqueta, no hago nada :p
+                                break;
+                        }
+                        valor++;
+                    }
+                } //fin for nombres
+            }
+        
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

@@ -160,8 +160,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Otros_recursos\SQL Server EXTERNA.txt" />
-    <Content Include="Otros_recursos\tablas SQL Server ECCI.txt" />
+    <Content Include="Otros_recursos\tablas Ejecutor.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

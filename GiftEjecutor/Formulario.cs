@@ -234,14 +234,14 @@ namespace GiftEjecutor
             return nombre;
         }
 
-        public void ejecutarConsultaConfigurador(String consulta)
+        public SqlDataReader ejecutarConsultaConfigurador(String consulta)
         {
-            consultaBD.ejecutarConsultaConfigurador(consulta);
+            return consultaBD.ejecutarConsultaConfigurador(consulta);
         }
 
-        public void ejecutarConsultaEjecutor(String consulta)
+        public SqlDataReader ejecutarConsultaEjecutor(String consulta)
         {
-            consultaBD.ejecutarConsultaEjecutor(consulta);
+            return consultaBD.ejecutarConsultaEjecutor(consulta);
         }
     }
 }

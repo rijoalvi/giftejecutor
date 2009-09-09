@@ -7,14 +7,14 @@ namespace GiftEjecutor
 {
     class ConsultaFormulario : Consulta
     {
-        public void ejecutarConsultaConfigurador(String consulta)
+        public SqlDataReader ejecutarConsultaConfigurador(String consulta)
         {
-            this.controladoBD.hacerConsultaConfigurador(consulta);
+            return this.controladoBD.hacerConsultaConfigurador(consulta);
         }
 
-        public void ejecutarConsultaEjecutor(String consulta)
+        public SqlDataReader ejecutarConsultaEjecutor(String consulta)
         {
-            this.controladoBD.hacerConsultaEjecutor(consulta);
+            return this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
         public object getDatosFormulario(int IDForm)

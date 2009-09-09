@@ -19,11 +19,6 @@ namespace GiftEjecutor
         }
 
         public void construirTablas(String IDWorkflow) {
-        
-            //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
-            //puede ser crear un string dnd cada ';' sea un nuevo form
-
-            //Esto es temporeal, el parametro dbe pasar el ID del workflow...
             String[] IDsFormularios = buscarFormularios(IDWorkflow);
             String nombreFormulario = "";
             
@@ -37,35 +32,7 @@ namespace GiftEjecutor
                     //Busca el nombre del formulario y lo agrega a la consulta
                     nombreFormulario = consultaBD.getNombreFormulario(IDsFormularios[i]);
                     consultaCreaTabla += nombreFormulario;
-                    /*if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona) //MYSQL
-                    {
-                        consultaCreaTabla += "( correlativo int auto_increment NOT NULL, ";
-                    }
-                    else
-                    {
-                        if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona) //SQLServer
-                        {*/
-                            consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
-                   //     }
-                   // }
-
-                    /*
-                    //crea un campo para poder almacenar la llave foranea a aquellos q son form maestros
-                    consultaCreaTabla += "formularioDetalle int ";
-                    //Revisa si es maestro de algun detalle
-                    String IDFormDetalle = consultaBD.soyMaestro(IDsFormularios[i]);
-                    if (IDFormDetalle != null)
-                    {
-                        //pone el valor del detalle cmo default
-                        consultaCreaTabla += "NOT NULL DEFAULT '" + IDFormDetalle + "', ";
-                    }
-                    else
-                    {
-                        //nada mas va a dejar el campo vacio 
-                        consultaCreaTabla += ", ";
-                    }
-                    */
-
+                    consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
 
                     /*
                     //AQUI VOY A BUSCAR LOS ELEM SIMETRICOS
@@ -93,10 +60,8 @@ namespace GiftEjecutor
                             consulta = "insert into RELACIONESSIMETRICAS (idFormulario1, idFormulario2, idRelacionConfigurador) VALUES ('" + correlativo1 + "','" + correlativo2 + "','" + relaciones[temp][2] + "')'")";
                         }
                         consultaBD.agregarRelacionSimetrica(consulta);
-                     }
-                    
+                     }                    
                     */
-
 
                     //busca el ID y nombre de los tipos de campo
                     String[] IDsTiposCampo = buscarTiposCampoDelFormulario(IDsFormularios[i]);
@@ -105,7 +70,8 @@ namespace GiftEjecutor
                         //Si es de tipo numero
                         if (IDsTiposCampo[j + 1] != null)
                         {
-                            switch(int.Parse(IDsTiposCampo[j+1])){
+                            switch (int.Parse(IDsTiposCampo[j + 1]))
+                            {
                                 case 1: //numero
                                     consultaCreaTabla += IDsTiposCampo[j] + " int, ";
                                     break;
@@ -114,11 +80,7 @@ namespace GiftEjecutor
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(6), ";
                                     break;
                                 case 3: //FechaHora
-                                    //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                                        consultaCreaTabla += IDsTiposCampo[j] + " SMALLDATETIME, ";
-                                   // else
-                                    //    if(ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                                    //        consultaCreaTabla += IDsTiposCampo[j] + " TIMESTAMP, ";
+                                    consultaCreaTabla += IDsTiposCampo[j] + " SMALLDATETIME, ";
                                     break;
                                 case 4: //Texto
                                     int tamanoTexto = consultaBD.getLongitudDeTexto(IDsTiposCampo[j + 2]);
@@ -131,23 +93,28 @@ namespace GiftEjecutor
                                     //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
                                     int tamañoPath = 100;
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + tamañoPath + "), ";
-                                    break; 
+                                    break;
                                 case 7: //Lista
                                     int size = 30;
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + size + "), ";
                                     break;
                             }
-                        }                        
-                        j+=2; //pasa al inicio del sig miembroFormulario
-                    } //fin for
-                    
+                        }
+                        j += 2; //pasa al inicio del sig miembroFormulario
+                    } //fin for TIPOS CAMPO
+
+                    //Si es detalle se agrega un campo de llave foranea
+                    if (consultaBD.soyDetalle(IDsFormularios[i]))
+                    {
+                        consultaCreaTabla += "IDMaestro int, ";
+                    }
                     //se termina la expresion para crear la tabla.
                     consultaCreaTabla += "PRIMARY KEY (correlativo) );";
                     Console.WriteLine("VOY A CREAR! " + consultaCreaTabla);
                     consultaBD.crearTablaFormulario(consultaCreaTabla);
                     MessageBox.Show("Se acaba de crear la tabla correspondiente para el formulario " + nombreFormulario + "! ", "Aviso");
                 }
-            } //fin for
+            } //fin for FORMULARIOS
         /* */
         }
 
@@ -171,24 +138,12 @@ namespace GiftEjecutor
             tabla.Columns.Add(IDFormulario);
             if (datos != null)
             {
-                //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                //{
-                    while (((SqlDataReader)(datos)).Read())
-                    {
-                        fila = tabla.NewRow();
-                        fila["IDFormulario"] = ((SqlDataReader)(datos)).GetValue(0);
-                        tabla.Rows.Add(fila);
-                    }
-               // }
-               /* if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
+                while (((SqlDataReader)(datos)).Read())
                 {
-                    while (((MySqlDataReader)(datos)).Read())
-                    {
-                        fila = tabla.NewRow();
-                        fila["IDFormulario"] = ((MySqlDataReader)(datos)).GetValue(0);
-                        tabla.Rows.Add(fila);
-                    }
-                }*/
+                    fila = tabla.NewRow();
+                    fila["IDFormulario"] = ((SqlDataReader)(datos)).GetValue(0);
+                    tabla.Rows.Add(fila);
+                }
             }
             Console.WriteLine("count = "+ tabla.Rows.Count);
             String[] IDs = new String[tabla.Rows.Count];
@@ -245,32 +200,14 @@ namespace GiftEjecutor
             tabla.Columns.Add(IDCampo);
             if (datos != null)
             {
-                Console.WriteLine("entre");
-               // if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-               // {
-                    while (datos.Read())
-                    {
-                        fila = tabla.NewRow();
-                        fila["NombreTipoCampo"] = datos.GetValue(0); 
-                        fila["IDTipoCampo"] = datos.GetValue(1);                        
-                        fila["IDCampo"] = datos.GetValue(2);
-                        tabla.Rows.Add(fila);
-                    }
-               // }
-               /* else
+                while (datos.Read())
                 {
-                    if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                    {
-                        while (((MySqlDataReader)(datos)).Read())
-                        {
-                            fila = tabla.NewRow();
-                            fila["NombreTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(0);
-                            fila["IDTipoCampo"] = ((MySqlDataReader)(datos)).GetValue(1);
-                            fila["IDCampo"] = ((MySqlDataReader)(datos)).GetValue(2);
-                            tabla.Rows.Add(fila);
-                        }
-                    }
-                }*/
+                    fila = tabla.NewRow();
+                    fila["NombreTipoCampo"] = datos.GetValue(0);
+                    fila["IDTipoCampo"] = datos.GetValue(1);
+                    fila["IDCampo"] = datos.GetValue(2);
+                    tabla.Rows.Add(fila);
+                }               
             }
 
             ////////pasa del dataTable a un array de strings
@@ -291,7 +228,7 @@ namespace GiftEjecutor
                 valores[(i * 3) + 1] = tabla.Rows[i]["IDTipoCampo"].ToString();
                 valores[(i * 3) + 2] = tabla.Rows[i]["IDCampo"].ToString();
                 Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);
-                i += 3;
+                i += 1;
             }
             ///////////////////
 
