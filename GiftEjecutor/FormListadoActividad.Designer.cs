@@ -60,6 +60,7 @@ namespace GiftEjecutor
             this.buttonEjecutarActividad.TabIndex = 2;
             this.buttonEjecutarActividad.Text = "EjecutarActividad";
             this.buttonEjecutarActividad.UseVisualStyleBackColor = true;
+            this.buttonEjecutarActividad.Click += new System.EventHandler(this.buttonEjecutarActividad_Click_1);
             // 
             // FormListadoActividad
             // 

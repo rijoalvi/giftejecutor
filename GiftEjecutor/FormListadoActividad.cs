@@ -49,9 +49,17 @@ namespace GiftEjecutor
             //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
             mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
             mensajeTemporal += actividadAEjecutar.ToString();
+
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            formActividad.Show();
         }
 
         private void dataGridActividad_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonEjecutarActividad_Click_1(object sender, EventArgs e)
         {
 
         }

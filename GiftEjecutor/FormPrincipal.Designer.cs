@@ -39,6 +39,7 @@ namespace GiftEjecutor
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonActividad = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,12 +60,13 @@ namespace GiftEjecutor
             this.módulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.constructorToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
-
+            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
             // 
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
@@ -135,11 +137,22 @@ namespace GiftEjecutor
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
+            // buttonActividad
+            // 
+            this.buttonActividad.Location = new System.Drawing.Point(218, 202);
+            this.buttonActividad.Name = "buttonActividad";
+            this.buttonActividad.Size = new System.Drawing.Size(75, 23);
+            this.buttonActividad.TabIndex = 8;
+            this.buttonActividad.Text = "Actividad";
+            this.buttonActividad.UseVisualStyleBackColor = true;
+            this.buttonActividad.Click += new System.EventHandler(this.buttonActividad_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 266);
+            this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
@@ -174,5 +187,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonActividad;
     }
 }
