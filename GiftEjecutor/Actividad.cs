@@ -34,6 +34,11 @@ namespace GiftEjecutor
         {
             return this.ID;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="IDExpediente"></param>
         public void setIDExpediente(int IDExpediente)
         {
             this.IDExpediente = IDExpediente;

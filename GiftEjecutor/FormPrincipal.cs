@@ -20,6 +20,7 @@ namespace GiftEjecutor
          * static final int INCREMENTAL = 5;         
          * static final int JERARQUIA = 6
          * static final int LISTA = 7;
+         * Hola muchachos!!!
          */
 
         public FormPrincipal()

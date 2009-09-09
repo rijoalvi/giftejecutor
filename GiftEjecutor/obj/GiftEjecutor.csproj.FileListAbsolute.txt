@@ -88,3 +88,17 @@ C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\ob
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
