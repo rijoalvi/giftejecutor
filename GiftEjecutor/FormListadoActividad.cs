@@ -37,6 +37,17 @@ namespace GiftEjecutor
         private void buttonEjecutarActividad_Click(object sender, EventArgs e)
         {
             MessageBox.Show(mensajeTemporal);
+            this.buttonEjecutarActividad.Enabled = true;
+            Actividad actividadAEjecutar = new Actividad();
+            int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
+            actividadAEjecutar.setAtributosSegunID(IDActividad);
+            actividadAEjecutar.setIDExpediente(this.IDExpediente);
+            //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
+            mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
+            mensajeTemporal += actividadAEjecutar.ToString();
+
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            formActividad.Show();
         }
 
         private void dataGridActividad_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -56,12 +67,37 @@ namespace GiftEjecutor
 
         private void dataGridActividad_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.buttonEjecutarActividad.Enabled = true;
+            Actividad actividadAEjecutar = new Actividad();
+            int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
+            actividadAEjecutar.setAtributosSegunID(IDActividad);
+            actividadAEjecutar.setIDExpediente(this.IDExpediente);
+            //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
+            mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
+            mensajeTemporal += actividadAEjecutar.ToString();
 
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            formActividad.Show();
         }
 
         private void buttonEjecutarActividad_Click_1(object sender, EventArgs e)
         {
+            this.buttonEjecutarActividad.Enabled = true;
+            Actividad actividadAEjecutar = new Actividad();
+            int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
+            actividadAEjecutar.setAtributosSegunID(IDActividad);
+            actividadAEjecutar.setIDExpediente(this.IDExpediente);
+            //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
+            mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
+            mensajeTemporal += actividadAEjecutar.ToString();
 
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            formActividad.Show();
+        }
+
+        private void dataGridActividad_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            this.buttonEjecutarActividad.Enabled = true;
         }
     }
 }

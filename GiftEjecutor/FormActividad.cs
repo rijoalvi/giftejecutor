@@ -13,6 +13,8 @@ namespace GiftEjecutor
         string mensajeTemporal="------";
         int IDActividad;
         int IDExpediente;
+        Comando comandoAEjecutar;
+
         public FormActividad()
         {
             InitializeComponent();
@@ -20,7 +22,9 @@ namespace GiftEjecutor
         public FormActividad(int IDActividad, int IDExpediente)
         {
 
-            InitializeComponent();
+            InitializeComponent();            
+
+
             this.IDActividad = IDActividad;
             this.IDExpediente = IDExpediente;
             ActividadSimple actividadSimple = new ActividadSimple();
@@ -32,6 +36,7 @@ namespace GiftEjecutor
         {
             this.cargarDataGridComandos();
         }
+
         private void cargarDataGridComandos() {
             Comando comando = new Comando();
             this.dataGridComandos.DataSource = comando.getDataTableComandosPorIDActividad(this.IDActividad);
@@ -40,13 +45,22 @@ namespace GiftEjecutor
 
         private void buttonEjecutarComando_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(mensajeTemporal);
+            //MessageBox.Show(mensajeTemporal);
+            if(comandoAEjecutar.getID() == 23){
+            FormFormulario formFormulario = new FormFormulario(3);
+            formFormulario.Show();
+                }
+                else {
+                    FormFormulario formFormulario = new FormFormulario(3, 1);
+                    formFormulario.Show();
+            
+                }
         }
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.buttonEjecutarComando.Enabled = true;
-            Comando comandoAEjecutar =new Comando();
+            this.comandoAEjecutar =new Comando();
             int IDComando = System.Int32.Parse( this.dataGridComandos[0, this.dataGridComandos.CurrentRow.Index].Value.ToString());
             comandoAEjecutar.setAtributosSegunID(IDComando);
             comandoAEjecutar.setIDExpediente(this.IDExpediente);

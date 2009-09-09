@@ -50,6 +50,7 @@ namespace GiftEjecutor
             this.dataGridActividad.Name = "dataGridActividad";
             this.dataGridActividad.Size = new System.Drawing.Size(617, 150);
             this.dataGridActividad.TabIndex = 1;
+            this.dataGridActividad.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActividad_CellClick_1);
             // 
             // buttonEjecutarActividad
             // 

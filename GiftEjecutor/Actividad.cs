@@ -58,7 +58,7 @@ namespace GiftEjecutor
                     this.ID = System.Int32.Parse(datosActividad.GetValue(0).ToString());
                     this.nombre = datosActividad.GetValue(1).ToString();
                     this.descripcion = datosActividad.GetValue(2).ToString();
-                    this.tipo = System.Int32.Parse(datosActividad.GetValue(3).ToString());
+                    //this.tipo = System.Int32.Parse(datosActividad.GetValue(3).ToString());
                     this.nombreTipo = this.getTipo(this.tipo.ToString());
                     //this.fechaActualizacion = datosActividad.GetValue(5);
                 }
