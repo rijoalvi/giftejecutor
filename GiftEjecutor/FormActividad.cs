@@ -19,9 +19,14 @@ namespace GiftEjecutor
         }
         public FormActividad(int IDActividad, int IDExpediente)
         {
+
+            InitializeComponent();
             this.IDActividad = IDActividad;
             this.IDExpediente = IDExpediente;
-            InitializeComponent();
+            ActividadSimple actividadSimple = new ActividadSimple();
+            actividadSimple.setAtributosPorID(this.IDActividad);
+            this.textBoxDescripcion.Text = actividadSimple.descripcion;
+            this.textBoxNombre.Text = actividadSimple.nombre;
         }
         private void FormActividad_Load(object sender, EventArgs e)
         {

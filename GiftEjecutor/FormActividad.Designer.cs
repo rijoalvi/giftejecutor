@@ -28,20 +28,23 @@ namespace GiftEjecutor
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.dataGridComandos = new System.Windows.Forms.DataGridView();
             this.buttonEjecutarComando = new System.Windows.Forms.Button();
+            this.labelDescripción = new System.Windows.Forms.Label();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComandos)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Location = new System.Drawing.Point(49, 9);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.TabIndex = 0;
+            this.labelNombre.Text = "Nombre";
             // 
             // dataGridComandos
             // 
@@ -63,14 +66,42 @@ namespace GiftEjecutor
             this.buttonEjecutarComando.UseVisualStyleBackColor = true;
             this.buttonEjecutarComando.Click += new System.EventHandler(this.buttonEjecutarComando_Click);
             // 
+            // labelDescripción
+            // 
+            this.labelDescripción.AutoSize = true;
+            this.labelDescripción.Location = new System.Drawing.Point(49, 44);
+            this.labelDescripción.Name = "labelDescripción";
+            this.labelDescripción.Size = new System.Drawing.Size(63, 13);
+            this.labelDescripción.TabIndex = 3;
+            this.labelDescripción.Text = "Descripción";
+            // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Location = new System.Drawing.Point(138, 13);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.ReadOnly = true;
+            this.textBoxNombre.Size = new System.Drawing.Size(162, 20);
+            this.textBoxNombre.TabIndex = 4;
+            // 
+            // textBoxDescripcion
+            // 
+            this.textBoxDescripcion.Location = new System.Drawing.Point(138, 44);
+            this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.ReadOnly = true;
+            this.textBoxDescripcion.Size = new System.Drawing.Size(162, 20);
+            this.textBoxDescripcion.TabIndex = 5;
+            // 
             // FormActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 298);
+            this.Controls.Add(this.textBoxDescripcion);
+            this.Controls.Add(this.textBoxNombre);
+            this.Controls.Add(this.labelDescripción);
             this.Controls.Add(this.buttonEjecutarComando);
             this.Controls.Add(this.dataGridComandos);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNombre);
             this.Name = "FormActividad";
             this.Text = "Actividad";
             this.Load += new System.EventHandler(this.FormActividad_Load);
@@ -82,8 +113,11 @@ namespace GiftEjecutor
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.DataGridView dataGridComandos;
         private System.Windows.Forms.Button buttonEjecutarComando;
+        private System.Windows.Forms.Label labelDescripción;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.TextBox textBoxDescripcion;
     }
 }
