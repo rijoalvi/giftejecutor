@@ -154,7 +154,7 @@ namespace GiftEjecutor
             String[] valores = {"correlativo", "nombre", "valX", "valY", "ancho", "alto", "tipoLetra", "color", "tamanoLetra", "IDTipoCampo", "IDCampo", "tabIndex", "estiloLetra"};
             for(int i = 0; i < 13; ++i){
                 miembro[i] = miembrosFormulario.Rows[index][valores[i]].ToString();                
-                Console.WriteLine(miembro[i]);
+                //Console.WriteLine(miembro[i]);
             }
 
             return miembro;
@@ -234,5 +234,14 @@ namespace GiftEjecutor
             return nombre;
         }
 
+        public void ejecutarConsultaConfigurador(String consulta)
+        {
+            consultaBD.ejecutarConsultaConfigurador(consulta);
+        }
+
+        public void ejecutarConsultaEjecutor(String consulta)
+        {
+            consultaBD.ejecutarConsultaEjecutor(consulta);
+        }
     }
 }

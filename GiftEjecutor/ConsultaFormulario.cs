@@ -7,6 +7,15 @@ namespace GiftEjecutor
 {
     class ConsultaFormulario : Consulta
     {
+        public void ejecutarConsultaConfigurador(String consulta)
+        {
+            this.controladoBD.hacerConsultaConfigurador(consulta);
+        }
+
+        public void ejecutarConsultaEjecutor(String consulta)
+        {
+            this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
 
         public object getDatosFormulario(int IDForm)
         {
@@ -63,11 +72,11 @@ namespace GiftEjecutor
 
         public String getNombreFormulario(int IDForm)
         {
-            String consulta = "SELECT nombre FROM FORMULARIO WHERE correlativo = " + IDCampo;
+            String consulta = "SELECT nombre FROM FORMULARIO WHERE correlativo = " + IDForm;
             SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
             if (dato.Read())
                 return dato.GetValue(0).ToString();
-            return -1;
+            return null;
         }
     }
 }

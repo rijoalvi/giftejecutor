@@ -46,7 +46,6 @@ namespace GiftEjecutor
                                 "FROM FORMULARIO, MIEMBROFORMULARIO " +
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '" + IDFormulario + "' " +
                                 "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
             return datos;            
         }
@@ -56,7 +55,6 @@ namespace GiftEjecutor
             string strConsulta = "SELECT FORMULARIO.nombre " +
                                 "FROM FORMULARIO " +
                                 "WHERE FORMULARIO.correlativo = '" + IDFormulario + "' ;";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
             datos.Read();
             String nombre = datos.GetValue(0).ToString();
@@ -110,26 +108,10 @@ namespace GiftEjecutor
         {
             String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
                             "where IDFormularioMaestro = '" + IDFormulario + "';";
-            //NO SE ARREGLAR ESTO
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
             datos.Read();
             String IDFormDetalle = datos.GetValue(0).ToString();
             return IDFormDetalle;
         }
-
-        /*public static ConsultaConstructorTablasFormularios getInstancia()
-        {
-            ConsultaConstructorTablasFormularios consultaTablasFormularioSeleccionado = null;
-            if (ControladorBD.conexionSelecciona == ControladorBD.SQLSERVER)
-            {
-                consultaTablasFormularioSeleccionado = new ConsultaConstructorTablasFormulariosSQLServer();
-            }
-            if (ControladorBD.conexionSelecciona == ControladorBD.MYSQL)
-            {
-                consultaTablasFormularioSeleccionado = new ConsultaConstructorTablasFormulariosMySQL();
-            }
-            return consultaTablasFormularioSeleccionado;
-        }*/
-
     }
 }

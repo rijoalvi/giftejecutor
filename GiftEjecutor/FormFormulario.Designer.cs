@@ -50,6 +50,7 @@ namespace GiftEjecutor
             this.botonCancelar.TabIndex = 1;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // FormFormulario
             // 
