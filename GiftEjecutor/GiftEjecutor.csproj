@@ -40,11 +40,13 @@
   <ItemGroup>
     <Compile Include="Actividad.cs" />
     <Compile Include="ActividadSimple.cs" />
+    <Compile Include="Coleccion.cs" />
     <Compile Include="Comando.cs" />
     <Compile Include="ConfiguracionProyecto.cs" />
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaActividadSimple.cs" />
+    <Compile Include="ConsultaColeccion.cs" />
     <Compile Include="ConsultaComando.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs">
       <SubType>Code</SubType>
@@ -91,6 +93,12 @@
     <Compile Include="FormFormulario.Designer.cs">
       <DependentUpon>FormFormulario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNuevaColeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevaColeccion.Designer.cs">
+      <DependentUpon>FormNuevaColeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +132,10 @@
     <EmbeddedResource Include="FormFormulario.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevaColeccion.resx">
+      <DependentUpon>FormNuevaColeccion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <SubType>Designer</SubType>

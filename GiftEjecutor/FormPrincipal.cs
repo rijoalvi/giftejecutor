@@ -80,6 +80,24 @@ namespace GiftEjecutor
             formListadoActividad.Show();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Coleccion coleccion = new Coleccion("raiz"/*, 0*/);
+            TreeNode nodo;
+            nodo = this.directorio.Nodes.Add("Raiz");
+            String[] hijas = coleccion.coleccionesHijas();
+            for (int i = 0; i < hijas.Length; i++)
+            {
+                nodo.Nodes.Add(hijas[i]);
+            }
+        }
+
+        private void agregarColeccionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNuevaColeccion nuevaColeccion = new FormNuevaColeccion(this);
+            nuevaColeccion.Show();
+        }
+
         /*private void button3_Click(object sender, EventArgs e)
         {
             int IDExpediente = 999;

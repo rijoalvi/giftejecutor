@@ -88,6 +88,10 @@ C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\ob
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+<<<<<<< .mine
+C:\Documents and Settings\ea61521\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea61521\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+=======
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
@@ -102,3 +106,4 @@ C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecuto
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+>>>>>>> .r45
