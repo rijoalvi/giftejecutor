@@ -54,6 +54,7 @@ namespace GiftEjecutor
             this.dataGridComandos.Size = new System.Drawing.Size(617, 150);
             this.dataGridComandos.TabIndex = 1;
             this.dataGridComandos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellClick);
+            this.dataGridComandos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellContentClick);
             // 
             // buttonEjecutarComando
             // 

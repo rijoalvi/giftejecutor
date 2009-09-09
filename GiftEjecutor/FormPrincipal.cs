@@ -70,5 +70,13 @@ namespace GiftEjecutor
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int IDExpediente = 999;
+            int IDFlujo = 2;
+            FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente);
+            formListadoActividad.Show();
+        }
     }
 }
