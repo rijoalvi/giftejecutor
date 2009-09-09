@@ -85,3 +85,6 @@ C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\bi
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources

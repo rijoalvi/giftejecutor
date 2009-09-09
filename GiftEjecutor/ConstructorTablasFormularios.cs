@@ -228,7 +228,7 @@ namespace GiftEjecutor
                 valores[(i * 3) + 1] = tabla.Rows[i]["IDTipoCampo"].ToString();
                 valores[(i * 3) + 2] = tabla.Rows[i]["IDCampo"].ToString();
                 Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);
-                i += 1;
+                i += 3;
             }
             ///////////////////
 
