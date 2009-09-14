@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
-    public partial class FormNuevaColeccion : Form
+    public partial class FormNuevoExpediente : Form
     {
         Form formPrincipal;
-        int correlativoPadre;
-        public FormNuevaColeccion(Form principal, String correlativoPadre)
+        int correlativoColeccion;
+        public FormNuevoExpediente(Form principal, String correlativoColeccion)
         {
-            this.correlativoPadre = int.Parse(correlativoPadre);
+            this.correlativoColeccion = int.Parse(correlativoColeccion);
             this.formPrincipal = principal;
             InitializeComponent();
         }
@@ -32,8 +32,8 @@ namespace GiftEjecutor
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre);
-            coleccion.crearColeccion();
+            Expediente expediente = new Expediente(this.txtNombre.Text,correlativoColeccion);
+            expediente.crearExpediente();
             this.Close();
         }
 

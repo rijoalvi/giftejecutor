@@ -30,6 +30,8 @@ namespace GiftEjecutor
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarColeccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.módulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,8 +42,7 @@ namespace GiftEjecutor
             this.buttonActividad = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarColeccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarExpedienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,6 +59,22 @@ namespace GiftEjecutor
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarColeccionToolStripMenuItem,
+            this.agregarExpedienteToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // agregarColeccionToolStripMenuItem
+            // 
+            this.agregarColeccionToolStripMenuItem.Name = "agregarColeccionToolStripMenuItem";
+            this.agregarColeccionToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.agregarColeccionToolStripMenuItem.Text = "Agregar Coleccion";
+            this.agregarColeccionToolStripMenuItem.Click += new System.EventHandler(this.agregarColeccionToolStripMenuItem_Click);
+            // 
             // módulosToolStripMenuItem
             // 
             this.módulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -69,7 +86,7 @@ namespace GiftEjecutor
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
@@ -152,21 +169,14 @@ namespace GiftEjecutor
             this.directorio.Name = "directorio";
             this.directorio.Size = new System.Drawing.Size(208, 242);
             this.directorio.TabIndex = 10;
+            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             // 
-            // archivoToolStripMenuItem
+            // agregarExpedienteToolStripMenuItem
             // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarColeccionToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // agregarColeccionToolStripMenuItem
-            // 
-            this.agregarColeccionToolStripMenuItem.Name = "agregarColeccionToolStripMenuItem";
-            this.agregarColeccionToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.agregarColeccionToolStripMenuItem.Text = "Agregar Coleccion";
-            this.agregarColeccionToolStripMenuItem.Click += new System.EventHandler(this.agregarColeccionToolStripMenuItem_Click);
+            this.agregarExpedienteToolStripMenuItem.Name = "agregarExpedienteToolStripMenuItem";
+            this.agregarExpedienteToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.agregarExpedienteToolStripMenuItem.Text = "AgregarExpediente";
+            this.agregarExpedienteToolStripMenuItem.Click += new System.EventHandler(this.agregarExpedienteToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -211,5 +221,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.TreeView directorio;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
     }
 }

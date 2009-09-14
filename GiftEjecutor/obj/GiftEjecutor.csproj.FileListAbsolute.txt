@@ -88,10 +88,8 @@ C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\ob
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-<<<<<<< .mine
 C:\Documents and Settings\ea61521\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
 C:\Documents and Settings\ea61521\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-=======
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
@@ -106,4 +104,81 @@ C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecuto
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
 C:\Documents and Settings\ea60289\Desktop\tmp\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
->>>>>>> .r45
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea63183\Desktop\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+I:\TOTAN\II SEM\Inge 2\12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrador\Escritorio\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+I:\TOTAN\II SEM\Inge 2\TOTAN 12 sep\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\bin\Debug\GiftEjecutor.pdb

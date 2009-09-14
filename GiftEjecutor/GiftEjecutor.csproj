@@ -56,6 +56,14 @@
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaActividad.cs" />
+    <Compile Include="ConsultaExpediente.cs" />
+    <Compile Include="Expediente.cs" />
+    <Compile Include="FormNuevoExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoExpediente.Designer.cs">
+      <DependentUpon>FormNuevoExpediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormListadoActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +121,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormNuevoExpediente.resx">
+      <DependentUpon>FormNuevoExpediente.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormListadoActividad.resx">
       <DependentUpon>FormListadoActividad.cs</DependentUpon>
       <SubType>Designer</SubType>
