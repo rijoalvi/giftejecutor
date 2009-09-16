@@ -9,10 +9,16 @@ namespace GiftEjecutor
     class FlujoTrabajo
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
+
         public FlujoTrabajo() {
 
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
         }
+
+        /// <summary>
+        /// Devuelve un dataTable con todos los flujos creados en el configurador
+        /// </summary>
+        /// <returns></returns>
         public DataTable getDataTableTodosLosFlujosDeTrabajo()
         {
             SqlDataReader datos;
@@ -36,21 +42,86 @@ namespace GiftEjecutor
             tabla.Columns.Add(IDFlujo);
             tabla.Columns.Add(nombre);
             tabla.Columns.Add(descripcion);
-
-            //System.Console.Write("(" + datos.GetType() + ")");
-
-
             if (datos != null){
                 while (datos.Read())
                 {
                     fila = tabla.NewRow();
-                    fila["IDFlujo"] = ((SqlDataReader)(datos)).GetValue(0);//el nueve tiene la cantidad
-                    fila["nombre"] = ((SqlDataReader)(datos)).GetValue(1);
-                    fila["descripcion"] = ((SqlDataReader)(datos)).GetValue(2).ToString();
+                    fila["IDFlujo"] = datos.GetValue(0);
+                    fila["nombre"] = datos.GetValue(1);
+                    fila["descripcion"] = datos.GetValue(2).ToString();
                     tabla.Rows.Add(fila);
                 }
             }
             return tabla;
+        }
+
+        /// <summary>
+        /// Devuelve una tabla con los flujos ya construidos
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getFlujosConstruidos() {
+            DataTable todosFlujos = getDataTableTodosLosFlujosDeTrabajo();            
+
+            SqlDataReader datos;
+            datos = consultaFlujoTrabajo.getFlujosConstruidos();
+            String[] idsFlujosConstruidos = new String[todosFlujos.Rows.Count];
+            if (datos != null)
+            {
+                int cant = 0;
+                while (datos.Read())
+                {
+                    idsFlujosConstruidos[cant] = datos.GetValue(0).ToString();
+                    cant++;                    
+                }
+            }
+            //Va recorriendo todos los flujos existentes
+            for (int k = todosFlujos.Rows.Count - 1; k >= 0; --k)
+            {
+                String idTemp = todosFlujos.Rows[k]["IDFlujo"].ToString();
+                bool construido = false;
+                //Elimina los valores que no fueron construidos
+                for (int i = 0; i < idsFlujosConstruidos.Length; ++i)
+                {
+                    if (idTemp == idsFlujosConstruidos[i])
+                    {
+                        construido = true;
+                        i = idsFlujosConstruidos.Length;
+                    }
+                }
+                //Si no fue construido se elimina
+                if (!construido)
+                    todosFlujos.Rows[k].Delete();
+            }
+            return todosFlujos;        
+        }
+
+        /// <summary>
+        /// Devuelve un dataTable con la informacion de los flujos que no han sido construidos todavia
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getFlujosSinConstruir()
+        {
+            DataTable todosFlujos = getDataTableTodosLosFlujosDeTrabajo();
+
+            SqlDataReader datos;
+            datos = consultaFlujoTrabajo.getFlujosConstruidos();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    //Lee el ID del flujo construido
+                    String idConstruido = datos.GetValue(0).ToString();
+                    for (int i = todosFlujos.Rows.Count - 1; i >= 0; --i)
+                    {
+                        //Cuando lo encuentra en la tabla, lo elimina
+                        if (idConstruido == todosFlujos.Rows[i]["IDFlujo"].ToString())
+                        {
+                            todosFlujos.Rows[i].Delete();
+                        }
+                    }
+                }                        
+            }
+            return todosFlujos;    
         }
     }
 }

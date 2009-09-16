@@ -185,9 +185,18 @@ namespace GiftEjecutor
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos();
+            flujosConstruidos.Show();
+
+            //OJO!!!!!!!
+            //ESTO NO VA AQUI!
+            //Primero se escoje cual flujo quiere ejecutar, y desp se le pide a cual coleccion quiere agregarlo
+            /*
             FormNuevoExpediente nuevaColeccion = new FormNuevoExpediente(this, this.directorio.SelectedNode.Name);
             nuevaColeccion.Show();
+            */ 
         }
+
 
       /*  private void directorio_Click(object sender, EventArgs e)
         {

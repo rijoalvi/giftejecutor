@@ -58,6 +58,12 @@
     <Compile Include="ConsultaActividad.cs" />
     <Compile Include="ConsultaExpediente.cs" />
     <Compile Include="Expediente.cs" />
+    <Compile Include="FormFlujosConstruidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFlujosConstruidos.Designer.cs">
+      <DependentUpon>FormFlujosConstruidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNuevoExpediente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormFlujosConstruidos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormFlujosConstruidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNuevoExpediente.resx">
       <DependentUpon>FormNuevoExpediente.cs</DependentUpon>
       <SubType>Designer</SubType>

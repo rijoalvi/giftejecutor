@@ -9,9 +9,17 @@ namespace GiftEjecutor
     class ConsultaFlujoTrabajo : Consulta
     {
 
-        public SqlDataReader getTodosLosFlujosTrabajo() {
+        public SqlDataReader getTodosLosFlujosTrabajo()
+        {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaConfigurador("select * from Flujo;");
+            dataReader = this.controladoBD.hacerConsultaConfigurador("SELECT * FROM FLUJO;");
+            return dataReader;
+        }
+
+        public SqlDataReader getFlujosConstruidos()
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("SELECT idFlujo FROM FLUJOSACTIVOS;");
             return dataReader;
         }
 

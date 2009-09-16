@@ -75,7 +75,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 322);
+            this.ClientSize = new System.Drawing.Size(524, 304);
             this.Controls.Add(this.textBoxIDFlujoTrabajo);
             this.Controls.Add(this.labelIDFlujo);
             this.Controls.Add(this.buttonConstruir);

@@ -31,6 +31,7 @@ namespace GiftEjecutor
             InitializeComponent();
             IDForm = IDFormulario;
             miFormulario = new Formulario(IDForm);
+            this.Name = miFormulario.getNombre();
             modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
             crearFormulario();
@@ -46,6 +47,7 @@ namespace GiftEjecutor
             IDForm = IDFormulario;
             IDTupla = IDdatos;
             miFormulario = new Formulario(IDForm);
+            this.Name = miFormulario.getNombre();
             modificacion = true; //xq se va a modificar una tupla, no crear una nueva
             nombresCamposTupla = new String[miFormulario.getNumMiembros()]; 
             crearFormulario();

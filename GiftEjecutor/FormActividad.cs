@@ -68,10 +68,5 @@ namespace GiftEjecutor
             mensajeTemporal = "Aquí es donde entra en acción alberto!!!!, mae me parece que aquí puede tomar todo lo que ocupa para desplegar el form y aplicarle el comando correspondiente" + '\n' + '\n';
             mensajeTemporal += comandoAEjecutar.ToString();
         }
-
-        private void dataGridComandos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -182,3 +182,7 @@ C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\o
 C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
 C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\bin\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea63183\Desktop\TOTAN 13 sep (Jessicka)\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources

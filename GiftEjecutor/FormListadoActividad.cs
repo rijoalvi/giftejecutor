@@ -13,10 +13,12 @@ namespace GiftEjecutor
         string mensajeTemporal="------";
         int IDFlujo;
         int IDExpediente;
+        
         public FormListadoActividad()
         {
             InitializeComponent();
         }
+        
         public FormListadoActividad(int IDFlujo, int IDExpediente)
         {
             this.IDFlujo = IDFlujo;
@@ -24,10 +26,12 @@ namespace GiftEjecutor
             InitializeComponent();
             this.cargarDataGridActividad();
         }
+        
         private void FormListadoActividad_Load(object sender, EventArgs e)
         {
             this.cargarDataGridActividad();
         }
+
         private void cargarDataGridActividad() {
             Actividad actividad = new Actividad();
             this.dataGridActividad.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujo);
