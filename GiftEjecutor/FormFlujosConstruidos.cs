@@ -12,13 +12,23 @@ namespace GiftEjecutor
     {
         int IDFlujoSeleccionado;
         FlujoTrabajo miFlujo;
+                /************************/        
+        //Form formPrincipal;
+        int correlativoPadre;
+        /***************************/
 
-
-        public FormFlujosConstruidos()
+        public FormFlujosConstruidos(/*Form principal,*/String correlativoPadre)
         {
             InitializeComponent();
+            /****/
+            this.correlativoPadre = int.Parse(correlativoPadre);
+            //this.formPrincipal = principal;
+            
+            /////
+            
             IDFlujoSeleccionado = -1;
             llenarDataGrid();
+            
         }
 
         /// <summary>
@@ -37,9 +47,38 @@ namespace GiftEjecutor
             IDFlujoSeleccionado = int.Parse(dataGridFlujos[fila, 0].Value.ToString());
         }
 
+        /************************/        
+
+       /* private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtNombre.Text.Length!=0)
+            {
+                this.btnAceptar.Enabled = true;
+            }
+            else {
+                this.btnAceptar.Enabled = false;
+            }
+        }*/
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre);
+            coleccion.crearColeccion();
+            this.Close();
+        }
+
+        /**************************************************************************/
+
         private void botonCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void botonCrearExpediente_Click(object sender, EventArgs e)
+        {
+
+            Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre,this.IDFlujoSeleccionado);
+            expediente.crearExpediente();
         }
     }
 }

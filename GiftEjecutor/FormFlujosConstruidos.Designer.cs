@@ -32,6 +32,8 @@ namespace GiftEjecutor
             this.dataGridFlujos = new System.Windows.Forms.DataGridView();
             this.botonCrearExpediente = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFlujos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,16 +61,17 @@ namespace GiftEjecutor
             // 
             // botonCrearExpediente
             // 
-            this.botonCrearExpediente.Location = new System.Drawing.Point(299, 220);
+            this.botonCrearExpediente.Location = new System.Drawing.Point(298, 289);
             this.botonCrearExpediente.Name = "botonCrearExpediente";
             this.botonCrearExpediente.Size = new System.Drawing.Size(75, 23);
             this.botonCrearExpediente.TabIndex = 2;
             this.botonCrearExpediente.Text = "Crear";
             this.botonCrearExpediente.UseVisualStyleBackColor = true;
+            this.botonCrearExpediente.Click += new System.EventHandler(this.botonCrearExpediente_Click);
             // 
             // botonCancelar
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(389, 220);
+            this.botonCancelar.Location = new System.Drawing.Point(388, 289);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
             this.botonCancelar.TabIndex = 3;
@@ -76,11 +79,29 @@ namespace GiftEjecutor
             this.botonCancelar.UseVisualStyleBackColor = true;
             this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(15, 249);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(269, 20);
+            this.txtNombre.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 221);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(188, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Digite el nombre del nuevo expediente";
+            // 
             // FormFlujosConstruidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 264);
+            this.ClientSize = new System.Drawing.Size(487, 348);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonCrearExpediente);
             this.Controls.Add(this.dataGridFlujos);
@@ -99,5 +120,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.DataGridView dataGridFlujos;
         private System.Windows.Forms.Button botonCrearExpediente;
         private System.Windows.Forms.Button botonCancelar;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label2;
     }
 }

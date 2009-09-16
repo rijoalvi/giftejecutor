@@ -18,3 +18,21 @@ CREATE TABLE RELACIONESSIMETRICAS(
   ultimaActualizacion		SMALLDATETIME		DEFAULT GetDATE(),
   PRIMARY KEY (correlativo)
 );
+
+--tabla: "EXPEDIENTE"
+drop TABLE EXPEDIENTE;
+CREATE TABLE EXPEDIENTE(
+  correlativo   int identity(1,1) NOT NULL,
+  IDFlujo        int NOT NULL,
+  IDColeccion int NOT NULL,
+  nombre       varchar(30) NOT NULL,
+  PRIMARY KEY (correlativo)
+);
+
+--tabla: "COLECCION"
+drop TABLE COLECCION;
+CREATE TABLE COLECCION(
+  correlativo   int identity(1,1) NOT NULL,
+  nombre       varchar(20),
+  PRIMARY KEY (correlativo) ,
+);

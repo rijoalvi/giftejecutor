@@ -9,10 +9,11 @@ namespace GiftEjecutor
    //     private String nombrePadre;
         private int correlativo;
         private int correlativoColeccion; // Correlativo del la coleccion a la que pertenece
-        private ConsultaExpediente consultaexpedinte;
+        private int IDFlujo;
+        private ConsultaExpediente consultaExpediente;
 
         public Expediente(String nombre) {
-//            consultaExpediente = new ConsultaExpediente();
+            consultaExpediente = new ConsultaExpediente();
             this.nombre = nombre;
             this.correlativo = -1;//IDCorrelativo;
         }
@@ -24,21 +25,22 @@ namespace GiftEjecutor
             this.nombrePadre = nombrePadre;
         }
         */
-        public Expediente(String nombre, int correlativoPadre)
+        public Expediente(String nombre, int correlativoPadre,int IDFlujo)
         {
-//            consultaExpediente = new ConsultaExpediente();
+            consultaExpediente = new ConsultaExpediente();
             this.nombre = nombre;
+            this.IDFlujo = IDFlujo;
             this.correlativoColeccion= correlativoPadre;
             Console.WriteLine("Correlativo Padre " + correlativoColeccion);
         }
         public void crearExpediente(){
-            //correlativo = consultaExpediente.crearExpediente(nombre, correlativoColeccion);
+            correlativo = consultaExpediente.crearExpediente(nombre, correlativoColeccion, IDFlujo);
         }
 
         public List<String[]> listarExpedientes() {
-            List<String[]> lista = new List<string[]>();
-            //return this.consultaExpediente.listarColecciones();
-            return lista;
+         
+            return this.consultaExpediente.listarExpedientes();
+            
         }
 
         public void setCorrelativoColeccion(int correlativoColeccion) {

@@ -32,7 +32,7 @@ namespace GiftEjecutor
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Expediente expediente = new Expediente(this.txtNombre.Text,correlativoColeccion);
+            Expediente expediente = new Expediente(this.txtNombre.Text,correlativoColeccion,0);
             expediente.crearExpediente();
             this.Close();
         }

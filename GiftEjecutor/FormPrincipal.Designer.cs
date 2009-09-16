@@ -69,7 +69,7 @@ namespace GiftEjecutor
             // agregarColeccionToolStripMenuItem
             // 
             this.agregarColeccionToolStripMenuItem.Name = "agregarColeccionToolStripMenuItem";
-            this.agregarColeccionToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.agregarColeccionToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.agregarColeccionToolStripMenuItem.Text = "Agregar Coleccion";
             this.agregarColeccionToolStripMenuItem.Click += new System.EventHandler(this.agregarColeccionToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@ namespace GiftEjecutor
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
