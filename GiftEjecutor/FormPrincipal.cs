@@ -40,7 +40,7 @@ namespace GiftEjecutor
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
-            
+            //refrescarDirectorio();            
         }
         
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,10 +89,40 @@ namespace GiftEjecutor
             formListadoActividad.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+        private void refrescarDirectorio() {
             directorio.Nodes.Clear();
             Coleccion coleccion = new Coleccion("Raiz"/*, 0*/);
+            TreeNode nodo = this.directorio.Nodes.Add("0", "GIFT Ejecutor");
+
+            TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
+
+            List<String[]> colecciones = coleccion.listarColecciones();
+            List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
+
+            for (int i = 0; i < colecciones.Count; i++)
+            {
+                Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
+                int correlativoPadre = int.Parse(colecciones[i][2]);
+                nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
+                nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);
+                for (int k = 0; k < expedientes.Count; k++)
+                { //correlativo, IDFlujo, IDColeccion, nombre
+                    if (int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
+                    {//si la coleccion es igual a la coleccion a la que pertenece el expediente
+                        nodo.Nodes.Add("e" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
+
+                    }
+
+                }
+            }
+        
+        }
+
+        private void botonActualizarTreeView_Click(object sender, EventArgs e)
+        {
+            refrescarDirectorio();
+            /*directorio.Nodes.Clear();
+            Coleccion coleccion = new Coleccion("Raiz"/*, 0*);
             TreeNode nodo = this.directorio.Nodes.Add("0","Raiz");
 
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
@@ -112,7 +142,7 @@ namespace GiftEjecutor
                     }
                 
                 }
-            }
+            }/*
           /*  for (int i = 0; i < hijas.Length; i++)
             {
                 nodo.Nodes.Add(hijas[i]);
@@ -124,7 +154,7 @@ namespace GiftEjecutor
 
             //int correlativoPadre = nodoBuscado[2];
             TreeNode nodoPadre = null;
-            if(nodoActual.Name==correlativoPadre){
+            if(nodoActual.Name.Equals( correlativoPadre)){
                 nodoPadre = nodoActual;
             }else if(nodoActual.Nodes.Find(correlativoPadre,false).Length>0){
                 nodoPadre = nodoActual.Nodes.Find(correlativoPadre,false)[0];
@@ -229,6 +259,11 @@ namespace GiftEjecutor
         {
             FormNuevaColeccion c = new FormNuevaColeccion(this,this.directorio.SelectedNode.Name);
             c.Show();
+        }
+
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            refrescarDirectorio();
         }
 
 
