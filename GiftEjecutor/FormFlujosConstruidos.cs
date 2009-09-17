@@ -43,8 +43,8 @@ namespace GiftEjecutor
 
         private void dataGridFlujos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int fila = dataGridFlujos.CurrentRow.Index;
-            IDFlujoSeleccionado = int.Parse(dataGridFlujos[fila, 0].Value.ToString());
+            int fila = dataGridFlujos.CurrentRow.Index;            
+            IDFlujoSeleccionado = int.Parse(dataGridFlujos[0, fila].Value.ToString());
         }
 
         /************************/        

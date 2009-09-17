@@ -55,9 +55,13 @@ namespace GiftEjecutor
             // 
             // dataGridComandos
             // 
+            this.dataGridComandos.AllowUserToAddRows = false;
+            this.dataGridComandos.AllowUserToDeleteRows = false;
+            this.dataGridComandos.AllowUserToOrderColumns = true;
             this.dataGridComandos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridComandos.Location = new System.Drawing.Point(12, 243);
             this.dataGridComandos.Name = "dataGridComandos";
+            this.dataGridComandos.ReadOnly = true;
             this.dataGridComandos.Size = new System.Drawing.Size(617, 110);
             this.dataGridComandos.TabIndex = 1;
             this.dataGridComandos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellClick);

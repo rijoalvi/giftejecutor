@@ -32,6 +32,7 @@ namespace GiftEjecutor
             this.textBoxDescripcion.Text = actividadSimple.descripcion;
             this.textBoxNombre.Text = actividadSimple.nombre;
         }
+
         private void FormActividad_Load(object sender, EventArgs e)
         {
             this.cargarDataGridComandos();
@@ -45,22 +46,33 @@ namespace GiftEjecutor
 
         private void buttonEjecutarComando_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(mensajeTemporal);
+            int fila = dataGridComandos.CurrentRow.Index;
+            String strTipo = dataGridComandos[3, fila].Value.ToString();            
+            int tipoComando = comandoAEjecutar.getTipoComando(strTipo);
+            //TEMPORALES
+            int IDFormulario = 3;
+            int IDDatos = 1;
+            //FIN TEMPS
+            FormFormulario formFormulario = new FormFormulario(IDFormulario, IDDatos, tipoComando);
+            formFormulario.Show();                            
+        
+            /* TEMPORAL
             if(comandoAEjecutar.getID() == 23){
             FormFormulario formFormulario = new FormFormulario(3);
             formFormulario.Show();
                 }
                 else {
-                    FormFormulario formFormulario = new FormFormulario(3, 1);
+                    FormFormulario formFormulario = new FormFormulario(3, 1, 2);
                     formFormulario.Show();
             
                 }
+             */ 
         }
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.buttonEjecutarComando.Enabled = true;
-            this.comandoAEjecutar =new Comando();
+            this.comandoAEjecutar = new Comando();
             int IDComando = System.Int32.Parse( this.dataGridComandos[0, this.dataGridComandos.CurrentRow.Index].Value.ToString());
             comandoAEjecutar.setAtributosSegunID(IDComando);
             comandoAEjecutar.setIDExpediente(this.IDExpediente);

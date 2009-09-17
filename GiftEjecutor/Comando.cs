@@ -140,6 +140,13 @@ namespace GiftEjecutor
                     break;
             }
         }
+
+
+        /// <summary>
+        /// Devuelve el string segun el tipo del comando
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
         private string getTipo(int tipo)
         {
             switch (tipo)
@@ -155,6 +162,24 @@ namespace GiftEjecutor
                 default:
                     return "[Mal especifícado]";
             }
+        }
+
+        /// <summary>
+        /// Recibe un string de tipo comando, y le devuelve el int del tipo
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
+        public int getTipoComando(String tipo)
+        {
+            if( tipo.Equals("Creación"))
+                return 1;
+            if( tipo.Equals("Borrado"))
+                return 2;
+            if( tipo.Equals("Actualización"))
+                return 3;
+            if( tipo.Equals("Máscara"))
+                return 4;
+            return -1;            
         }
 
 

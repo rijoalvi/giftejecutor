@@ -41,18 +41,34 @@ namespace GiftEjecutor
         /// Constructor que abre un formulario que anteriormente fue llenado
         /// </summary>
         /// <param name="IDForm"></param>
-        public FormFormulario(int IDFormulario, int IDdatos)
+        public FormFormulario(int IDFormulario, int IDdatos, int tipoComando)
         {
             InitializeComponent();
-            IDForm = IDFormulario;
-            IDTupla = IDdatos;
-            miFormulario = new Formulario(IDForm);
-            this.Name = miFormulario.getNombre();
-            modificacion = true; //xq se va a modificar una tupla, no crear una nueva
-            nombresCamposTupla = new String[miFormulario.getNumMiembros()]; 
-            crearFormulario();
-            //llena los datos al leer la tupla especifica
-            llenarFormulario();
+            switch(tipoComando){
+                case 1: //Creacion
+                    InitializeComponent();
+                    IDForm = IDFormulario;
+                    miFormulario = new Formulario(IDForm);
+                    this.Name = miFormulario.getNombre();
+                    modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
+                    nombresCamposTupla = new String[miFormulario.getNumMiembros()];
+                    crearFormulario();
+                    break;
+                case 3: //modificacion
+                    IDForm = IDFormulario;
+                    IDTupla = IDdatos;
+                    miFormulario = new Formulario(IDForm);
+                    this.Name = miFormulario.getNombre();
+                    modificacion = true; //xq se va a modificar una tupla, no crear una nueva
+                    nombresCamposTupla = new String[miFormulario.getNumMiembros()]; 
+                    crearFormulario();
+                    //llena los datos al leer la tupla especifica
+                    llenarFormulario();
+                    break;
+                default:
+                    break;
+
+            }
         }
 
         /// <summary>

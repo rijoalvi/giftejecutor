@@ -54,29 +54,10 @@ namespace GiftEjecutor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
-            tmp.construirTablas("1");
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-            FormFormulario formFormulario = new FormFormulario(3);
-            formFormulario.Show();
-        }
-              
-        private void button3_Click(object sender, EventArgs e)
-        {
-            FormFormulario formFormulario = new FormFormulario(3, 1);
-            formFormulario.Show();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             int IDExpediente = 999;
-            int IDActividad = 13;
+            int IDActividad = 1;
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
@@ -84,7 +65,7 @@ namespace GiftEjecutor
         private void buttonActividad_Click(object sender, EventArgs e)
         {
             int IDExpediente = 999;
-            int IDActividad = 9;
+            int IDActividad = 1;
             FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente);
             formListadoActividad.Show();
         }
