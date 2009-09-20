@@ -34,5 +34,18 @@ drop TABLE COLECCION;
 CREATE TABLE COLECCION(
   correlativo   int identity(1,1) NOT NULL,
   nombre       varchar(20),
-  PRIMARY KEY (correlativo) ,
+  PRIMARY KEY (correlativo)
+);
+
+--tabla "BITACORA"
+drop TABLE BITACORA;
+CREATE TABLE BITACORA(
+	correlativo		int identity(1,1) NOT NULL,
+	IDExpediente	int,
+	IDActividad		int,
+	IDComando		int,
+	ejecutada		VARCHAR(6),
+	fecha			SMALLDATETIME	DEFAULT GetDate(),
+	descripcion		VARCHAR(150),
+	PRIMARY KEY(correlativo)
 );

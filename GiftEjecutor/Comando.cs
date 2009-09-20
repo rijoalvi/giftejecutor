@@ -115,10 +115,11 @@ namespace GiftEjecutor
         /**
          * 
          * Este es el orden de los comandos a la hora de guardarlos en la base de datos:
-         * 1 - Comando de Creación
-         * 2 - Comando de Borrado
-         * 3 - COmando de Actualización
-         * 4 - Comando de Máscara    
+            1 - Comando de Crear
+            2 - Comando de Modificar
+            3 - Comando de visualizar
+            4 - Comando de borrar
+            5 - Comando con Máscara
          */
         private void setTipo(int tipo){
             switch (tipo)
@@ -127,12 +128,15 @@ namespace GiftEjecutor
                     this.nombreTipo = "Creación";
                     break;
                 case 2:
-                    this.nombreTipo = "Borrado";
-                    break;
-                case 3:
                     this.nombreTipo = "Actualización";
                     break;
+                case 3:
+                    this.nombreTipo = "Visualización";
+                    break;
                 case 4:
+                    this.nombreTipo = "Borrado";
+                    break;
+                case 5:
                     this.nombreTipo = "Máscara";
                     break;
                 default:
@@ -154,10 +158,12 @@ namespace GiftEjecutor
                 case 1:
                     return "Creación";
                 case 2:
-                    return "Borrado";
-                case 3:
                     return "Actualización";
+                case 3:
+                    return "Visualización";
                 case 4:
+                    return "Borrado";
+                case 5:
                     return "Máscara";
                 default:
                     return "[Mal especifícado]";
@@ -173,12 +179,14 @@ namespace GiftEjecutor
         {
             if( tipo.Equals("Creación"))
                 return 1;
-            if( tipo.Equals("Borrado"))
+            if (tipo.Equals("Actualización"))
                 return 2;
-            if( tipo.Equals("Actualización"))
+            if (tipo.Equals("Visualización"))
                 return 3;
-            if( tipo.Equals("Máscara"))
+            if (tipo.Equals("Borrado"))
                 return 4;
+            if (tipo.Equals("Máscara"))
+                return 5;
             return -1;            
         }
 

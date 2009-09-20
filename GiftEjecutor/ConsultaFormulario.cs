@@ -78,5 +78,20 @@ namespace GiftEjecutor
                 return dato.GetValue(0).ToString();
             return null;
         }
+
+        /// <summary>
+        /// Indica si este formularo es un maestro
+        /// </summary>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
+        public bool soyMaestro(String IDFormulario)
+        {
+            String consulta = "select IDFormularioDetalle from MAESTRODETALLE " +
+                            "where IDFormularioMaestro = '" + IDFormulario + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (datos.Read())
+                return true;
+            return false;
+        }
     }
 }

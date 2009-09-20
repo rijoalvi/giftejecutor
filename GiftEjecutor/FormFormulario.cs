@@ -19,6 +19,7 @@ namespace GiftEjecutor
      //   private System.Windows.Forms[] componentes;
         private Component[] componentes;
         private bool modificacion;
+        private bool visualizacion;
         private String[] nombresCamposTupla;
 
 
@@ -33,6 +34,7 @@ namespace GiftEjecutor
             miFormulario = new Formulario(IDForm);
             this.Name = miFormulario.getNombre();
             modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
+            visualizacion = false; //no es comando d visualizar
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
             crearFormulario();
         }
@@ -51,19 +53,34 @@ namespace GiftEjecutor
                     miFormulario = new Formulario(IDForm);
                     this.Name = miFormulario.getNombre();
                     modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
+                    visualizacion = false; //no es comando d visualizar
                     nombresCamposTupla = new String[miFormulario.getNumMiembros()];
                     crearFormulario();
                     break;
-                case 3: //modificacion
+                case 2: //modificacion
                     IDForm = IDFormulario;
                     IDTupla = IDdatos;
                     miFormulario = new Formulario(IDForm);
                     this.Name = miFormulario.getNombre();
                     modificacion = true; //xq se va a modificar una tupla, no crear una nueva
+                    visualizacion = false; //no es comando d visualizar
                     nombresCamposTupla = new String[miFormulario.getNumMiembros()]; 
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
+                    break;
+                case 3: //visualizacion
+                    IDForm = IDFormulario;
+                    IDTupla = IDdatos;
+                    miFormulario = new Formulario(IDForm);
+                    this.Name = miFormulario.getNombre();
+                    modificacion = true; //xq se va a modificar una tupla, no crear una nueva
+                    visualizacion = true; //no es comando d visualizar
+                    nombresCamposTupla = new String[miFormulario.getNumMiembros()];
+                    crearFormulario();
+                    //llena los datos al leer la tupla especifica
+                    llenarFormulario();
+                    ponerSoloLectura();
                     break;
                 default:
                     break;
@@ -223,7 +240,14 @@ namespace GiftEjecutor
             }
             else //Si se va a crear una nueva tupla
             {
-                ingresarNuevaTupla();
+                if (visualizacion)
+                {
+                    //no hace nada solo va a bitacora
+                }
+                else
+                {
+                    ingresarNuevaTupla();
+                }
             }
         }
 
@@ -437,21 +461,7 @@ namespace GiftEjecutor
             this.Visible = false;
         }
 
-        private void llenarFormulario() {            
-            /*
-            String consultaTupla = "";
-            for (int i = 0; i < nombresCamposTupla.Length; ++i) {
-                consultaTupla = "select ";
-                
-                //siempre q no sea una etiqueta
-                if (nombresCamposTupla[i] != null) {
-                    consultaTupla += nombresCamposTupla[i];
-                    if ((i + 1) < nombresCamposTupla.Length)
-                        consultaTupla += ", ";
-                }
-            }//for nombres
-            consultaTupla += " FROM " + miFormulario.getNombre() + " WHERE correlativo = " + IDTupla + ";";
-             */
+        private void llenarFormulario() {                        
             String consultaTupla = "SELECT * FROM " + miFormulario.getNombre() + " WHERE correlativo = " + IDTupla + ";";
             SqlDataReader datos = miFormulario.ejecutarConsultaEjecutor(consultaTupla);
             if(datos.Read()){ //Mientras hayan datos
@@ -471,6 +481,9 @@ namespace GiftEjecutor
                                 //Numero                        
                                 MaskedTextBox tmp = (MaskedTextBox)(componentes[i]);
                                 tmp.Text = datos.GetValue(valor).ToString();
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    tmp.ReadOnly = true;
                                 break;
                             case 2:
                                 //Binario
@@ -479,21 +492,33 @@ namespace GiftEjecutor
                                     radio.Checked = true;
                                 else
                                     radio.Checked = false;
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    radio.Enabled = false;
                                 break;
                             case 3:
                                 //FechaHora
                                 DateTimePicker fecha = (DateTimePicker)(componentes[i]);
                                 fecha.Value = ((System.DateTime)(datos.GetValue(valor)));
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    fecha.Enabled = false; 
                                 break;
                             case 4:
                                 //Texto
                                 TextBox texto = (TextBox)(componentes[i]);
                                 texto.Text = datos.GetValue(valor).ToString();
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    texto.ReadOnly = true;
                                 break;
                             case 5:
                                 //Incremental
                                 TextBox inc = (TextBox)(componentes[i]);
                                 inc.Text = datos.GetValue(valor).ToString();
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    inc.ReadOnly = true;
                                 break;
                             case 6:
                                 //Jerarquia
@@ -502,12 +527,18 @@ namespace GiftEjecutor
                                 //este no sirve!!! ->
                                 consultaTupla += jera.Name " = '"+ jera.Text.ToString()+"'";                        
                                 jera.Text = datos.GetValue(valor).ToString();                                             
-                                */
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    jera.ReadOnly = true;
+                                 */
                                 break;
                             case 7:
                                 //Lista
                                 ComboBox lista = (ComboBox)(componentes[i]);
                                 lista.SelectedItem = datos.GetValue(valor).ToString();
+                                //si es comando d visualizacion
+                                if (visualizacion)
+                                    lista.Enabled = false;
                                 break;
                             default:
                                 //Soy una etiqueta, no hago nada :p
@@ -518,6 +549,15 @@ namespace GiftEjecutor
                 } //fin for nombres
             }
         
+        }
+
+        /// <summary>
+        /// Pone todos los componentes del formulario como "no editables"
+        /// </summary>
+        private void ponerSoloLectura() {
+            for (int i = 0; i < componentes.Length; ++i) { 
+               // componentes[i].
+            }
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
