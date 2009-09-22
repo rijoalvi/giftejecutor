@@ -93,5 +93,30 @@ namespace GiftEjecutor
                 return true;
             return false;
         }
+
+        /// <summary>//luisk
+        /// Actualiza un campo de un formulario con un nuevo valor segun su correlativo
+        /// </summary>
+        /// <param name="nombreFormulario"></param>
+        /// <param name="CampoAActualizar"></param>
+        /// <param name="nuevoValor"></param>
+        /// <returns></returns>
+        public bool actualizarUnCampoSegunID(int ID, String nombreFormulario, string CampoAActualizar, string nuevoValor, string tipoCampo)
+        {
+            String consulta= "";
+            if (tipoCampo.Equals("int")) {
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "=" + nuevoValor + "  where correlativo=1;";
+            }
+            if (tipoCampo.Equals("varchar"))//porque hay que poner con comillas simples
+            {
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "='" + nuevoValor + "'  where correlativo=1;";
+            }
+
+
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if (datos.Read())
+                return true;
+            return false;
+        }
     }
 }

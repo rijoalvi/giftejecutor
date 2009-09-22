@@ -206,3 +206,5 @@ C:\Documents and Settings\ea63183\Desktop\Actualizado\GiftEjecutor\bin\Debug\Gif
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
 C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources

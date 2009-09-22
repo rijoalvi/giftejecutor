@@ -42,12 +42,14 @@
     <Compile Include="ActividadSimple.cs" />
     <Compile Include="Coleccion.cs" />
     <Compile Include="Comando.cs" />
+    <Compile Include="ComandoMascara.cs" />
     <Compile Include="ConfiguracionProyecto.cs" />
     <Compile Include="ConstructorTablasFormularios.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="ConsultaActividadSimple.cs" />
     <Compile Include="ConsultaColeccion.cs" />
     <Compile Include="ConsultaComando.cs" />
+    <Compile Include="ConsultaComandoMascara.cs" />
     <Compile Include="ConsultaConstructorTablasFormularios.cs">
       <SubType>Code</SubType>
     </Compile>
