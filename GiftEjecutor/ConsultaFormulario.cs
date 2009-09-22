@@ -94,22 +94,22 @@ namespace GiftEjecutor
             return false;
         }
 
-        /// <summary>//luisk
+        /// <summary>//luisk-
         /// Actualiza un campo de un formulario con un nuevo valor segun su correlativo
         /// </summary>
         /// <param name="nombreFormulario"></param>
         /// <param name="CampoAActualizar"></param>
         /// <param name="nuevoValor"></param>
         /// <returns></returns>
-        public bool actualizarUnCampoSegunID(int ID, String nombreFormulario, string CampoAActualizar, string nuevoValor, string tipoCampo)
+        public bool actualizarUnCampoSegunID(int correlativo, String nombreFormulario, string CampoAActualizar, string nuevoValor, string tipoCampo)
         {
             String consulta= "";
             if (tipoCampo.Equals("int")) {
-                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "=" + nuevoValor + "  where correlativo=1;";
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "=" + nuevoValor + "  where correlativo="+correlativo+";";
             }
             if (tipoCampo.Equals("varchar"))//porque hay que poner con comillas simples
             {
-                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "='" + nuevoValor + "'  where correlativo=1;";
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "='" + nuevoValor + "'  where correlativo="+correlativo+";";
             }
 
 

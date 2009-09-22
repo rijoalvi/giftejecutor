@@ -247,6 +247,15 @@ namespace GiftEjecutor
             refrescarDirectorio();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ConsultaFormulario cf = new ConsultaFormulario();
+            cf.actualizarUnCampoSegunID(1, "Vehiculo", "placa", "77777", "int");
+
+            //ConsultaFormulario cf = new ConsultaFormulario();
+            cf.actualizarUnCampoSegunID(1, "Vehiculo", "dueño", "cambiado", "varchar");
+        }
+
 
       /*  private void directorio_Click(object sender, EventArgs e)
         {

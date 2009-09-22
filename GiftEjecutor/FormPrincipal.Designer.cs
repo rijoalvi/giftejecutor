@@ -40,6 +40,7 @@ namespace GiftEjecutor
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -145,11 +146,22 @@ namespace GiftEjecutor
             this.directorio.TabIndex = 10;
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(394, 277);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button Prueba Comando Máscara";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 334);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.pictureBox1);
@@ -184,5 +196,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
