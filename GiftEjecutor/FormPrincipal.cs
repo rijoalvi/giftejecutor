@@ -74,31 +74,82 @@ namespace GiftEjecutor
 
         private void refrescarDirectorio() {
             directorio.Nodes.Clear();
-            Coleccion coleccion = new Coleccion("Raiz"/*, 0*/);
+            Coleccion coleccion = new Coleccion("GIFT Ejecutor"/*, 0*/);
             TreeNode nodo = this.directorio.Nodes.Add("0", "GIFT Ejecutor");
 
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
-
+            TreeNode nodoFlujo;
+            /**
+             
+             * */
+            
+            DataTable tablaFlujos = (new FlujoTrabajo()).getFlujosConstruidos();
             List<String[]> colecciones = coleccion.listarColecciones();
             List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
 
+
+            for (int j = 0; j < tablaFlujos.Rows.Count; j++)
+            {
+                nodoFlujo = nodo.Nodes.Add("F" + tablaFlujos.Rows[j]["IDFlujo"].ToString(), tablaFlujos.Rows[j]["nombre"].ToString());
+                nodoFlujo.Tag = new FlujoTrabajo(int.Parse(tablaFlujos.Rows[j]["IDFlujo"].ToString()), tablaFlujos.Rows[j]["nombre"].ToString(), "");
+                nodoFlujo.ForeColor = Color.Blue;
+            }
             for (int i = 0; i < colecciones.Count; i++)
             {
                 Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
+                
                 int correlativoPadre = int.Parse(colecciones[i][2]);
-                nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
-                nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);
-                for (int k = 0; k < expedientes.Count; k++)
-                { //correlativo, IDFlujo, IDColeccion, nombre
-                    if (int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
-                    {//si la coleccion es igual a la coleccion a la que pertenece el expediente
-                        nodo.Nodes.Add("e" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
+                if(correlativoPadre == 0){
+                    nodoPadre = buscarNodoFlujo(colecciones[i][3]);
+                }else{
+                    nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
+                }
+                nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
 
+                /*String correlativoFlujo;
+                String correlativoPadre;
+                if (nodoPadre.Name.Contains("F"))
+                {
+                    correlativoFlujo = nodoPadre.Name.Substring(1);
+                    correlativoPadre = "0";
+                }else {
+                    correlativoFlujo = ((Coleccion)nodoPadre.Tag).getCorrelativoFlujo().ToString();
+                    correlativoPadre = nodoPadre.Name;
+                }*/
+                //nodo.Tag = new Coleccion(colecciones[i][0] , int.Parse(colecciones[i][2].ToString()),nodoPadre.);
+                nodo.Tag = new Coleccion(colecciones[i][0] , int.Parse(colecciones[i][2].ToString()),int.Parse(colecciones[i][3]));
+              //  ((Coleccion)nodo.Tag).setCorrelativoFlujo(int.Parse(colecciones[i][3].ToString()));
+                for (int k = 0; k < expedientes.Count; k++)
+                {
+                    if (int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
+                    {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
+                        nodo.Nodes.Add("e" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
                     }
 
                 }
+            }        
+        }
+
+        private TreeNode buscarNodoFlujo(String correlativoFlujo) {
+            TreeNode nodoActual = directorio.TopNode;
+            int cantidadHijos = nodoActual.GetNodeCount(false);  
+            nodoActual = nodoActual.FirstNode;
+            int i = 0;
+            TreeNode nodoPadre = null;
+            while (nodoPadre == null && i < cantidadHijos)
+            {
+                //nodoPadre = buscarNodoPadre(correlativoPadre, nodoActual);
+                if (nodoActual.Name.Equals("F" + correlativoFlujo))
+                {
+                    nodoPadre = nodoActual;
+                }
+                else
+                {
+                    nodoActual = nodoActual.NextNode;
+                    i++;
+                }
             }
-        
+            return nodoPadre;
         }
 
         private void botonActualizarTreeView_Click(object sender, EventArgs e)
@@ -137,7 +188,13 @@ namespace GiftEjecutor
 
             //int correlativoPadre = nodoBuscado[2];
             TreeNode nodoPadre = null;
-            if(nodoActual.Name.Equals( correlativoPadre)){
+            //if (nodoActual.Name.Equals("0") && nodoActual.Tag != null && ("F" + ((FlujoTrabajo)nodoActual.Tag).getCorrelativo()).Equals(correlativoPadre))
+            //if (nodoActual.Name.Contains("F") && nodoActual.Tag != null && (/*"F" + */((FlujoTrabajo)nodoActual.Tag).getCorrelativo()).ToString().Equals(correlativoPadre))
+            /*if(correlativoPadre.Equals("0") && 
+            {
+                Console.WriteLine("nodo hijo del flujo "+nodoActual.Name.ToString());
+            }else */
+            if(nodoActual.Name.Equals(correlativoPadre) && correlativoPadre != "0"){
                 nodoPadre = nodoActual;
             }else if(nodoActual.Nodes.Find(correlativoPadre,false).Length>0){
                 nodoPadre = nodoActual.Nodes.Find(correlativoPadre,false)[0];
@@ -165,10 +222,10 @@ namespace GiftEjecutor
             return nodoPadre;
         }
 
-        private void actualizarDirectorio()
+       /* private void actualizarDirectorio()
         {
             this.directorio.Nodes.Clear();
-            Coleccion coleccion = new Coleccion("Raiz"/*, 0*/);
+            Coleccion coleccion = new Coleccion("Raiz"/*, 0/);
             TreeNode nodoActual = this.directorio.Nodes.Add("0","Raiz");
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
 
@@ -180,7 +237,7 @@ namespace GiftEjecutor
                 int correlativoPadre = int.Parse(colecciones[i][2]);
                 nodoPadre = buscarNodoPadre(colecciones[i][2],this.directorio.TopNode);//El correlativo es el key en el directorio
                 nodoActual = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);
-                /*Agregar los expedientes que pertenezcan a esta coleccion*/
+                /*Agregar los expedientes que pertenezcan a esta coleccion*
 
                 for (int k = 0; k < expedientes.Count; k++) {
                     if (int.Parse(expedientes[k][2]) == int.Parse(nodoActual.Name)) {
@@ -214,9 +271,9 @@ namespace GiftEjecutor
                     node.Nodes.Insert(1, "1");
                 this.directorio.Nodes.Insert(2, "2");
                 this.directorio.Nodes.Insert(3, "3");
-                this.directorio.Nodes.Insert(4, "4");*/
+                this.directorio.Nodes.Insert(4, "4");/
             
-        }
+        }*/
 
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
@@ -226,9 +283,19 @@ namespace GiftEjecutor
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(directorio.SelectedNode.Name);
-            flujosConstruidos.Show();
 
+            if (directorio.SelectedNode.Name.Contains("F"))
+            {
+                Console.WriteLine("Solo se pueden crear expedientes dentro de una coleccion");
+            }
+            else
+            {
+                String correlativoPadre = directorio.SelectedNode.Name;
+                String correlativoFlujo= ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+
+                FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(correlativoPadre, correlativoFlujo);
+                flujosConstruidos.Show();
+            }
             //OJO!!!!!!!
             //ESTO NO VA AQUI!
             //Primero se escoje cual flujo quiere ejecutar, y desp se le pide a cual coleccion quiere agregarlo
@@ -240,7 +307,19 @@ namespace GiftEjecutor
 
         private void agregarColeccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormNuevaColeccion c = new FormNuevaColeccion(this,this.directorio.SelectedNode.Name);
+            String correlativoFlujo;
+            String correlativoPadre;
+            if (this.directorio.SelectedNode.Name.Contains("F"))
+            {
+                correlativoFlujo = directorio.SelectedNode.Name.Substring(1);
+                correlativoPadre = "0";
+            }
+            else {
+                correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                correlativoPadre = directorio.SelectedNode.Name;
+            }
+                
+            FormNuevaColeccion c = new FormNuevaColeccion(this,correlativoPadre,correlativoFlujo);
             c.Show();
         }
 

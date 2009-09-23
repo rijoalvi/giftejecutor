@@ -12,9 +12,19 @@ namespace GiftEjecutor
     {
         Form formPrincipal;
         int correlativoPadre;
-        public FormNuevaColeccion(Form principal, String correlativoPadre)
+        int correlativoFlujo;
+        public FormNuevaColeccion(Form principal, String correlativoPadre, String correlativoFlujo)
         {
-            this.correlativoPadre = int.Parse(correlativoPadre);
+
+          /*  if (correlativoPadre.Contains("F"))
+            {
+                this.correlativoPadre = 0;
+            }
+            else
+            {*/
+                this.correlativoPadre = int.Parse(correlativoPadre);
+            //}
+                this.correlativoFlujo = int.Parse(correlativoFlujo);
             this.formPrincipal = principal;
             InitializeComponent();
         }
@@ -32,7 +42,7 @@ namespace GiftEjecutor
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre);
+            Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre,correlativoFlujo);
             coleccion.crearColeccion();
             this.Close();
         }

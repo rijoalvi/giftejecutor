@@ -9,10 +9,63 @@ namespace GiftEjecutor
     class FlujoTrabajo
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
+        int correlativo;
+        String nombre;
+        String descripcion;
+
+        public FlujoTrabajo(int correlativo, String nombre, String descripcion) {
+            this.correlativo = correlativo;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+        }
 
         public FlujoTrabajo() {
-
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+        }
+
+        public FlujoTrabajo(int correlativoFlujo) {
+            this.correlativo = correlativoFlujo;
+            consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+            String [] datos = consultaFlujoTrabajo.getDatosFlujo(correlativo);            
+        }
+
+        /// <summary>
+        /// Devuelve un dataTable con todos los datos del flujo de trabajo instanciado
+        /// </summary>
+        /// <returns></returns>
+        
+        public DataTable getDataTableFlujoDeTrabajo() {
+            
+            String [] datos = consultaFlujoTrabajo.getDatosFlujo(this.correlativo);
+
+            DataTable tabla = new DataTable();
+            DataRow fila;
+            DataColumn IDFlujo = new DataColumn();
+            DataColumn nombre = new DataColumn();
+            DataColumn descripcion = new DataColumn();
+
+            IDFlujo.ColumnName = "IDFlujo";
+            IDFlujo.DataType = Type.GetType("System.String");
+
+            nombre.ColumnName = "nombre";
+            nombre.DataType = Type.GetType("System.String");
+
+            descripcion.ColumnName = "descripcion";
+            descripcion.DataType = Type.GetType("System.String");
+
+            tabla.Columns.Add(IDFlujo);
+            tabla.Columns.Add(nombre);
+            tabla.Columns.Add(descripcion);
+            fila = tabla.NewRow();
+            fila["IDFlujo"] = this.correlativo;
+            fila["nombre"] = datos[0];
+            fila["descripcion"] = datos[1];
+            tabla.Rows.Add(fila);
+                
+            
+            return tabla;
+        
         }
 
         /// <summary>
@@ -122,6 +175,9 @@ namespace GiftEjecutor
                 }                        
             }
             return todosFlujos;    
+        }
+        public int getCorrelativo() {
+            return this.correlativo;
         }
     }
 }

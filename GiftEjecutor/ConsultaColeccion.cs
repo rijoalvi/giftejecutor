@@ -8,7 +8,7 @@ namespace GiftEjecutor
     class ConsultaColeccion : Consulta
     {
         /*Si se retorna un -1 indica que no se pudo crear debido a que ya existia una coleccion con ese nombre en esa Coleccion*/
-        public int crearColeccion(String nombre, int correlativoPadre){
+        public int crearColeccion(String nombre, int correlativoPadre, int correlativoFlujo){
             int correlativo = -1;
             String consulta = "Select correlativo From COLECCION where nombre = '" + nombre +
                                "' AND correlativoPadre = " + correlativoPadre + ";";
@@ -16,8 +16,8 @@ namespace GiftEjecutor
 
             if (!resultado.Read())
             {
-                consulta = "INSERT INTO COLECCION ( nombre, correlativoPadre) VALUES ('" +
-                            nombre + "'," + correlativoPadre + "); SELECT correlativo FROM COLECCION WHERE nombre = '" + nombre + "' AND correlativoPadre = " + correlativoPadre + ";";
+                consulta = "INSERT INTO COLECCION ( nombre, correlativoPadre, correlativoFlujo) VALUES ('" +
+                    nombre + "'," + correlativoPadre + ","+ correlativoFlujo +"); SELECT correlativo FROM COLECCION WHERE nombre = '" + nombre + "' AND correlativoPadre = " + correlativoPadre + ";";
                 resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
                 resultado.Read();
                 correlativo = int.Parse(resultado.GetValue(0).ToString());
@@ -36,6 +36,7 @@ namespace GiftEjecutor
             
             String consulta = "SELECT correlativo FROM COLECCION where nombre = '" + nombre + "'";
             SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            
             String []hijos = null;
             
             if( nombre == "raiz" || (resultado.IsClosed && resultado.Read())){
@@ -71,15 +72,17 @@ namespace GiftEjecutor
 
         public List<String[]> listarColecciones() {
             /****************************************************Probar con la base de datos***********************************************/
-            String consulta = "SELECT correlativo, nombre, correlativoPadre From COLECCION;";
+            // this.controladoBD.hacerConsultaEjecutor("DELETE FROM COLECCION");
+            String consulta = "SELECT correlativo, nombre, correlativoPadre, correlativoFlujo From COLECCION;";
             SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
             String[] coleccion;
             List<String[]> lista = new List<string[]>();
             while (resultado.Read()) {
-                coleccion = new String[3];
+                coleccion = new String[4];
                 coleccion[0] = resultado.GetValue(0).ToString();//Obtiene el correlativo
                 coleccion[1] = resultado.GetValue(1).ToString();//Obtiene el nombre
                 coleccion[2] = resultado.GetValue(2).ToString();//Obtiene el correlativo del padre
+                coleccion[3] = resultado.GetValue(3).ToString();//Obtiene el correlativo del flujo al que pertenece
                 lista.Add(coleccion);            
             }
             

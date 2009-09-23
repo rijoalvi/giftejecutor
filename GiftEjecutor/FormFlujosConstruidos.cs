@@ -15,13 +15,15 @@ namespace GiftEjecutor
                 /************************/        
         //Form formPrincipal;
         int correlativoPadre;
+        int correlativoFlujo;
         /***************************/
 
-        public FormFlujosConstruidos(/*Form principal,*/String correlativoPadre)
+        public FormFlujosConstruidos(/*Form principal,*/String correlativoPadre, String correlativoFlujo)
         {
             InitializeComponent();
             /****/
             this.correlativoPadre = int.Parse(correlativoPadre);
+            this.correlativoFlujo = int.Parse(correlativoFlujo);
             //this.formPrincipal = principal;
             
             /////
@@ -35,10 +37,10 @@ namespace GiftEjecutor
         /// Llena el data grid con los datos de los flujos construidos
         /// </summary>
         private void llenarDataGrid() {
-            miFlujo = new FlujoTrabajo();
+            /*miFlujo = new FlujoTrabajo(correlativoFlujo);
             dataGridFlujos.DataSource = miFlujo.getFlujosConstruidos();
             //se esconde el ID para q el usuario no lo vea.
-            dataGridFlujos.Columns[0].Visible = false;
+            dataGridFlujos.Columns[0].Visible = false;*/
         }
 
         private void dataGridFlujos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -60,7 +62,7 @@ namespace GiftEjecutor
             }
         }*/
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+   /*     private void btnAceptar_Click(object sender, EventArgs e)
         {
             Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre);
             coleccion.crearColeccion();
@@ -76,8 +78,7 @@ namespace GiftEjecutor
 
         private void botonCrearExpediente_Click(object sender, EventArgs e)
         {
-
-            Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre,this.IDFlujoSeleccionado);
+            Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre,this.correlativoFlujo/*this.IDFlujoSeleccionado*/);
             expediente.crearExpediente();
         }
     }

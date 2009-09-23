@@ -34,6 +34,8 @@ drop TABLE COLECCION;
 CREATE TABLE COLECCION(
   correlativo   int identity(1,1) NOT NULL,
   nombre       varchar(20),
+  correlativoPadre int NOT NULL,--------OJO ESTOS DOS CAMPOS SON NUEVOS..... EL CORRELATIVO FLUJO HACE QUE SE RELACIONE CON LA TABLA FLUJOS ACTIVOS
+  correlativoFlujo int NOT NULL,
   PRIMARY KEY (correlativo)
 );
 
