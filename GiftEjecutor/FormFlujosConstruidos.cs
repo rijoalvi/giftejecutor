@@ -13,15 +13,16 @@ namespace GiftEjecutor
         int IDFlujoSeleccionado;
         FlujoTrabajo miFlujo;
                 /************************/        
-        //Form formPrincipal;
+        FormPrincipal formPrincipal;
         int correlativoPadre;
         int correlativoFlujo;
         /***************************/
 
-        public FormFlujosConstruidos(/*Form principal,*/String correlativoPadre, String correlativoFlujo)
+        public FormFlujosConstruidos(FormPrincipal principal,String correlativoPadre, String correlativoFlujo)
         {
             InitializeComponent();
             /****/
+            this.formPrincipal = principal;
             this.correlativoPadre = int.Parse(correlativoPadre);
             this.correlativoFlujo = int.Parse(correlativoFlujo);
             //this.formPrincipal = principal;
@@ -81,6 +82,10 @@ namespace GiftEjecutor
         {
             Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre,this.correlativoFlujo/*this.IDFlujoSeleccionado*/);
             expediente.crearExpediente();
+            FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente());
+            actividad.Show();
+            this.formPrincipal.refrescarDirectorio();
+            this.Close();
         }
     }
 }

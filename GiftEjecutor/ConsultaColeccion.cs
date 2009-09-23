@@ -70,6 +70,12 @@ namespace GiftEjecutor
         }
 
 
+        public void modificarNombre(int IDCorrelativo, String nombre) {
+            String consulta = "UPDATE COLECCION SET nombre = '" + nombre + "' WHERE correlativo = " + IDCorrelativo + ";";
+            this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
+
+
         public List<String[]> listarColecciones() {
             /****************************************************Probar con la base de datos***********************************************/
             // this.controladoBD.hacerConsultaEjecutor("DELETE FROM COLECCION");
@@ -85,64 +91,6 @@ namespace GiftEjecutor
                 coleccion[3] = resultado.GetValue(3).ToString();//Obtiene el correlativo del flujo al que pertenece
                 lista.Add(coleccion);            
             }
-            
-            /****************************************************Probar sin la base de datos***********************************************
-
-            String[] coleccion;
-            List<String[]> lista = new List<string[]>();
-            coleccion = new String[3];
-            coleccion[0] = "1";//Obtiene el correlativo
-            coleccion[1] = "Canciones";//Obtiene el nombre
-            coleccion[2] = "0";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "2";//Obtiene el correlativo
-            coleccion[1] = "Libros";//Obtiene el nombre
-            coleccion[2] = "0";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "3";//Obtiene el correlativo
-            coleccion[1] = "Peliculas";//Obtiene el nombre
-            coleccion[2] = "0";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "4";//Obtiene el correlativo
-            coleccion[1] = "Bendita la luz";//Obtiene el nombre
-            coleccion[2] = "1";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "5";//Obtiene el correlativo
-            coleccion[1] = "Noche de entierro";//Obtiene el nombre
-            coleccion[2] = "1";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "6";//Obtiene el correlativo
-            coleccion[1] = "Terminator";//Obtiene el nombre
-            coleccion[2] = "3";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "7";//Obtiene el correlativo
-            coleccion[1] = "THE NOTHEBOOK";//Obtiene el nombre
-            coleccion[2] = "3";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "8";//Obtiene el correlativo
-            coleccion[1] = "Annie";//Obtiene el nombre
-            coleccion[2] = "7";//Obtiene el correlativo del padre
-            lista.Add(coleccion);
-
-            coleccion = new String[3];
-            coleccion[0] = "9";//Obtiene el correlativo
-            coleccion[1] = "Noa";//Obtiene el nombre
-            coleccion[2] = "7";//Obtiene el correlativo del padre
-            lista.Add(coleccion);            */
             
             return lista;
         }

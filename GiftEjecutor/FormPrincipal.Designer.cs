@@ -42,6 +42,7 @@ namespace GiftEjecutor
             this.directorio = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
             this.botonForm1 = new System.Windows.Forms.Button();
+            this.cambiarNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -62,7 +63,8 @@ namespace GiftEjecutor
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarColeccionToolStripMenuItem,
-            this.agregarExpedienteToolStripMenuItem});
+            this.agregarExpedienteToolStripMenuItem,
+            this.cambiarNombreToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -167,6 +169,13 @@ namespace GiftEjecutor
             this.botonForm1.UseVisualStyleBackColor = true;
             this.botonForm1.Click += new System.EventHandler(this.botonForm1_Click);
             // 
+            // cambiarNombreToolStripMenuItem
+            // 
+            this.cambiarNombreToolStripMenuItem.Name = "cambiarNombreToolStripMenuItem";
+            this.cambiarNombreToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.cambiarNombreToolStripMenuItem.Text = "Cambiar Nombre";
+            this.cambiarNombreToolStripMenuItem.Click += new System.EventHandler(this.cambiarNombreToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,5 +219,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button botonForm1;
+        private System.Windows.Forms.ToolStripMenuItem cambiarNombreToolStripMenuItem;
     }
 }

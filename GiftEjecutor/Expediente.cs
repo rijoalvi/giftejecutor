@@ -25,6 +25,9 @@ namespace GiftEjecutor
             this.nombrePadre = nombrePadre;
         }
         */
+        public int getIDExpediente() {
+            return correlativo;
+        }
         public Expediente(String nombre, int correlativoPadre,int IDFlujo)
         {
             consultaExpediente = new ConsultaExpediente();

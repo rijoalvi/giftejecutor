@@ -72,7 +72,7 @@ namespace GiftEjecutor
             formListadoActividad.Show();
         }
 
-        private void refrescarDirectorio() {
+        public void refrescarDirectorio() {
             directorio.Nodes.Clear();
             Coleccion coleccion = new Coleccion("GIFT Ejecutor"/*, 0*/);
             TreeNode nodo = this.directorio.Nodes.Add("0", "GIFT Ejecutor");
@@ -286,14 +286,13 @@ namespace GiftEjecutor
 
             if (directorio.SelectedNode.Name.Contains("F"))
             {
-                Console.WriteLine("Solo se pueden crear expedientes dentro de una coleccion");
+                MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
             }
             else
             {
                 String correlativoPadre = directorio.SelectedNode.Name;
                 String correlativoFlujo= ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
-
-                FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(correlativoPadre, correlativoFlujo);
+                FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this,correlativoPadre, correlativoFlujo);
                 flujosConstruidos.Show();
             }
             //OJO!!!!!!!
@@ -348,6 +347,24 @@ namespace GiftEjecutor
             FormFormulario c = new FormFormulario(1, 1, 1, 3, 2);
             c.Show();
             //FormFormulario(int IDFormulario)
+        }
+
+        private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String correlativoFlujo;
+            String correlativoPadre;
+            if (this.directorio.SelectedNode.Name.Contains("F") || this.directorio.SelectedNode.Name.Contains("E"))
+            {
+                MessageBox.Show("Solo se le pueden cambiar los nombres a las colecciones");
+            }
+            else
+            {
+                correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                correlativoPadre = directorio.SelectedNode.Name;
+                FormNuevaColeccion coleccion = new FormNuevaColeccion(this,int.Parse(this.directorio.SelectedNode.Name) );
+                coleccion.Show();
+            }
+            
         }
 
 

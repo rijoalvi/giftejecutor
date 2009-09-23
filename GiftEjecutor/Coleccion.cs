@@ -34,8 +34,21 @@ namespace GiftEjecutor
             this.correlativoFlujo = correlativoFlujo;
             Console.WriteLine("Correlativo Padre " + IDCorrelativoPadre);
         }
+        public Coleccion(int correlativo, String nombre, int correlativoPadre, int correlativoFlujo)
+        {
+            consultaColeccion = new ConsultaColeccion();
+            this.nombre = nombre;
+            this.IDCorrelativoPadre = correlativoPadre;
+            this.correlativoFlujo = correlativoFlujo;
+            Console.WriteLine("Correlativo Padre " + IDCorrelativoPadre);
+            this.IDCorrelativo = correlativo;
+        }
         public void crearColeccion(){
             IDCorrelativo = consultaColeccion.crearColeccion(nombre, IDCorrelativoPadre, correlativoFlujo);
+        }
+
+        public void modificarNombre() {
+            consultaColeccion.modificarNombre(this.IDCorrelativo, this.nombre);
         }
 
         public String[] coleccionesHijas() {

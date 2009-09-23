@@ -10,22 +10,24 @@ namespace GiftEjecutor
 {
     public partial class FormNuevaColeccion : Form
     {
-        Form formPrincipal;
+        FormPrincipal formPrincipal;
         int correlativoPadre;
         int correlativoFlujo;
-        public FormNuevaColeccion(Form principal, String correlativoPadre, String correlativoFlujo)
+        int modificar;
+        int correlativoColeccion;
+        public FormNuevaColeccion(FormPrincipal principal, String correlativoPadre, String correlativoFlujo)
         {
-
-          /*  if (correlativoPadre.Contains("F"))
-            {
-                this.correlativoPadre = 0;
-            }
-            else
-            {*/
-                this.correlativoPadre = int.Parse(correlativoPadre);
-            //}
-                this.correlativoFlujo = int.Parse(correlativoFlujo);
+            this.correlativoPadre = int.Parse(correlativoPadre);           
+            this.correlativoFlujo = int.Parse(correlativoFlujo);
             this.formPrincipal = principal;
+            this.modificar = 0;
+            InitializeComponent();
+        }
+
+        public FormNuevaColeccion(FormPrincipal principal, int correlativoColeccion) {
+            this.formPrincipal = principal;
+            this.correlativoColeccion = correlativoColeccion;
+            this.modificar = 1;
             InitializeComponent();
         }
 
@@ -42,8 +44,16 @@ namespace GiftEjecutor
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Coleccion coleccion = new Coleccion(this.txtNombre.Text,correlativoPadre,correlativoFlujo);
-            coleccion.crearColeccion();
+            Coleccion coleccion = new Coleccion(this.correlativoColeccion,this.txtNombre.Text, correlativoPadre, correlativoFlujo);
+                
+            if (modificar == 0)
+            {                
+                coleccion.crearColeccion();
+            }
+            else {
+                coleccion.modificarNombre();
+            }
+            this.formPrincipal.refrescarDirectorio();
             this.Close();
         }
 
