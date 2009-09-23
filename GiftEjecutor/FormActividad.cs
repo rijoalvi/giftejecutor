@@ -53,9 +53,34 @@ namespace GiftEjecutor
             int IDFormulario = 3;
             int IDDatos = 1;
             //FIN TEMPS
-            FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID() );
-            formFormulario.Show();                            
-        
+
+            int IDComando = Int32.Parse(dataGridComandos[0, fila].Value.ToString());
+
+            comandoAEjecutar.setAtributosSegunID(IDComando);
+            if (strTipo.Equals("Máscara"))
+            {
+
+
+                ComandoMascara cm = new ComandoMascara();
+                cm.setAtributosComandoMascaraSegunID(IDComando);
+                MessageBox.Show(cm.ToString());
+                ConsultaFormulario cf = new ConsultaFormulario();
+                //cf.a
+                //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+
+                cf.actualizarTodosLosCampos(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+
+
+                cf.insertarEnBitacora(IDExpediente, this.IDActividad, IDComando, IDDatos, comandoAEjecutar.IDFormularioATrabajar, true, "Se modificó el campo " + cm.nombreCampoEfecto);
+            }
+            else//ejecuta lo de alberto
+            {
+
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
+                formFormulario.Show();
+
+
+            }
             /* TEMPORAL
             if(comandoAEjecutar.getID() == 23){
             FormFormulario formFormulario = new FormFormulario(3);

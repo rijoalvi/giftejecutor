@@ -8,10 +8,10 @@ namespace GiftEjecutor
     {
         int ID;
 
-        string nombreCampoInicial;
-        string valorCampoInical;
-        string nombreCampoEfecto;
-        string valorCampoEfecto;
+        public string nombreCampoInicial;
+        public string valorCampoInical;
+        public string nombreCampoEfecto;
+        public string valorCampoEfecto;
 
         ConsultaComandoMascara consultaComandoMascara;
         public ComandoMascara(): base() {
@@ -36,9 +36,11 @@ namespace GiftEjecutor
         }
         public override string ToString()
         {
-            return base.ToString()+"ID: " + this.ID + "" + '\n' +
-                "nombreCampoInicial: " + this.nombreCampoInicial + "" + '\n' +
-                "valorCampoInical: " + this.valorCampoInical + "" + '\n' +
+            return 
+                //base.ToString()+"ID: " + this.ID + "" + '\n' +
+                //"nombreCampoInicial: " + this.nombreCampoInicial + "" + '\n' +
+                //"valorCampoInical: " + this.valorCampoInical + "" + '\n' +
+                "Aplicada máscara" + '\n' +
                 "nombreCampoEfecto: " + this.nombreCampoEfecto + "" + '\n' +
                 "valorCampoEfecto: " + this.valorCampoEfecto + "" + '\n' 
                 ;

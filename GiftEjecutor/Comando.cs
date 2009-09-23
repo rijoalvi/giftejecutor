@@ -10,7 +10,7 @@ namespace GiftEjecutor
        // private ConfiguracionProyecto configuracion;
         ConsultaComando consultaComando;
         private int ID;
-        private int IDFormularioATrabajar;
+        public int IDFormularioATrabajar;
         private string nombre;
         private string descripcion;
         private int tipo;

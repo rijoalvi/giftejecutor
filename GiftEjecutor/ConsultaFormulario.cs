@@ -119,6 +119,26 @@ namespace GiftEjecutor
             return false;
         }
 
+
+        public bool actualizarTodosLosCampos(int correlativo, String nombreFormulario, string CampoAActualizar, string nuevoValor, string tipoCampo)
+        {
+            String consulta = "";
+            if (tipoCampo.Equals("int"))
+            {
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "=" + nuevoValor + "  ;";
+            }
+            if (tipoCampo.Equals("varchar"))//porque hay que poner con comillas simples
+            {
+                consulta = "update " + nombreFormulario + " set " + CampoAActualizar + "='" + nuevoValor + "' ;";
+            }
+
+
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if (datos.Read())
+                return true;
+            return false;
+        }
+
         public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
         {
             String consulta = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
