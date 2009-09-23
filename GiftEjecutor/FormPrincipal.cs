@@ -249,6 +249,12 @@ namespace GiftEjecutor
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            ComandoMascara cm = new ComandoMascara();
+            cm.setAtributosComandoMascaraSegunID(8);
+            MessageBox.Show(cm.ToString());
+
+
             ConsultaFormulario cf = new ConsultaFormulario();
             cf.actualizarUnCampoSegunID(1, "Vehiculo", "placa", "77777", "int");
 
