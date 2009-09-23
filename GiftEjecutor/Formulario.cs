@@ -243,5 +243,15 @@ namespace GiftEjecutor
         {
             return consultaBD.ejecutarConsultaEjecutor(consulta);
         }
+
+        public int insertarTuplaFormulario(String ingresoTupla, String nombreTabla)
+        {
+            return consultaBD.insertarInstanciaFormulario(ingresoTupla, nombreTabla);
+        }
+
+        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
+        {
+            return consultaBD.insertarEnBitacora(IDExp, IDAct, IDCom, IDInstForm, IDFormConfig, ejec, descripcion);
+        }
     }
 }

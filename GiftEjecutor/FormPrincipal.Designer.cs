@@ -41,6 +41,7 @@ namespace GiftEjecutor
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
+            this.botonForm1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -156,11 +157,22 @@ namespace GiftEjecutor
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // botonForm1
+            // 
+            this.botonForm1.Location = new System.Drawing.Point(309, 307);
+            this.botonForm1.Name = "botonForm1";
+            this.botonForm1.Size = new System.Drawing.Size(75, 23);
+            this.botonForm1.TabIndex = 12;
+            this.botonForm1.Text = "abreform1";
+            this.botonForm1.UseVisualStyleBackColor = true;
+            this.botonForm1.Click += new System.EventHandler(this.botonForm1_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 334);
+            this.Controls.Add(this.botonForm1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
@@ -197,5 +209,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button botonForm1;
     }
 }

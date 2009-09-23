@@ -44,6 +44,8 @@ CREATE TABLE BITACORA(
 	IDExpediente	int,
 	IDActividad		int,
 	IDComando		int,
+	IDInstaciaForm	int,
+	IDFormConfigurador	int,
 	ejecutada		VARCHAR(6),
 	fecha			SMALLDATETIME	DEFAULT GetDate(),
 	descripcion		VARCHAR(150),

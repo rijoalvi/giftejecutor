@@ -118,5 +118,24 @@ namespace GiftEjecutor
                 return true;
             return false;
         }
+
+        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
+        {
+            String consulta = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
+                            "VALUES(" + IDExp + ", " + IDAct + ", " + IDCom + ", " + IDInstForm + ", " + IDFormConfig + ", '" + ejec + "', '" + descripcion + "');";
+            Console.WriteLine(consulta);
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return datos;
+        }
+
+        public int insertarInstanciaFormulario(String consulta, String nombreTabla) {            
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            //esto se hace para poder obtener de regreso el correlativo de la instancia recien creada.
+            String miConsulta = "select IDENT_CURRENT('" + nombreTabla + "');";
+            datos = this.controladoBD.hacerConsultaEjecutor(miConsulta);
+            if (datos.Read())
+                return int.Parse(datos.GetValue(0).ToString());
+            return -1;
+        }
     }
 }

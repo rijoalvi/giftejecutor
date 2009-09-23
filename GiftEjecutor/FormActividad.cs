@@ -53,7 +53,7 @@ namespace GiftEjecutor
             int IDFormulario = 3;
             int IDDatos = 1;
             //FIN TEMPS
-            FormFormulario formFormulario = new FormFormulario(IDFormulario, IDDatos, tipoComando);
+            FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID() );
             formFormulario.Show();                            
         
             /* TEMPORAL

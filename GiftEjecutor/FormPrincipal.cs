@@ -57,7 +57,7 @@ namespace GiftEjecutor
         private void button2_Click(object sender, EventArgs e)
         {
             int IDExpediente = 999;
-            int IDActividad = 1;
+            int IDActividad = 19;
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
@@ -260,6 +260,13 @@ namespace GiftEjecutor
 
             //ConsultaFormulario cf = new ConsultaFormulario();
             cf.actualizarUnCampoSegunID(1, "Vehiculo", "dueño", "cambiado", "varchar");
+        }
+
+        private void botonForm1_Click(object sender, EventArgs e)
+        {
+            FormFormulario c = new FormFormulario(1, 1, 1, 3, 2);
+            c.Show();
+            //FormFormulario(int IDFormulario)
         }
 
 
