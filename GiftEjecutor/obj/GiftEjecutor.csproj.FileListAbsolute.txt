@@ -229,3 +229,6 @@ C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\De
 C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
 C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
 C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources

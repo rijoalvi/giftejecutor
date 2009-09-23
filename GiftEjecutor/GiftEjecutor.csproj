@@ -53,6 +53,7 @@
     <Compile Include="ConsultaConstructorTablasFormularios.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ConsultaControlador.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
     <Compile Include="Controlador.cs" />

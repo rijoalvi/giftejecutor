@@ -40,8 +40,12 @@ namespace GiftEjecutor
 
         private void cargarDataGridComandos() {
             Comando comando = new Comando();
+            this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
+            dataGridEjecutados.Refresh();
             this.dataGridComandos.DataSource = comando.getDataTableComandosPorIDActividad(this.IDActividad);
             dataGridComandos.Refresh();
+            this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
+            dataGridNoPosibles.Refresh();
         }
 
         private void buttonEjecutarComando_Click(object sender, EventArgs e)

@@ -50,7 +50,7 @@ namespace GiftEjecutor
           datosComando = this.consultaComando.getDatosPorID(IDComando);
           if (datosComando != null)
           {
-              while (datosComando.Read())//En tería solo ejecuta una vez
+              while (datosComando.Read())//En teoría solo ejecuta una vez
               {
                   this.ID = System.Int32.Parse(datosComando.GetValue(0).ToString());
                   this.nombre = datosComando.GetValue(1).ToString();
@@ -63,38 +63,99 @@ namespace GiftEjecutor
               }
           }       
         }
+
+        public DataTable getDataTableComandosPorIDActividadYaRealizado(int IDActividad)
+        {
+            DataTable tablaComandos = new DataTable();
+            DataRow fila;
+
+
+            //DataColumn IDComando = new DataColumn();
+            DataColumn nombreComando = new DataColumn();
+            DataColumn descripcionComando = new DataColumn();
+            DataColumn tipoComando = new DataColumn();
+            DataColumn formularioATrabajar = new DataColumn();
+            Controlador control;
+
+
+            //IDComando.ColumnName = "IDComando";
+            nombreComando.ColumnName = "nombreComando";
+            descripcionComando.ColumnName = "descripcionComando";
+            tipoComando.ColumnName = "tipoComando";
+            formularioATrabajar.ColumnName = "formularioATrabajar";
+
+            //IDComando.DataType = Type.GetType("System.String");
+            nombreComando.DataType = Type.GetType("System.String");
+            descripcionComando.DataType = Type.GetType("System.String");
+            tipoComando.DataType = Type.GetType("System.String");
+            formularioATrabajar.DataType = Type.GetType("System.String");
+
+            //tablaComandos.Columns.Add(IDComando);
+            tablaComandos.Columns.Add(nombreComando);
+            tablaComandos.Columns.Add(descripcionComando);
+            tablaComandos.Columns.Add(tipoComando);
+            tablaComandos.Columns.Add(formularioATrabajar);
+
+            control = new Controlador();
+            SqlDataReader datos;
+            datos = consultaComando.getTodosComandosPorIDActividad(IDActividad);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaComandos.NewRow();
+                    //fila["IDComando"] = datos.GetValue(2);
+                    fila["nombreComando"] = datos.GetValue(3);
+                    fila["descripcionComando"] = datos.GetValue(4);
+                    fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
+                    fila["formularioATrabajar"] = datos.GetValue(6);
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    if (yaSeEjecuto)
+                    {
+                        tablaComandos.Rows.Add(fila);
+                    }
+                }
+            }
+            return tablaComandos;
+        }
+
         public DataTable getDataTableComandosPorIDActividad(int IDActividad)
         {
             DataTable tablaComandos = new DataTable();
             DataRow fila;
 
 
-            DataColumn IDComando = new DataColumn();
+            //DataColumn IDComando = new DataColumn();
             DataColumn nombreComando = new DataColumn();
             DataColumn descripcionComando = new DataColumn();
             DataColumn tipoComando = new DataColumn();
             DataColumn formularioATrabajar = new DataColumn();
+            Controlador control;
 
 
-            IDComando.ColumnName = "IDComando";            
+            //IDComando.ColumnName = "IDComando";            
             nombreComando.ColumnName = "nombreComando";
             descripcionComando.ColumnName = "descripcionComando";
             tipoComando.ColumnName = "tipoComando";
             formularioATrabajar.ColumnName = "formularioATrabajar";
 
-            IDComando.DataType = Type.GetType("System.String");            
+            //IDComando.DataType = Type.GetType("System.String");            
             nombreComando.DataType = Type.GetType("System.String");
             descripcionComando.DataType = Type.GetType("System.String");
             tipoComando.DataType = Type.GetType("System.String");
             formularioATrabajar.DataType = Type.GetType("System.String");
 
-            tablaComandos.Columns.Add(IDComando);            
+            //tablaComandos.Columns.Add(IDComando);            
             tablaComandos.Columns.Add(nombreComando);
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
             tablaComandos.Columns.Add(formularioATrabajar);
 
+            control = new Controlador();
             SqlDataReader datos;
+            int seAgregoComandoAEjecutar;
+            seAgregoComandoAEjecutar = 0;
 
             datos = consultaComando.getTodosComandosPorIDActividad(IDActividad);
             if (datos != null)
@@ -102,16 +163,86 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    fila["IDComando"] = datos.GetValue(2);                    
+                    //fila["IDComando"] = datos.GetValue(2);                    
                     fila["nombreComando"] = datos.GetValue(3);
                     fila["descripcionComando"] = datos.GetValue(4);
                     fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
                     fila["formularioATrabajar"] = datos.GetValue(6);
-                    tablaComandos.Rows.Add(fila);
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    if (!yaSeEjecuto && seAgregoComandoAEjecutar == 0)
+                    {
+                        tablaComandos.Rows.Add(fila);
+                        seAgregoComandoAEjecutar = 1;
+                    }
                 }
             }
             return tablaComandos;
         }
+
+        public DataTable getDataTableComandosPorIDActividadNoRealizados(int IDActividad)
+        {
+            DataTable tablaComandos = new DataTable();
+            DataRow fila;
+
+
+            //DataColumn IDComando = new DataColumn();
+            DataColumn nombreComando = new DataColumn();
+            DataColumn descripcionComando = new DataColumn();
+            DataColumn tipoComando = new DataColumn();
+            DataColumn formularioATrabajar = new DataColumn();
+            Controlador control;
+
+
+            //IDComando.ColumnName = "IDComando";
+            nombreComando.ColumnName = "nombreComando";
+            descripcionComando.ColumnName = "descripcionComando";
+            tipoComando.ColumnName = "tipoComando";
+            formularioATrabajar.ColumnName = "formularioATrabajar";
+
+            //IDComando.DataType = Type.GetType("System.String");
+            nombreComando.DataType = Type.GetType("System.String");
+            descripcionComando.DataType = Type.GetType("System.String");
+            tipoComando.DataType = Type.GetType("System.String");
+            formularioATrabajar.DataType = Type.GetType("System.String");
+
+            //tablaComandos.Columns.Add(IDComando);
+            tablaComandos.Columns.Add(nombreComando);
+            tablaComandos.Columns.Add(descripcionComando);
+            tablaComandos.Columns.Add(tipoComando);
+            tablaComandos.Columns.Add(formularioATrabajar);
+
+            control = new Controlador();
+            SqlDataReader datos;
+            int seAgregoComandoAEjecutar;
+            seAgregoComandoAEjecutar = 0;
+
+            datos = consultaComando.getTodosComandosPorIDActividad(IDActividad);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaComandos.NewRow();
+                    //fila["IDComando"] = datos.GetValue(2);
+                    fila["nombreComando"] = datos.GetValue(3);
+                    fila["descripcionComando"] = datos.GetValue(4);
+                    fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
+                    fila["formularioATrabajar"] = datos.GetValue(6);
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    if (!yaSeEjecuto)
+                    {
+                        if(seAgregoComandoAEjecutar == 1)
+                        {
+                            tablaComandos.Rows.Add(fila);
+                        }
+                        seAgregoComandoAEjecutar = 1;
+                    }
+                }
+            }
+            return tablaComandos;
+        }
+
         /**
          * 
          * Este es el orden de los comandos a la hora de guardarlos en la base de datos:

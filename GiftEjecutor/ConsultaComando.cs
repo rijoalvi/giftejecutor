@@ -16,7 +16,7 @@ namespace GiftEjecutor
         {
             SqlDataReader dataReader = null;
 
-            dataReader = this.controladoBD.hacerConsultaConfigurador("Select m.correlativo , m.correlativoMadre as IDActividad, m.correlativoComando as IDComando, c.Nombre as nombreComando, c.Descripcion as descripcionComando, c.tipo,c.IDFormularioATrabajar, m.orden as ordenComando, m.obligatorio from MiembroActividadSimple m, comando c where m.correlativoMadre="+IDActividad+" and m.correlativoComando=c.ID;");
+            dataReader = this.controladoBD.hacerConsultaConfigurador("Select m.correlativo , m.correlativoMadre as IDActividad, m.correlativoComando as IDComando, c.Nombre as nombreComando, c.Descripcion as descripcionComando, c.tipo,c.IDFormularioATrabajar, m.orden as ordenComando, m.obligatorio from MiembroActividadSimple m, comando c where m.correlativoMadre="+IDActividad+" and m.correlativoComando=c.ID order by m.orden;");
             return dataReader;
         }
         /// <summary>
