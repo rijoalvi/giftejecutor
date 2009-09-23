@@ -19,14 +19,14 @@ namespace GiftEjecutor
         {
             InitializeComponent();
         }
-        public FormActividad(int IDActividad, int IDExpediente)
+        public FormActividad(int IDAct, int IDExp)
         {
 
             InitializeComponent();            
 
 
-            this.IDActividad = IDActividad;
-            this.IDExpediente = IDExpediente;
+            this.IDActividad = IDAct;
+            this.IDExpediente = IDExp;
             ActividadSimple actividadSimple = new ActividadSimple();
             actividadSimple.setAtributosPorID(this.IDActividad);
             this.textBoxDescripcion.Text = actividadSimple.descripcion;
@@ -40,6 +40,7 @@ namespace GiftEjecutor
 
         private void cargarDataGridComandos() {
             Comando comando = new Comando();
+            comando.setIDExpediente(IDExpediente);
             this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
             dataGridEjecutados.Refresh();
             this.dataGridComandos.DataSource = comando.getDataTableComandosPorIDActividad(this.IDActividad);
@@ -54,7 +55,6 @@ namespace GiftEjecutor
             String strTipo = dataGridComandos[3, fila].Value.ToString();            
             int tipoComando = comandoAEjecutar.getTipoComando(strTipo);
             //TEMPORALES
-            int IDFormulario = 3;
             int IDDatos = 1;
             //FIN TEMPS
 
@@ -80,7 +80,7 @@ namespace GiftEjecutor
             else//ejecuta lo de alberto
             {
 
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
+                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
                 formFormulario.Show();
 
 
@@ -100,14 +100,19 @@ namespace GiftEjecutor
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             this.buttonEjecutarComando.Enabled = true;
+            
             this.comandoAEjecutar = new Comando();
+            
             int IDComando = System.Int32.Parse( this.dataGridComandos[0, this.dataGridComandos.CurrentRow.Index].Value.ToString());
             comandoAEjecutar.setAtributosSegunID(IDComando);
+            /*
             comandoAEjecutar.setIDExpediente(this.IDExpediente);
             //Mae alberto aquí tiene una instancia del comando a ejecutar, con todos los datos que ocupa.
             mensajeTemporal = "Aquí es donde entra en acción alberto!!!!, mae me parece que aquí puede tomar todo lo que ocupa para desplegar el form y aplicarle el comando correspondiente" + '\n' + '\n';
             mensajeTemporal += comandoAEjecutar.ToString();
+             */
         }
     }
 }

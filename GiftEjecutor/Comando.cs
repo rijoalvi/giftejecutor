@@ -70,7 +70,7 @@ namespace GiftEjecutor
             DataRow fila;
 
 
-            //DataColumn IDComando = new DataColumn();
+            DataColumn IDComando = new DataColumn();
             DataColumn nombreComando = new DataColumn();
             DataColumn descripcionComando = new DataColumn();
             DataColumn tipoComando = new DataColumn();
@@ -78,19 +78,19 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            //IDComando.ColumnName = "IDComando";
+            IDComando.ColumnName = "IDComando";
             nombreComando.ColumnName = "nombreComando";
             descripcionComando.ColumnName = "descripcionComando";
             tipoComando.ColumnName = "tipoComando";
             formularioATrabajar.ColumnName = "formularioATrabajar";
 
-            //IDComando.DataType = Type.GetType("System.String");
+            IDComando.DataType = Type.GetType("System.String");
             nombreComando.DataType = Type.GetType("System.String");
             descripcionComando.DataType = Type.GetType("System.String");
             tipoComando.DataType = Type.GetType("System.String");
             formularioATrabajar.DataType = Type.GetType("System.String");
 
-            //tablaComandos.Columns.Add(IDComando);
+            tablaComandos.Columns.Add(IDComando);
             tablaComandos.Columns.Add(nombreComando);
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
@@ -104,7 +104,7 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    //fila["IDComando"] = datos.GetValue(2);
+                    fila["IDComando"] = datos.GetValue(2);
                     fila["nombreComando"] = datos.GetValue(3);
                     fila["descripcionComando"] = datos.GetValue(4);
                     fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
@@ -126,7 +126,7 @@ namespace GiftEjecutor
             DataRow fila;
 
 
-            //DataColumn IDComando = new DataColumn();
+            DataColumn IDComando = new DataColumn();
             DataColumn nombreComando = new DataColumn();
             DataColumn descripcionComando = new DataColumn();
             DataColumn tipoComando = new DataColumn();
@@ -134,19 +134,19 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            //IDComando.ColumnName = "IDComando";            
+            IDComando.ColumnName = "IDComando";            
             nombreComando.ColumnName = "nombreComando";
             descripcionComando.ColumnName = "descripcionComando";
             tipoComando.ColumnName = "tipoComando";
             formularioATrabajar.ColumnName = "formularioATrabajar";
 
-            //IDComando.DataType = Type.GetType("System.String");            
+            IDComando.DataType = Type.GetType("System.String");            
             nombreComando.DataType = Type.GetType("System.String");
             descripcionComando.DataType = Type.GetType("System.String");
             tipoComando.DataType = Type.GetType("System.String");
             formularioATrabajar.DataType = Type.GetType("System.String");
 
-            //tablaComandos.Columns.Add(IDComando);            
+            tablaComandos.Columns.Add(IDComando);            
             tablaComandos.Columns.Add(nombreComando);
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
@@ -163,7 +163,7 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    //fila["IDComando"] = datos.GetValue(2);                    
+                    fila["IDComando"] = datos.GetValue(2);                    
                     fila["nombreComando"] = datos.GetValue(3);
                     fila["descripcionComando"] = datos.GetValue(4);
                     fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
@@ -186,7 +186,7 @@ namespace GiftEjecutor
             DataRow fila;
 
 
-            //DataColumn IDComando = new DataColumn();
+            DataColumn IDComando = new DataColumn();
             DataColumn nombreComando = new DataColumn();
             DataColumn descripcionComando = new DataColumn();
             DataColumn tipoComando = new DataColumn();
@@ -194,19 +194,19 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            //IDComando.ColumnName = "IDComando";
+            IDComando.ColumnName = "IDComando";
             nombreComando.ColumnName = "nombreComando";
             descripcionComando.ColumnName = "descripcionComando";
             tipoComando.ColumnName = "tipoComando";
             formularioATrabajar.ColumnName = "formularioATrabajar";
 
-            //IDComando.DataType = Type.GetType("System.String");
+            IDComando.DataType = Type.GetType("System.String");
             nombreComando.DataType = Type.GetType("System.String");
             descripcionComando.DataType = Type.GetType("System.String");
             tipoComando.DataType = Type.GetType("System.String");
             formularioATrabajar.DataType = Type.GetType("System.String");
 
-            //tablaComandos.Columns.Add(IDComando);
+            tablaComandos.Columns.Add(IDComando);
             tablaComandos.Columns.Add(nombreComando);
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
@@ -223,7 +223,7 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    //fila["IDComando"] = datos.GetValue(2);
+                    fila["IDComando"] = datos.GetValue(2);
                     fila["nombreComando"] = datos.GetValue(3);
                     fila["descripcionComando"] = datos.GetValue(4);
                     fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));

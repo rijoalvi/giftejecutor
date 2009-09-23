@@ -59,7 +59,7 @@ namespace GiftEjecutor
             int IDExpediente = 999;
             //int IDActividad = 19;
 
-            int IDActividad = 32;
+            int IDActividad = 7;
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }

@@ -38,7 +38,8 @@ namespace GiftEjecutor
         /// </summary>
         private void llenarDataGrid() {
             /*miFlujo = new FlujoTrabajo(correlativoFlujo);
-            dataGridFlujos.DataSource = miFlujo.getFlujosConstruidos();
+            //dataGridFlujos.DataSource = miFlujo.getFlujosConstruidos();
+            dataGridFlujos.DataSource = miFlujo.getDataTableTodosLosFlujosDeTrabajo();
             //se esconde el ID para q el usuario no lo vea.
             dataGridFlujos.Columns[0].Visible = false;*/
         }

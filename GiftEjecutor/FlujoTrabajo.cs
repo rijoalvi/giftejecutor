@@ -122,10 +122,13 @@ namespace GiftEjecutor
             if (datos != null)
             {
                 int cant = 0;
-                while (datos.Read())
+                while (cant < todosFlujos.Rows.Count)
                 {
-                    idsFlujosConstruidos[cant] = datos.GetValue(0).ToString();
-                    cant++;                    
+                    if (datos.Read())
+                    {
+                        idsFlujosConstruidos[cant] = datos.GetValue(0).ToString();
+                        cant++;
+                    }
                 }
             }
             //Va recorriendo todos los flujos existentes
