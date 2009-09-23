@@ -54,6 +54,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ConsultaControlador.cs" />
+    <Compile Include="ConsultaElegirInstancia.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
     <Compile Include="Controlador.cs" />
@@ -61,6 +62,12 @@
     <Compile Include="ConsultaActividad.cs" />
     <Compile Include="ConsultaExpediente.cs" />
     <Compile Include="Expediente.cs" />
+    <Compile Include="FormElegirInstancia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormElegirInstancia.Designer.cs">
+      <DependentUpon>FormElegirInstancia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFlujosConstruidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +137,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormElegirInstancia.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormElegirInstancia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFlujosConstruidos.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormFlujosConstruidos.cs</DependentUpon>

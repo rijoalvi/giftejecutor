@@ -55,16 +55,25 @@ namespace GiftEjecutor
             String strTipo = dataGridComandos[3, fila].Value.ToString();            
             int tipoComando = comandoAEjecutar.getTipoComando(strTipo);
             //TEMPORALES
-            int IDDatos = 1;
+            int IDDatos = -1;
             //FIN TEMPS
 
             int IDComando = Int32.Parse(dataGridComandos[0, fila].Value.ToString());
 
+            //Mientras no sea de creacion se debe elegir con cual instancia se desea trabajar
+            if (tipoComando != 1) {
+               // comandoAEjecutar.IDFormularioATrabajar;
+               // IDExpediente;
+                FormElegirInstancia instancia = new FormElegirInstancia();
+                instancia.Show();
+                //ciclo que espera a que el usuario responda
+                while ( !instancia.isInstanciaElegida() );                
+
+            }
+
             comandoAEjecutar.setAtributosSegunID(IDComando);
             if (strTipo.Equals("Máscara"))
             {
-
-
                 ComandoMascara cm = new ComandoMascara();
                 cm.setAtributosComandoMascaraSegunID(IDComando);
                 MessageBox.Show(cm.ToString());
@@ -73,8 +82,6 @@ namespace GiftEjecutor
                 //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
                 cf.actualizarTodosLosCampos(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
-
-
                 cf.insertarEnBitacora(IDExpediente, this.IDActividad, IDComando, IDDatos, comandoAEjecutar.IDFormularioATrabajar, true, "Se modificó el campo " + cm.nombreCampoEfecto);
             }
             else//ejecuta lo de alberto
