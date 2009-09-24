@@ -231,7 +231,7 @@ namespace GiftEjecutor
             if (modificacion)
             {
                 actualizarTupla();
-                miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, IDTupla, IDForm, true, "Se modificó la instancia");
+                miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia");
                 this.Visible = false;
             }
             else //Si se va a crear una nueva tupla
@@ -239,7 +239,7 @@ namespace GiftEjecutor
                 if (visualizacion)
                 {
                     //no hace nada solo va a bitacora
-                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, IDTupla, IDForm, true, "Se visualizó la instancia");
+                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia");
                     this.Visible = false;
                 }
                 else
@@ -247,7 +247,7 @@ namespace GiftEjecutor
                     //ingresa la tupla
                     ingresarNuevaTupla();
                     //ingresa el ingreso a la bitacora
-                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, IDTupla, IDForm, true, "Se agregó una nueva instancia");
+                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia");
                     this.Visible = false;
                 }
             }

@@ -139,10 +139,10 @@ namespace GiftEjecutor
             return false;
         }
 
-        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
+        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int tipoCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
         {
-            String consulta = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
-                            "VALUES(" + IDExp + ", " + IDAct + ", " + IDCom + ", " + IDInstForm + ", " + IDFormConfig + ", '" + ejec + "', '" + descripcion + "');";
+            String consulta = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, tipoComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
+                            "VALUES(" + IDExp + ", " + IDAct + ", " + IDCom + ", " + tipoCom + ", " + IDInstForm + ", " + IDFormConfig + ", '" + ejec + "', '" + descripcion + "');";
             Console.WriteLine(consulta);
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;

@@ -46,6 +46,7 @@ CREATE TABLE BITACORA(
 	IDExpediente	int,
 	IDActividad		int,
 	IDComando		int,
+	tipoComando		int,
 	IDInstaciaForm	int,
 	IDFormConfigurador	int,
 	ejecutada		VARCHAR(6),

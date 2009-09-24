@@ -249,9 +249,9 @@ namespace GiftEjecutor
             return consultaBD.insertarInstanciaFormulario(ingresoTupla, nombreTabla);
         }
 
-        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
+        public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int tipoCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
         {
-            return consultaBD.insertarEnBitacora(IDExp, IDAct, IDCom, IDInstForm, IDFormConfig, ejec, descripcion);
+            return consultaBD.insertarEnBitacora(IDExp, IDAct, IDCom, tipoCom, IDInstForm, IDFormConfig, ejec, descripcion);
         }
     }
 }

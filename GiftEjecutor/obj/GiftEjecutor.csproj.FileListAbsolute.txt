@@ -283,3 +283,4 @@ C:\Documents and Settings\ea63183\Desktop\Ultimo ejecutor\GiftEjecutor\obj\Debug
 C:\Documents and Settings\ea63183\Desktop\Ultimo ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
 C:\Documents and Settings\ea63183\Desktop\Ultimo ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
 C:\Documents and Settings\ea63183\Desktop\Ultimo ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources

@@ -21,7 +21,6 @@ namespace GiftEjecutor
          * static final int INCREMENTAL = 5;         
          * static final int JERARQUIA = 6
          * static final int LISTA = 7;
-         * Hola muchachos!!!
          */
      
         
@@ -59,7 +58,7 @@ namespace GiftEjecutor
             int IDExpediente = 999;
             //int IDActividad = 19;
 
-            int IDActividad = 7;
+            int IDActividad = 19;
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
@@ -324,7 +323,8 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-            refrescarDirectorio();
+            //lo comento xq se esta cayendo... Beto 23/9
+            //refrescarDirectorio();
         }
 
         private void button1_Click(object sender, EventArgs e)

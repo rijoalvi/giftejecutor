@@ -59,38 +59,35 @@ namespace GiftEjecutor
             //FIN TEMPS
 
             int IDComando = Int32.Parse(dataGridComandos[0, fila].Value.ToString());
-
+            comandoAEjecutar.setAtributosSegunID(IDComando);
+            
             //Mientras no sea de creacion se debe elegir con cual instancia se desea trabajar
             if (tipoComando != 1) {
                // comandoAEjecutar.IDFormularioATrabajar;
                // IDExpediente;
-                FormElegirInstancia instancia = new FormElegirInstancia();
+                FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID());
                 instancia.Show();
                 //ciclo que espera a que el usuario responda
-                while ( !instancia.isInstanciaElegida() );                
+                //while ( !instancia.isInstanciaElegida() );                
 
-            }
 
-            comandoAEjecutar.setAtributosSegunID(IDComando);
-            if (strTipo.Equals("Máscara"))
-            {
-                ComandoMascara cm = new ComandoMascara();
-                cm.setAtributosComandoMascaraSegunID(IDComando);
-                MessageBox.Show(cm.ToString());
-                ConsultaFormulario cf = new ConsultaFormulario();
-                //cf.a
-                //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+                if (strTipo.Equals("Máscara"))
+                {
+                    ComandoMascara cm = new ComandoMascara();
+                    cm.setAtributosComandoMascaraSegunID(IDComando);
+                    MessageBox.Show(cm.ToString());
+                    ConsultaFormulario cf = new ConsultaFormulario();
+                    //cf.a
+                    //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
-                cf.actualizarTodosLosCampos(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
-                cf.insertarEnBitacora(IDExpediente, this.IDActividad, IDComando, IDDatos, comandoAEjecutar.IDFormularioATrabajar, true, "Se modificó el campo " + cm.nombreCampoEfecto);
-            }
-            else//ejecuta lo de alberto
-            {
-
+                    cf.actualizarTodosLosCampos(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+                    cf.insertarEnBitacora(IDExpediente, this.IDActividad, IDComando, tipoComando, IDDatos, comandoAEjecutar.IDFormularioATrabajar, true, "Se modificó el campo " + cm.nombreCampoEfecto);
+                }
+            }            
+            else//es de creacion
+            {                
                 FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
                 formFormulario.Show();
-
-
             }
             /* TEMPORAL
             if(comandoAEjecutar.getID() == 23){
