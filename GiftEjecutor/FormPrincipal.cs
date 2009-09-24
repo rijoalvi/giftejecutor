@@ -367,6 +367,12 @@ namespace GiftEjecutor
             
         }
 
+        private void botonPruebaBitacora_Click(object sender, EventArgs e)
+        {
+            FormVistaBitacora bit = new FormVistaBitacora(999);
+            bit.Show();
+        }
+
 
       /*  private void directorio_Click(object sender, EventArgs e)
         {
