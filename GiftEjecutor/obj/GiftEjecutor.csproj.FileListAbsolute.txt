@@ -286,3 +286,5 @@ C:\Documents and Settings\ea63183\Desktop\Ultimo ejecutor\GiftEjecutor\obj\Debug
 C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources

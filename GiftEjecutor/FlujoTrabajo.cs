@@ -96,15 +96,15 @@ namespace GiftEjecutor
             tabla.Columns.Add(nombre);
             tabla.Columns.Add(descripcion);
             if (datos != null){
-                /*while (*/
-                datos.Read();/*)
-                {*/
+                while (
+                datos.Read())
+                {
                     fila = tabla.NewRow();
                     fila["IDFlujo"] = datos.GetValue(0);
                     fila["nombre"] = datos.GetValue(1);
                     fila["descripcion"] = datos.GetValue(2).ToString();
                     tabla.Rows.Add(fila);
-                //}
+                }
             }
             return tabla;
         }

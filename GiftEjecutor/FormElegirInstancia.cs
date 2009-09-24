@@ -36,7 +36,6 @@ namespace GiftEjecutor
             this.valorEfecto = valorEfecto;*/
             this.consultaBD = new ConsultaElegirInstancia();
             this.miFormulario = new Formulario(IDFormulario);
-
             llenarGrid();
         }
 
