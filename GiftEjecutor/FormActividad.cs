@@ -63,43 +63,15 @@ namespace GiftEjecutor
             
             //Mientras no sea de creacion se debe elegir con cual instancia se desea trabajar
             if (tipoComando != 1) {
-               // comandoAEjecutar.IDFormularioATrabajar;
-               // IDExpediente;
-                FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID());
+               
+                FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad);
                 instancia.Show();
-                //ciclo que espera a que el usuario responda
-                //while ( !instancia.isInstanciaElegida() );                
-
-
-                if (strTipo.Equals("Máscara"))
-                {
-                    ComandoMascara cm = new ComandoMascara();
-                    cm.setAtributosComandoMascaraSegunID(IDComando);
-                    MessageBox.Show(cm.ToString());
-                    ConsultaFormulario cf = new ConsultaFormulario();
-                    //cf.a
-                    //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
-
-                    cf.actualizarTodosLosCampos(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
-                    cf.insertarEnBitacora(IDExpediente, this.IDActividad, IDComando, tipoComando, IDDatos, comandoAEjecutar.IDFormularioATrabajar, true, "Se modificó el campo " + cm.nombreCampoEfecto);
-                }
             }            
             else//es de creacion
             {                
                 FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
                 formFormulario.Show();
             }
-            /* TEMPORAL
-            if(comandoAEjecutar.getID() == 23){
-            FormFormulario formFormulario = new FormFormulario(3);
-            formFormulario.Show();
-                }
-                else {
-                    FormFormulario formFormulario = new FormFormulario(3, 1, 2);
-                    formFormulario.Show();
-            
-                }
-             */ 
         }
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -16,17 +16,24 @@ namespace GiftEjecutor
         private int IDExpediente;
         private int tipoComando;
         private int IDComando;
+        private int IDActividad;
+        /*private String nombreCampoEfecto;
+        private String valorEfecto;*/
         private ConsultaElegirInstancia consultaBD;
         private Formulario miFormulario;
 
-        public FormElegirInstancia(int IDForm, int IDExp, int tipoComando, int IDComando)
+        public FormElegirInstancia(int IDForm, int IDExp, int tipoComando, int IDComando, int IDActividad)
         {
+            //cm.nombreCampoEfecto, cm.valorCampoEfecto
             InitializeComponent();
             this.IDTupla = -1;
             this.IDFormulario = IDForm;
             this.IDExpediente = IDExp;
             this.tipoComando = tipoComando;
             this.IDComando = IDComando;
+            this.IDActividad = IDActividad;
+            /*this.nombreCampoEfecto = nombreCampoEfecto;
+            this.valorEfecto = valorEfecto;*/
             this.consultaBD = new ConsultaElegirInstancia();
             this.miFormulario = new Formulario(IDFormulario);
 
@@ -42,19 +49,31 @@ namespace GiftEjecutor
             DataColumn nombreFormulario = new DataColumn();
             DataColumn fechaCreado = new DataColumn();
 
+
             correlativo.ColumnName = "correlativo";
             correlativo.DataType = Type.GetType("System.String");
+            nombreFormulario.ColumnName = "nombreFormulario";
+            nombreFormulario.DataType = Type.GetType("System.String");
+            fechaCreado.ColumnName = "fechaCreado";
+            fechaCreado.DataType = Type.GetType("System.String");
 
             tabla.Columns.Add(correlativo);
+            tabla.Columns.Add(nombreFormulario);
+            tabla.Columns.Add(fechaCreado);
             if (datos != null)
             {
                 while (datos.Read())
                 {
                     fila = tabla.NewRow();
                     fila["correlativo"] = datos.GetValue(0);
+                    fila["nombreFormulario"] = miFormulario.getNombre();
+                    fila["fechaCreado"] = datos.GetValue(1);
                     tabla.Rows.Add(fila);
                 }
             }
+
+            dataGridInstancias.DataSource = tabla;
+            dataGridInstancias.Columns[0].Visible = false;
         }
 
         public int getIDTupla() {
@@ -68,7 +87,33 @@ namespace GiftEjecutor
 
         private void botonEjecutar_Click(object sender, EventArgs e)
         {
-            //IDTupla = 
+            IDTupla = int.Parse(this.dataGridInstancias[0, this.dataGridInstancias.CurrentRow.Index].Value.ToString());
+            if (tipoComando == 5) //Mascara
+            {
+                ComandoMascara cm = new ComandoMascara();
+                cm.setAtributosComandoMascaraSegunID(IDComando);
+                MessageBox.Show(cm.ToString());
+                ConsultaFormulario cf = new ConsultaFormulario();
+                //cf.a
+                //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+
+                cf.actualizarTodosLosCampos(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+                cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
+            }
+            else //Los otros
+            {
+                if (tipoComando == 4) //De borrado
+                {
+                    consultaBD.eliminarTupla(IDTupla, miFormulario.getNombre());
+                    miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se eliminó la instancia del formulario");
+                    MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!");
+                }
+                else
+                {
+                    FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando);
+                    formFormulario.Show();
+                }
+            }
             this.Hide();
         }
     }
