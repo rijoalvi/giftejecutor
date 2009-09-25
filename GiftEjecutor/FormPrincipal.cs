@@ -66,7 +66,7 @@ namespace GiftEjecutor
         private void buttonActividad_Click(object sender, EventArgs e)
         {
             int IDExpediente = 999;
-            int IDActividad = 11;
+            int IDActividad = 1;
             FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente);
             formListadoActividad.Show();
         }

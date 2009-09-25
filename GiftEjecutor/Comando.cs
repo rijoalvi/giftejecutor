@@ -96,6 +96,9 @@ namespace GiftEjecutor
             tablaComandos.Columns.Add(tipoComando);
             tablaComandos.Columns.Add(formularioATrabajar);
 
+            //Con esto escondo la columna "IDComando".      Ricardo
+            //tablaComandos.Columns["IDComando"].ColumnMapping = MappingType.Hidden;
+
             control = new Controlador();
             SqlDataReader datos;
             datos = consultaComando.getTodosComandosPorIDActividad(IDActividad);
@@ -151,6 +154,9 @@ namespace GiftEjecutor
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
             tablaComandos.Columns.Add(formularioATrabajar);
+
+            //Con esto escondo la columna "IDComando".      Ricardo
+            //tablaComandos.Columns["IDComando"].ColumnMapping = MappingType.Hidden;
 
             control = new Controlador();
             SqlDataReader datos;
@@ -211,6 +217,9 @@ namespace GiftEjecutor
             tablaComandos.Columns.Add(descripcionComando);
             tablaComandos.Columns.Add(tipoComando);
             tablaComandos.Columns.Add(formularioATrabajar);
+
+            //Con esto escondo la columna "IDComando".      Ricardo
+            //tablaComandos.Columns["IDComando"].ColumnMapping = MappingType.Hidden;
 
             control = new Controlador();
             SqlDataReader datos;
