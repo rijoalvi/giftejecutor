@@ -151,5 +151,10 @@ namespace GiftEjecutor
         {
             this.buttonCerrar.BackColor = Color.OrangeRed;
         }
+
+        private void dataGridComandos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

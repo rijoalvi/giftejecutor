@@ -128,7 +128,8 @@ namespace GiftEjecutor
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 79);
+            this.label2.ForeColor = System.Drawing.Color.Firebrick;
+            this.label2.Location = new System.Drawing.Point(47, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(556, 18);
             this.label2.TabIndex = 9;
@@ -152,6 +153,7 @@ namespace GiftEjecutor
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEncabezadoComando.AutoSize = true;
             this.labelEncabezadoComando.Font = new System.Drawing.Font("Verdana", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEncabezadoComando.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.labelEncabezadoComando.Location = new System.Drawing.Point(12, 9);
             this.labelEncabezadoComando.Name = "labelEncabezadoComando";
             this.labelEncabezadoComando.Size = new System.Drawing.Size(332, 26);
