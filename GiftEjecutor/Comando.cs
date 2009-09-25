@@ -78,11 +78,11 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            IDComando.ColumnName = "IDComando";
-            nombreComando.ColumnName = "nombreComando";
-            descripcionComando.ColumnName = "descripcionComando";
-            tipoComando.ColumnName = "tipoComando";
-            formularioATrabajar.ColumnName = "formularioATrabajar";
+            IDComando.ColumnName = "ID";
+            nombreComando.ColumnName = "Nombre";
+            descripcionComando.ColumnName = "Descripcion";
+            tipoComando.ColumnName = "Tipo";
+            formularioATrabajar.ColumnName = "Formulario";
 
             IDComando.DataType = Type.GetType("System.String");
             nombreComando.DataType = Type.GetType("System.String");
@@ -107,11 +107,11 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    fila["IDComando"] = datos.GetValue(2);
-                    fila["nombreComando"] = datos.GetValue(3);
-                    fila["descripcionComando"] = datos.GetValue(4);
-                    fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
-                    fila["formularioATrabajar"] = datos.GetValue(6);
+                    fila["ID"] = datos.GetValue(2);
+                    fila["Nombre"] = datos.GetValue(3);
+                    fila["Descripcion"] = datos.GetValue(4);
+                    fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
+                    fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
                     yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
                     if (yaSeEjecuto)
@@ -137,11 +137,11 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            IDComando.ColumnName = "IDComando";            
-            nombreComando.ColumnName = "nombreComando";
-            descripcionComando.ColumnName = "descripcionComando";
-            tipoComando.ColumnName = "tipoComando";
-            formularioATrabajar.ColumnName = "formularioATrabajar";
+            IDComando.ColumnName = "ID";            
+            nombreComando.ColumnName = "Nombre";
+            descripcionComando.ColumnName = "Descripcion";
+            tipoComando.ColumnName = "Tipo";
+            formularioATrabajar.ColumnName = "Formulario";
 
             IDComando.DataType = Type.GetType("System.String");            
             nombreComando.DataType = Type.GetType("System.String");
@@ -169,11 +169,11 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    fila["IDComando"] = datos.GetValue(2);                    
-                    fila["nombreComando"] = datos.GetValue(3);
-                    fila["descripcionComando"] = datos.GetValue(4);
-                    fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
-                    fila["formularioATrabajar"] = datos.GetValue(6);
+                    fila["ID"] = datos.GetValue(2);                    
+                    fila["Nombre"] = datos.GetValue(3);
+                    fila["Descripcion"] = datos.GetValue(4);
+                    fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
+                    fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
                     yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
                     if (!yaSeEjecuto && seAgregoComandoAEjecutar == 0)
@@ -200,11 +200,11 @@ namespace GiftEjecutor
             Controlador control;
 
 
-            IDComando.ColumnName = "IDComando";
-            nombreComando.ColumnName = "nombreComando";
-            descripcionComando.ColumnName = "descripcionComando";
-            tipoComando.ColumnName = "tipoComando";
-            formularioATrabajar.ColumnName = "formularioATrabajar";
+            IDComando.ColumnName = "ID";
+            nombreComando.ColumnName = "Nombre";
+            descripcionComando.ColumnName = "Descripcion";
+            tipoComando.ColumnName = "Tipo";
+            formularioATrabajar.ColumnName = "Formulario";
 
             IDComando.DataType = Type.GetType("System.String");
             nombreComando.DataType = Type.GetType("System.String");
@@ -232,11 +232,11 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaComandos.NewRow();
-                    fila["IDComando"] = datos.GetValue(2);
-                    fila["nombreComando"] = datos.GetValue(3);
-                    fila["descripcionComando"] = datos.GetValue(4);
-                    fila["tipoComando"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
-                    fila["formularioATrabajar"] = datos.GetValue(6);
+                    fila["ID"] = datos.GetValue(2);
+                    fila["Nombre"] = datos.GetValue(3);
+                    fila["Descripcion"] = datos.GetValue(4);
+                    fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
+                    fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
                     yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
                     if (!yaSeEjecuto)
