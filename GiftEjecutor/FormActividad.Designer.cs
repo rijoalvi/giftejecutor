@@ -103,7 +103,7 @@ namespace GiftEjecutor
             this.dataGridEjecutados.Name = "dataGridEjecutados";
             this.dataGridEjecutados.ReadOnly = true;
             this.dataGridEjecutados.Size = new System.Drawing.Size(287, 110);
-            this.dataGridEjecutados.TabIndex = 6;
+            this.dataGridEjecutados.TabIndex = 3;
             // 
             // dataGridNoPosibles
             // 
@@ -114,6 +114,7 @@ namespace GiftEjecutor
             this.dataGridNoPosibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridNoPosibles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridNoPosibles.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridNoPosibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridNoPosibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNoPosibles.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridNoPosibles.Location = new System.Drawing.Point(342, 442);
@@ -121,7 +122,7 @@ namespace GiftEjecutor
             this.dataGridNoPosibles.Name = "dataGridNoPosibles";
             this.dataGridNoPosibles.ReadOnly = true;
             this.dataGridNoPosibles.Size = new System.Drawing.Size(287, 110);
-            this.dataGridNoPosibles.TabIndex = 7;
+            this.dataGridNoPosibles.TabIndex = 4;
             // 
             // labelComandosNoEjecutados
             // 
@@ -130,7 +131,7 @@ namespace GiftEjecutor
             this.labelComandosNoEjecutados.Location = new System.Drawing.Point(34, 425);
             this.labelComandosNoEjecutados.Name = "labelComandosNoEjecutados";
             this.labelComandosNoEjecutados.Size = new System.Drawing.Size(251, 14);
-            this.labelComandosNoEjecutados.TabIndex = 8;
+            this.labelComandosNoEjecutados.TabIndex = 0;
             this.labelComandosNoEjecutados.Text = "Comandos que ya fueron ejecutados:";
             // 
             // label2
@@ -141,7 +142,7 @@ namespace GiftEjecutor
             this.label2.Location = new System.Drawing.Point(47, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(556, 18);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Estos son los comandos que se pueden ejecutar en este momento:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -152,7 +153,7 @@ namespace GiftEjecutor
             this.labelComandosSinEjecutar.Location = new System.Drawing.Point(328, 425);
             this.labelComandosSinEjecutar.Name = "labelComandosSinEjecutar";
             this.labelComandosSinEjecutar.Size = new System.Drawing.Size(311, 14);
-            this.labelComandosSinEjecutar.TabIndex = 10;
+            this.labelComandosSinEjecutar.TabIndex = 0;
             this.labelComandosSinEjecutar.Text = "Comandos que todavía no se pueden ejecutar:";
             this.labelComandosSinEjecutar.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -166,7 +167,7 @@ namespace GiftEjecutor
             this.labelEncabezadoComando.Location = new System.Drawing.Point(12, 9);
             this.labelEncabezadoComando.Name = "labelEncabezadoComando";
             this.labelEncabezadoComando.Size = new System.Drawing.Size(332, 26);
-            this.labelEncabezadoComando.TabIndex = 11;
+            this.labelEncabezadoComando.TabIndex = 0;
             this.labelEncabezadoComando.Text = "Comandos de la Actividad";
             // 
             // label4
@@ -176,7 +177,7 @@ namespace GiftEjecutor
             this.label4.Location = new System.Drawing.Point(80, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(492, 13);
-            this.label4.TabIndex = 12;
+            this.label4.TabIndex = 0;
             this.label4.Text = "(Para ejecutar uno de ellos, selecciónelo y haga click en el botón \"ejecutar coma" +
                 "ndo\")";
             // 
@@ -191,7 +192,7 @@ namespace GiftEjecutor
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = false;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
-            this.buttonCerrar.Leave += new System.EventHandler(this.uttonCerrarColorOscuro);
+            this.buttonCerrar.Leave += new System.EventHandler(this.buttonCerrarColorOscuro);
             this.buttonCerrar.Enter += new System.EventHandler(this.buttonCerrarColorClaro);
             // 
             // FormActividad

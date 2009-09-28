@@ -68,6 +68,13 @@ namespace GiftEjecutor
         
         }
 
+        public String getNombreFlujo()
+        {
+            String[] datos = consultaFlujoTrabajo.getDatosFlujo(this.correlativo);
+            return (datos[0]);
+
+        }
+
         /// <summary>
         /// Devuelve un dataTable con todos los flujos creados en el configurador
         /// </summary>

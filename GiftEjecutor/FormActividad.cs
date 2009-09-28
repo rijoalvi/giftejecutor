@@ -147,7 +147,7 @@ namespace GiftEjecutor
             this.buttonCerrar.BackColor = Color.Red;
         }
 
-        private void uttonCerrarColorOscuro(object sender, EventArgs e)
+        private void buttonCerrarColorOscuro(object sender, EventArgs e)
         {
             this.buttonCerrar.BackColor = Color.OrangeRed;
         }

@@ -25,6 +25,10 @@ namespace GiftEjecutor
             this.IDExpediente = IDExpediente;
             InitializeComponent();
             this.cargarDataGridActividad();
+            //FlujoTrabajo flujo;
+            //flujo = new FlujoTrabajo(IDFlujo);
+            //this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
+            //this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
         }
         
         private void FormListadoActividad_Load(object sender, EventArgs e)
@@ -102,6 +106,36 @@ namespace GiftEjecutor
         private void dataGridActividad_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             this.buttonEjecutarActividad.Enabled = true;
+        }
+
+        private void buttonEjecutarActividad_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.buttonEjecutarActividad.BackColor = Color.Red;
+        }
+
+        private void buttonEjecutarActividad_MouseEnter(object sender, EventArgs e)
+        {
+            this.buttonEjecutarActividad.BackColor = Color.Lime;
+        }
+
+        private void buttonEjecutarActividad_MouseLeave(object sender, EventArgs e)
+        {
+            this.buttonEjecutarActividad.BackColor = Color.LimeGreen;
+        }
+
+        private void buttonEjecutarActividad_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.buttonEjecutarActividad.BackColor = Color.LimeGreen;
+        }
+
+        private void buttonEjecutarActividad_EnabledChanged(object sender, EventArgs e)
+        {
+            this.buttonEjecutarActividad.BackColor = Color.LimeGreen;
+        }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
