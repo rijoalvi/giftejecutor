@@ -30,6 +30,7 @@ namespace GiftEjecutor
         {
             this.dataGridElementosBitacora = new System.Windows.Forms.DataGridView();
             this.botonAceptar = new System.Windows.Forms.Button();
+            this.labelEncabezadoBitacora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridElementosBitacora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,10 +41,11 @@ namespace GiftEjecutor
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridElementosBitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridElementosBitacora.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridElementosBitacora.BackgroundColor = System.Drawing.Color.White;
             this.dataGridElementosBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridElementosBitacora.Location = new System.Drawing.Point(12, 12);
+            this.dataGridElementosBitacora.Location = new System.Drawing.Point(12, 52);
             this.dataGridElementosBitacora.Name = "dataGridElementosBitacora";
-            this.dataGridElementosBitacora.Size = new System.Drawing.Size(843, 568);
+            this.dataGridElementosBitacora.Size = new System.Drawing.Size(843, 528);
             this.dataGridElementosBitacora.TabIndex = 0;
             // 
             // botonAceptar
@@ -56,17 +58,30 @@ namespace GiftEjecutor
             this.botonAceptar.UseVisualStyleBackColor = true;
             this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
             // 
+            // labelEncabezadoBitacora
+            // 
+            this.labelEncabezadoBitacora.AutoSize = true;
+            this.labelEncabezadoBitacora.Font = new System.Drawing.Font("Verdana", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEncabezadoBitacora.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelEncabezadoBitacora.Location = new System.Drawing.Point(12, 9);
+            this.labelEncabezadoBitacora.Name = "labelEncabezadoBitacora";
+            this.labelEncabezadoBitacora.Size = new System.Drawing.Size(309, 26);
+            this.labelEncabezadoBitacora.TabIndex = 2;
+            this.labelEncabezadoBitacora.Text = "Bitácora del Expediente";
+            // 
             // FormVistaBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 628);
+            this.Controls.Add(this.labelEncabezadoBitacora);
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.dataGridElementosBitacora);
             this.Name = "FormVistaBitacora";
             this.Text = "Bitácora";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridElementosBitacora)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -74,5 +89,6 @@ namespace GiftEjecutor
 
         private System.Windows.Forms.DataGridView dataGridElementosBitacora;
         private System.Windows.Forms.Button botonAceptar;
+        private System.Windows.Forms.Label labelEncabezadoBitacora;
     }
 }

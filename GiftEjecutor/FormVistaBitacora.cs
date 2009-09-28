@@ -22,6 +22,12 @@ namespace GiftEjecutor
             c = new Controlador();
             this.dataGridElementosBitacora.DataSource = c.getDataTableBitacora(IDExpediente);
             dataGridElementosBitacora.Refresh();
+            ConsultaExpediente consulta;
+            consulta = new ConsultaExpediente();
+            String nomExpediente = consulta.buscarNombreExpediente(IDExpediente);
+            this.labelEncabezadoBitacora.Text = "Bitácora del Expediente ''" + nomExpediente + "''";
+            this.Text = "Bitácora del Expediente ''" + nomExpediente + "''";
+
 
         }
 

@@ -59,10 +59,18 @@ namespace GiftEjecutor
             this.dataGridActividad.AllowUserToAddRows = false;
             this.dataGridActividad.AllowUserToDeleteRows = false;
             this.dataGridActividad.AllowUserToOrderColumns = true;
+            this.dataGridActividad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridActividad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridActividad.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridActividad.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridActividad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridActividad.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridActividad.Location = new System.Drawing.Point(90, 133);
+            this.dataGridActividad.Margin = new System.Windows.Forms.Padding(1);
             this.dataGridActividad.Name = "dataGridActividad";
             this.dataGridActividad.ReadOnly = true;
+            this.dataGridActividad.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridActividad.Size = new System.Drawing.Size(469, 110);
             this.dataGridActividad.TabIndex = 1;
             this.dataGridActividad.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActividad_CellClick_1);
@@ -91,7 +99,7 @@ namespace GiftEjecutor
             this.label2.Location = new System.Drawing.Point(14, 414);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 13);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Actividades ejecutadas";
             // 
             // dataGridEjecutados
@@ -99,12 +107,18 @@ namespace GiftEjecutor
             this.dataGridEjecutados.AllowUserToAddRows = false;
             this.dataGridEjecutados.AllowUserToDeleteRows = false;
             this.dataGridEjecutados.AllowUserToOrderColumns = true;
+            this.dataGridEjecutados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridEjecutados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridEjecutados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridEjecutados.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridEjecutados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEjecutados.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridEjecutados.Location = new System.Drawing.Point(12, 442);
+            this.dataGridEjecutados.Margin = new System.Windows.Forms.Padding(1);
             this.dataGridEjecutados.Name = "dataGridEjecutados";
             this.dataGridEjecutados.ReadOnly = true;
             this.dataGridEjecutados.Size = new System.Drawing.Size(287, 110);
-            this.dataGridEjecutados.TabIndex = 9;
+            this.dataGridEjecutados.TabIndex = 3;
             // 
             // label3
             // 
@@ -114,7 +128,7 @@ namespace GiftEjecutor
             this.label3.Location = new System.Drawing.Point(47, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(565, 18);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Estos son las actividades que se pueden ejecutar en este momento:";
             // 
             // label4
@@ -123,7 +137,7 @@ namespace GiftEjecutor
             this.label4.Location = new System.Drawing.Point(375, 414);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 13);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Actividades por ejecutar, que le faltan requisitos";
             // 
             // dataGridPorEjecutar
@@ -131,12 +145,18 @@ namespace GiftEjecutor
             this.dataGridPorEjecutar.AllowUserToAddRows = false;
             this.dataGridPorEjecutar.AllowUserToDeleteRows = false;
             this.dataGridPorEjecutar.AllowUserToOrderColumns = true;
+            this.dataGridPorEjecutar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridPorEjecutar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridPorEjecutar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridPorEjecutar.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridPorEjecutar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPorEjecutar.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridPorEjecutar.Location = new System.Drawing.Point(342, 442);
+            this.dataGridPorEjecutar.Margin = new System.Windows.Forms.Padding(1);
             this.dataGridPorEjecutar.Name = "dataGridPorEjecutar";
             this.dataGridPorEjecutar.ReadOnly = true;
             this.dataGridPorEjecutar.Size = new System.Drawing.Size(287, 110);
-            this.dataGridPorEjecutar.TabIndex = 12;
+            this.dataGridPorEjecutar.TabIndex = 4;
             // 
             // buttonCerrar
             // 
@@ -145,7 +165,7 @@ namespace GiftEjecutor
             this.buttonCerrar.Location = new System.Drawing.Point(282, 365);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCerrar.TabIndex = 14;
+            this.buttonCerrar.TabIndex = 5;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = false;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
@@ -157,7 +177,7 @@ namespace GiftEjecutor
             this.label5.Location = new System.Drawing.Point(80, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(492, 13);
-            this.label5.TabIndex = 15;
+            this.label5.TabIndex = 0;
             this.label5.Text = "(Para ejecutar una de ellas, selecciónela y haga click en el botón \"ejecutar acti" +
                 "vidad\")";
             // 

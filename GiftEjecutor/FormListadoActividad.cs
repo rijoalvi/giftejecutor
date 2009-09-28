@@ -25,10 +25,10 @@ namespace GiftEjecutor
             this.IDExpediente = IDExpediente;
             InitializeComponent();
             this.cargarDataGridActividad();
-            //FlujoTrabajo flujo;
-            //flujo = new FlujoTrabajo(IDFlujo);
-            //this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
-            //this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
+            FlujoTrabajo flujo;
+            flujo = new FlujoTrabajo(IDFlujo);
+            this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
+            this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
         }
         
         private void FormListadoActividad_Load(object sender, EventArgs e)

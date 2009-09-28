@@ -45,5 +45,18 @@ namespace GiftEjecutor
             }
             return lista;
         }
+
+        public String buscarNombreExpediente(int IDExpediente)
+        {
+            String consulta = "SELECT nombre From EXPEDIENTE where correlativo ="+ IDExpediente +";";
+            Console.Write("consulta : " + consulta);
+            SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            String nombreExpediente="";
+            if (resultado.Read())
+            {
+                nombreExpediente = resultado.GetValue(0).ToString();
+            }
+            return nombreExpediente;
+        }
     }
 }

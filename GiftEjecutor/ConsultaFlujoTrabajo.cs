@@ -12,10 +12,13 @@ namespace GiftEjecutor
             this.controladoBD = new ControladorBD();
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador("SELECT nombre,descripcion FROM FLUJO WHERE correlativo = " + correlativo+";");
             String[] dato = new String[2];
-            //Console.Write("valor: " + datos.GetValue(0).ToString());
-            //Console.Write("correlativo: " + correlativo);
-            dato[0] = datos.GetValue(0).ToString();
-            dato[1] = datos.GetValue(1).ToString();
+            if (datos.Read())
+            {
+                //Console.Write("valor: " + datos.GetValue(0).ToString());
+                //Console.Write("correlativo: " + correlativo);
+                dato[0] = datos.GetValue(0).ToString();
+                dato[1] = datos.GetValue(1).ToString();
+            }
             return dato;
         }
 
