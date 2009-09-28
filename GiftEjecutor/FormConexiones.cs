@@ -31,7 +31,7 @@ namespace GiftEjecutor
         private void radioButtonMYSQL_CheckedChanged(object sender, EventArgs e)
         {
    
-            if (true == radioButtonMySQLEjecutor.Checked)
+            if (true == radioButtonEjecutorExterna.Checked)
             {
                 conexionEjecutorSeleccionada = MYSQL;
             }
@@ -79,7 +79,7 @@ namespace GiftEjecutor
 
         private void radioButtonConexionExternaConfigurador_CheckedChanged(object sender, EventArgs e)
         {
-            if (true == this.radioButtonConexionExternaConfigurador.Checked)
+            if (true == this.radioButtonConfiguradorExterna.Checked)
             {
                 this.conexionConfiguradorSeleccionada = CONEXION_EXTERNA;
             }
@@ -92,7 +92,10 @@ namespace GiftEjecutor
 
         private void radioButtonSQLServerConfigurador_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButtonEjecutorECCI.Checked) {
+                radioButtonConfiguradorECCI.Checked = true;
+                radioButtonConfiguradorExterna.Checked = false;
+            }
         }
     }
 }

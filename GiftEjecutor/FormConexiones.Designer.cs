@@ -29,21 +29,21 @@ namespace GiftEjecutor
         private void InitializeComponent()
         {
             this.groupBoxConexiones = new System.Windows.Forms.GroupBox();
-            this.radioButtonSQLServerConfigurador = new System.Windows.Forms.RadioButton();
-            this.radioButtonMySQLEjecutor = new System.Windows.Forms.RadioButton();
+            this.radioButtonEjecutorECCI = new System.Windows.Forms.RadioButton();
+            this.radioButtonEjecutorExterna = new System.Windows.Forms.RadioButton();
             this.buttonIniciar = new System.Windows.Forms.Button();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonConexionECCIConfigurador = new System.Windows.Forms.RadioButton();
-            this.radioButtonConexionExternaConfigurador = new System.Windows.Forms.RadioButton();
+            this.radioButtonConfiguradorECCI = new System.Windows.Forms.RadioButton();
+            this.radioButtonConfiguradorExterna = new System.Windows.Forms.RadioButton();
             this.groupBoxConexiones.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxConexiones
             // 
-            this.groupBoxConexiones.Controls.Add(this.radioButtonSQLServerConfigurador);
-            this.groupBoxConexiones.Controls.Add(this.radioButtonMySQLEjecutor);
+            this.groupBoxConexiones.Controls.Add(this.radioButtonEjecutorECCI);
+            this.groupBoxConexiones.Controls.Add(this.radioButtonEjecutorExterna);
             this.groupBoxConexiones.Location = new System.Drawing.Point(12, 24);
             this.groupBoxConexiones.Name = "groupBoxConexiones";
             this.groupBoxConexiones.Size = new System.Drawing.Size(230, 67);
@@ -51,29 +51,29 @@ namespace GiftEjecutor
             this.groupBoxConexiones.TabStop = false;
             this.groupBoxConexiones.Text = "Ejecutor";
             // 
-            // radioButtonSQLServerConfigurador
+            // radioButtonEjecutorECCI
             // 
-            this.radioButtonSQLServerConfigurador.AutoSize = true;
-            this.radioButtonSQLServerConfigurador.Location = new System.Drawing.Point(21, 42);
-            this.radioButtonSQLServerConfigurador.Name = "radioButtonSQLServerConfigurador";
-            this.radioButtonSQLServerConfigurador.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonSQLServerConfigurador.TabIndex = 2;
-            this.radioButtonSQLServerConfigurador.Text = "SQLServer, ECCI";
-            this.radioButtonSQLServerConfigurador.UseVisualStyleBackColor = true;
-            this.radioButtonSQLServerConfigurador.CheckedChanged += new System.EventHandler(this.radioButtonSQLServerConfigurador_CheckedChanged);
+            this.radioButtonEjecutorECCI.AutoSize = true;
+            this.radioButtonEjecutorECCI.Location = new System.Drawing.Point(21, 42);
+            this.radioButtonEjecutorECCI.Name = "radioButtonEjecutorECCI";
+            this.radioButtonEjecutorECCI.Size = new System.Drawing.Size(107, 17);
+            this.radioButtonEjecutorECCI.TabIndex = 2;
+            this.radioButtonEjecutorECCI.Text = "SQLServer, ECCI";
+            this.radioButtonEjecutorECCI.UseVisualStyleBackColor = true;
+            this.radioButtonEjecutorECCI.CheckedChanged += new System.EventHandler(this.radioButtonSQLServerConfigurador_CheckedChanged);
             // 
-            // radioButtonMySQLEjecutor
+            // radioButtonEjecutorExterna
             // 
-            this.radioButtonMySQLEjecutor.AutoSize = true;
-            this.radioButtonMySQLEjecutor.Checked = true;
-            this.radioButtonMySQLEjecutor.Location = new System.Drawing.Point(21, 19);
-            this.radioButtonMySQLEjecutor.Name = "radioButtonMySQLEjecutor";
-            this.radioButtonMySQLEjecutor.Size = new System.Drawing.Size(113, 17);
-            this.radioButtonMySQLEjecutor.TabIndex = 1;
-            this.radioButtonMySQLEjecutor.TabStop = true;
-            this.radioButtonMySQLEjecutor.Text = "SQLServer, EEUU";
-            this.radioButtonMySQLEjecutor.UseVisualStyleBackColor = true;
-            this.radioButtonMySQLEjecutor.CheckedChanged += new System.EventHandler(this.radioButtonMYSQL_CheckedChanged);
+            this.radioButtonEjecutorExterna.AutoSize = true;
+            this.radioButtonEjecutorExterna.Checked = true;
+            this.radioButtonEjecutorExterna.Location = new System.Drawing.Point(21, 19);
+            this.radioButtonEjecutorExterna.Name = "radioButtonEjecutorExterna";
+            this.radioButtonEjecutorExterna.Size = new System.Drawing.Size(113, 17);
+            this.radioButtonEjecutorExterna.TabIndex = 1;
+            this.radioButtonEjecutorExterna.TabStop = true;
+            this.radioButtonEjecutorExterna.Text = "SQLServer, EEUU";
+            this.radioButtonEjecutorExterna.UseVisualStyleBackColor = true;
+            this.radioButtonEjecutorExterna.CheckedChanged += new System.EventHandler(this.radioButtonMYSQL_CheckedChanged);
             // 
             // buttonIniciar
             // 
@@ -94,8 +94,8 @@ namespace GiftEjecutor
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButtonConexionECCIConfigurador);
-            this.groupBox1.Controls.Add(this.radioButtonConexionExternaConfigurador);
+            this.groupBox1.Controls.Add(this.radioButtonConfiguradorECCI);
+            this.groupBox1.Controls.Add(this.radioButtonConfiguradorExterna);
             this.groupBox1.Location = new System.Drawing.Point(267, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 67);
@@ -103,29 +103,29 @@ namespace GiftEjecutor
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurador";
             // 
-            // radioButtonConexionECCIConfigurador
+            // radioButtonConfiguradorECCI
             // 
-            this.radioButtonConexionECCIConfigurador.AutoSize = true;
-            this.radioButtonConexionECCIConfigurador.Location = new System.Drawing.Point(17, 42);
-            this.radioButtonConexionECCIConfigurador.Name = "radioButtonConexionECCIConfigurador";
-            this.radioButtonConexionECCIConfigurador.Size = new System.Drawing.Size(160, 17);
-            this.radioButtonConexionECCIConfigurador.TabIndex = 3;
-            this.radioButtonConexionECCIConfigurador.TabStop = true;
-            this.radioButtonConexionECCIConfigurador.Text = "Conexión ECCI (SQL Server)";
-            this.radioButtonConexionECCIConfigurador.UseVisualStyleBackColor = true;
+            this.radioButtonConfiguradorECCI.AutoSize = true;
+            this.radioButtonConfiguradorECCI.Location = new System.Drawing.Point(17, 42);
+            this.radioButtonConfiguradorECCI.Name = "radioButtonConfiguradorECCI";
+            this.radioButtonConfiguradorECCI.Size = new System.Drawing.Size(160, 17);
+            this.radioButtonConfiguradorECCI.TabIndex = 3;
+            this.radioButtonConfiguradorECCI.TabStop = true;
+            this.radioButtonConfiguradorECCI.Text = "Conexión ECCI (SQL Server)";
+            this.radioButtonConfiguradorECCI.UseVisualStyleBackColor = true;
             // 
-            // radioButtonConexionExternaConfigurador
+            // radioButtonConfiguradorExterna
             // 
-            this.radioButtonConexionExternaConfigurador.AutoSize = true;
-            this.radioButtonConexionExternaConfigurador.Checked = true;
-            this.radioButtonConexionExternaConfigurador.Location = new System.Drawing.Point(17, 19);
-            this.radioButtonConexionExternaConfigurador.Name = "radioButtonConexionExternaConfigurador";
-            this.radioButtonConexionExternaConfigurador.Size = new System.Drawing.Size(172, 17);
-            this.radioButtonConexionExternaConfigurador.TabIndex = 2;
-            this.radioButtonConexionExternaConfigurador.TabStop = true;
-            this.radioButtonConexionExternaConfigurador.Text = "Conexión Externa (SQL Server)";
-            this.radioButtonConexionExternaConfigurador.UseVisualStyleBackColor = true;
-            this.radioButtonConexionExternaConfigurador.CheckedChanged += new System.EventHandler(this.radioButtonConexionExternaConfigurador_CheckedChanged);
+            this.radioButtonConfiguradorExterna.AutoSize = true;
+            this.radioButtonConfiguradorExterna.Checked = true;
+            this.radioButtonConfiguradorExterna.Location = new System.Drawing.Point(17, 19);
+            this.radioButtonConfiguradorExterna.Name = "radioButtonConfiguradorExterna";
+            this.radioButtonConfiguradorExterna.Size = new System.Drawing.Size(172, 17);
+            this.radioButtonConfiguradorExterna.TabIndex = 2;
+            this.radioButtonConfiguradorExterna.TabStop = true;
+            this.radioButtonConfiguradorExterna.Text = "Conexión Externa (SQL Server)";
+            this.radioButtonConfiguradorExterna.UseVisualStyleBackColor = true;
+            this.radioButtonConfiguradorExterna.CheckedChanged += new System.EventHandler(this.radioButtonConexionExternaConfigurador_CheckedChanged);
             // 
             // FormConexiones
             // 
@@ -150,13 +150,13 @@ namespace GiftEjecutor
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxConexiones;
-        private System.Windows.Forms.RadioButton radioButtonSQLServerConfigurador;
-        private System.Windows.Forms.RadioButton radioButtonMySQLEjecutor;
+        private System.Windows.Forms.RadioButton radioButtonEjecutorECCI;
+        private System.Windows.Forms.RadioButton radioButtonEjecutorExterna;
         private System.Windows.Forms.Button buttonIniciar;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         //private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonConexionECCIConfigurador;
-        private System.Windows.Forms.RadioButton radioButtonConexionExternaConfigurador;
+        private System.Windows.Forms.RadioButton radioButtonConfiguradorECCI;
+        private System.Windows.Forms.RadioButton radioButtonConfiguradorExterna;
     }
 }
