@@ -133,9 +133,9 @@ namespace GiftEjecutor
                 {
                     if (datos.Read())
                     {
-                        idsFlujosConstruidos[cant] = datos.GetValue(0).ToString();
-                        cant++;
+                        idsFlujosConstruidos[cant] = datos.GetValue(0).ToString();                        
                     }
+                    cant++;
                 }
             }
             //Va recorriendo todos los flujos existentes

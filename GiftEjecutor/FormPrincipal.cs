@@ -103,7 +103,17 @@ namespace GiftEjecutor
                 }else{
                     nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
                 }
-                nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
+                
+                if (nodoPadre != null)
+                {
+                    nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
+                    nodo.Tag = new Coleccion(colecciones[i][0], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
+                }
+                else { 
+                    Console.WriteLine("No se encuentra el flujo de trabajo al que pertenece la colección "+colecciones[i][1]);
+                    colecciones.Remove(colecciones[i]);
+                    nodo = null;
+                }
 
                 /*String correlativoFlujo;
                 String correlativoPadre;
@@ -116,13 +126,13 @@ namespace GiftEjecutor
                     correlativoPadre = nodoPadre.Name;
                 }*/
                 //nodo.Tag = new Coleccion(colecciones[i][0] , int.Parse(colecciones[i][2].ToString()),nodoPadre.);
-                nodo.Tag = new Coleccion(colecciones[i][0] , int.Parse(colecciones[i][2].ToString()),int.Parse(colecciones[i][3]));
+                
               //  ((Coleccion)nodo.Tag).setCorrelativoFlujo(int.Parse(colecciones[i][3].ToString()));
                 for (int k = 0; k < expedientes.Count; k++)
                 {
-                    if (int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
+                    if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
                     {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
-                        nodo.Nodes.Add("e" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
+                        nodo.Nodes.Add("E" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
                     }
 
                 }
@@ -277,22 +287,26 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //actualizarDirectorio();
+           // refrescarDirectorio();
         }
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(directorio.SelectedNode != null){
 
-            if (directorio.SelectedNode.Name.Contains("F"))
-            {
-                MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
-            }
-            else
-            {
-                String correlativoPadre = directorio.SelectedNode.Name;
-                String correlativoFlujo= ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
-                FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this,correlativoPadre, correlativoFlujo);
-                flujosConstruidos.Show();
+                if (directorio.SelectedNode.Name.Contains("F")||directorio.SelectedNode.Name.Equals("0"))
+                {
+                    MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
+                }
+                else
+                {
+                    String correlativoPadre = directorio.SelectedNode.Name;
+                    String correlativoFlujo= ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                    FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this,correlativoPadre, correlativoFlujo);
+                    flujosConstruidos.Show();
+                }
+            }else{
+                MessageBox.Show("Se debe seleccionar el Flujo de trabajos o la colección en la que se creará la colección en el directorio");
             }
             //OJO!!!!!!!
             //ESTO NO VA AQUI!
@@ -305,26 +319,39 @@ namespace GiftEjecutor
 
         private void agregarColeccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String correlativoFlujo;
-            String correlativoPadre;
-            if (this.directorio.SelectedNode.Name.Contains("F"))
+            if (this.directorio.SelectedNode != null)
             {
-                correlativoFlujo = directorio.SelectedNode.Name.Substring(1);
-                correlativoPadre = "0";
+                String correlativoFlujo;
+                String correlativoPadre;
+                if (this.directorio.SelectedNode.Name.Contains("F"))
+                {
+                    correlativoFlujo = directorio.SelectedNode.Name.Substring(1);
+                    correlativoPadre = "0";
+                    FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
+                    c.Show();
+                }
+                else if (!this.directorio.SelectedNode.Name.Contains("E") && !this.directorio.SelectedNode.Name.Equals("0"))
+                {
+                    correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                    correlativoPadre = directorio.SelectedNode.Name;
+                    FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
+                    c.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Solo es posible crear Colecciones dentro de un Flujo de trabajo o dentro de otra Colección");
+                }
             }
             else {
-                correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
-                correlativoPadre = directorio.SelectedNode.Name;
+                MessageBox.Show("Se debe seleccionar el Flujo de trabajos o la colección en la que se creará la colección en el directorio");
             }
-                
-            FormNuevaColeccion c = new FormNuevaColeccion(this,correlativoPadre,correlativoFlujo);
-            c.Show();
+            
         }
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             //lo comento xq se esta cayendo... Beto 23/9
-            //refrescarDirectorio();
+            refrescarDirectorio();
         }
 
         private void button1_Click(object sender, EventArgs e)
