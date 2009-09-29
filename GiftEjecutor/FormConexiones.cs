@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GiftEjecutor
@@ -21,6 +22,12 @@ namespace GiftEjecutor
         public FormConexiones()
         {
             InitializeComponent();
+
+            Thread t1 = new Thread(new ThreadStart(SplashForm));
+            t1.Start();
+            Thread.Sleep(5000); // The amount of time we want our splash form visible
+            t1.Abort();
+            Thread.Sleep(1000);
         }
 
         private void FormConexiones_Load(object sender, EventArgs e)
@@ -90,12 +97,26 @@ namespace GiftEjecutor
             System.Console.Write(conexionEjecutorSeleccionada);
         }
 
+        
         private void radioButtonSQLServerConfigurador_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonEjecutorECCI.Checked) {
+            if (radioButtonEjecutorECCI.Checked)
+            {
                 radioButtonConfiguradorECCI.Checked = true;
                 radioButtonConfiguradorExterna.Checked = false;
             }
+            else
+            {
+                radioButtonConfiguradorECCI.Checked = false;
+                radioButtonConfiguradorExterna.Checked = true;
+            }
+        }
+
+        private void SplashForm()
+        {
+            Splash newSplashForm = new Splash();
+            newSplashForm.ShowDialog();
+            newSplashForm.Dispose();
         }
     }
 }
