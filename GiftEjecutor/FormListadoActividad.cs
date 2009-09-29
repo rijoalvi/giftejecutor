@@ -57,7 +57,7 @@ namespace GiftEjecutor
             actividad.setIDExpediente(IDExpediente);
 
             //if (soyUnFlujoNoActividadCompuesta)
-            if (false)
+            if (true)
             {
                 dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
                 dataGridEjecutados.Columns[4].Visible = false;
@@ -92,6 +92,8 @@ namespace GiftEjecutor
             actividadAEjecutar.setIDExpediente(this.IDExpediente);
             Controlador control = new Controlador();
             //Si es repetible
+
+
             if (dataGridActividad[4, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
             {
                 //Para que se vuelva a escribir ya debe estar finalizada
@@ -107,8 +109,26 @@ namespace GiftEjecutor
                     actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
                 }
             }
-            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
-            formActividad.Show();
+
+
+
+            if (dataGridActividad[3, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("Compuesta"))
+            {
+
+                MessageBox.Show("Compuesta");
+            }
+            else {
+                MessageBox.Show("Simple");
+                FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+                formActividad.Show();
+            }
+
+
+
+
+
+
+
         }
 
         private void dataGridActividad_CellClick(object sender, DataGridViewCellEventArgs e)

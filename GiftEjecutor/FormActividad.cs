@@ -35,11 +35,31 @@ namespace GiftEjecutor
 
             this.labelEncabezadoComando.Text = "Comandos de la Actividad ''" + actividadSimple.nombre+"''";
             this.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
+            this.cargarDataGridComandos();//lo quite de FormActividad_Load, luisk
+        }
+        //si es actividad compuesta
+        public FormActividad(int IDAct, int IDExp, int compuesta)
+        {
+
+            InitializeComponent();
+
+            this.IDActividad = IDAct;
+            this.IDExpediente = IDExp;
+            ActividadSimple actividadSimple = new ActividadSimple();
+            actividadSimple.setAtributosPorID(this.IDActividad);
+
+            //ya no va a haber TextBoxDescripcion no textBoxNombre porque al profe no le gustó la idea. Ricardo
+            //this.textBoxDescripcion.Text = actividadSimple.descripcion
+            //this.textBoxNombre.Text = actividadSimple.nombre;
+
+            this.labelEncabezadoComando.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
+            this.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
+
         }
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
-            this.cargarDataGridComandos();
+            this.cargarDataGridComandos();//lo movi para el constructor
         }
 
         private void cargarDataGridComandos() {
