@@ -17,10 +17,11 @@ namespace GiftEjecutor
         private int IDTupla;
         private int IDComandoConfig;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
-     //   private System.Windows.Forms[] componentes;
+     
         private Component[] componentes;
         private bool modificacion;
         private bool visualizacion;
+        private bool eliminacion;
         private String[] nombresCamposTupla;
 
 
@@ -36,6 +37,7 @@ namespace GiftEjecutor
             this.Text = miFormulario.getNombre();
             modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
             visualizacion = false; //no es comando d visualizar
+            eliminacion = false;
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
             crearFormulario();
         }
@@ -59,22 +61,34 @@ namespace GiftEjecutor
                     InitializeComponent();                    
                     modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
                     visualizacion = false; //no es comando d visualizar
+                    eliminacion = false;
                     nombresCamposTupla = new String[miFormulario.getNumMiembros()];
                     crearFormulario();
                     break;
                 case 2: //modificacion
                     modificacion = true; //xq se va a modificar una tupla, no crear una nueva
                     visualizacion = false; //no es comando d visualizar
+                    eliminacion = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
                     break;
                 case 3: //visualizacion                    
-                    modificacion = false; 
-                    visualizacion = true; //no es comando d visualizar
+                    modificacion = false;
+                    visualizacion = true; //es comando d visualizar
+                    eliminacion = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
-                    llenarFormulario();                                        
+                    llenarFormulario();
+                    break;
+                case 4: //borrado
+                    modificacion = false;
+                    visualizacion = true; //Es de borrado, pero esto es para hacer q sea de read-only
+                    eliminacion = true;
+                    crearFormulario();
+                    //llena los datos al leer la tupla especifica
+                    llenarFormulario();
+                    botonAceptar.Text = "Borrar";
                     break;
                 default:
                     break;
@@ -231,24 +245,34 @@ namespace GiftEjecutor
             if (modificacion)
             {
                 actualizarTupla();
-                miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia");
+                miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia del formulario "+ miFormulario.getNombre() + ".");
                 this.Visible = false;
             }
-            else //Si se va a crear una nueva tupla
+            else 
             {
-                if (visualizacion)
+                if (eliminacion)
                 {
-                    //no hace nada solo va a bitacora
-                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia");
+                    miFormulario.eliminarTupla(IDTupla, miFormulario.getNombre());                    
+                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se eliminó la instancia del formulario "+ miFormulario.getNombre() + ".");
+                    MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!"); 
                     this.Visible = false;
                 }
                 else
                 {
-                    //ingresa la tupla
-                    ingresarNuevaTupla();
-                    //ingresa el ingreso a la bitacora
-                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia");
-                    this.Visible = false;
+                    if (visualizacion)
+                    {
+                        //no hace nada solo va a bitacora
+                        miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
+                        this.Visible = false;
+                    }
+                    else //Si se va a crear una nueva tupla
+                    {
+                        //ingresa la tupla
+                        ingresarNuevaTupla();
+                        //ingresa el ingreso a la bitacora
+                        miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        this.Visible = false;
+                    }
                 }
             }
         }

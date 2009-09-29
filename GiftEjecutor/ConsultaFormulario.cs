@@ -157,5 +157,12 @@ namespace GiftEjecutor
                 return int.Parse(datos.GetValue(0).ToString());
             return -1;
         }
+
+        public SqlDataReader eliminarTupla(int IDTupla, String nombreFormulario)
+        {
+            String consulta = "delete from " + nombreFormulario + " where correlativo = " + IDTupla + ";";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return datos;
+        }
     }
 }

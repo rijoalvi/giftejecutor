@@ -17,8 +17,6 @@ namespace GiftEjecutor
         private int tipoComando;
         private int IDComando;
         private int IDActividad;
-        /*private String nombreCampoEfecto;
-        private String valorEfecto;*/
         private ConsultaElegirInstancia consultaBD;
         private Formulario miFormulario;
 
@@ -32,8 +30,6 @@ namespace GiftEjecutor
             this.tipoComando = tipoComando;
             this.IDComando = IDComando;
             this.IDActividad = IDActividad;
-            /*this.nombreCampoEfecto = nombreCampoEfecto;
-            this.valorEfecto = valorEfecto;*/
             this.consultaBD = new ConsultaElegirInstancia();
             this.miFormulario = new Formulario(IDFormulario);
             llenarGrid();
@@ -100,18 +96,9 @@ namespace GiftEjecutor
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
             }
             else //Los otros
-            {
-                if (tipoComando == 4) //De borrado
-                {
-                    consultaBD.eliminarTupla(IDTupla, miFormulario.getNombre());
-                    miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se eliminó la instancia del formulario");
-                    MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!");
-                }
-                else
-                {
-                    FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando);
-                    formFormulario.Show();
-                }
+            {                
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando);
+                formFormulario.Show();                
             }
             this.Hide();
         }

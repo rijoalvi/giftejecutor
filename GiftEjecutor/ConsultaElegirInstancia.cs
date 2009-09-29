@@ -22,12 +22,6 @@ namespace GiftEjecutor
             String consulta = "select " + nombreForm + ".correlativo, BITACORA.fecha from " + nombreForm + ", BITACORA where " + nombreForm + ".correlativo = BITACORA.IDInstaciaForm AND BITACORA.tipoComando = 1 AND BITACORA.IDExpediente = " + IDExpediente + ";";            
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
-        }
-
-        public SqlDataReader eliminarTupla(int IDTupla, String nombreFormulario) {
-            String consulta = "delete from " + nombreFormulario + " where correlativo = " + IDTupla + ";";
-            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
-            return datos;
-        }
+        }        
     }
 }

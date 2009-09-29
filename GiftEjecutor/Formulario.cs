@@ -16,15 +16,13 @@ namespace GiftEjecutor
         private ConsultaFormulario consultaBD;
         private DataTable miembrosFormulario;
         private String nombre;
-        //object[] miembrosFormulario;
         private int IDForm;
 
         /// <summary>
-        /// Constructor que indica si se esta trabajando con MySQL o SQLServer
+        /// Constructor que indica el ID del formulario
         /// </summary>
         public Formulario(int IDFormulario)
         {
-            //consultaBD = ConsultaFormulario.getInstancia();
             consultaBD = new ConsultaFormulario();
             IDForm = IDFormulario;
             nombre = consultaBD.getNombreFormulario(IDForm);
@@ -253,5 +251,16 @@ namespace GiftEjecutor
         {
             return consultaBD.insertarEnBitacora(IDExp, IDAct, IDCom, tipoCom, IDInstForm, IDFormConfig, ejec, descripcion);
         }
+
+        /// <summary>
+        /// Elimina una tupla de la tabla del formulario indicado.
+        /// </summary>
+        /// <param name="IDTupla"></param>
+        /// <param name="nombreFormulario"></param>
+        /// <returns></returns>
+        public SqlDataReader eliminarTupla(int IDTupla, String nombreFormulario) { 
+            return consultaBD.eliminarTupla(IDTupla, nombreFormulario);
+        }
+        
     }
 }
