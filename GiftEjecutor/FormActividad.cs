@@ -13,7 +13,7 @@ namespace GiftEjecutor
         string mensajeTemporal="------";
         int IDActividad;
         int IDExpediente;
-        Comando comandoAEjecutar;
+        Comando comandoAEjecutar;        
 
         public FormActividad()
         {
@@ -22,8 +22,7 @@ namespace GiftEjecutor
         public FormActividad(int IDAct, int IDExp)
         {
 
-            InitializeComponent();            
-
+            InitializeComponent();
 
             this.IDActividad = IDAct;
             this.IDExpediente = IDExp;
@@ -100,16 +99,6 @@ namespace GiftEjecutor
             mensajeTemporal = "Aquí es donde entra en acción alberto!!!!, mae me parece que aquí puede tomar todo lo que ocupa para desplegar el form y aplicarle el comando correspondiente" + '\n' + '\n';
             mensajeTemporal += comandoAEjecutar.ToString();
              */
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cambiarColorBotonOver(object sender, EventArgs e)

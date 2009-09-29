@@ -33,7 +33,7 @@ namespace GiftEjecutor
             InitializeComponent();
             IDForm = IDFormulario;
             miFormulario = new Formulario(IDForm);
-            this.Name = miFormulario.getNombre();
+            this.Text = miFormulario.getNombre();
             modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
             visualizacion = false; //no es comando d visualizar
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
@@ -52,7 +52,7 @@ namespace GiftEjecutor
             IDExpediente = IDExp;
             IDComandoConfig = IDComando;
             miFormulario = new Formulario(IDForm);
-            this.Name = miFormulario.getNombre();
+            this.Text = miFormulario.getNombre();
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];                     
             switch(tipoComando){
                 case 1: //Creacion

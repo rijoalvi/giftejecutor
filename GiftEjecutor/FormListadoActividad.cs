@@ -13,22 +13,32 @@ namespace GiftEjecutor
         string mensajeTemporal="------";
         int IDFlujo;
         int IDExpediente;
+        bool soyUnFlujoNoActividadCompuesta;
         
         public FormListadoActividad()
         {
             InitializeComponent();
         }
         
-        public FormListadoActividad(int IDFlujo, int IDExpediente)
+        public FormListadoActividad(int IDFlujo, int IDExpediente, bool soyUnFlujo)
         {
-            this.IDFlujo = IDFlujo;
-            this.IDExpediente = IDExpediente;
-            InitializeComponent();
-            this.cargarDataGridActividad();
-            FlujoTrabajo flujo;
-            flujo = new FlujoTrabajo(IDFlujo);
-            this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
-            this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
+            soyUnFlujoNoActividadCompuesta = soyUnFlujo;
+            //Si se van a mostrar las actividades de un flujo
+            if (soyUnFlujoNoActividadCompuesta)
+            {                
+                this.IDFlujo = IDFlujo;
+                this.IDExpediente = IDExpediente;
+                InitializeComponent();
+                this.cargarDataGridActividad();
+                FlujoTrabajo flujo;
+                flujo = new FlujoTrabajo(IDFlujo);
+                this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
+                this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
+            }
+            //Aqui es para mostrar actividades compuestas
+            else { 
+                            
+            }
         }
         
         private void FormListadoActividad_Load(object sender, EventArgs e)
@@ -38,8 +48,19 @@ namespace GiftEjecutor
 
         private void cargarDataGridActividad() {
             Actividad actividad = new Actividad();
-            this.dataGridActividad.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujo);
-            dataGridActividad.Refresh();
+            actividad.setIDExpediente(IDExpediente);
+
+            if (soyUnFlujoNoActividadCompuesta)
+            {
+                //dataGridEjecutados.DataSource = ;
+                dataGridEjecutados.Refresh();
+
+                this.dataGridActividad.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujo);
+                dataGridActividad.Refresh();
+
+                //dataGridPorEjecutar.DataSource = ;
+                dataGridPorEjecutar.Refresh();
+            }            
         }
 
         private void buttonEjecutarActividad_Click(object sender, EventArgs e)

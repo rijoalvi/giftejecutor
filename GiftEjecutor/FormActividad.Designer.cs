@@ -144,7 +144,6 @@ namespace GiftEjecutor
             this.label2.Size = new System.Drawing.Size(556, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Estos son los comandos que se pueden ejecutar en este momento:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // labelComandosSinEjecutar
             // 
@@ -155,7 +154,6 @@ namespace GiftEjecutor
             this.labelComandosSinEjecutar.Size = new System.Drawing.Size(311, 14);
             this.labelComandosSinEjecutar.TabIndex = 0;
             this.labelComandosSinEjecutar.Text = "Comandos que todavía no se pueden ejecutar:";
-            this.labelComandosSinEjecutar.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelEncabezadoComando
             // 

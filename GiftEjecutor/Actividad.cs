@@ -43,6 +43,7 @@ namespace GiftEjecutor
         {
             this.IDExpediente = IDExpediente;
         }
+
         public string getNombre()
         {
             return this.nombre;
@@ -110,6 +111,57 @@ namespace GiftEjecutor
                     fila["descripcionActividad"] = datos.GetValue(3);
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
                     tablaActividades.Rows.Add(fila);
+                }
+            }
+            return tablaActividades;
+        }
+
+        public DataTable getDataTableActividadesPorIDFlujoEjecutadas(int IDFlujo)
+        {
+            DataTable tablaActividades = new DataTable();
+            DataRow fila;
+
+            DataColumn IDActividad = new DataColumn();
+            DataColumn nombreActividad = new DataColumn();
+            DataColumn descripcionActividad = new DataColumn();
+            DataColumn tipoActividad = new DataColumn();
+
+
+            IDActividad.ColumnName = "IDActividad";
+            nombreActividad.ColumnName = "nombreActividad";
+            descripcionActividad.ColumnName = "descripcionActividad";
+            tipoActividad.ColumnName = "tipoActividad";
+
+            IDActividad.DataType = Type.GetType("System.String");
+            nombreActividad.DataType = Type.GetType("System.String");
+            descripcionActividad.DataType = Type.GetType("System.String");
+            tipoActividad.DataType = Type.GetType("System.String");
+
+            tablaActividades.Columns.Add(IDActividad);
+            tablaActividades.Columns.Add(nombreActividad);
+            tablaActividades.Columns.Add(descripcionActividad);
+            tablaActividades.Columns.Add(tipoActividad);
+
+            Controlador control = new Controlador();
+            SqlDataReader datos;
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaActividades.NewRow();
+                    fila["IDActividad"] = datos.GetValue(1);
+                    fila["nombreActividad"] = datos.GetValue(2);
+                    fila["descripcionActividad"] = datos.GetValue(3);
+                    fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
+
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente);
+                    if (yaSeEjecuto)
+                    {
+                        tablaActividades.Rows.Add(fila);
+                    }
+                    
                 }
             }
             return tablaActividades;

@@ -98,7 +98,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.botonEjecutar);
             this.Controls.Add(this.dataGridInstancias);
             this.Name = "FormElegirInstancia";
-            this.Text = "FormElegirInstancia";
+            this.Text = "Elegir Instancia";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInstancias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

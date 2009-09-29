@@ -19,7 +19,7 @@ namespace GiftEjecutor
             bool respuesta;
             respuesta = false;
 
-            consultaControlador= new ConsultaControlador();
+            consultaControlador = new ConsultaControlador();
             SqlDataReader datosControlador;
 
             datosControlador = this.consultaControlador.getDatosUnSoloComando(idComando, expediente);
@@ -32,6 +32,29 @@ namespace GiftEjecutor
             }
 
             return respuesta;
+        }
+
+        /// <summary>
+        /// Indica si la actividad ya fue ejecutada en su totalidad
+        /// </summary>
+        /// <param name="idActividad"></param>
+        /// <param name="expediente"></param>
+        /// <returns></returns>
+        public bool checkActividadRealizada(int idActividad, int expediente)
+        {
+            consultaControlador = new ConsultaControlador();
+            SqlDataReader datosControlador;
+
+            datosControlador = this.consultaControlador.getDatosUnaActividad(idActividad, expediente);
+            if (datosControlador != null)
+            {
+                if (datosControlador.Read())
+                {
+                    if(datosControlador.GetValue(2).ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
+                        return true;
+                }
+            }
+            return false;
         }
 
         public DataTable getDataTableBitacora(int IDExpediente)

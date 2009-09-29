@@ -82,7 +82,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.dataGridFlujosTrabajo);
             this.Name = "FormConstructor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormConstructor";
+            this.Text = "Construir Flujo de Trabajo";
             this.Load += new System.EventHandler(this.FormConstructor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFlujosTrabajo)).EndInit();
             this.ResumeLayout(false);
