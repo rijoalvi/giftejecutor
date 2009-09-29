@@ -44,17 +44,19 @@ namespace GiftEjecutor
         {
             consultaControlador = new ConsultaControlador();
             SqlDataReader datosControlador;
-
+            bool finalizada = false;
             datosControlador = this.consultaControlador.getDatosUnaActividad(idActividad, expediente);
             if (datosControlador != null)
             {
-                if (datosControlador.Read())
+                while (datosControlador.Read())
                 {
-                    if(datosControlador.GetValue(2).ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
-                        return true;
+                    if (datosControlador.GetValue(2).ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
+                        finalizada = true;
+                    else
+                        finalizada = false;
                 }
             }
-            return false;
+            return finalizada;
         }
 
         public DataTable getDataTableBitacora(int IDExpediente)

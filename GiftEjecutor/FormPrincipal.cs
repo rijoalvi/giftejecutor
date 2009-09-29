@@ -53,20 +53,10 @@ namespace GiftEjecutor
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int IDExpediente = 999;
-            //int IDActividad = 19;
-
-            int IDActividad = 19;
-            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
-            formActividad.Show();
-        }
-
         private void buttonActividad_Click(object sender, EventArgs e)
         {
-            int IDExpediente = 999;
-            int IDFlujo = 11;
+            int IDExpediente = 13;
+            int IDFlujo = 3;
             FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente, true);
             formListadoActividad.Show();
         }
@@ -292,29 +282,25 @@ namespace GiftEjecutor
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(directorio.SelectedNode != null){
+            if (directorio.SelectedNode != null)
+            {
 
-                if (directorio.SelectedNode.Name.Contains("F")||directorio.SelectedNode.Name.Equals("0"))
+                if (directorio.SelectedNode.Name.Contains("F") || directorio.SelectedNode.Name.Equals("0"))
                 {
                     MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
                 }
                 else
                 {
                     String correlativoPadre = directorio.SelectedNode.Name;
-                    String correlativoFlujo= ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
-                    FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this,correlativoPadre, correlativoFlujo);
+                    String correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                    FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this, correlativoPadre, correlativoFlujo);
                     flujosConstruidos.Show();
                 }
-            }else{
+            }
+            else
+            {
                 MessageBox.Show("Se debe seleccionar el Flujo de trabajos o la colección en la que se creará la colección en el directorio");
             }
-            //OJO!!!!!!!
-            //ESTO NO VA AQUI!
-            //Primero se escoje cual flujo quiere ejecutar, y desp se le pide a cual coleccion quiere agregarlo
-            /*
-            FormNuevoExpediente nuevaColeccion = new FormNuevoExpediente(this, this.directorio.SelectedNode.Name);
-            nuevaColeccion.Show();
-            */ 
         }
 
         private void agregarColeccionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -350,30 +336,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-            //lo comento xq se esta cayendo... Beto 23/9
             refrescarDirectorio();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            ComandoMascara cm = new ComandoMascara();
-            cm.setAtributosComandoMascaraSegunID(8);
-            MessageBox.Show(cm.ToString());
-
-
-            ConsultaFormulario cf = new ConsultaFormulario();
-            cf.actualizarUnCampoSegunID(1, "Vehiculo", "placa", "77777", "int");
-
-            //ConsultaFormulario cf = new ConsultaFormulario();
-            cf.actualizarUnCampoSegunID(1, "Vehiculo", "dueño", "cambiado", "varchar");
-        }
-
-        private void botonForm1_Click(object sender, EventArgs e)
-        {
-            FormFormulario c = new FormFormulario(1, 1, 1, 3, 2);
-            c.Show();
-            //FormFormulario(int IDFormulario)
         }
 
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -404,14 +367,6 @@ namespace GiftEjecutor
       /*  private void directorio_Click(object sender, EventArgs e)
         {
             actualizarDirectorio();
-        }*/
-
-        /*private void button3_Click(object sender, EventArgs e)
-        {
-            int IDExpediente = 999;
-            int IDFlujo = 2;
-            FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente);
-            formListadoActividad.Show();
         }*/
     }
 }

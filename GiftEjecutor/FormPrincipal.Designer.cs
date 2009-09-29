@@ -38,11 +38,8 @@ namespace GiftEjecutor
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.botonForm1 = new System.Windows.Forms.Button();
             this.botonPruebaBitacora = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +62,7 @@ namespace GiftEjecutor
             this.agregarExpedienteToolStripMenuItem,
             this.cambiarNombreToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // agregarColeccionToolStripMenuItem
@@ -94,13 +91,13 @@ namespace GiftEjecutor
             this.módulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.constructorToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
-            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
             // 
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
@@ -125,26 +122,6 @@ namespace GiftEjecutor
             this.directorio.TabIndex = 10;
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(394, 277);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button Prueba Comando Máscara";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // botonForm1
-            // 
-            this.botonForm1.Location = new System.Drawing.Point(309, 307);
-            this.botonForm1.Name = "botonForm1";
-            this.botonForm1.Size = new System.Drawing.Size(75, 23);
-            this.botonForm1.TabIndex = 12;
-            this.botonForm1.Text = "abreform1";
-            this.botonForm1.UseVisualStyleBackColor = true;
-            this.botonForm1.Click += new System.EventHandler(this.botonForm1_Click);
-            // 
             // botonPruebaBitacora
             // 
             this.botonPruebaBitacora.Location = new System.Drawing.Point(463, 306);
@@ -165,28 +142,15 @@ namespace GiftEjecutor
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(85, 307);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "buttonProbarActividadSimle";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 334);
             this.Controls.Add(this.botonPruebaBitacora);
-            this.Controls.Add(this.botonForm1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -212,11 +176,8 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button botonForm1;
         private System.Windows.Forms.ToolStripMenuItem cambiarNombreToolStripMenuItem;
         private System.Windows.Forms.Button botonPruebaBitacora;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
     }
 }

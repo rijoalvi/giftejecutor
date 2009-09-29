@@ -87,7 +87,7 @@ namespace GiftEjecutor
             this.buttonEjecutarActividad.Text = "Ejecutar Actividad!";
             this.buttonEjecutarActividad.UseVisualStyleBackColor = false;
             this.buttonEjecutarActividad.MouseLeave += new System.EventHandler(this.buttonEjecutarActividad_MouseLeave);
-            this.buttonEjecutarActividad.Click += new System.EventHandler(this.buttonEjecutarActividad_Click_1);
+            this.buttonEjecutarActividad.Click += new System.EventHandler(this.buttonEjecutarActividad_Click);
             this.buttonEjecutarActividad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonEjecutarActividad_MouseDown);
             this.buttonEjecutarActividad.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonEjecutarActividad_MouseUp);
             this.buttonEjecutarActividad.EnabledChanged += new System.EventHandler(this.buttonEjecutarActividad_EnabledChanged);

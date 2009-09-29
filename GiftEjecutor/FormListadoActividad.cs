@@ -52,29 +52,36 @@ namespace GiftEjecutor
 
             if (soyUnFlujoNoActividadCompuesta)
             {
-                //dataGridEjecutados.DataSource = ;
+                dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
                 dataGridEjecutados.Refresh();
 
-                this.dataGridActividad.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujo);
+                dataGridActividad.DataSource = actividad.getDataTableActividadesEjecutablesPorIDFlujo(this.IDFlujo);
                 dataGridActividad.Refresh();
 
-                //dataGridPorEjecutar.DataSource = ;
+                dataGridPorEjecutar.DataSource = actividad.getDataTableActividadesNOEjecutablesPorIDFlujo(this.IDFlujo);
                 dataGridPorEjecutar.Refresh();
-            }            
+            }
+            //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
+            else { 
+            
+            }
+
         }
 
-        private void buttonEjecutarActividad_Click(object sender, EventArgs e)
+        private void buttonEjecutarActividad_Click(object sender, EventArgs e)        
         {
-            MessageBox.Show(mensajeTemporal);
-            this.buttonEjecutarActividad.Enabled = true;
+            //this.buttonEjecutarActividad.Enabled = true;
             Actividad actividadAEjecutar = new Actividad();
             int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
             actividadAEjecutar.setAtributosSegunID(IDActividad);
             actividadAEjecutar.setIDExpediente(this.IDExpediente);
-            //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
-            mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
-            mensajeTemporal += actividadAEjecutar.ToString();
-
+            Controlador control = new Controlador();
+            //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez, o es repetible
+            //entonces se escribe en bitácora, si no, no se vuelve a escribir.
+            if (!control.checkActividadRealizada(IDActividad, IDExpediente))
+            {
+                actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+            }
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
@@ -108,22 +115,7 @@ namespace GiftEjecutor
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();
         }
-
-        private void buttonEjecutarActividad_Click_1(object sender, EventArgs e)
-        {
-            this.buttonEjecutarActividad.Enabled = true;
-            Actividad actividadAEjecutar = new Actividad();
-            int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
-            actividadAEjecutar.setAtributosSegunID(IDActividad);
-            actividadAEjecutar.setIDExpediente(this.IDExpediente);
-            //Mae Luis Carlos aquí tiene una instancia de Actividad, con todos los datos que ocupa.
-            mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
-            mensajeTemporal += actividadAEjecutar.ToString();
-
-            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
-            formActividad.Show();
-        }
-
+               
         private void dataGridActividad_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             this.buttonEjecutarActividad.Enabled = true;
@@ -158,5 +150,6 @@ namespace GiftEjecutor
         {
             this.Close();
         }
+               
     }
 }

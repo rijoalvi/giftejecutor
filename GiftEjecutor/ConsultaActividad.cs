@@ -15,7 +15,7 @@ namespace GiftEjecutor
         public SqlDataReader getTodasActividadesPorIDFlujo(int IDFlujo)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaConfigurador("Select correlativoFlujo , correlativo, nombre, descripcion, esSimple, ordenEjecucion from Actividad where correlativoFlujo="+IDFlujo+" order by ordenEjecucion;");
+            dataReader = this.controladoBD.hacerConsultaConfigurador("Select correlativoFlujo, correlativo, nombre, descripcion, esSimple, ordenEjecucion, repetible from Actividad where correlativoFlujo="+IDFlujo+" order by ordenEjecucion;");
             return dataReader;
         }
         /// <summary>
@@ -40,4 +40,5 @@ namespace GiftEjecutor
             return datos;
         }
     }
+
 }
