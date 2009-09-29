@@ -53,12 +53,15 @@ namespace GiftEjecutor
             if (soyUnFlujoNoActividadCompuesta)
             {
                 dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
+                dataGridEjecutados.Columns[4].Visible = false;
                 dataGridEjecutados.Refresh();
 
                 dataGridActividad.DataSource = actividad.getDataTableActividadesEjecutablesPorIDFlujo(this.IDFlujo);
+                dataGridActividad.Columns[4].Visible = false; 
                 dataGridActividad.Refresh();
 
                 dataGridPorEjecutar.DataSource = actividad.getDataTableActividadesNOEjecutablesPorIDFlujo(this.IDFlujo);
+                dataGridPorEjecutar.Columns[4].Visible = false; 
                 dataGridPorEjecutar.Refresh();
             }
             //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
@@ -76,11 +79,21 @@ namespace GiftEjecutor
             actividadAEjecutar.setAtributosSegunID(IDActividad);
             actividadAEjecutar.setIDExpediente(this.IDExpediente);
             Controlador control = new Controlador();
-            //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez, o es repetible
-            //entonces se escribe en bitácora, si no, no se vuelve a escribir.
-            if (!control.checkActividadRealizada(IDActividad, IDExpediente))
+            //Si es repetible
+            if (dataGridActividad[4, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
             {
-                actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+                //Para que se vuelva a escribir ya debe estar finalizada
+                if ( control.checkActividadRealizada(IDActividad, IDExpediente) )
+                    actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+            }
+            //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez
+            //entonces se escribe en bitácora, si no, no se vuelve a escribir.
+            else
+            {
+                if (!control.checkActividadRealizada(IDActividad, IDExpediente))
+                {
+                    actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+                }
             }
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
             formActividad.Show();

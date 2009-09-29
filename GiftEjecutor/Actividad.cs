@@ -85,21 +85,25 @@ namespace GiftEjecutor
             DataColumn nombreActividad = new DataColumn();
             DataColumn descripcionActividad = new DataColumn();
             DataColumn tipoActividad = new DataColumn();
+            DataColumn repetible = new DataColumn();
 
             IDActividad.ColumnName = "IDActividad";
             nombreActividad.ColumnName = "nombreActividad";
             descripcionActividad.ColumnName = "descripcionActividad";
             tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
 
             IDActividad.DataType = Type.GetType("System.String");
             nombreActividad.DataType = Type.GetType("System.String");
             descripcionActividad.DataType = Type.GetType("System.String");
             tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
 
             tablaActividades.Columns.Add(IDActividad);
             tablaActividades.Columns.Add(nombreActividad);
             tablaActividades.Columns.Add(descripcionActividad);
             tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
 
             Controlador control = new Controlador();
             SqlDataReader datos;
@@ -116,10 +120,10 @@ namespace GiftEjecutor
                     fila["nombreActividad"] = datos.GetValue(2);
                     fila["descripcionActividad"] = datos.GetValue(3);
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
-
-                    String repetible = datos.GetValue(6).ToString();
+                    fila["repetible"] = datos.GetValue(6).ToString();                
+                    
                     //si es repetible y cumple con requisitos, nunca se bloquea
-                    if (repetible.Equals("true", StringComparison.OrdinalIgnoreCase) && !unaEjecutable)
+                    if (fila["repetible"].ToString().Equals("true", StringComparison.OrdinalIgnoreCase) && !unaEjecutable)
                     {
                         tablaActividades.Rows.Add(fila);
                         //revisa si ya fue ejecutada, si no, cambia estado de "unaEjecutable"
@@ -156,22 +160,25 @@ namespace GiftEjecutor
             DataColumn nombreActividad = new DataColumn();
             DataColumn descripcionActividad = new DataColumn();
             DataColumn tipoActividad = new DataColumn();
-
+            DataColumn repetible = new DataColumn();
 
             IDActividad.ColumnName = "IDActividad";
             nombreActividad.ColumnName = "nombreActividad";
             descripcionActividad.ColumnName = "descripcionActividad";
             tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
 
             IDActividad.DataType = Type.GetType("System.String");
             nombreActividad.DataType = Type.GetType("System.String");
             descripcionActividad.DataType = Type.GetType("System.String");
             tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
 
             tablaActividades.Columns.Add(IDActividad);
             tablaActividades.Columns.Add(nombreActividad);
             tablaActividades.Columns.Add(descripcionActividad);
             tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
 
             Controlador control = new Controlador();
             SqlDataReader datos;
@@ -185,9 +192,10 @@ namespace GiftEjecutor
                     fila["nombreActividad"] = datos.GetValue(2);
                     fila["descripcionActividad"] = datos.GetValue(3);
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
-                    String repetible = datos.GetValue(6).ToString();
+                    fila["repetible"] = datos.GetValue(6).ToString();
+
                     //si es repetible nunca se bloquea
-                    if (repetible.Equals("false", StringComparison.OrdinalIgnoreCase))
+                    if (fila["repetible"].ToString().Equals("false", StringComparison.OrdinalIgnoreCase))
                     {
                         //revisa si ya fue ejecutada
                         bool yaSeEjecuto;
@@ -214,21 +222,25 @@ namespace GiftEjecutor
             DataColumn nombreActividad = new DataColumn();
             DataColumn descripcionActividad = new DataColumn();
             DataColumn tipoActividad = new DataColumn();
-            
+            DataColumn repetible = new DataColumn();
+
             IDActividad.ColumnName = "IDActividad";
             nombreActividad.ColumnName = "nombreActividad";
             descripcionActividad.ColumnName = "descripcionActividad";
             tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
 
             IDActividad.DataType = Type.GetType("System.String");
             nombreActividad.DataType = Type.GetType("System.String");
             descripcionActividad.DataType = Type.GetType("System.String");
             tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
 
             tablaActividades.Columns.Add(IDActividad);
             tablaActividades.Columns.Add(nombreActividad);
             tablaActividades.Columns.Add(descripcionActividad);
             tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
 
             Controlador control = new Controlador();
             bool unaEjecutable = false;
@@ -243,7 +255,7 @@ namespace GiftEjecutor
                     fila["nombreActividad"] = datos.GetValue(2);
                     fila["descripcionActividad"] = datos.GetValue(3);
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
-                    String repetible = datos.GetValue(6).ToString();                    
+                    fila["repetible"] = datos.GetValue(6).ToString();                
                     
                     bool yaSeEjecuto;
                     yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente);
