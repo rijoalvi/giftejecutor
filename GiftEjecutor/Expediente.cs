@@ -34,6 +34,7 @@ namespace GiftEjecutor
             this.nombre = nombre;
             this.IDFlujo = IDFlujo;
             this.correlativoColeccion= correlativoPadre;
+            this.correlativo = consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
             Console.WriteLine("Correlativo Padre " + correlativoColeccion);
         }
         public void crearExpediente(){
@@ -57,8 +58,17 @@ namespace GiftEjecutor
         public String getNombre() {
             return this.nombre;
         }
+
+        public int getCorrelativoFlujo() {
+            return this.IDFlujo;
+        }
+
         public String toString() {
             return this.nombre;
+        }
+
+        public int getCorrelativo() {
+            return this.correlativo;
         }
 
     }

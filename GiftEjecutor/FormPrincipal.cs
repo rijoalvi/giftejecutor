@@ -74,8 +74,13 @@ namespace GiftEjecutor
             
             DataTable tablaFlujos = (new FlujoTrabajo()).getFlujosConstruidos();
             List<String[]> colecciones = coleccion.listarColecciones();
-            List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
+            /*  coleccion[0] Obtiene el correlativo,           coleccion[1] Obtiene el nombre
+                coleccion[2] Obtiene el correlativo del padre, coleccion[3] Obtiene el correlativo del flujo al que pertenece*/
 
+            
+            List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
+            //expediente[0] Obtiene el correlativo,                    expediente[1] Obtiene el IDFlujo
+            //expediente[2] Obtiene el IDColeccion a la que pertenece, expediente[3] Obtiene el nombre del expediente
 
             for (int j = 0; j < tablaFlujos.Rows.Count; j++)
             {
@@ -122,7 +127,10 @@ namespace GiftEjecutor
                 {
                     if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
                     {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
-                        nodo.Nodes.Add("E" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
+                        TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
+                        creado.ForeColor = Color.Silver;
+                        MessageBox.Show("Nombre " + expedientes[k][3] + " coleccion " + nodo.Name + " Flujo " + expedientes[k][1]);
+                        creado.Tag = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
                     }
 
                 }
@@ -285,7 +293,7 @@ namespace GiftEjecutor
             if (directorio.SelectedNode != null)
             {
 
-                if (directorio.SelectedNode.Name.Contains("F") || directorio.SelectedNode.Name.Equals("0"))
+                if (directorio.SelectedNode.Name.Contains("F") || directorio.SelectedNode.Name.Equals("0")||directorio.SelectedNode.Name.Contains("E"))
                 {
                     MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
                 }
@@ -363,10 +371,28 @@ namespace GiftEjecutor
             bit.Show();
         }
 
-
-      /*  private void directorio_Click(object sender, EventArgs e)
+        private void directorio_DoubleClick(object sender, EventArgs e)
         {
-            actualizarDirectorio();
-        }*/
+            abrirExpediente();
+        }
+
+        private void abrirExpediente() {
+            TreeNode seleccionado = directorio.SelectedNode;
+            if (seleccionado != null && seleccionado.Name.Contains("E"))
+            {
+                MessageBox.Show("Se selecciono el Expediente " + directorio.SelectedNode.Name+" "+directorio.SelectedNode.Text);
+               
+                int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
+                int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+                MessageBox.Show("correlativo expediente " + correlativoExpediente);
+                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
+                actividad.Show();
+            
+
+
+            }
+            
+        }
     }
 }

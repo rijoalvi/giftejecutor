@@ -120,6 +120,7 @@ namespace GiftEjecutor
             this.directorio.Name = "directorio";
             this.directorio.Size = new System.Drawing.Size(208, 270);
             this.directorio.TabIndex = 10;
+            this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             // 
             // botonPruebaBitacora

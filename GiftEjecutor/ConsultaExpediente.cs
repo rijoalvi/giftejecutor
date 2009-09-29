@@ -58,5 +58,17 @@ namespace GiftEjecutor
             }
             return nombreExpediente;
         }
+
+        public int buscarCorrelativo(String nombre, int correlativoColeccion) {
+            String consulta = "SELECT correlativo From EXPEDIENTE where nombre = '" + nombre + "' AND IDColeccion = "+correlativoColeccion+";";
+            Console.Write("consulta : " + consulta);
+            SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            int correlativo = -1;
+            if (resultado.Read())
+            {
+                correlativo = int.Parse(resultado.GetValue(0).ToString());
+            }
+            return correlativo;
+        }
     }
 }
