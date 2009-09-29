@@ -20,6 +20,8 @@ namespace GiftEjecutor
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
         }
 
+
+
         public FlujoTrabajo() {
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
         }

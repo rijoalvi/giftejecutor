@@ -198,6 +198,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.labelEncabezadoActividades);
             this.Name = "FormListadoActividad";
             this.Text = "Actividad";
+            this.Load += new System.EventHandler(this.FormListadoActividad_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActividad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEjecutados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPorEjecutar)).EndInit();

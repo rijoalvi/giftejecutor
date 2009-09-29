@@ -39,6 +39,11 @@ namespace GiftEjecutor
             else { 
                             
             }
+
+
+
+
+
         }
         
         private void FormListadoActividad_Load(object sender, EventArgs e)
@@ -48,9 +53,11 @@ namespace GiftEjecutor
 
         private void cargarDataGridActividad() {
             Actividad actividad = new Actividad();
+            ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
             actividad.setIDExpediente(IDExpediente);
 
-            if (soyUnFlujoNoActividadCompuesta)
+            //if (soyUnFlujoNoActividadCompuesta)
+            if (false)
             {
                 dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
                 dataGridEjecutados.Columns[4].Visible = false;
@@ -65,8 +72,13 @@ namespace GiftEjecutor
                 dataGridPorEjecutar.Refresh();
             }
             //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
-            else { 
-            
+            else {
+//
+                dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(44);
+                //dataGridActividad.Columns[4].Visible = false;
+                dataGridActividad.Refresh();
+
+
             }
 
         }
@@ -162,6 +174,11 @@ namespace GiftEjecutor
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormListadoActividad_Load_1(object sender, EventArgs e)
+        {
+
         }
                
     }
