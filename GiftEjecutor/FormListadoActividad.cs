@@ -74,7 +74,7 @@ namespace GiftEjecutor
             //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
             else {
 //
-                dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(44);
+                dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(45);
                 //dataGridActividad.Columns[4].Visible = false;
                 dataGridActividad.Refresh();
 

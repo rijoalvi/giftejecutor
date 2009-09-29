@@ -35,19 +35,19 @@ namespace GiftEjecutor
             IDActividad.ColumnName = "IDActividad";
             nombreActividad.ColumnName = "nombreActividad";
             descripcionActividad.ColumnName = "descripcionActividad";
-            //tipoActividad.ColumnName = "tipoActividad";
+            tipoActividad.ColumnName = "Tipo";
            // repetible.ColumnName = "repetible";
 
             IDActividad.DataType = Type.GetType("System.String");
             nombreActividad.DataType = Type.GetType("System.String");
             descripcionActividad.DataType = Type.GetType("System.String");
-         //   tipoActividad.DataType = Type.GetType("System.String");
+            tipoActividad.DataType = Type.GetType("System.String");
          //   repetible.DataType = Type.GetType("System.String");
 
             tablaActividades.Columns.Add(IDActividad);
             tablaActividades.Columns.Add(nombreActividad);
             tablaActividades.Columns.Add(descripcionActividad);
-          //  tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(tipoActividad);
          //   tablaActividades.Columns.Add(repetible);
 
             Controlador control = new Controlador();
@@ -58,10 +58,10 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tablaActividades.NewRow();
-                    fila["IDActividad"] = datos.GetValue(1);
-                    fila["nombreActividad"] = datos.GetValue(2);
-                    fila["descripcionActividad"] = datos.GetValue(3);
-                 //   fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
+                    fila["IDActividad"] = datos.GetValue(2);
+                    fila["nombreActividad"] = datos.GetValue(3);
+                    fila["descripcionActividad"] = datos.GetValue(4);
+                    fila["Tipo"] = this.getTipo(datos.GetValue(5).ToString());
                  //   fila["repetible"] = datos.GetValue(6).ToString();
 
                     tablaActividades.Rows.Add(fila);
@@ -70,5 +70,19 @@ namespace GiftEjecutor
             }
             return tablaActividades;
         }
+
+        private string getTipo(string tipo)
+        {
+            switch (tipo)
+            {
+                case "0":
+                    return "Simple";
+                case "1":
+                    return "Compuesta";
+                default:
+                    return "[Mal especifícado]";
+            }
+        }
+
     }
 }
