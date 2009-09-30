@@ -232,58 +232,7 @@ namespace GiftEjecutor
             return nodoPadre;
         }
 
-       /* private void actualizarDirectorio()
-        {
-            this.directorio.Nodes.Clear();
-            Coleccion coleccion = new Coleccion("Raiz"/*, 0/);
-            TreeNode nodoActual = this.directorio.Nodes.Add("0","Raiz");
-            TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
-
-            List<String[]> expedientes = (new Expediente("0")).listarExpedientes();
-            List<String[]> colecciones = coleccion.listarColecciones();
-
-            for (int i = 0; i < colecciones.Count; i++) {
-                Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
-                int correlativoPadre = int.Parse(colecciones[i][2]);
-                nodoPadre = buscarNodoPadre(colecciones[i][2],this.directorio.TopNode);//El correlativo es el key en el directorio
-                nodoActual = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);
-                /*Agregar los expedientes que pertenezcan a esta coleccion*
-
-                for (int k = 0; k < expedientes.Count; k++) {
-                    if (int.Parse(expedientes[k][2]) == int.Parse(nodoActual.Name)) {
-                        nodoActual.Nodes.Add("e" + expedientes[k][0].ToString(), expedientes[k][3].ToString()).ForeColor = Color.Silver;
-                        expedientes.Remove(expedientes[k]);
-                    }
-                    
-                }
-            }
-         /*   if (directorio.SelectedNode != null)
-            {
-                Console.Write(directorio.SelectedNode.FullPath);
-                Console.Write(directorio.SelectedNode.Level);
-                Console.Write(directorio.SelectedNode.Index);
-
-                
-
-                String nombre = directorio.SelectedNode.Text;
-                //String nombrePadre = directorio.SelectedNode.FullPath;
-
-                Coleccion coleccion = new Coleccion(nombre/*,0/);
-                TreeNode nodo;
-                nodo = directorio.SelectedNode;//this.directorio.Nodes.Add("Raiz");
-                String[] hijas = coleccion.coleccionesHijas();
-                if (hijas != null)
-                    for (int i = 0; i < hijas.Length; i++)
-                    {
-                        nodo.Nodes.Add(hijas[i]);
-                    }
-                /*
-                    node.Nodes.Insert(1, "1");
-                this.directorio.Nodes.Insert(2, "2");
-                this.directorio.Nodes.Insert(3, "3");
-                this.directorio.Nodes.Insert(4, "4");/
-            
-        }*/
+      
 
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
@@ -424,8 +373,10 @@ namespace GiftEjecutor
         {
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E")) {
-                //FormEliminar eliminar = new FormEliminar(((Expediente)seleccionado.Tag));
-                //eliminar.Show();
+                FormEliminar eliminar = new FormEliminar(this,((Expediente)seleccionado.Tag).getNombre(),seleccionado.Name.Substring(1),"Expediente");
+                eliminar.MdiParent = padreMDI;
+                eliminar.setPadreMDI(padreMDI);
+                eliminar.Show();
             }
         }
         

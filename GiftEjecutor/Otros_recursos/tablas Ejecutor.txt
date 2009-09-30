@@ -1,10 +1,10 @@
 -- Tabla: "FLUJOSACTIVOS"
 drop table FLUJOSACTIVOS;
 CREATE TABLE FLUJOSACTIVOS(
-  correlativo int identity (1,1) NOT NULL,
-  idFlujo int NOT NULL,
-  activo int NOT NULL,
-  ultimaActualizacion SMALLDATETIME DEFAULT GetDATE(),
+  correlativo			int identity (1,1) NOT NULL,
+  idFlujo				int NOT NULL,
+  activo				int NOT NULL,
+  ultimaActualizacion	SMALLDATETIME DEFAULT GetDATE(),
   PRIMARY KEY (correlativo)
 );
 
@@ -22,10 +22,11 @@ CREATE TABLE RELACIONESSIMETRICAS(
 --tabla: "EXPEDIENTE"
 drop TABLE EXPEDIENTE;
 CREATE TABLE EXPEDIENTE(
-  correlativo   int identity(1,1) NOT NULL,
-  IDFlujo        int NOT NULL,
-  IDColeccion int NOT NULL,
-  nombre       varchar(30) NOT NULL,
+  correlativo	int identity(1,1) NOT NULL,
+  IDFlujo       int NOT NULL,
+  IDColeccion	int NOT NULL,
+  nombre		varchar(30) NOT NULL,
+  eliminado		varchar(6)	NOT NULL,   ---------OJO ES UN CAMPO NUEVO, INDICA SI EL EXPEDIENTE ESTA LOGICAMENTE ELIMINADO
   PRIMARY KEY (correlativo)
 );
 

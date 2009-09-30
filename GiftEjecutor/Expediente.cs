@@ -84,7 +84,7 @@ namespace GiftEjecutor
         }
 
         public void eliminar() {
-            //this.consultaExpediente.eliminar(this.correlativo);
+            this.consultaExpediente.eliminarExpediente(this.correlativo, this.nombre);
         }
 
     }

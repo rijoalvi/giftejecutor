@@ -16,11 +16,14 @@ namespace GiftEjecutor
 
             if (!resultado.Read())
             {
-                consulta = "INSERT INTO EXPEDIENTE ( nombre, IDColeccion, IDFlujo) VALUES ('" +
-                            nombre + "'," + correlativoColeccion + ","+IDFlujo+"); SELECT correlativo FROM EXPEDIENTE WHERE nombre = '" + nombre + "' AND IDColeccion = " + correlativoColeccion + ";";
+                consulta = "INSERT INTO EXPEDIENTE ( nombre, IDColeccion, IDFlujo, eliminado) VALUES ('" +
+                            nombre + "'," + correlativoColeccion + ","+IDFlujo+",'False'); SELECT correlativo FROM EXPEDIENTE WHERE nombre = '" + nombre + "' AND IDColeccion = " + correlativoColeccion + ";";
                 resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
                 resultado.Read();
                 correlativo = int.Parse(resultado.GetValue(0).ToString());
+                consulta = "INSERT INTO BITACORA(IDExpediente,IDActividad,IDComando,tipoComando,IDInstaciaForm,IDFormConfigurador," +
+                           "ejecutada, descripcion) VALUES ("+correlativo+",-1,-1,-1,-1,-1,-1,'Se creó el expediente "+nombre +"') ";
+                this.controladoBD.hacerConsultaEjecutor(consulta);
             }
             return correlativo;
         }
@@ -30,7 +33,7 @@ namespace GiftEjecutor
         public List<String[]> listarExpedientes()
         {
             /****************************************************Probar con la base de datos***********************************************/
-            String consulta = "SELECT correlativo, IDFlujo, IDColeccion, nombre From EXPEDIENTE;";
+            String consulta = "SELECT correlativo, IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE eliminado = 'False';";
             SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
             String[] expediente;
             List<String[]> lista = new List<string[]>();
@@ -77,9 +80,12 @@ namespace GiftEjecutor
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
-        public void eliminarExpediente(int correlativo) { 
-            /*Bitacora ---> IDExpediente
-Expediente---> correlativo*/
+        public void eliminarExpediente(int correlativo, String nombre) {
+            String consulta = "UPDATE EXPEDIENTE SET eliminado = 'True' WHERE correlativo = " + correlativo +
+                              "; INSERT INTO BITACORA(IDExpediente,IDActividad,IDComando,tipoComando,IDInstaciaForm,IDFormConfigurador," +
+                              "ejecutada, descripcion) VALUES ("+correlativo+",-1,-1,-1,-1,-1,-1,'Se eliminó el expediente "+nombre +"') ";
+
+            this.controladoBD.hacerConsultaEjecutor(consulta);
         }
     }
 }
