@@ -92,7 +92,9 @@ namespace GiftEjecutor
                 //cf.a
                 //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
-                cf.actualizarTodosLosCampos(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+                //cf.actualizarTodosLosCampos(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+                cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
+
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando, cf.ToString());
                 formFormulario.Show(); 
