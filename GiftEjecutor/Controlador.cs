@@ -49,11 +49,11 @@ namespace GiftEjecutor
             if (datosControlador != null)
             {
                 while (datosControlador.Read())
-                {
+                {                    
                     if (datosControlador.GetValue(2).ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
                         finalizada = true;
                     else
-                        finalizada = false;
+                        finalizada = false;                    
                 }
             }
             return finalizada;

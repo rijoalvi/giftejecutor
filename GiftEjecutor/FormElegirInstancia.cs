@@ -37,7 +37,7 @@ namespace GiftEjecutor
 
         private void llenarGrid() {
             
-            SqlDataReader datos = consultaBD.getDatosFormuario(miFormulario.getNombre(), IDExpediente);
+            SqlDataReader datos = consultaBD.getDatosFormuario(miFormulario.getNombre(), IDExpediente, IDFormulario);
             DataTable tabla = new DataTable();
             DataRow fila;
             DataColumn correlativo = new DataColumn();

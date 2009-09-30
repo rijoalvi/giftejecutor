@@ -149,30 +149,7 @@ namespace GiftEjecutor
             for (int i = 0; i < tabla.Rows.Count; i++) {
                 IDs[i] = tabla.Rows[i][0].ToString();                
             }
-            String[] IDsSinRepetidos = quitarRepetidos(IDs);
-            return IDsSinRepetidos;
-        }
-
-        public String[] quitarRepetidos(String[] IDs){
-            String[] real = new String[IDs.Length];
-            String tmp = "";
-            real[0] = IDs[0];
-            int cant = 1;
-            for (int i = 1; i < IDs.Length; ++i) {
-                bool repetido = false;
-                tmp = IDs[i]; //copia el nuevo valor
-                for (int k = 0; k < i; ++k) {
-                    if (tmp == IDs[k])
-                    {
-                        repetido = true;
-                    }                    
-                }
-                if (!repetido) {
-                    real[cant] = IDs[i];
-                    cant++;
-                }
-            }
-            return real;
+            return IDs;
         }
 
         public String[] buscarTiposCampoDelFormulario(String IDForm)
@@ -202,13 +179,13 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     fila = tabla.NewRow();
-                    fila["NombreTipoCampo"] = datos.GetValue(0);
-                    fila["IDTipoCampo"] = datos.GetValue(1);
-                    fila["IDCampo"] = datos.GetValue(2);
+                    fila["NombreTipoCampo"] = datos.GetValue(1);
+                    fila["IDTipoCampo"] = datos.GetValue(2);
+                    fila["IDCampo"] = datos.GetValue(3);
                     tabla.Rows.Add(fila);
                 }               
             }
-
+            
             ////////pasa del dataTable a un array de strings
             Console.WriteLine("count = " + tabla.Rows.Count);
             //entre ID y nombre hay un ';'
@@ -226,8 +203,7 @@ namespace GiftEjecutor
                 valores[i  * 3] = temporal;
                 valores[(i * 3) + 1] = tabla.Rows[i]["IDTipoCampo"].ToString();
                 valores[(i * 3) + 2] = tabla.Rows[i]["IDCampo"].ToString();
-                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);
-               // i += 3;
+                Console.WriteLine("con i = " + i + " nombre: " + valores[i * 2] + " TipoCampo: " + valores[(i * 2) + 1] + " IDCampo: " + valores[(i * 2) + 2]);               
             }
             ///////////////////
 
@@ -238,17 +214,8 @@ namespace GiftEjecutor
 
         public void agregarFlujoTablaFlujos(int IDFlujo){
             string consulta = "";
-
-             //if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-             //   {
-                    consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','"+ 0 +"')";
-                
-            //    }
-             /*   if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                {
-                    consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','" + 0 + "')";
-                }*/
-                consultaBD.agregarFlujoConstruido(consulta);
+            consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','"+ 0 +"')";            
+            consultaBD.agregarFlujoConstruido(consulta);
         }
 
         public string[][] buscarRelacionesSimetricas(string[] formulariosActivos){

@@ -23,7 +23,7 @@ namespace GiftEjecutor
         public SqlDataReader getDatosUnaActividad(int IDActividad, int IDExpediente)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaEjecutor("Select IDExpediente, IDActividad, ejecutada from Bitacora where IDExpediente = " + IDExpediente + " and IDActividad = " + IDActividad+ ";");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("Select IDExpediente, IDActividad, ejecutada FROM Bitacora where IDExpediente = " + IDExpediente + " and IDActividad = " + IDActividad+ " AND IDComando = -1;");
             return dataReader;
         }
 

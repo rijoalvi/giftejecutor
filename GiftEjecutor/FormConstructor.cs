@@ -25,11 +25,6 @@ namespace GiftEjecutor
 
            // string queryString = "SELECT DISTINCT CustomerID FROM Orders";
 
-        private void dataGridFlujosTrabajo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-         //   textBoxIDFlujoTrabajo.Text=dataGridFlujosTrabajo[0,dataGridFlujosTrabajo.sele]
-        }
-
         private void dataGridFlujosTrabajo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
           //  btnDetalles.Enabled = true;
@@ -62,9 +57,10 @@ namespace GiftEjecutor
             ConstructorTablasFormularios tmp = new ConstructorTablasFormularios();
             tmp.construirTablas(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString());
             //agrego al flujo la tabla creada
-            tmp.agregarFlujoTablaFlujos(Int32.Parse(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString()));             
+            tmp.agregarFlujoTablaFlujos(Int32.Parse(this.dataGridFlujosTrabajo[0, this.dataGridFlujosTrabajo.CurrentRow.Index].Value.ToString()));
 
-
+            //creo q esto esta bn aca :p
+            this.Dispose();
         }
     }
 }

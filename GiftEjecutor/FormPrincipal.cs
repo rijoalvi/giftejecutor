@@ -389,12 +389,12 @@ namespace GiftEjecutor
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E"))
             {
-                MessageBox.Show("Se selecciono el Expediente " + directorio.SelectedNode.Name+" "+directorio.SelectedNode.Text);
+                //MessageBox.Show("Se selecciono el Expediente " + directorio.SelectedNode.Name+" "+directorio.SelectedNode.Text);
                
                 int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
+                //MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-                MessageBox.Show("correlativo expediente " + correlativoExpediente);
+                //MessageBox.Show("correlativo expediente " + correlativoExpediente);
                 FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
                 actividad.Show();
             }

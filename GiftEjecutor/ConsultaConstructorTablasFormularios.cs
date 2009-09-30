@@ -21,13 +21,14 @@ namespace GiftEjecutor
 
 
             //Toma todos los IDs de los formularios q trabajan con ese flujo
-            string strConsulta = "SELECT FORMULARIO.correlativo " +
+            string strConsulta = "SELECT DISTINCT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO " +
                                  "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
                                  "AND ACTIVIDAD.correlativoFlujo = FLUJO.correlativo " +
                                  "AND MIEMBROACTIVIDADSIMPLE.correlativoMadre = ACTIVIDAD.correlativo " +
                                  "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
-                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo;";
+                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
+                                 "ORDER BY FORMULARIO.correlativo;";
             //******ATENCION AQUI NO SE COMO ARREGLARLO***********
             //Creo q asi... :p Beto
             Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
@@ -42,10 +43,11 @@ namespace GiftEjecutor
         public SqlDataReader getIDsTiposCampo(String IDFormulario)
         {
             //Toma todos los IDs de los formularios q trabajan con ese flujo
-            string strConsulta = "SELECT MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo, MIEMBROFORMULARIO.IDCampo " +
+            string strConsulta = "SELECT DISTINCT MIEMBROFORMULARIO.correlativo, MIEMBROFORMULARIO.nombre, MIEMBROFORMULARIO.IDTipoCampo, MIEMBROFORMULARIO.IDCampo " +
                                 "FROM FORMULARIO, MIEMBROFORMULARIO " +
                                 "WHERE MIEMBROFORMULARIO.IDFormulario = '" + IDFormulario + "' " +
-                                "AND MIEMBROFORMULARIO.esEtiqueta = 'false'";
+                                "AND MIEMBROFORMULARIO.esEtiqueta = 'false' " +
+                                "ORDER BY MIEMBROFORMULARIO.correlativo;";
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
             return datos;            
         }
