@@ -94,6 +94,49 @@ namespace GiftEjecutor
             return tablaComandos;
         }
 
+        public int getUltimoComandoEjecutado(int IDExpediente)
+        {
+            consultaControlador = new ConsultaControlador();
+            SqlDataReader datos;
+            int respuesta = -1;
+            datos = this.consultaControlador.getDatosBitacoraOrdenDescendiente(IDExpediente);
+            if (datos != null)
+            {
+                if (datos.Read())
+                {
+                    respuesta = (int)datos.GetValue(0);  
+                }
+            }
+            return respuesta;
+        }
 
+        public int getUltimoComandoReal(int IDActividad)
+        {
+            consultaControlador = new ConsultaControlador();
+            SqlDataReader datos;
+            int respuesta = -1;
+            String nombreComando;
+            datos = this.consultaControlador.getUltimoComandoPorActividad(IDActividad);
+            if (datos != null)
+            {
+                if (datos.Read())
+                {
+                    nombreComando= datos.GetValue(0).ToString();
+                    ConsultaComando tmp;
+                    tmp = new ConsultaComando();
+                    datos = tmp.getIDComando(nombreComando);
+                    if (datos != null)
+                    {
+                        if (datos.Read())
+                        {
+                            respuesta = (int)datos.GetValue(0);
+                        }
+
+                    }
+                }
+            }
+
+            return respuesta;
+        }
     }
 }

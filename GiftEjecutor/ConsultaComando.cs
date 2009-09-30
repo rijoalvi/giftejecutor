@@ -30,5 +30,12 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaConfigurador("select ID, Nombre, Descripcion, Tipo, IDFormularioATrabajar, FechaActualizacion from Comando where ID=" + IDComando + ";");
             return dataReader;
         }
+
+        public SqlDataReader getIDComando(string nombreComando)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select ID from Comando where Nombre=" + nombreComando + ";");
+            return dataReader;
+        }
     }
 }

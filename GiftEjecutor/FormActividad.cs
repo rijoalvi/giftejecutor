@@ -98,6 +98,8 @@ namespace GiftEjecutor
                 FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
                 formFormulario.Show();
             }
+            this.cargarDataGridComandos(); 
+
         }
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)

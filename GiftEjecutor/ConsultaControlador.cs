@@ -33,5 +33,19 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("Select descripcion, fecha from Bitacora where IDExpediente=" + IDExpediente + ";");
             return dataReader;
         }
+
+        public SqlDataReader getDatosBitacoraOrdenDescendiente(int IDExpediente)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("Select IDComando from Bitacora where IDExpediente=" + IDExpediente + " order by correlativo desc;");
+            return dataReader;
+        }
+
+        public SqlDataReader getUltimoComandoPorActividad(int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("Select estadoFinal from Actividad where correlativo =" + IDActividad+ ";");
+            return dataReader;
+        }
     }
 }

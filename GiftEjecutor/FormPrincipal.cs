@@ -405,8 +405,8 @@ namespace GiftEjecutor
         {
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E")) {
-                FormEliminar eliminar = new FormEliminar(((Expediente)seleccionado.Tag));
-                eliminar.Show();
+                //FormEliminar eliminar = new FormEliminar(((Expediente)seleccionado.Tag));
+                //eliminar.Show();
             }
         }
     }

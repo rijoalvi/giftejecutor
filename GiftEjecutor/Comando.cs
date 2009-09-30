@@ -61,7 +61,7 @@ namespace GiftEjecutor
                   this.IDFormularioATrabajar = System.Int32.Parse(datosComando.GetValue(4).ToString());
                   //this.fechaActualizacion = datosComando.GetValue(5);
               }
-          }       
+          }
         }
 
         public DataTable getDataTableComandosPorIDActividadYaRealizado(int IDActividad)
@@ -328,6 +328,22 @@ namespace GiftEjecutor
             if (tipo.Equals("Máscara"))
                 return 5;
             return -1;            
+        }
+
+        public bool terminoActividad(int IDActividad, int IDExpediente)
+        {
+            bool respuesta = false;
+            Controlador control;
+            control = new Controlador();
+            int ultimoComandoEjecut;
+            int ultimoComandoReal;
+            ultimoComandoEjecut = control.getUltimoComandoEjecutado(IDExpediente);
+            ultimoComandoReal = control.getUltimoComandoReal(IDActividad);
+            if (ultimoComandoReal == ultimoComandoEjecut)
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
 
