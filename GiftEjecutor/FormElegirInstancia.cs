@@ -87,17 +87,19 @@ namespace GiftEjecutor
             {
                 ComandoMascara cm = new ComandoMascara();
                 cm.setAtributosComandoMascaraSegunID(IDComando);
-                MessageBox.Show(cm.ToString());
+                //MessageBox.Show(cm.ToString());
                 ConsultaFormulario cf = new ConsultaFormulario();
                 //cf.a
                 //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
                 cf.actualizarTodosLosCampos(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando, cf.ToString());
+                formFormulario.Show(); 
             }
             else //Los otros
             {                
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando);
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando, "");
                 formFormulario.Show();                
             }
             this.Hide();

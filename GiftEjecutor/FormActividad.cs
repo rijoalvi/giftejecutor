@@ -95,7 +95,7 @@ namespace GiftEjecutor
             }            
             else//es de creacion
             {                
-                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID());
+                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDDatos, tipoComando, comandoAEjecutar.getID(), "");
                 formFormulario.Show();
             }
             this.cargarDataGridComandos(); 

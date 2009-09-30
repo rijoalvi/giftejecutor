@@ -22,6 +22,7 @@ namespace GiftEjecutor
         private bool modificacion;
         private bool visualizacion;
         private bool eliminacion;
+        private bool conMascara;
         private String[] nombresCamposTupla;
 
 
@@ -38,6 +39,7 @@ namespace GiftEjecutor
             modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
             visualizacion = false; //no es comando d visualizar
             eliminacion = false;
+            conMascara = false;
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
             crearFormulario();
         }
@@ -46,7 +48,7 @@ namespace GiftEjecutor
         /// Constructor que abre un formulario que anteriormente fue llenado
         /// </summary>
         /// <param name="IDForm"></param>
-        public FormFormulario(int IDFormulario, int IDExp, int IDdatos, int tipoComando, int IDComando)
+        public FormFormulario(int IDFormulario, int IDExp, int IDdatos, int tipoComando, int IDComando, String datosConMascara)
         {
             InitializeComponent();
             IDForm = IDFormulario;
@@ -62,6 +64,7 @@ namespace GiftEjecutor
                     modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
                     visualizacion = false; //no es comando d visualizar
                     eliminacion = false;
+                    conMascara = false;
                     nombresCamposTupla = new String[miFormulario.getNumMiembros()];
                     crearFormulario();
                     break;
@@ -69,6 +72,7 @@ namespace GiftEjecutor
                     modificacion = true; //xq se va a modificar una tupla, no crear una nueva
                     visualizacion = false; //no es comando d visualizar
                     eliminacion = false;
+                    conMascara = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
@@ -77,6 +81,7 @@ namespace GiftEjecutor
                     modificacion = false;
                     visualizacion = true; //es comando d visualizar
                     eliminacion = false;
+                    conMascara = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
@@ -85,14 +90,26 @@ namespace GiftEjecutor
                     modificacion = false;
                     visualizacion = true; //Es de borrado, pero esto es para hacer q sea de read-only
                     eliminacion = true;
+                    conMascara = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
                     botonAceptar.Text = "Borrar";
                     break;
+                case 5: //con Mascara
+                    modificacion = false;
+                    visualizacion = true; //Es con mascara, pero esto es para hacer q sea de read-only
+                    eliminacion = false;
+                    conMascara = true;
+                    crearFormulario();
+                    //llena los datos al leer la tupla especifica
+                    llenarFormulario();
+                    botonAceptar.Visible = false;
+                    botonCancelar.Text = "Cerrar";
+                    MessageBox.Show("Este es el formulario resultante, luego de ejecutar el siguiente cambio del comando con máscara: \n"+ datosConMascara);
+                    break;
                 default:
                     break;
-
             }
         }
 
