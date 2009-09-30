@@ -113,7 +113,7 @@ namespace GiftEjecutor
                     fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
                     fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
-                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente, IDActividad);
                     if (yaSeEjecuto)
                     {
                         tablaComandos.Rows.Add(fila);
@@ -175,7 +175,7 @@ namespace GiftEjecutor
                     fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
                     fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
-                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente, IDActividad);
                     if (!yaSeEjecuto && seAgregoComandoAEjecutar == 0)
                     {
                         tablaComandos.Rows.Add(fila);
@@ -246,7 +246,7 @@ namespace GiftEjecutor
                     fila["Tipo"] = this.getTipo(System.Int32.Parse(datos.GetValue(5).ToString()));
                     fila["Formulario"] = datos.GetValue(6);
                     bool yaSeEjecuto;
-                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente);
+                    yaSeEjecuto = control.checkComandoRealizado((int)datos.GetValue(2), IDExpediente, IDActividad);
                     if (!yaSeEjecuto)
                     {
                         if(seAgregoComandoAEjecutar == 1)

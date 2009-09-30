@@ -96,12 +96,12 @@ namespace GiftEjecutor
                 cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando, cf.ToString());
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString());
                 formFormulario.Show(); 
             }
             else //Los otros
             {                
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDTupla, tipoComando, IDComando, "");
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "");
                 formFormulario.Show();                
             }
             this.Hide();

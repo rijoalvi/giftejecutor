@@ -14,7 +14,7 @@ namespace GiftEjecutor
 
         }
 
-        public bool checkComandoRealizado(int idComando, int expediente)
+        public bool checkComandoRealizado(int idComando, int expediente, int IDActividad)
         {
             bool respuesta;
             respuesta = false;
@@ -22,7 +22,7 @@ namespace GiftEjecutor
             consultaControlador = new ConsultaControlador();
             SqlDataReader datosControlador;
 
-            datosControlador = this.consultaControlador.getDatosUnSoloComando(idComando, expediente);
+            datosControlador = this.consultaControlador.getDatosUnSoloComando(idComando, expediente, IDActividad);
             if (datosControlador != null)
             {
                 if (datosControlador.Read())

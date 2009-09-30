@@ -16,6 +16,7 @@ namespace GiftEjecutor
         private int IDExpediente; //ID del expediente al cual pertenecen los datos
         private int IDTupla;
         private int IDComandoConfig;
+        private int IDActividad;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
      
         private Component[] componentes;
@@ -46,12 +47,13 @@ namespace GiftEjecutor
         /// Constructor que abre un formulario que anteriormente fue llenado
         /// </summary>
         /// <param name="IDForm"></param>
-        public FormFormulario(int IDFormulario, int IDExp, int IDdatos, int tipoComando, int IDComando, String datosConMascara)
+        public FormFormulario(int IDFormulario, int IDExp, int IDAct, int IDdatos, int tipoComando, int IDComando, String datosConMascara)
         {
             InitializeComponent();
             IDForm = IDFormulario;
             IDTupla = IDdatos;
             IDExpediente = IDExp;
+            IDActividad = IDAct;
             IDComandoConfig = IDComando;
             miFormulario = new Formulario(IDForm);
             this.Text = miFormulario.getNombre();
@@ -255,15 +257,15 @@ namespace GiftEjecutor
             if (modificacion)
             {
                 actualizarTupla();
-                miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia del formulario "+ miFormulario.getNombre() + ".");
+                miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia del formulario " + miFormulario.getNombre() + ".");
                 this.Visible = false;
             }
             else 
             {
                 if (eliminacion)
                 {
-                    miFormulario.eliminarTupla(IDTupla, miFormulario.getNombre());                    
-                    miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se eliminó la instancia del formulario "+ miFormulario.getNombre() + ".");
+                    miFormulario.eliminarTupla(IDTupla, miFormulario.getNombre());
+                    miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se eliminó la instancia del formulario " + miFormulario.getNombre() + ".");
                     MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!"); 
                     this.Visible = false;
                 }
@@ -272,7 +274,7 @@ namespace GiftEjecutor
                     if (visualizacion)
                     {
                         //no hace nada solo va a bitacora
-                        miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
+                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
                         this.Visible = false;
                     }
                     else //Si se va a crear una nueva tupla
@@ -280,7 +282,7 @@ namespace GiftEjecutor
                         //ingresa la tupla
                         ingresarNuevaTupla();
                         //ingresa el ingreso a la bitacora
-                        miFormulario.insertarEnBitacora(IDExpediente, -1, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
                         this.Visible = false;
                     }
                 }

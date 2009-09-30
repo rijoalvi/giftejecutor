@@ -12,11 +12,11 @@ namespace GiftEjecutor
         {
         }
 
-        public SqlDataReader getDatosUnSoloComando(int IDComando, int IDExpediente)
+        public SqlDataReader getDatosUnSoloComando(int IDComando, int IDExpediente, int IDActividad)
         {
             SqlDataReader dataReader = null;
 
-            dataReader = this.controladoBD.hacerConsultaEjecutor("Select IDExpediente, IDComando from Bitacora where IDExpediente=" + IDExpediente + " and IDComando=" + IDComando + ";");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("Select IDExpediente, IDComando from Bitacora where IDExpediente=" + IDExpediente + " and IDComando=" + IDComando + " AND IDActividad = " + IDActividad + ";");
             return dataReader;
         }
 
@@ -50,11 +50,7 @@ namespace GiftEjecutor
 
         public void finalizarActividadBitacora(int IDExpediente, int IDActividad)
         {
-            bool valor = true;
-           /* String consulta = "UPDATE BITACORA SET IDComando = -1, tipoComando = -1, IDInstaciaForm = -1, IDFormConfigurador = -1, ejecutada = '"+ valor.ToString() +"' WHERE IDExpediente = " + IDExpediente + " AND IDActividad = " + IDActividad + ";";
-            Console.WriteLine(consulta);
-            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);*/
-
+            bool valor = true;           
             String descripcion = "Se termino de ejecutar la actividad " + IDActividad.ToString();
             String consulta1 = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, tipoComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
                             "VALUES(" + IDExpediente + ", " + IDActividad + ", " + -1 + ", " + -1 + ", " + -1 + ", " + -1 + ", '" + valor + "', '" + descripcion + "');";
