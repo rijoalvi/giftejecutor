@@ -349,6 +349,11 @@ C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\ob
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.exe
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
 C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+<<<<<<< .mine
+C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Documents and Settings\lucachaco\Desktop\ejecutor alberto\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+=======
 C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea63183\Desktop\29-set\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\ea63183\Desktop\29-set\GiftEjecutor\obj\Debug\GiftEjecutor.exe
@@ -394,3 +399,4 @@ C:\Documents and Settings\ea63183\Desktop\29set\GiftEjecutor\obj\Debug\GiftEjecu
 C:\Documents and Settings\ea63183\Desktop\29set\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea63183\Desktop\29set\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
 C:\Documents and Settings\ea63183\Desktop\29set\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+>>>>>>> .r87
