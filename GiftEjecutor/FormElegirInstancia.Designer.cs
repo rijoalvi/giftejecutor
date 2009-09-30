@@ -56,7 +56,6 @@ namespace GiftEjecutor
             this.botonEjecutar.TabIndex = 1;
             this.botonEjecutar.Text = "Ejecutar";
             this.botonEjecutar.UseVisualStyleBackColor = true;
-            this.botonEjecutar.Click += new System.EventHandler(this.botonEjecutar_Click);
             // 
             // label1
             // 
@@ -76,7 +75,6 @@ namespace GiftEjecutor
             this.botonCancelar.TabIndex = 3;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
-            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // label2
             // 
@@ -89,19 +87,11 @@ namespace GiftEjecutor
             // 
             // FormElegirInstancia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 254);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.botonCancelar);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.botonEjecutar);
-            this.Controls.Add(this.dataGridInstancias);
+            this.ClientSize = new System.Drawing.Size(292, 266);
             this.Name = "FormElegirInstancia";
-            this.Text = "Elegir Instancia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInstancias)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

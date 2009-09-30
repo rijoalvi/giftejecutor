@@ -10,6 +10,8 @@ namespace GiftEjecutor
 {
     public partial class FormVistaBitacora : Form
     {
+        private Ventanota padreMDI;
+
         public FormVistaBitacora()
         {
             InitializeComponent();
@@ -34,6 +36,11 @@ namespace GiftEjecutor
         private void botonAceptar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
 
     }

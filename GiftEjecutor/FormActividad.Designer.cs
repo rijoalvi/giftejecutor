@@ -209,6 +209,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.buttonEjecutarComando);
             this.Controls.Add(this.dataGridComandos);
             this.Name = "FormActividad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comandos";
             this.Load += new System.EventHandler(this.FormActividad_Load);
             this.Enter += new System.EventHandler(this.FormActividad_Enter);

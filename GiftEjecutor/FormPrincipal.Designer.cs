@@ -34,13 +34,13 @@ namespace GiftEjecutor
             this.agregarColeccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarExpedienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarBETAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.módulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
             this.botonPruebaBitacora = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.eliminarBETAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,13 @@ namespace GiftEjecutor
             this.cambiarNombreToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.cambiarNombreToolStripMenuItem.Text = "Cambiar Nombre";
             this.cambiarNombreToolStripMenuItem.Click += new System.EventHandler(this.cambiarNombreToolStripMenuItem_Click);
+            // 
+            // eliminarBETAToolStripMenuItem
+            // 
+            this.eliminarBETAToolStripMenuItem.Name = "eliminarBETAToolStripMenuItem";
+            this.eliminarBETAToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.eliminarBETAToolStripMenuItem.Text = "Eliminar (BETA)";
+            this.eliminarBETAToolStripMenuItem.Click += new System.EventHandler(this.eliminarBETAToolStripMenuItem_Click);
             // 
             // módulosToolStripMenuItem
             // 
@@ -145,17 +152,11 @@ namespace GiftEjecutor
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // eliminarBETAToolStripMenuItem
-            // 
-            this.eliminarBETAToolStripMenuItem.Name = "eliminarBETAToolStripMenuItem";
-            this.eliminarBETAToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.eliminarBETAToolStripMenuItem.Text = "Eliminar (BETA)";
-            this.eliminarBETAToolStripMenuItem.Click += new System.EventHandler(this.eliminarBETAToolStripMenuItem_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(627, 334);
             this.Controls.Add(this.botonPruebaBitacora);
             this.Controls.Add(this.directorio);
@@ -168,6 +169,7 @@ namespace GiftEjecutor
             this.Text = "GIFT Ejecutor";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

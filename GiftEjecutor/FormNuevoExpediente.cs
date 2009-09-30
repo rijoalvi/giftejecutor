@@ -10,6 +10,8 @@ namespace GiftEjecutor
 {
     public partial class FormNuevoExpediente : Form
     {
+        private Ventanota padreMDI;
+
         Form formPrincipal;
         int correlativoColeccion;
         public FormNuevoExpediente(Form principal, String correlativoColeccion)
@@ -40,6 +42,11 @@ namespace GiftEjecutor
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

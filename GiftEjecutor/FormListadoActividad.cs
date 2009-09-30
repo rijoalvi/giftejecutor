@@ -10,6 +10,8 @@ namespace GiftEjecutor
 {
     public partial class FormListadoActividad : Form
     {
+        private Ventanota padreMDI;
+
         string mensajeTemporal="------";
         int IDFlujo;
         public int IDActividadCompuesta;
@@ -151,11 +153,15 @@ namespace GiftEjecutor
               //  formActividad.Show();
 
                 FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false);
+                formListadoActividad.MdiParent = padreMDI;
+                formListadoActividad.setPadreMDI(padreMDI);
                 formListadoActividad.Show();
             }
             else {
             //    MessageBox.Show("Simple");
                 FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
+                formActividad.MdiParent = padreMDI;
+                formActividad.setPadreMDI(padreMDI);
                 formActividad.Show();
             }
 
@@ -179,6 +185,8 @@ namespace GiftEjecutor
             mensajeTemporal += actividadAEjecutar.ToString();
 
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
+            formActividad.MdiParent = padreMDI;
+            formActividad.setPadreMDI(padreMDI);
             formActividad.Show();
         }
 
@@ -194,6 +202,8 @@ namespace GiftEjecutor
             mensajeTemporal += actividadAEjecutar.ToString();
 
             FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
+            formActividad.MdiParent = padreMDI;
+            formActividad.setPadreMDI(padreMDI);
             formActividad.Show();
         }
                
@@ -245,6 +255,11 @@ namespace GiftEjecutor
         private void FormListadoActividad_Leave(object sender, EventArgs e)
         {
             //this.cargarDataGridActividad(false);
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
                
     }

@@ -10,6 +10,7 @@ namespace GiftEjecutor
 {
     public partial class FormActividad : Form
     {
+        private Ventanota padreMDI;
         private int IDActividad;
         private int IDExpediente;
         private Comando comandoAEjecutar;
@@ -79,11 +80,15 @@ namespace GiftEjecutor
             if (tipoComando != 1) {
                
                 FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad, this);
+                instancia.MdiParent = padreMDI;
+                instancia.setPadreMDI(padreMDI);
                 instancia.Show();
             }            
             else//es de creacion
             {                
                 FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "", this);
+                formFormulario.MdiParent = padreMDI;
+                formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();
             }
            // this.cargarDataGridComandos(); 
@@ -164,6 +169,11 @@ namespace GiftEjecutor
         private void FormActividad_Leave(object sender, EventArgs e)
         {
             this.cargarDataGridComandos();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

@@ -59,7 +59,6 @@ namespace GiftEjecutor
             this.dataGridFlujos.ReadOnly = true;
             this.dataGridFlujos.Size = new System.Drawing.Size(371, 43);
             this.dataGridFlujos.TabIndex = 1;
-            this.dataGridFlujos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFlujos_CellContentClick);
             // 
             // botonCrearExpediente
             // 
@@ -69,7 +68,6 @@ namespace GiftEjecutor
             this.botonCrearExpediente.TabIndex = 2;
             this.botonCrearExpediente.Text = "Aceptar";
             this.botonCrearExpediente.UseVisualStyleBackColor = true;
-            this.botonCrearExpediente.Click += new System.EventHandler(this.botonCrearExpediente_Click);
             // 
             // botonCancelar
             // 
@@ -79,7 +77,6 @@ namespace GiftEjecutor
             this.botonCancelar.TabIndex = 3;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
-            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // txtNombre
             // 
@@ -99,20 +96,11 @@ namespace GiftEjecutor
             // 
             // FormFlujosConstruidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 311);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.botonCancelar);
-            this.Controls.Add(this.botonCrearExpediente);
-            this.Controls.Add(this.dataGridFlujos);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(292, 266);
             this.Name = "FormFlujosConstruidos";
-            this.Text = "Crear Nuevo Expediente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFlujos)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

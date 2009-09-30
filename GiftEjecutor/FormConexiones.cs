@@ -11,6 +11,8 @@ namespace GiftEjecutor
 {
     public partial class FormConexiones : Form
     {
+        private Ventanota padreMDI;
+
         private const int MYSQL=1;
         private const int SQLSERVER=2;
 
@@ -22,12 +24,12 @@ namespace GiftEjecutor
         public FormConexiones()
         {
             InitializeComponent();
-
+/*
             Thread t1 = new Thread(new ThreadStart(SplashForm));
             t1.Start();
             Thread.Sleep(5000); // The amount of time we want our splash form visible
             t1.Abort();
-            Thread.Sleep(1000);
+            Thread.Sleep(1000);*/
         }
 
         private void FormConexiones_Load(object sender, EventArgs e)
@@ -53,6 +55,9 @@ namespace GiftEjecutor
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionEjecutorSeleccionada);
 
             ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
+            formPrincipal.MdiParent = padreMDI;
+            formPrincipal.setPadreMDI(padreMDI);
+            this.Hide();
             formPrincipal.Show();
             //Este si lo esconde, pero entonces nunk se mata el programa, asi q no funca
             //this.Visible = false;            
@@ -117,6 +122,11 @@ namespace GiftEjecutor
             Splash newSplashForm = new Splash();
             newSplashForm.ShowDialog();
             newSplashForm.Dispose();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

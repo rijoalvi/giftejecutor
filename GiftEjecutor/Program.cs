@@ -14,7 +14,7 @@ namespace GiftEjecutor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormConexiones());
+            Application.Run(new Ventanota());
         }
     }
 }

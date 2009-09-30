@@ -10,6 +10,8 @@ namespace GiftEjecutor
 {
     public partial class FormConstructor : Form
     {
+        private Ventanota padreMDI;
+
         public FormConstructor()
         {
             InitializeComponent();
@@ -61,6 +63,11 @@ namespace GiftEjecutor
 
             //creo q esto esta bn aca :p
             this.Dispose();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

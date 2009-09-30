@@ -10,6 +10,8 @@ namespace GiftEjecutor
 {
     public partial class FormFlujosConstruidos : Form
     {
+        private Ventanota padreMDI;
+
         int IDFlujoSeleccionado;
         FlujoTrabajo miFlujo;
                 /************************/        
@@ -111,6 +113,8 @@ namespace GiftEjecutor
                     Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
                     expediente.crearExpediente();
                     FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true);
+                    actividad.MdiParent = padreMDI;
+                    actividad.setPadreMDI(padreMDI);
                     actividad.Show();
                 }
                 else
@@ -125,6 +129,11 @@ namespace GiftEjecutor
                 MessageBox.Show("Debe escribir un nombre para el expediente");
             }
             this.Dispose();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

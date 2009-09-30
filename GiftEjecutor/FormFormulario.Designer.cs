@@ -60,6 +60,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonAceptar);
             this.Name = "FormFormulario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFormulario";
             this.ResumeLayout(false);
 

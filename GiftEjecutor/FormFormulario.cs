@@ -11,6 +11,9 @@ namespace GiftEjecutor
 {
     public partial class FormFormulario : Form
     {
+        private Ventanota padreMDI;
+
+
         //Miembros
         private int IDForm; //ID del formulario con el q se esta trabajando
         private int IDExpediente; //ID del expediente al cual pertenecen los datos
@@ -595,6 +598,12 @@ namespace GiftEjecutor
                 } //fin for nombres
             }
         
+        }
+
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

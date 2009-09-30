@@ -11,6 +11,8 @@ namespace GiftEjecutor
 {
     public partial class FormElegirInstancia : Form
     {
+        private Ventanota padreMDI;
+
         private int IDTupla;
         private int IDFormulario;
         private int IDExpediente;
@@ -97,14 +99,23 @@ namespace GiftEjecutor
 
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
+                formFormulario.MdiParent = padreMDI;
+                formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show(); 
             }
             else //Los otros
             {                
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
+                formFormulario.MdiParent = padreMDI;
+                formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();                
             }
             this.Hide();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
     }
 }

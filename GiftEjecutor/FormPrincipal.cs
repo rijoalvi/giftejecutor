@@ -11,6 +11,7 @@ namespace GiftEjecutor
 {
     public partial class FormPrincipal : Form
     {
+        private Ventanota padreMDI;
         /**
          * Para recordar!!!
          * //Son los macros que se usan para seleccion del combo box.
@@ -45,6 +46,8 @@ namespace GiftEjecutor
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormConstructor constructor = new FormConstructor();
+            constructor.MdiParent = padreMDI;
+            constructor.setPadreMDI(padreMDI);
             constructor.Show();
         }
 
@@ -58,6 +61,8 @@ namespace GiftEjecutor
             int IDExpediente = 13;
             int IDFlujo = 4;
             FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente, true);
+            formListadoActividad.MdiParent = padreMDI;
+            formListadoActividad.setPadreMDI(padreMDI);
             formListadoActividad.Show();
         }
 
@@ -300,6 +305,8 @@ namespace GiftEjecutor
                     String correlativoPadre = directorio.SelectedNode.Name;
                     String correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
                     FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this, correlativoPadre, correlativoFlujo);
+                    flujosConstruidos.MdiParent = padreMDI;
+                    flujosConstruidos.setPadreMDI(padreMDI);
                     flujosConstruidos.Show();
                 }
             }
@@ -320,6 +327,8 @@ namespace GiftEjecutor
                     correlativoFlujo = directorio.SelectedNode.Name.Substring(1);
                     correlativoPadre = "0";
                     FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
+                    c.MdiParent = padreMDI;
+                    c.setPadreMDI(padreMDI);
                     c.Show();
                 }
                 else if (!this.directorio.SelectedNode.Name.Contains("E") && !this.directorio.SelectedNode.Name.Equals("0"))
@@ -327,6 +336,8 @@ namespace GiftEjecutor
                     correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
                     correlativoPadre = directorio.SelectedNode.Name;
                     FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
+                    c.MdiParent=padreMDI;
+                    c.setPadreMDI(padreMDI);
                     c.Show();
                 }
                 else
@@ -362,6 +373,8 @@ namespace GiftEjecutor
                 correlativoPadre = ((Expediente)directorio.SelectedNode.Tag).getCorrelativoColeccion().ToString();
                 String correlativoExpediente = ((Expediente)directorio.SelectedNode.Tag).getCorrelativo().ToString();
                 FormFlujosConstruidos form = new FormFlujosConstruidos(this,correlativoExpediente,correlativoPadre,correlativoFlujo);
+                form.MdiParent=padreMDI;
+                form.setPadreMDI(padreMDI);
                 form.Show();
             }
             else
@@ -369,6 +382,8 @@ namespace GiftEjecutor
                 correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
                 correlativoPadre = directorio.SelectedNode.Name;
                 FormNuevaColeccion coleccion = new FormNuevaColeccion(this, int.Parse(this.directorio.SelectedNode.Name));
+                coleccion.MdiParent=padreMDI;
+                coleccion.setPadreMDI(padreMDI);
                 coleccion.Show();
             }
             
@@ -377,6 +392,8 @@ namespace GiftEjecutor
         private void botonPruebaBitacora_Click(object sender, EventArgs e)
         {
             FormVistaBitacora bit = new FormVistaBitacora(999);
+            bit.MdiParent=padreMDI;
+            bit.setPadreMDI(padreMDI);
             bit.Show();
         }
 
@@ -396,6 +413,8 @@ namespace GiftEjecutor
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
                 //MessageBox.Show("correlativo expediente " + correlativoExpediente);
                 FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
+                actividad.MdiParent=padreMDI;
+                actividad.setPadreMDI(padreMDI);
                 actividad.Show();
             }
             
@@ -408,6 +427,16 @@ namespace GiftEjecutor
                 //FormEliminar eliminar = new FormEliminar(((Expediente)seleccionado.Tag));
                 //eliminar.Show();
             }
+        }
+        
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

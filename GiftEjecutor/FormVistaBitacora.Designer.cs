@@ -78,6 +78,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.dataGridElementosBitacora);
             this.Name = "FormVistaBitacora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bitácora";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridElementosBitacora)).EndInit();
             this.ResumeLayout(false);
