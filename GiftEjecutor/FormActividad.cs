@@ -38,26 +38,7 @@ namespace GiftEjecutor
             this.cargarDataGridComandos();//lo quite de FormActividad_Load, luisk
         }
         //si es actividad compuesta
-        public FormActividad(int IDAct, int IDExp, int compuesta)
-        {
 
-            InitializeComponent();
-
-            this.IDActividad = IDAct;
-            this.IDExpediente = IDExp;
-            ActividadSimple actividadSimple = new ActividadSimple();
-            actividadSimple.setAtributosPorID(this.IDActividad);
-
-            //ya no va a haber TextBoxDescripcion no textBoxNombre porque al profe no le gustó la idea. Ricardo
-            //this.textBoxDescripcion.Text = actividadSimple.descripcion
-            //this.textBoxNombre.Text = actividadSimple.nombre;
-
-            this.labelEncabezadoComando.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
-            this.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
-
-            cargarDataGridComandosCompuesta();
-
-        }
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
@@ -75,18 +56,7 @@ namespace GiftEjecutor
             dataGridNoPosibles.Refresh();
         }
 
-        private void cargarDataGridComandosCompuesta()
-        {
-            ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
-         //   comando.setIDExpediente(IDExpediente);
-            //this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
-            this.dataGridEjecutados.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
-            dataGridEjecutados.Refresh();
-            this.dataGridComandos.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
-            dataGridComandos.Refresh();
-            this.dataGridNoPosibles.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
-            dataGridNoPosibles.Refresh();
-        }
+ 
 
         private void buttonEjecutarComando_Click(object sender, EventArgs e)
         {
