@@ -19,6 +19,9 @@ namespace GiftEjecutor
         private DateTime fechaActualizacion;
         private int IDExpediente;//falta cargarlo
 
+        public bool esParalela;
+        public bool esExclusiva;
+
         public Actividad() {
             consultaActividad = new ConsultaActividad();
             //this.configuracion = new ConfiguracionProyecto();
@@ -146,7 +149,101 @@ namespace GiftEjecutor
             }
             return tablaActividades;
         }
+        public DataTable getDataTableActividadesEjecutablesHijasPorIDPadre(int IDFlujo)
+        {
+            DataTable tablaActividades = new DataTable();
+            DataRow fila;
 
+            DataColumn IDActividad = new DataColumn();
+            DataColumn nombreActividad = new DataColumn();
+            DataColumn descripcionActividad = new DataColumn();
+            DataColumn tipoActividad = new DataColumn();
+            DataColumn repetible = new DataColumn();
+
+            IDActividad.ColumnName = "IDActividad";
+            nombreActividad.ColumnName = "nombreActividad";
+            descripcionActividad.ColumnName = "descripcionActividad";
+            tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
+
+            IDActividad.DataType = Type.GetType("System.String");
+            nombreActividad.DataType = Type.GetType("System.String");
+            descripcionActividad.DataType = Type.GetType("System.String");
+            tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
+
+            tablaActividades.Columns.Add(IDActividad);
+            tablaActividades.Columns.Add(nombreActividad);
+            tablaActividades.Columns.Add(descripcionActividad);
+            tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
+
+            Controlador control = new Controlador();
+            //datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            SqlDataReader datos;
+            ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            //esto nos indica si ya se agrego una actividad a ejecutables x lo tanto las siguientes no tienen suficientes requisitos
+            bool unaEjecutable = false;
+            //datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaActividades.NewRow();
+                    fila["IDActividad"] = datos.GetValue(2);
+                    fila["nombreActividad"] = datos.GetValue(3);
+                    fila["descripcionActividad"] = datos.GetValue(4);
+                    fila["tipoActividad"] = this.getTipo(datos.GetValue(5).ToString());
+                    fila["repetible"] = datos.GetValue(6).ToString();
+
+
+                    if (true == this.esParalela)
+                    {
+                        tablaActividades.Rows.Add(fila);
+                    }
+                    else
+                    {
+
+
+
+
+
+                        //si es repetible y cumple con requisitos, nunca se bloquea
+                        if (fila["repetible"].ToString().Equals("true", StringComparison.OrdinalIgnoreCase) && !unaEjecutable)
+                        {
+                            tablaActividades.Rows.Add(fila);
+                            //revisa si ya fue ejecutada, si no, cambia estado de "unaEjecutable"
+                            if (!control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente))
+                                unaEjecutable = true;
+                        }
+                        //revisa si ya fue ejecutada
+                        else
+                        {
+                            bool yaSeEjecuto;
+                            yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente);
+                            if (!yaSeEjecuto && !unaEjecutable)
+                            {
+                                tablaActividades.Rows.Add(fila);
+                                unaEjecutable = true;
+                            }
+                        }
+
+
+
+
+
+                    }
+
+
+
+
+
+
+                }
+            }
+            return tablaActividades;
+        }
         /// <summary>
         /// Devuelve el dataTable con las actividades que se ya fueron ejecutadas y no se pueden ejecutar más
         /// </summary>
@@ -208,7 +305,65 @@ namespace GiftEjecutor
             }
             return tablaActividades;
         }
+        public DataTable getDataTableActividadesEjecutadasHijaPorIDPadre(int IDFlujo)
+        {
+            DataTable tablaActividades = new DataTable();
+            DataRow fila;
 
+            DataColumn IDActividad = new DataColumn();
+            DataColumn nombreActividad = new DataColumn();
+            DataColumn descripcionActividad = new DataColumn();
+            DataColumn tipoActividad = new DataColumn();
+            DataColumn repetible = new DataColumn();
+
+            IDActividad.ColumnName = "IDActividad";
+            nombreActividad.ColumnName = "nombreActividad";
+            descripcionActividad.ColumnName = "descripcionActividad";
+            tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
+
+            IDActividad.DataType = Type.GetType("System.String");
+            nombreActividad.DataType = Type.GetType("System.String");
+            descripcionActividad.DataType = Type.GetType("System.String");
+            tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
+
+            tablaActividades.Columns.Add(IDActividad);
+            tablaActividades.Columns.Add(nombreActividad);
+            tablaActividades.Columns.Add(descripcionActividad);
+            tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
+
+            Controlador control = new Controlador();
+            SqlDataReader datos;
+
+            //datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaActividades.NewRow();
+                    fila["IDActividad"] = datos.GetValue(2);
+                    fila["nombreActividad"] = datos.GetValue(3);
+                    fila["descripcionActividad"] = datos.GetValue(4);
+                    fila["tipoActividad"] = this.getTipo(datos.GetValue(5).ToString());
+                    fila["repetible"] = datos.GetValue(6).ToString();
+
+                    //si es repetible nunca se bloquea
+                    if (fila["repetible"].ToString().Equals("false", StringComparison.OrdinalIgnoreCase))
+                    {
+                        //revisa si ya fue ejecutada
+                        bool yaSeEjecuto;
+                        yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente);
+                        if (yaSeEjecuto)
+                            tablaActividades.Rows.Add(fila);
+                    }
+                }
+            }
+            return tablaActividades;
+        }
         /// <summary>
         /// Devuelve el dataTable con las actividades que todavia no cumplen con los requisitos
         /// </summary>
@@ -276,7 +431,71 @@ namespace GiftEjecutor
             }
             return tablaActividades;
         }
-                    
+        public DataTable getDataTableActividadesNOEjecutablesHijasPorIDPadre(int IDFlujo)
+        {
+            DataTable tablaActividades = new DataTable();
+            DataRow fila;
+
+            DataColumn IDActividad = new DataColumn();
+            DataColumn nombreActividad = new DataColumn();
+            DataColumn descripcionActividad = new DataColumn();
+            DataColumn tipoActividad = new DataColumn();
+            DataColumn repetible = new DataColumn();
+
+            IDActividad.ColumnName = "IDActividad";
+            nombreActividad.ColumnName = "nombreActividad";
+            descripcionActividad.ColumnName = "descripcionActividad";
+            tipoActividad.ColumnName = "tipoActividad";
+            repetible.ColumnName = "repetible";
+
+            IDActividad.DataType = Type.GetType("System.String");
+            nombreActividad.DataType = Type.GetType("System.String");
+            descripcionActividad.DataType = Type.GetType("System.String");
+            tipoActividad.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
+
+            tablaActividades.Columns.Add(IDActividad);
+            tablaActividades.Columns.Add(nombreActividad);
+            tablaActividades.Columns.Add(descripcionActividad);
+            tablaActividades.Columns.Add(tipoActividad);
+            tablaActividades.Columns.Add(repetible);
+
+            Controlador control = new Controlador();
+            bool unaEjecutable = false;
+            SqlDataReader datos;
+            //datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaActividades.NewRow();
+                    fila["IDActividad"] = datos.GetValue(2);
+                    fila["nombreActividad"] = datos.GetValue(3);
+                    fila["descripcionActividad"] = datos.GetValue(4);
+                    fila["tipoActividad"] = this.getTipo(datos.GetValue(5).ToString());
+                    fila["repetible"] = datos.GetValue(6).ToString();
+
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente);
+                    //Si ya se ejecuto no me sirve aqui
+                    //Sirven desp de una ejecutable
+                    if (!yaSeEjecuto && !unaEjecutable)
+                    {
+                        unaEjecutable = true;
+                    }
+                    else
+                    {
+                        //Si ya hubo una ejecutable, todas las que siguen no se pueden ejecutar
+                      //  if (unaEjecutable)
+                            //agrego
+                        //   tablaActividades.Rows.Add(fila);//COMENTE ESTOS PARA QUE TODAS SEAN PARALELAS, LUISK
+                    }
+                }
+            }
+            return tablaActividades;
+        }                    
         /// <summary>
         /// nuevo metodo toString
         /// </summary>
@@ -299,6 +518,10 @@ namespace GiftEjecutor
                 case "true":
                     return "Simple";
                 case "false":
+                    return "Compuesta";
+                case "0":
+                    return "Simple";
+                case "1":
                     return "Compuesta";
                 default:
                     return "[Mal especifícado]";

@@ -8,7 +8,8 @@ namespace GiftEjecutor
 {
     class ActividadCompuesta: Actividad
     {
-
+      //  public bool esParalela;
+      //  public bool esExclusiva;
         ConsultaActividaCompuesta consultaActividadCompuesta;
 
         /// <summary>
@@ -21,6 +22,37 @@ namespace GiftEjecutor
         public ActividadCompuesta() {
             consultaActividadCompuesta = new ConsultaActividaCompuesta();
         }
+        public void setAtributosPorID(int IDActividad) {
+            base.setAtributosSegunID(IDActividad);
+            this.setAtributosDeActividadCompuesta(IDActividad);
+        
+        }
+        public override string ToString()
+        {
+            return base.ToString() + "[esParalela: " + esParalela + "] [esExclusiva: " + esExclusiva + "]";
+        }
+        public void setAtributosDeActividadCompuesta(int IDActividad){
+            SqlDataReader datosActividad=null;
+
+            datosActividad = this.consultaActividadCompuesta.getDatosExtendidosPorID(IDActividad);
+            if (datosActividad != null)
+            {
+                while (datosActividad.Read())//En tería solo ejecuta una vez
+                {
+                //    this.ID = System.Int32.Parse(datosActividad.GetValue(0).ToString());
+                    base.esParalela = bool.Parse(datosActividad.GetValue(5).ToString());
+                    base.esExclusiva = bool.Parse(datosActividad.GetValue(6).ToString());
+                 //   //this.tipo = System.Int32.Parse(datosActividad.GetValue(3).ToString());
+                 //   this.nombreTipo = this.getTipo(this.tipo.ToString());
+                    //this.fechaActualizacion = datosActividad.GetValue(5);
+                }
+            }
+        }
+
+       /* public void setAtributosSegunID(int IDActividad)
+        {
+
+        }*/
         public DataTable getDataTableTodasActividadesHija(int IDActividadPadre)
         {
             DataTable tablaActividades = new DataTable();
@@ -36,19 +68,19 @@ namespace GiftEjecutor
             nombreActividad.ColumnName = "nombreActividad";
             descripcionActividad.ColumnName = "descripcionActividad";
             tipoActividad.ColumnName = "Tipo";
-           // repetible.ColumnName = "repetible";
+            repetible.ColumnName = "repetible";
 
             IDActividad.DataType = Type.GetType("System.String");
             nombreActividad.DataType = Type.GetType("System.String");
             descripcionActividad.DataType = Type.GetType("System.String");
             tipoActividad.DataType = Type.GetType("System.String");
-         //   repetible.DataType = Type.GetType("System.String");
+            repetible.DataType = Type.GetType("System.String");
 
             tablaActividades.Columns.Add(IDActividad);
             tablaActividades.Columns.Add(nombreActividad);
             tablaActividades.Columns.Add(descripcionActividad);
             tablaActividades.Columns.Add(tipoActividad);
-         //   tablaActividades.Columns.Add(repetible);
+            tablaActividades.Columns.Add(repetible);
 
             Controlador control = new Controlador();
             SqlDataReader datos;
@@ -62,7 +94,7 @@ namespace GiftEjecutor
                     fila["nombreActividad"] = datos.GetValue(3);
                     fila["descripcionActividad"] = datos.GetValue(4);
                     fila["Tipo"] = this.getTipo(datos.GetValue(5).ToString());
-                 //   fila["repetible"] = datos.GetValue(6).ToString();
+                    fila["repetible"] = datos.GetValue(6).ToString();
 
                     tablaActividades.Rows.Add(fila);
 

@@ -55,11 +55,13 @@ namespace GiftEjecutor
             this.labelEncabezadoComando.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
             this.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
 
+            cargarDataGridComandosCompuesta();
+
         }
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
-            this.cargarDataGridComandos();//lo movi para el constructor
+           // this.cargarDataGridComandos();//lo movi para el constructor
         }
 
         private void cargarDataGridComandos() {
@@ -70,6 +72,19 @@ namespace GiftEjecutor
             this.dataGridComandos.DataSource = comando.getDataTableComandosPorIDActividad(this.IDActividad);
             dataGridComandos.Refresh();
             this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
+            dataGridNoPosibles.Refresh();
+        }
+
+        private void cargarDataGridComandosCompuesta()
+        {
+            ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
+         //   comando.setIDExpediente(IDExpediente);
+            //this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
+            this.dataGridEjecutados.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
+            dataGridEjecutados.Refresh();
+            this.dataGridComandos.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
+            dataGridComandos.Refresh();
+            this.dataGridNoPosibles.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(this.IDActividad);
             dataGridNoPosibles.Refresh();
         }
 

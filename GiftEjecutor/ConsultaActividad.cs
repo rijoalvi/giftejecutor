@@ -30,7 +30,12 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaConfigurador("select correlativo, nombre, Descripcion, esSimple, FechaActualizacion from Actividad where correlativo=" + IDActividad + ";");
             return dataReader;
         }
-
+        public SqlDataReader getDatosExtendidosPorID(int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select correlativo, nombre, Descripcion, esSimple, repetible, paralelo,exclusivo, ordenEjecucion, FechaActualizacion from Actividad where correlativo=" + IDActividad + ";");
+            return dataReader;
+        }
         public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int tipoCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
         {
             String consulta = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, tipoComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +

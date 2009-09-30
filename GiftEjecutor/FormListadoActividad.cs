@@ -12,9 +12,10 @@ namespace GiftEjecutor
     {
         string mensajeTemporal="------";
         int IDFlujo;
+        public int IDActividadCompuesta;
         int IDExpediente;
         bool soyUnFlujoNoActividadCompuesta;
-        
+        ActividadCompuesta actividadCompuesta;
         public FormListadoActividad()
         {
             InitializeComponent();
@@ -24,20 +25,31 @@ namespace GiftEjecutor
         {
             soyUnFlujoNoActividadCompuesta = soyUnFlujo;
             //Si se van a mostrar las actividades de un flujo
+            InitializeComponent();
+            this.IDExpediente = IDExpediente;
             if (soyUnFlujoNoActividadCompuesta)
             {                
                 this.IDFlujo = IDFlujo;
-                this.IDExpediente = IDExpediente;
-                InitializeComponent();
-                this.cargarDataGridActividad();
+                
+                
+               // this.cargarDataGridActividad();
                 FlujoTrabajo flujo;
                 flujo = new FlujoTrabajo(IDFlujo);
                 this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
                 this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
+                this.cargarDataGridActividad(false);
             }
             //Aqui es para mostrar actividades compuestas
-            else { 
-                            
+            else {
+                this.IDActividadCompuesta = IDFlujo;
+                actividadCompuesta = new ActividadCompuesta();
+                actividadCompuesta.setIDExpediente(IDExpediente);
+                actividadCompuesta.setAtributosPorID(IDActividadCompuesta);
+             //   MessageBox.Show(actividadCompuesta.ToString());
+                this.labelEncabezadoActividades.Text = "Actividades de la actividad ''" + actividadCompuesta.getNombre() + "'' Paralela: " + actividadCompuesta.esParalela;
+
+                this.IDExpediente = IDExpediente;
+                this.cargarDataGridActividad(true);           
             }
 
 
@@ -48,16 +60,21 @@ namespace GiftEjecutor
         
         private void FormListadoActividad_Load(object sender, EventArgs e)
         {
-            this.cargarDataGridActividad();
+            //this.cargarDataGridActividad();
         }
 
-        private void cargarDataGridActividad() {
+        private void cargarDataGridActividad(bool compuesta) {
             Actividad actividad = new Actividad();
             ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
+            actividadCompuesta.setAtributosDeActividadCompuesta(this.IDActividadCompuesta);
+            actividad.setAtributosSegunID(this.IDActividadCompuesta);
+            actividad.esParalela = actividadCompuesta.esParalela;
+
+         //   ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
             actividad.setIDExpediente(IDExpediente);
 
             //if (soyUnFlujoNoActividadCompuesta)
-            if (true)
+            if (!compuesta)
             {
                 dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
                 dataGridEjecutados.Columns[4].Visible = false;
@@ -73,10 +90,22 @@ namespace GiftEjecutor
             }
             //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
             else {
-//
-                dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(45);
-                //dataGridActividad.Columns[4].Visible = false;
+
+                dataGridEjecutados.DataSource = actividad.getDataTableActividadesEjecutadasHijaPorIDPadre(this.IDActividadCompuesta);
+                dataGridEjecutados.Columns[4].Visible = false;
+                dataGridEjecutados.Refresh();
+
+                dataGridActividad.DataSource = actividad.getDataTableActividadesEjecutablesHijasPorIDPadre(this.IDActividadCompuesta);
+                dataGridActividad.Columns[4].Visible = false;
                 dataGridActividad.Refresh();
+
+                dataGridPorEjecutar.DataSource = actividad.getDataTableActividadesNOEjecutablesHijasPorIDPadre(this.IDActividadCompuesta);
+                dataGridPorEjecutar.Columns[4].Visible = false;
+                dataGridPorEjecutar.Refresh();
+//
+               /* dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(45);
+                //dataGridActividad.Columns[4].Visible = false;
+                dataGridActividad.Refresh();*/
 
 
             }
@@ -115,10 +144,16 @@ namespace GiftEjecutor
             if (dataGridActividad[3, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("Compuesta"))
             {
 
-                MessageBox.Show("Compuesta");
+           //     MessageBox.Show("Compuesta");
+              //  MessageBox.Show("Simple");
+              //  FormActividad formActividad = new FormActividad(IDActividad, IDExpediente,1);
+              //  formActividad.Show();
+
+                FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false);
+                formListadoActividad.Show();
             }
             else {
-                MessageBox.Show("Simple");
+            //    MessageBox.Show("Simple");
                 FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
                 formActividad.Show();
             }
