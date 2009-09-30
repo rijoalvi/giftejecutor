@@ -10,22 +10,24 @@ namespace GiftEjecutor
 {
     public partial class FormActividad : Form
     {
-        string mensajeTemporal="------";
-        int IDActividad;
-        int IDExpediente;
-        Comando comandoAEjecutar;        
+        private int IDActividad;
+        private int IDExpediente;
+        private Comando comandoAEjecutar;
+        private FormListadoActividad miPadre;
+
 
         public FormActividad()
         {
             InitializeComponent();
         }
-        public FormActividad(int IDAct, int IDExp)
+        public FormActividad(int IDAct, int IDExp, FormListadoActividad padre)
         {
 
             InitializeComponent();
 
             this.IDActividad = IDAct;
             this.IDExpediente = IDExp;
+            this.miPadre = padre;
             ActividadSimple actividadSimple = new ActividadSimple();
             actividadSimple.setAtributosPorID(this.IDActividad);
 
@@ -45,7 +47,7 @@ namespace GiftEjecutor
            // this.cargarDataGridComandos();//lo movi para el constructor
         }
 
-        private void cargarDataGridComandos() {
+        public void cargarDataGridComandos() {
             Comando comando = new Comando();
             comando.setIDExpediente(IDExpediente);
             this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
@@ -54,6 +56,7 @@ namespace GiftEjecutor
             dataGridComandos.Refresh();
             this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
             dataGridNoPosibles.Refresh();
+            miPadre.cargarDataGridActividad();
         }
 
  
@@ -75,15 +78,15 @@ namespace GiftEjecutor
             //Mientras no sea de creacion se debe elegir con cual instancia se desea trabajar
             if (tipoComando != 1) {
                
-                FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad);
+                FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad, this);
                 instancia.Show();
             }            
             else//es de creacion
             {                
-                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "");
+                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "", this);
                 formFormulario.Show();
             }
-            this.cargarDataGridComandos(); 
+           // this.cargarDataGridComandos(); 
 
         }
 

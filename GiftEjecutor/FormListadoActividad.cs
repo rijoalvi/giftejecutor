@@ -37,7 +37,7 @@ namespace GiftEjecutor
                 flujo = new FlujoTrabajo(IDFlujo);
                 this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
                 this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
-                this.cargarDataGridActividad(false);
+                this.cargarDataGridActividad();
             }
             //Aqui es para mostrar actividades compuestas
             else {
@@ -49,7 +49,8 @@ namespace GiftEjecutor
                 this.labelEncabezadoActividades.Text = "Actividades de la actividad ''" + actividadCompuesta.getNombre() + "'' Paralela: " + actividadCompuesta.esParalela;
 
                 this.IDExpediente = IDExpediente;
-                this.cargarDataGridActividad(true);           
+                soyUnFlujoNoActividadCompuesta = false;
+                this.cargarDataGridActividad();           
             }
 
 
@@ -63,7 +64,7 @@ namespace GiftEjecutor
             //this.cargarDataGridActividad();
         }
 
-        private void cargarDataGridActividad(bool compuesta) {
+        public void cargarDataGridActividad() {
             Actividad actividad = new Actividad();
             ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
             actividadCompuesta.setAtributosDeActividadCompuesta(this.IDActividadCompuesta);
@@ -73,8 +74,8 @@ namespace GiftEjecutor
          //   ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
             actividad.setIDExpediente(IDExpediente);
 
-            //if (soyUnFlujoNoActividadCompuesta)
-            if (!compuesta)
+            if (soyUnFlujoNoActividadCompuesta)
+            //if (!compuesta)
             {
                 dataGridEjecutados.DataSource = actividad.getDataTableActividadesPorIDFlujoEjecutadas(this.IDFlujo);
                 dataGridEjecutados.Columns[4].Visible = false;
@@ -154,7 +155,7 @@ namespace GiftEjecutor
             }
             else {
             //    MessageBox.Show("Simple");
-                FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+                FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
                 formActividad.Show();
             }
 
@@ -177,7 +178,7 @@ namespace GiftEjecutor
             mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
             mensajeTemporal += actividadAEjecutar.ToString();
 
-            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
             formActividad.Show();
         }
 
@@ -192,7 +193,7 @@ namespace GiftEjecutor
             mensajeTemporal = "Aqui sigue lo de Luis Carlos!!!" + '\n' + '\n';
             mensajeTemporal += actividadAEjecutar.ToString();
 
-            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente);
+            FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
             formActividad.Show();
         }
                

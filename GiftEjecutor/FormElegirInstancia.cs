@@ -17,10 +17,11 @@ namespace GiftEjecutor
         private int tipoComando;
         private int IDComando;
         private int IDActividad;
+        private FormActividad miPadre;
         private ConsultaElegirInstancia consultaBD;
         private Formulario miFormulario;
 
-        public FormElegirInstancia(int IDForm, int IDExp, int tipoComando, int IDComando, int IDActividad)
+        public FormElegirInstancia(int IDForm, int IDExp, int tipoComando, int IDComando, int IDActividad, FormActividad padre)
         {
             //cm.nombreCampoEfecto, cm.valorCampoEfecto
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace GiftEjecutor
             this.tipoComando = tipoComando;
             this.IDComando = IDComando;
             this.IDActividad = IDActividad;
+            this.miPadre = padre;
             this.consultaBD = new ConsultaElegirInstancia();
             this.miFormulario = new Formulario(IDFormulario);
             llenarGrid();
@@ -89,19 +91,17 @@ namespace GiftEjecutor
                 cm.setAtributosComandoMascaraSegunID(IDComando);
                 //MessageBox.Show(cm.ToString());
                 ConsultaFormulario cf = new ConsultaFormulario();
-                //cf.a
                 //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
-                //cf.actualizarTodosLosCampos(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
                 cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
                 cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString());
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
                 formFormulario.Show(); 
             }
             else //Los otros
             {                
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "");
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
                 formFormulario.Show();                
             }
             this.Hide();

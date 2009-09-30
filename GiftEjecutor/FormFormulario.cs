@@ -17,6 +17,7 @@ namespace GiftEjecutor
         private int IDTupla;
         private int IDComandoConfig;
         private int IDActividad;
+        private FormActividad miPadre;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
      
         private Component[] componentes;
@@ -47,7 +48,7 @@ namespace GiftEjecutor
         /// Constructor que abre un formulario que anteriormente fue llenado
         /// </summary>
         /// <param name="IDForm"></param>
-        public FormFormulario(int IDFormulario, int IDExp, int IDAct, int IDdatos, int tipoComando, int IDComando, String datosConMascara)
+        public FormFormulario(int IDFormulario, int IDExp, int IDAct, int IDdatos, int tipoComando, int IDComando, String datosConMascara, FormActividad padre)
         {
             InitializeComponent();
             IDForm = IDFormulario;
@@ -55,6 +56,7 @@ namespace GiftEjecutor
             IDExpediente = IDExp;
             IDActividad = IDAct;
             IDComandoConfig = IDComando;
+            miPadre = padre;
             miFormulario = new Formulario(IDForm);
             this.Text = miFormulario.getNombre();
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];                     
@@ -101,6 +103,8 @@ namespace GiftEjecutor
                     llenarFormulario();
                     botonAceptar.Visible = false;
                     botonCancelar.Text = "Cerrar";
+                    //refresca la ventana de los comandos d la actividad
+                    miPadre.cargarDataGridComandos();
                     MessageBox.Show("Este es el formulario resultante, luego de ejecutar el siguiente cambio del comando con máscara: \n"+ datosConMascara);
                     break;
                 default:
@@ -266,7 +270,9 @@ namespace GiftEjecutor
                 {
                     miFormulario.eliminarTupla(IDTupla, miFormulario.getNombre());
                     miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se eliminó la instancia del formulario " + miFormulario.getNombre() + ".");
-                    MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!"); 
+                    MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!");
+                    //refresca la ventana de los comandos d la actividad
+                    miPadre.cargarDataGridComandos();
                     this.Visible = false;
                 }
                 else
@@ -275,6 +281,8 @@ namespace GiftEjecutor
                     {
                         //no hace nada solo va a bitacora
                         miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
+                        //refresca la ventana de los comandos d la actividad
+                        miPadre.cargarDataGridComandos();
                         this.Visible = false;
                     }
                     else //Si se va a crear una nueva tupla
@@ -283,6 +291,8 @@ namespace GiftEjecutor
                         ingresarNuevaTupla();
                         //ingresa el ingreso a la bitacora
                         miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        //refresca la ventana de los comandos d la actividad
+                        miPadre.cargarDataGridComandos();
                         this.Visible = false;
                     }
                 }
@@ -585,15 +595,6 @@ namespace GiftEjecutor
                 } //fin for nombres
             }
         
-        }
-
-        /// <summary>
-        /// Pone todos los componentes del formulario como "no editables"
-        /// </summary>
-        private void ponerSoloLectura() {
-            for (int i = 0; i < componentes.Length; ++i) { 
-               // componentes[i].
-            }
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
