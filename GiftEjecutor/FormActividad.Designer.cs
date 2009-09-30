@@ -211,6 +211,8 @@ namespace GiftEjecutor
             this.Name = "FormActividad";
             this.Text = "Comandos";
             this.Load += new System.EventHandler(this.FormActividad_Load);
+            this.Enter += new System.EventHandler(this.FormActividad_Enter);
+            this.Leave += new System.EventHandler(this.FormActividad_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComandos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEjecutados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNoPosibles)).EndInit();

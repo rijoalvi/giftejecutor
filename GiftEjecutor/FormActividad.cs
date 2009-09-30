@@ -182,5 +182,15 @@ namespace GiftEjecutor
         {
 
         }
+
+        private void FormActividad_Enter(object sender, EventArgs e)
+        {
+            this.cargarDataGridComandos();
+        }
+
+        private void FormActividad_Leave(object sender, EventArgs e)
+        {
+            this.cargarDataGridComandos();
+        }
     }
 }

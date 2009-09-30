@@ -182,6 +182,14 @@ namespace GiftEjecutor
                         seAgregoComandoAEjecutar = 1;
                     }
                 }
+                int resp = tablaComandos.Rows.Count;
+                Console.Write("Numero filas: " +resp.ToString());
+
+                if (tablaComandos.Rows.Count == 0) // si no hay nada en el dataset de actividades a ejecutar es xq se llego al final
+                {
+                    control.finalizarActividadBitacora(IDExpediente, IDActividad);
+                }
+
             }
             return tablaComandos;
         }

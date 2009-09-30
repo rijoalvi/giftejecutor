@@ -138,5 +138,11 @@ namespace GiftEjecutor
 
             return respuesta;
         }
+        public void finalizarActividadBitacora(int IDExpediente, int IDActividad)
+        {
+            ConsultaControlador consult = new ConsultaControlador();
+            consult.finalizarActividadBitacora(IDExpediente, IDActividad);
+        }
+
     }
 }

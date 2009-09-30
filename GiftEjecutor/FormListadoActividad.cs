@@ -235,6 +235,16 @@ namespace GiftEjecutor
         {
 
         }
+
+        private void FormListadoActividad_Enter(object sender, EventArgs e)
+        {
+            //this.cargarDataGridActividad(false);
+        }
+
+        private void FormListadoActividad_Leave(object sender, EventArgs e)
+        {
+            //this.cargarDataGridActividad(false);
+        }
                
     }
 }
