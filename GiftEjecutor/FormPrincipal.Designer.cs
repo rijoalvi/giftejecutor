@@ -40,6 +40,7 @@ namespace GiftEjecutor
             this.directorio = new System.Windows.Forms.TreeView();
             this.botonPruebaBitacora = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.eliminarBETAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,8 @@ namespace GiftEjecutor
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarColeccionToolStripMenuItem,
             this.agregarExpedienteToolStripMenuItem,
-            this.cambiarNombreToolStripMenuItem});
+            this.cambiarNombreToolStripMenuItem,
+            this.eliminarBETAToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -143,6 +145,13 @@ namespace GiftEjecutor
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // eliminarBETAToolStripMenuItem
+            // 
+            this.eliminarBETAToolStripMenuItem.Name = "eliminarBETAToolStripMenuItem";
+            this.eliminarBETAToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.eliminarBETAToolStripMenuItem.Text = "Eliminar (BETA)";
+            this.eliminarBETAToolStripMenuItem.Click += new System.EventHandler(this.eliminarBETAToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,5 +189,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem cambiarNombreToolStripMenuItem;
         private System.Windows.Forms.Button botonPruebaBitacora;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarBETAToolStripMenuItem;
     }
 }

@@ -29,6 +29,9 @@ namespace GiftEjecutor
             this.correlativoColeccion = correlativoColeccion;
             this.modificar = 1;
             InitializeComponent();
+            this.Text = "GIFT EJECUTOR - Cambiar nombre de la colección";
+            this.label1.Text = "Digite el nuevo nombre de la colección";
+            
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -44,17 +47,24 @@ namespace GiftEjecutor
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Coleccion coleccion = new Coleccion(this.correlativoColeccion,this.txtNombre.Text, correlativoPadre, correlativoFlujo);
-                
-            if (modificar == 0)
-            {                
-                coleccion.crearColeccion();
+            if (txtNombre.Text != null)
+            {
+                Coleccion coleccion = new Coleccion(this.correlativoColeccion, this.txtNombre.Text, correlativoPadre, correlativoFlujo);
+
+                if (modificar == 0)
+                {
+                    coleccion.crearColeccion();
+                }
+                else
+                {
+                    coleccion.modificarNombre();
+                }
+                this.formPrincipal.refrescarDirectorio();
+                this.Close();
             }
             else {
-                coleccion.modificarNombre();
+                MessageBox.Show("Debe escribir un nombre para la colección");
             }
-            this.formPrincipal.refrescarDirectorio();
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

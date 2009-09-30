@@ -18,6 +18,21 @@ namespace GiftEjecutor
             this.correlativo = -1;//IDCorrelativo;
         }
 
+        public Expediente(String nombre, int correlativoPadre,int IDFlujo)
+        {
+            consultaExpediente = new ConsultaExpediente();
+            this.nombre = nombre;
+            this.IDFlujo = IDFlujo;
+            this.correlativoColeccion= correlativoPadre;
+            this.correlativo = consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
+            Console.WriteLine("Correlativo Padre " + correlativoColeccion);
+        }
+
+        public Expediente(String nombre, int correlativo) {
+            consultaExpediente = new ConsultaExpediente();
+            this.nombre = nombre;
+            this.correlativo = correlativo;
+        }
    /*     public Coleccion(String nombre, String nombrePadre)
         {
             consultaColeccion = new ConsultaColeccion();
@@ -28,15 +43,7 @@ namespace GiftEjecutor
         public int getIDExpediente() {
             return correlativo;
         }
-        public Expediente(String nombre, int correlativoPadre,int IDFlujo)
-        {
-            consultaExpediente = new ConsultaExpediente();
-            this.nombre = nombre;
-            this.IDFlujo = IDFlujo;
-            this.correlativoColeccion= correlativoPadre;
-            this.correlativo = consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
-            Console.WriteLine("Correlativo Padre " + correlativoColeccion);
-        }
+
         public void crearExpediente(){
             correlativo = consultaExpediente.crearExpediente(nombre, correlativoColeccion, IDFlujo);
         }
@@ -45,6 +52,11 @@ namespace GiftEjecutor
          
             return this.consultaExpediente.listarExpedientes();
             
+        }
+
+        public void modificarNombre()
+        {
+            this.consultaExpediente.modificarNombre(this.correlativo, this.nombre);
         }
 
         public void setCorrelativoColeccion(int correlativoColeccion) {
@@ -69,6 +81,10 @@ namespace GiftEjecutor
 
         public int getCorrelativo() {
             return this.correlativo;
+        }
+
+        public void eliminar() {
+            this.consultaExpediente.eliminar(this.correlativo);
         }
 
     }

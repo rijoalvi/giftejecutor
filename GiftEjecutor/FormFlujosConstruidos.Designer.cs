@@ -40,38 +40,40 @@ namespace GiftEjecutor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(24, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(273, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Flujos Construidos:";
+            this.label1.Text = "Flujo de trabajo al que pertenecerá el expediente a crear";
             // 
             // dataGridFlujos
             // 
             this.dataGridFlujos.AllowUserToAddRows = false;
             this.dataGridFlujos.AllowUserToDeleteRows = false;
             this.dataGridFlujos.AllowUserToOrderColumns = true;
+            this.dataGridFlujos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridFlujos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridFlujos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridFlujos.Location = new System.Drawing.Point(15, 48);
+            this.dataGridFlujos.Location = new System.Drawing.Point(27, 80);
             this.dataGridFlujos.Name = "dataGridFlujos";
             this.dataGridFlujos.ReadOnly = true;
-            this.dataGridFlujos.Size = new System.Drawing.Size(449, 150);
+            this.dataGridFlujos.Size = new System.Drawing.Size(371, 43);
             this.dataGridFlujos.TabIndex = 1;
             this.dataGridFlujos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFlujos_CellContentClick);
             // 
             // botonCrearExpediente
             // 
-            this.botonCrearExpediente.Location = new System.Drawing.Point(298, 289);
+            this.botonCrearExpediente.Location = new System.Drawing.Point(233, 234);
             this.botonCrearExpediente.Name = "botonCrearExpediente";
             this.botonCrearExpediente.Size = new System.Drawing.Size(75, 23);
             this.botonCrearExpediente.TabIndex = 2;
-            this.botonCrearExpediente.Text = "Crear";
+            this.botonCrearExpediente.Text = "Aceptar";
             this.botonCrearExpediente.UseVisualStyleBackColor = true;
             this.botonCrearExpediente.Click += new System.EventHandler(this.botonCrearExpediente_Click);
             // 
             // botonCancelar
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(388, 289);
+            this.botonCancelar.Location = new System.Drawing.Point(323, 234);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
             this.botonCancelar.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace GiftEjecutor
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(15, 249);
+            this.txtNombre.Location = new System.Drawing.Point(25, 193);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 20);
             this.txtNombre.TabIndex = 5;
@@ -89,7 +91,7 @@ namespace GiftEjecutor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 221);
+            this.label2.Location = new System.Drawing.Point(22, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 13);
             this.label2.TabIndex = 4;
@@ -99,7 +101,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 348);
+            this.ClientSize = new System.Drawing.Size(432, 311);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);

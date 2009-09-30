@@ -70,5 +70,16 @@ namespace GiftEjecutor
             }
             return correlativo;
         }
+
+        public void modificarNombre(int correlativoExpediente, String nombre)
+        {
+            String consulta = "UPDATE EXPEDIENTE SET nombre = '" + nombre + "' WHERE correlativo = " + correlativoExpediente + ";";
+            this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
+
+        public void eliminarExpediente(int correlativo) { 
+            /*Bitacora ---> IDExpediente
+Expediente---> correlativo*/
+        }
     }
 }

@@ -117,7 +117,41 @@ namespace GiftEjecutor
             }
             return tabla;
         }
+      
+        
+        public DataTable getFlujoTrabajo(int correlativo)
+        {
+            ///datos[0] = nombre,datos[1]=descripcion
+            String[] datos = consultaFlujoTrabajo.getDatosFlujo(correlativo);//getTodosLosFlujosTrabajo();
+            
+            DataTable tabla = new DataTable();
+            DataRow fila;
+            DataColumn IDFlujo = new DataColumn();
+            DataColumn nombre = new DataColumn();
+            DataColumn descripcion = new DataColumn();
 
+            IDFlujo.ColumnName = "IDFlujo";
+            IDFlujo.DataType = Type.GetType("System.String");
+
+            nombre.ColumnName = "nombre";
+            nombre.DataType = Type.GetType("System.String");
+
+            descripcion.ColumnName = "descripcion";
+            descripcion.DataType = Type.GetType("System.String");
+
+            tabla.Columns.Add(IDFlujo);
+            tabla.Columns.Add(nombre);
+            tabla.Columns.Add(descripcion);
+            if (datos != null)
+            {
+                fila = tabla.NewRow();
+                fila["IDFlujo"] = correlativo.ToString();
+                fila["nombre"] = datos[0];
+                fila["descripcion"] = datos[1];
+                tabla.Rows.Add(fila);            
+            }
+            return tabla;
+        }
         /// <summary>
         /// Devuelve una tabla con los flujos ya construidos
         /// </summary>

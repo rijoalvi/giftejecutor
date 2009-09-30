@@ -128,11 +128,9 @@ namespace GiftEjecutor
                     if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
                     {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
                         TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
-                        creado.ForeColor = Color.Silver;
-                        MessageBox.Show("Nombre " + expedientes[k][3] + " coleccion " + nodo.Name + " Flujo " + expedientes[k][1]);
+                        creado.ForeColor = Color.Silver;                        
                         creado.Tag = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
                     }
-
                 }
             }        
         }
@@ -351,15 +349,26 @@ namespace GiftEjecutor
         {
             String correlativoFlujo;
             String correlativoPadre;
-            if (this.directorio.SelectedNode.Name.Contains("F") || this.directorio.SelectedNode.Name.Contains("E"))
+            if (this.directorio.SelectedNode.Name.Contains("F"))
             {
-                MessageBox.Show("Solo se le pueden cambiar los nombres a las colecciones");
+                MessageBox.Show("No es posible cambiarle el nombre a un flujo de trabajo");
+            }
+            else if (this.directorio.SelectedNode.Name.Equals("0"))
+            {
+                MessageBox.Show("No es posible cambiarle el nombre a la raíz del directorio");
+            }else if (this.directorio.SelectedNode.Name.Contains("E"))
+            {
+                correlativoFlujo = ((Expediente)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
+                correlativoPadre = ((Expediente)directorio.SelectedNode.Tag).getCorrelativoColeccion().ToString();
+                String correlativoExpediente = ((Expediente)directorio.SelectedNode.Tag).getCorrelativo().ToString();
+                FormFlujosConstruidos form = new FormFlujosConstruidos(this,correlativoExpediente,correlativoPadre,correlativoFlujo);
+                form.Show();
             }
             else
             {
                 correlativoFlujo = ((Coleccion)directorio.SelectedNode.Tag).getCorrelativoFlujo().ToString();
                 correlativoPadre = directorio.SelectedNode.Name;
-                FormNuevaColeccion coleccion = new FormNuevaColeccion(this,int.Parse(this.directorio.SelectedNode.Name) );
+                FormNuevaColeccion coleccion = new FormNuevaColeccion(this, int.Parse(this.directorio.SelectedNode.Name));
                 coleccion.Show();
             }
             
@@ -388,11 +397,17 @@ namespace GiftEjecutor
                 MessageBox.Show("correlativo expediente " + correlativoExpediente);
                 FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
                 actividad.Show();
-            
-
-
             }
             
+        }
+
+        private void eliminarBETAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode seleccionado = directorio.SelectedNode;
+            if (seleccionado != null && seleccionado.Name.Contains("E")) {
+                FormEliminar eliminar = new FormEliminar(((Expediente)seleccionado.Tag));
+                eliminar.Show();
+            }
         }
     }
 }

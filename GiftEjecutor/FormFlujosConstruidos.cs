@@ -16,6 +16,8 @@ namespace GiftEjecutor
         FormPrincipal formPrincipal;
         int correlativoPadre;
         int correlativoFlujo;
+        int modificar;
+        int correlativoExpediente;
         /***************************/
 
         public FormFlujosConstruidos(FormPrincipal principal,String correlativoPadre, String correlativoFlujo)
@@ -26,6 +28,7 @@ namespace GiftEjecutor
             this.correlativoPadre = int.Parse(correlativoPadre);
             this.correlativoFlujo = int.Parse(correlativoFlujo);
             //this.formPrincipal = principal;
+            modificar = 0;
             
             /////
             
@@ -35,14 +38,35 @@ namespace GiftEjecutor
         }
 
         /// <summary>
+        /// Constructor que inicializa el Form para que se modifique nombre del expediente creado
+        /// </summary>
+        /// <param name="principal"></param>
+        /// <param name="correlativoExpediente"></param>
+        public FormFlujosConstruidos(FormPrincipal principal, String correlativoExpediente,String correlativoPadre, String correlativoFlujo)
+        {
+            InitializeComponent();
+            /****/
+            this.formPrincipal = principal;
+            this.correlativoExpediente = int.Parse(correlativoExpediente);
+            this.correlativoPadre = int.Parse(correlativoPadre);
+            this.correlativoFlujo = int.Parse(correlativoFlujo);
+          
+            modificar = 1;
+            this.Text = "GIFT EJECUTOR - Cambiar nombre del expediente";
+            this.label2.Text = "Digite el nuevo nombre del expediente";
+            IDFlujoSeleccionado = -1;
+            llenarDataGrid();
+
+        }
+        /// <summary>
         /// Llena el data grid con los datos de los flujos construidos
         /// </summary>
         private void llenarDataGrid() {
-            /*miFlujo = new FlujoTrabajo(correlativoFlujo);
+            miFlujo = new FlujoTrabajo(correlativoFlujo);
             //dataGridFlujos.DataSource = miFlujo.getFlujosConstruidos();
-            dataGridFlujos.DataSource = miFlujo.getDataTableTodosLosFlujosDeTrabajo();
+            dataGridFlujos.DataSource = miFlujo.getFlujoTrabajo(correlativoFlujo);
             //se esconde el ID para q el usuario no lo vea.
-            dataGridFlujos.Columns[0].Visible = false;*/
+            dataGridFlujos.Columns[0].Visible = false;
         }
 
         private void dataGridFlujos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,12 +104,27 @@ namespace GiftEjecutor
 
         private void botonCrearExpediente_Click(object sender, EventArgs e)
         {
-            Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre,this.correlativoFlujo/*this.IDFlujoSeleccionado*/);
-            expediente.crearExpediente();
-            FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true);
-            actividad.Show();
-            this.formPrincipal.refrescarDirectorio();
-            this.Close();
+            if (txtNombre.Text != null)
+            {
+                if (this.modificar == 0)
+                {
+                    Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
+                    expediente.crearExpediente();
+                    FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true);
+                    actividad.Show();
+                }
+                else
+                {
+                    Expediente expediente = new Expediente(txtNombre.Text, this.correlativoExpediente);
+                    expediente.modificarNombre();
+                }
+                this.formPrincipal.refrescarDirectorio();
+                this.Close();
+            }
+            else {
+                MessageBox.Show("Debe escribir un nombre para el expediente");
+            }
+            this.Dispose();
         }
     }
 }

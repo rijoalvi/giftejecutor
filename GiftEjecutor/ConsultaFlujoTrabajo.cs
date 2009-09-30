@@ -8,6 +8,14 @@ namespace GiftEjecutor
 
     class ConsultaFlujoTrabajo : Consulta
     {
+
+        /// <summary>
+        /// Retorna los datos de un flujo de trabajo
+        /// en el retorno [0] se obtiene el nombre
+        /// en el retorno [1] se obtiene la descripción
+        /// </summary>
+        /// <param name="correlativo"></param>
+        /// <returns></returns>
         public String[] getDatosFlujo(int correlativo){
             this.controladoBD = new ControladorBD();
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador("SELECT nombre,descripcion FROM FLUJO WHERE correlativo = " + correlativo+";");
