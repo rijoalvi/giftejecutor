@@ -10,8 +10,6 @@ namespace GiftEjecutor
 {
     public partial class FormFlujosConstruidos : Form
     {
-        private Ventanota padreMDI;
-
         int IDFlujoSeleccionado;
         FlujoTrabajo miFlujo;
                 /************************/        
@@ -21,6 +19,7 @@ namespace GiftEjecutor
         int modificar;
         int correlativoExpediente;
         /***************************/
+        private Ventanota padreMDI;
 
         public FormFlujosConstruidos(FormPrincipal principal,String correlativoPadre, String correlativoFlujo)
         {
@@ -113,8 +112,6 @@ namespace GiftEjecutor
                     Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
                     expediente.crearExpediente();
                     FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true);
-                    actividad.MdiParent = padreMDI;
-                    actividad.setPadreMDI(padreMDI);
                     actividad.Show();
                 }
                 else
