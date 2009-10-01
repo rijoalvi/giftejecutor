@@ -101,3 +101,5 @@ C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\Gift
 C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
 C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\bin\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources

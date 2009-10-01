@@ -78,6 +78,8 @@ namespace GiftEjecutor
             // 
             // buttonIniciar
             // 
+            this.buttonIniciar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIniciar.ForeColor = System.Drawing.Color.DarkGreen;
             this.buttonIniciar.Location = new System.Drawing.Point(213, 172);
             this.buttonIniciar.Name = "buttonIniciar";
             this.buttonIniciar.Size = new System.Drawing.Size(75, 23);

@@ -40,20 +40,25 @@ namespace GiftEjecutor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 53);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(4, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 13);
+            this.label1.Size = new System.Drawing.Size(407, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Flujo de trabajo al que pertenecerá el expediente a crear";
+            this.label1.Text = "Flujo de trabajo al que pertenecerá el expediente a crear:";
             // 
             // dataGridFlujos
             // 
             this.dataGridFlujos.AllowUserToAddRows = false;
             this.dataGridFlujos.AllowUserToDeleteRows = false;
             this.dataGridFlujos.AllowUserToOrderColumns = true;
-            this.dataGridFlujos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridFlujos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridFlujos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridFlujos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridFlujos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridFlujos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridFlujos.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridFlujos.Location = new System.Drawing.Point(27, 80);
             this.dataGridFlujos.Name = "dataGridFlujos";
             this.dataGridFlujos.ReadOnly = true;
@@ -63,6 +68,8 @@ namespace GiftEjecutor
             // 
             // botonCrearExpediente
             // 
+            this.botonCrearExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCrearExpediente.ForeColor = System.Drawing.Color.DarkGreen;
             this.botonCrearExpediente.Location = new System.Drawing.Point(233, 234);
             this.botonCrearExpediente.Name = "botonCrearExpediente";
             this.botonCrearExpediente.Size = new System.Drawing.Size(75, 23);
@@ -73,6 +80,8 @@ namespace GiftEjecutor
             // 
             // botonCancelar
             // 
+            this.botonCancelar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCancelar.ForeColor = System.Drawing.Color.Firebrick;
             this.botonCancelar.Location = new System.Drawing.Point(323, 234);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
@@ -91,9 +100,11 @@ namespace GiftEjecutor
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
             this.label2.Location = new System.Drawing.Point(22, 165);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 13);
+            this.label2.Size = new System.Drawing.Size(260, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Digite el nombre del nuevo expediente";
             // 
@@ -109,6 +120,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.dataGridFlujos);
             this.Controls.Add(this.label1);
             this.Name = "FormFlujosConstruidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Nuevo Expediente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFlujos)).EndInit();
             this.ResumeLayout(false);

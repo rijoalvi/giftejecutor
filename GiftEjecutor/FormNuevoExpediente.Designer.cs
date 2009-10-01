@@ -37,11 +37,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 43);
+            this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 13);
+            this.label1.Size = new System.Drawing.Size(328, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Digite el nombre del nuevo expediente";
+            this.label1.Text = "Digite el nombre del nuevo expediente:";
             // 
             // txtNombre
             // 
@@ -53,6 +55,8 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnAceptar.Location = new System.Drawing.Point(169, 125);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
@@ -63,6 +67,8 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Firebrick;
             this.btnCancelar.Location = new System.Drawing.Point(250, 125);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);

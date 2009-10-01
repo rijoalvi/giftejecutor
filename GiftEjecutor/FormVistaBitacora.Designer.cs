@@ -50,6 +50,8 @@ namespace GiftEjecutor
             // 
             // botonAceptar
             // 
+            this.botonAceptar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonAceptar.ForeColor = System.Drawing.Color.DarkGreen;
             this.botonAceptar.Location = new System.Drawing.Point(779, 593);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(75, 23);

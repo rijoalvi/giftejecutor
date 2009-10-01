@@ -67,7 +67,7 @@ namespace GiftEjecutor
             //dataGridFlujos.DataSource = miFlujo.getFlujosConstruidos();
             dataGridFlujos.DataSource = miFlujo.getFlujoTrabajo(correlativoFlujo);
             //se esconde el ID para q el usuario no lo vea.
-            dataGridFlujos.Columns[0].Visible = false;
+            //dataGridFlujos.Columns[0].Visible = false;
         }
 
         private void dataGridFlujos_CellContentClick(object sender, DataGridViewCellEventArgs e)

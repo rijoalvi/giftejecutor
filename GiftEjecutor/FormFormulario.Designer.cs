@@ -34,6 +34,8 @@ namespace GiftEjecutor
             // 
             // botonAceptar
             // 
+            this.botonAceptar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonAceptar.ForeColor = System.Drawing.Color.DarkGreen;
             this.botonAceptar.Location = new System.Drawing.Point(377, 602);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(75, 23);
@@ -44,6 +46,8 @@ namespace GiftEjecutor
             // 
             // botonCancelar
             // 
+            this.botonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCancelar.ForeColor = System.Drawing.Color.Firebrick;
             this.botonCancelar.Location = new System.Drawing.Point(470, 602);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);

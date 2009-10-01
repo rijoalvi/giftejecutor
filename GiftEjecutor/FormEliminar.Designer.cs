@@ -35,6 +35,8 @@ namespace GiftEjecutor
             // 
             // Aceptar
             // 
+            this.Aceptar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Aceptar.ForeColor = System.Drawing.Color.DarkGreen;
             this.Aceptar.Location = new System.Drawing.Point(151, 82);
             this.Aceptar.Name = "Aceptar";
             this.Aceptar.Size = new System.Drawing.Size(75, 23);
@@ -45,6 +47,8 @@ namespace GiftEjecutor
             // 
             // Cancelar
             // 
+            this.Cancelar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelar.ForeColor = System.Drawing.Color.Firebrick;
             this.Cancelar.Location = new System.Drawing.Point(268, 82);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
@@ -56,9 +60,11 @@ namespace GiftEjecutor
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(51, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 

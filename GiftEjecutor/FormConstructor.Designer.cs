@@ -37,15 +37,21 @@ namespace GiftEjecutor
             // 
             // dataGridFlujosTrabajo
             // 
+            this.dataGridFlujosTrabajo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridFlujosTrabajo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridFlujosTrabajo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridFlujosTrabajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridFlujosTrabajo.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridFlujosTrabajo.Location = new System.Drawing.Point(28, 28);
             this.dataGridFlujosTrabajo.Name = "dataGridFlujosTrabajo";
-            this.dataGridFlujosTrabajo.Size = new System.Drawing.Size(486, 193);
+            this.dataGridFlujosTrabajo.Size = new System.Drawing.Size(466, 193);
             this.dataGridFlujosTrabajo.TabIndex = 0;
             this.dataGridFlujosTrabajo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFlujosTrabajo_CellClick);
             // 
             // buttonConstruir
             // 
+            this.buttonConstruir.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConstruir.ForeColor = System.Drawing.Color.DarkGreen;
             this.buttonConstruir.Location = new System.Drawing.Point(28, 266);
             this.buttonConstruir.Name = "buttonConstruir";
             this.buttonConstruir.Size = new System.Drawing.Size(75, 23);
@@ -57,11 +63,13 @@ namespace GiftEjecutor
             // labelIDFlujo
             // 
             this.labelIDFlujo.AutoSize = true;
+            this.labelIDFlujo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIDFlujo.ForeColor = System.Drawing.Color.Firebrick;
             this.labelIDFlujo.Location = new System.Drawing.Point(25, 224);
             this.labelIDFlujo.Name = "labelIDFlujo";
-            this.labelIDFlujo.Size = new System.Drawing.Size(82, 13);
+            this.labelIDFlujo.Size = new System.Drawing.Size(118, 13);
             this.labelIDFlujo.TabIndex = 2;
-            this.labelIDFlujo.Text = "ID Flujo Trabajo";
+            this.labelIDFlujo.Text = "ID Flujo Trabajo:";
             // 
             // textBoxIDFlujoTrabajo
             // 

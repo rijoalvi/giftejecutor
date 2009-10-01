@@ -96,11 +96,12 @@ namespace GiftEjecutor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 414);
+            this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 427);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 13);
+            this.label2.Size = new System.Drawing.Size(184, 14);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Actividades ejecutadas";
+            this.label2.Text = "Actividades ya ejecutadas:";
             // 
             // dataGridEjecutados
             // 
@@ -134,11 +135,12 @@ namespace GiftEjecutor
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(375, 414);
+            this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(345, 427);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(232, 13);
+            this.label4.Size = new System.Drawing.Size(173, 14);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Actividades por ejecutar, que le faltan requisitos";
+            this.label4.Text = "Actividades por ejecutar:";
             // 
             // dataGridPorEjecutar
             // 

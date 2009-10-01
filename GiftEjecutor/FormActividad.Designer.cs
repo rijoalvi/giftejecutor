@@ -128,11 +128,11 @@ namespace GiftEjecutor
             // 
             this.labelComandosNoEjecutados.AutoSize = true;
             this.labelComandosNoEjecutados.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComandosNoEjecutados.Location = new System.Drawing.Point(34, 425);
+            this.labelComandosNoEjecutados.Location = new System.Drawing.Point(14, 425);
             this.labelComandosNoEjecutados.Name = "labelComandosNoEjecutados";
-            this.labelComandosNoEjecutados.Size = new System.Drawing.Size(251, 14);
+            this.labelComandosNoEjecutados.Size = new System.Drawing.Size(176, 14);
             this.labelComandosNoEjecutados.TabIndex = 0;
-            this.labelComandosNoEjecutados.Text = "Comandos que ya fueron ejecutados:";
+            this.labelComandosNoEjecutados.Text = "Comandos ya ejecutados:";
             // 
             // label2
             // 
@@ -149,11 +149,12 @@ namespace GiftEjecutor
             // 
             this.labelComandosSinEjecutar.AutoSize = true;
             this.labelComandosSinEjecutar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComandosSinEjecutar.Location = new System.Drawing.Point(328, 425);
+            this.labelComandosSinEjecutar.Location = new System.Drawing.Point(345, 425);
             this.labelComandosSinEjecutar.Name = "labelComandosSinEjecutar";
-            this.labelComandosSinEjecutar.Size = new System.Drawing.Size(311, 14);
+            this.labelComandosSinEjecutar.Size = new System.Drawing.Size(243, 14);
             this.labelComandosSinEjecutar.TabIndex = 0;
-            this.labelComandosSinEjecutar.Text = "Comandos que todavía no se pueden ejecutar:";
+            this.labelComandosSinEjecutar.Text = "Comandos pendientes de ejecución:";
+            this.labelComandosSinEjecutar.Click += new System.EventHandler(this.labelComandosSinEjecutar_Click);
             // 
             // labelEncabezadoComando
             // 

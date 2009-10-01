@@ -175,5 +175,10 @@ namespace GiftEjecutor
         {
             padreMDI = v;
         }
+
+        private void labelComandosSinEjecutar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
