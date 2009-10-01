@@ -39,8 +39,9 @@ namespace GiftEjecutor
             llenarGrid();
         }
 
-        private void llenarGrid() {
-            
+        private void llenarGrid()
+        {
+
             SqlDataReader datos = consultaBD.getDatosFormuario(miFormulario.getNombre(), IDExpediente, IDFormulario);
             DataTable tabla = new DataTable();
             DataRow fila;
@@ -75,7 +76,8 @@ namespace GiftEjecutor
             dataGridInstancias.Columns[0].Visible = false;
         }
 
-        public int getIDTupla() {
+        public int getIDTupla()
+        {
             return IDTupla;
         }
 
@@ -101,14 +103,14 @@ namespace GiftEjecutor
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
-                formFormulario.Show(); 
+                formFormulario.Show();
             }
             else //Los otros
-            {                
+            {
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
-                formFormulario.Show();                
+                formFormulario.Show();
             }
             this.Hide();
         }
