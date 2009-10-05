@@ -389,5 +389,14 @@ namespace GiftEjecutor
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ActividadCompuesta ac = new ActividadCompuesta();
+            ac.setAtributosSegunID(38);
+            MessageBox.Show(ac.ToString());
+            FormListadoActividad fa = new FormListadoActividad(38, 999, false);
+            fa.Show();
+        }
     }
 }

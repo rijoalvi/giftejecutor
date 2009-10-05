@@ -8,8 +8,8 @@ namespace GiftEjecutor
 {
     class ActividadCompuesta: Actividad
     {
-      //  public bool esParalela;
-      //  public bool esExclusiva;
+        public bool miEsParalela;
+        public bool miEsExclusiva;
         ConsultaActividaCompuesta consultaActividadCompuesta;
 
         /// <summary>
@@ -29,7 +29,24 @@ namespace GiftEjecutor
         }
         public override string ToString()
         {
-            return base.ToString() + "[esParalela: " + esParalela + "] [esExclusiva: " + esExclusiva + "]";
+            return base.ToString() + "[esParalela: " + this.miEsParalela + "] [esExclusiva: " + miEsExclusiva + "]";
+        }
+        public override void setAtributosSegunID(int IDActividad)
+        {
+            base.setAtributosSegunID(IDActividad);
+            SqlDataReader datosActividad = null;
+
+            datosActividad = this.consultaActividadCompuesta.getDatosExtendidosPorID(IDActividad);
+            if (datosActividad != null)
+            {
+                while (datosActividad.Read())//En tería solo ejecuta una vez
+                {
+                    this.miEsParalela = bool.Parse(datosActividad.GetValue(5).ToString());
+                    this.miEsExclusiva = bool.Parse(datosActividad.GetValue(6).ToString());
+
+                }
+            }
+
         }
         public void setAtributosDeActividadCompuesta(int IDActividad){
             SqlDataReader datosActividad=null;

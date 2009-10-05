@@ -19,6 +19,8 @@ namespace GiftEjecutor
         private DateTime fechaActualizacion;
         private int IDExpediente;//falta cargarlo
 
+
+
         public bool esParalela;
         public bool esExclusiva;
 
@@ -56,7 +58,7 @@ namespace GiftEjecutor
         {
             return this.descripcion;
         }
-        public void setAtributosSegunID(int IDActividad)
+        public virtual void setAtributosSegunID(int IDActividad)
         {
             SqlDataReader datosActividad;
 

@@ -23,11 +23,11 @@ namespace GiftEjecutor
         //private SqlConnection SQLServerConexion = new SqlConnection("Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=usuarioInge1_g2;Password=ui1_g2");
 
         private SqlConnection conexionConfigurador;
-        private SqlConnection conexionEjecutor;
+        //private SqlConnection conexionEjecutor;
 
 
         public static int conexionConfiguracionSeleccionada;
-        public static int conexionEjecutonSeleccionada;
+       // public static int conexionEjecutonSeleccionada;
 
         /*public MySqlDataReader hacerConsultaMySQL(string sentenciaMySql)
         {
