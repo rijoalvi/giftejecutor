@@ -48,7 +48,7 @@ namespace GiftEjecutor
                 actividadCompuesta.setIDExpediente(IDExpediente);
                 actividadCompuesta.setAtributosPorID(IDActividadCompuesta);
              //   MessageBox.Show(actividadCompuesta.ToString());
-                this.labelEncabezadoActividades.Text = "Actividades de la actividad ''" + actividadCompuesta.getNombre() + "'' Paralela: " + actividadCompuesta.esParalela;
+                this.labelEncabezadoActividades.Text = "Actividades de la actividad ''" + actividadCompuesta.getNombre() + "'' Paralela: " + actividadCompuesta.esParalela + "'' Exclusivo: " + actividadCompuesta.esExclusiva;
 
                 this.IDExpediente = IDExpediente;
                 soyUnFlujoNoActividadCompuesta = false;

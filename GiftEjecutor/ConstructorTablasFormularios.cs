@@ -103,7 +103,8 @@ namespace GiftEjecutor
                     } //fin for TIPOS CAMPO
 
                     //Si es detalle se agrega un campo de llave foranea
-                    if (consultaBD.soyDetalle(IDsFormularios[i]))
+                    //if (consultaBD.soyDetalle(IDsFormularios[i]))
+                    if (true)//probando para que siembre se crea sin importar, creo que no afecto,luisk
                     {
                         consultaCreaTabla += "IDMaestro int, ";
                     }

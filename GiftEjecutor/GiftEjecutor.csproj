@@ -59,6 +59,7 @@
     <Compile Include="ConsultaElegirInstancia.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
+    <Compile Include="ConsultaMaestroDetalle.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaActividad.cs" />
@@ -149,6 +150,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MaestroDetalle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormElegirInstancia.resx">

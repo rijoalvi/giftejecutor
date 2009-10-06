@@ -611,5 +611,10 @@ namespace GiftEjecutor
             this.Visible = false;
         }
 
+        private void FormFormulario_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
