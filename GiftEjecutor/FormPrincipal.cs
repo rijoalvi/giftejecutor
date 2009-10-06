@@ -398,5 +398,12 @@ namespace GiftEjecutor
             FormListadoActividad fa = new FormListadoActividad(38, 999, false);
             fa.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormFormulario formFormulario = new FormFormulario(4, 1, 1, 0, 2, 1,"", null);
+            //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
+            formFormulario.Show();
+        }
     }
 }

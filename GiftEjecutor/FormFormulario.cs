@@ -256,6 +256,16 @@ namespace GiftEjecutor
                 }
             } //Fin for que agrega miembros
 
+
+            DataGridView dg = new DataGridView();
+            MaestroDetalle maestro = new MaestroDetalle();
+           int IDDetalle= maestro.getIDFormularioDetalle(this.IDForm);
+           MessageBox.Show(IDDetalle.ToString());
+            dg.SetBounds(50, 450, 400, 100);
+
+            //dg.SetBounds(
+            this.Controls.Add(dg);
+
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
