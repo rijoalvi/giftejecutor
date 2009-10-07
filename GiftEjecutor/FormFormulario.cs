@@ -247,17 +247,54 @@ namespace GiftEjecutor
                     default:                         
                         break;
                 }
-            } //Fin for que agrega miembros
-
-
-            DataGridView dg = new DataGridView();
+            }//Fin for que agrega miembros
             MaestroDetalle maestro = new MaestroDetalle();
+
+
+            List<String> IDFormularioMaestro = new List<String>();
+            IDFormularioMaestro = maestro.getDetallesIDs(this.IDForm);
+            String campoSolo = null;
+            foreach (String campo in IDFormularioMaestro)
+            {
+                Console.WriteLine(campo);
+                campoSolo += " " + campo;
+            }
+            MessageBox.Show(campoSolo);
+            int cantidadDetalles = IDFormularioMaestro.Count/2;
+            TabControl tabControl = new TabControl();
+            tabControl.SetBounds(50, 450, 400, 100);
+            for (int i = 0; i < cantidadDetalles; i++)
+            {
+                String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
+                TabPage tabPage = new TabPage("detalles " + nombreTabla);
+                DataGridView dg = new DataGridView();
+                dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
+                tabPage.Controls.Add(dg);
+                tabControl.Controls.Add(tabPage);
+            }
+            this.Controls.Add(tabControl);
+          /*  DataGridView dg = new DataGridView();
+            
+            List<String> campos = new List<String>();
+
+            int IDMaestroDetalle = 4;
+            campos = maestro.getArregloCamposDetalle(IDMaestroDetalle);
+            String campoSolo = null;
+            foreach (String campo in campos)
+            {
+                Console.WriteLine(campo);
+                campoSolo += " " + campo;
+            }
            int IDDetalle= maestro.getIDFormularioDetalle(this.IDForm);
-           MessageBox.Show(IDDetalle.ToString());
+
+           MessageBox.Show(IDDetalle.ToString() + campoSolo);
             dg.SetBounds(50, 450, 400, 100);
+            dg.DataSource = maestro.getDataTableCamposDetalle(IDMaestroDetalle);
+            dg.DataSource = maestro.getDataTableDetallesDinamicos(IDMaestroDetalle);
+
 
             //dg.SetBounds(
-            this.Controls.Add(dg);
+            this.Controls.Add(dg);*/
 
         }
 
