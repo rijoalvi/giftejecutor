@@ -218,23 +218,16 @@ namespace GiftEjecutor
                         //Jerarquia
                         //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
                         //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
-                        
-                        TreeView jerarquia = new TreeView();
+
+                        Jerarquia miJerarquia = new Jerarquia(int.Parse(miembro[10]));
+                        TreeView jerarquia = miJerarquia.getArbol();
+                        jerarquia.Refresh();
                         jerarquia.Name = miembro[1];
-                        //componentes[i] = texto;
+                        jerarquia.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
+                        jerarquia.TabIndex = int.Parse(miembro[11]);                        
+                        componentes[i] = jerarquia;
+                        this.Controls.Add(jerarquia);
                         nombresCamposTupla[i] = miembro[1];
-                        /* FALTA!!!!
-                        campo = agregarTipoJerarquia(nombre, id);
-                        actualizarComponente(textoDato.getText(), Integer.parseInt(valEjeX.getText()), Integer.parseInt(valEjeY.getText()), comboTipoLetra.getSelectedItem().toString(), colorDato.getForeground().getRGB(), Integer.parseInt(tamanoLetra.getText()), compEnUso.getWidth(), compEnUso.getHeight(), comboEstiloLetra.getSelectedItem().toString());
-                        campo.setName("" + IDEnUso);
-                        campo.addMouseListener(listener);
-                        campo.addMouseMotionListener(motionListener);
-                        frameVistaPrevia.add(campo);
-                        campo.setBounds(valx, valy, 100, 20);
-                        frameVistaPrevia.repaint();
-                        componentes[tabIndex] = campo;
-                        idsComponentes[tabIndex] = IDEnUso;
-                         */ 
                         break;
                     case 7:
                         //Lista
@@ -342,6 +335,7 @@ namespace GiftEjecutor
                         MaskedTextBox tmp = (MaskedTextBox)(componentes[i]);
                         nombresCampos += tmp.Name;
                         valoresCampos += tmp.Text.ToString();
+                        //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
@@ -353,6 +347,7 @@ namespace GiftEjecutor
                         RadioButton radio = (RadioButton)(componentes[i]);
                         nombresCampos += radio.Name;
                         valoresCampos += "'" + radio.Checked + "'";
+                        //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
@@ -365,6 +360,7 @@ namespace GiftEjecutor
                         nombresCampos += fecha.Name;
                         String laFecha = fecha.Value.ToString();
                         valoresCampos += "'" + laFecha.Substring(0, 10) + "'";
+                        //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
@@ -387,6 +383,7 @@ namespace GiftEjecutor
                         TextBox inc = (TextBox)(componentes[i]);
                         nombresCampos += inc.Name;
                         valoresCampos += "'" + inc.Text.ToString() + "'";
+                        //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
@@ -395,17 +392,17 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                        /*
+                        
                         TreeView jera = (TreeView)(componentes[i]);
                         nombresCampos += jera.Name;
-                        //este no sirve!!! ->
-                        valoresCampos += "'"+ jera.Text.ToString()+"'";                        
-                        if ((i+1) < cant )
+                        valoresCampos += jera.SelectedNode.FullPath;
+                        //esto es por si quedan mas campos por ingresar
+                        if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
                         } 
-                        */
+                        
                         break;
                     case 7:
                         //Lista
@@ -413,6 +410,7 @@ namespace GiftEjecutor
                         nombresCampos += lista.Name;
                         valoresCampos += "'" + lista.SelectedItem.ToString() + "'";
                         //lista.SelectedText;
+                        //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
@@ -433,6 +431,21 @@ namespace GiftEjecutor
             Console.WriteLine(ingresoTupla);
             IDTupla = miFormulario.insertarTuplaFormulario(ingresoTupla, nombreForm);            
         }
+
+        /*
+        public String obtenerPathJerarquia(TreeView jera){
+            //pone el nombre dl nodo seleccionado
+            String path = jera.SelectedNode.Text;
+            //sigue buscando recursivamente los otros nombres del nodo
+            path = obtenerPathNodo(jera.SelectedNode.Parent) + jera.SelectedNode.Text;
+            return path;
+        }
+
+        private String obtenerPathNodo(TreeNode nodo){
+            String path = "";
+            path = obtenerPathNodo(nodo.Parent) + jera.SelectedNode.Text;
+        }
+        */ 
 
         /// <summary>
         /// Actualiza una tupla segun el formulario que el usuario haya estado mostrando

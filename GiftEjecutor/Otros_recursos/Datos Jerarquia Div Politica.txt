@@ -1,0 +1,38 @@
+Ejecutar estos comandos en la BD CONFIGURADOR!!!
+
+OJO Q ES EN CONFIGURADOR, NO EJECUTOR!
+
+INSERT INTO TIPOCAMPO (nombre, descripcion, ultimaActualizacion, tipo) VALUES ('DivisionPolitica', 'div pol', '2009-10-06 19:38:00.0', 6);
+
+--ESTE tiene que revisarse el ID que sale de ejecutar la linea anterior!!!!
+INSERT INTO JERARQUIA (correlativo, nombreJerarquia, IDNodoRaiz, repeticionNombreNodo, numeroDeTerminos, numeroDeNiveles, fechaCreacion, configuracionXML, conCategorias, conNombreNiveles, IDTipoCategoria, IDNombresNiveles) VALUES (12, 'DivisionPolitica', 1, 'false', 10, 3, '2009-10-06 19:36:00.0', 'false', 'false', 'false', -1, -1);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'DivisionPolitica', 'division de provincias', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', -1, 'false', 0);
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'San Jose', 'chepe', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 1, 'false', 1);
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Alajuela', 'liga', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 1, 'false', 1);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Heredia', 'ciudad de las flores', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 1, 'false', 1);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Curridabat', 'curri', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 2, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'San Pedro', 'snP', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 2, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Carmelita', 'carm', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 3, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Alajuelita', 'alaju', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 3, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Santo Domingo', 'stoD', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 4, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Heredia centro', 'hereC', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 4, 'false', 2);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Granadilla', 'graa', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 5, 'false', 3);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Guayabos', '--', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 5, 'false', 3);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Montes de Oca', '--', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 6, 'false', 3);
+
+INSERT INTO NODO (IDInstanciaCategoria, nombre, descripcion, fechaCreacion, fechaUltimaModificacion, IDNodoPadre, esHoja, numNivel) VALUES (-1, 'Carmiol', '--', '2009-10-06 19:36:00.0', '2009-10-06 19:36:00.0', 6, 'false', 3);
+
+
+INSERT INTO miembroformulario (IDFormulario, nombre, valX, valY, ancho, alto, tipoLetra, color, tamanoLetra, IDTipoCampo, IDCampo, tabIndex, estiloLetra, esEtiqueta) VALUES (9, 'et. DivPolitica', 201, 100, 80, 250, 'Arial', '-16777216', 12, 6, 12, -1, 'Plain', 'true');
+INSERT INTO miembroformulario (IDFormulario, nombre, valX, valY, ancho, alto, tipoLetra, color, tamanoLetra, IDTipoCampo, IDCampo, tabIndex, estiloLetra, esEtiqueta) VALUES (9, 'DivPolitica', 201, 120, 80, 250, 'Arial', '-16777216', 12, 6, 12, 2, 'Plain', 'false');

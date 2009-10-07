@@ -90,7 +90,7 @@ namespace GiftEjecutor
                                     break;
                                 case 6: //Jerarquia
                                     //para la jerarquia un campo de texto bn grande para poder poner todo el path necesario...
-                                    int tamañoPath = 100;
+                                    int tamañoPath = 150;
                                     consultaCreaTabla += IDsTiposCampo[j] + " varchar(" + tamañoPath + "), ";
                                     break;
                                 case 7: //Lista

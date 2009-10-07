@@ -59,6 +59,7 @@
     <Compile Include="ConsultaElegirInstancia.cs" />
     <Compile Include="ConsultaFlujoTrabajo.cs" />
     <Compile Include="ConsultaFormulario.cs" />
+    <Compile Include="ConsultaJerarquia.cs" />
     <Compile Include="ConsultaMaestroDetalle.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
@@ -150,6 +151,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +267,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Otros_recursos\Datos Jerarquia Div Politica.txt" />
     <Content Include="Otros_recursos\GIFT.png" />
     <Content Include="Otros_recursos\GIFTPequeno.png" />
     <Content Include="Otros_recursos\tablas Ejecutor.txt" />

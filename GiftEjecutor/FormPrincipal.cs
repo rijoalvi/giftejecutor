@@ -237,7 +237,7 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           // refrescarDirectorio();
+            refrescarDirectorio();            
         }
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,6 +303,15 @@ namespace GiftEjecutor
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             refrescarDirectorio();
+            //refrescarDirectorioTemp();
+        }
+
+        //Beto
+        private void refrescarDirectorioTemp() {
+
+            Jerarquia miJera = new Jerarquia(12);
+            directorio = miJera.getArbol();
+            directorio.Refresh();
         }
 
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -401,7 +410,7 @@ namespace GiftEjecutor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormFormulario formFormulario = new FormFormulario(4, 1, 1, 0, 2, 1,"", null);
+            FormFormulario formFormulario = new FormFormulario(9, 6, 48, 0, 1, 21,"", null);
             //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
             formFormulario.Show();
         }
