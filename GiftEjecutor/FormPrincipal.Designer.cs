@@ -119,6 +119,7 @@ namespace GiftEjecutor
             this.buttonActividad.TabIndex = 8;
             this.buttonActividad.Text = "Actividad";
             this.buttonActividad.UseVisualStyleBackColor = true;
+            this.buttonActividad.Visible = false;
             this.buttonActividad.Click += new System.EventHandler(this.buttonActividad_Click);
             // 
             // directorio
@@ -151,6 +152,7 @@ namespace GiftEjecutor
             this.button1.TabIndex = 14;
             this.button1.Text = "pruebaActividad";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -161,6 +163,7 @@ namespace GiftEjecutor
             this.button2.TabIndex = 15;
             this.button2.Text = "abrir form";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormPrincipal

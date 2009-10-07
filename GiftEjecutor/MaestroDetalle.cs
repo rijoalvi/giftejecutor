@@ -197,10 +197,10 @@ namespace GiftEjecutor
                     //fila = tablaComandos.NewRow();
                     fila = tablaCamposDetalle.NewRow();
 
-                    for (int i = 1; i < cantidadCampos; i++)
+                    for (int i = 0; i < cantidadCampos; i++)
                     {
                         //campo[i].DataType = Type.GetType("System.String");
-                        fila[campos[i]] = datos.GetValue(i);
+                        fila[campos[i]] = datos.GetValue(i+1);
                     }
                     //fila[campos[0]] = datos.GetValue(1);
 

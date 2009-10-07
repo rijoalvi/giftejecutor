@@ -59,6 +59,31 @@ namespace GiftEjecutor
             return finalizada;
         }
 
+        /// <summary>
+        /// Indica si la actividad ya fue iniciada
+        /// </summary>
+        /// <param name="idActividad"></param>
+        /// <param name="expediente"></param>
+        /// <returns></returns>
+        public bool checkActividadIniciada(int idActividad, int expediente)
+        {
+            consultaControlador = new ConsultaControlador();
+            SqlDataReader datosControlador;
+            bool iniciada= false;
+            datosControlador = this.consultaControlador.getDatosUnaActividad(idActividad, expediente);
+            if (datosControlador != null)
+            {
+                while (datosControlador.Read())
+                {
+                    if (datosControlador.GetValue(2).ToString().Equals("false", StringComparison.OrdinalIgnoreCase))
+                        iniciada= true;
+                    else
+                        iniciada = false;
+                }
+            }
+            return iniciada;
+        }
+
         public DataTable getDataTableBitacora(int IDExpediente)
         {
             DataTable tablaComandos = new DataTable();

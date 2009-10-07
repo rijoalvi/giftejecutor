@@ -490,9 +490,9 @@ namespace GiftEjecutor
                     else
                     {
                         //Si ya hubo una ejecutable, todas las que siguen no se pueden ejecutar
-                      //  if (unaEjecutable)
+                        if (unaEjecutable)
                             //agrego
-                        //   tablaActividades.Rows.Add(fila);//COMENTE ESTOS PARA QUE TODAS SEAN PARALELAS, LUISK
+                            tablaActividades.Rows.Add(fila);//COMENTE ESTOS PARA QUE TODAS SEAN PARALELAS, LUISK
                     }
                 }
             }

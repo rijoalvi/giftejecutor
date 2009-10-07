@@ -18,13 +18,15 @@ namespace GiftEjecutor
         int IDExpediente;
         bool soyUnFlujoNoActividadCompuesta;
         ActividadCompuesta actividadCompuesta;
+        FormListadoActividad miPadre;
         public FormListadoActividad()
         {
             InitializeComponent();
         }
         
-        public FormListadoActividad(int IDFlujo, int IDExpediente, bool soyUnFlujo)
+        public FormListadoActividad(int IDFlujo, int IDExpediente, bool soyUnFlujo, FormListadoActividad tata)
         {
+            miPadre = tata;
             soyUnFlujoNoActividadCompuesta = soyUnFlujo;
             //Si se van a mostrar las actividades de un flujo
             InitializeComponent();
@@ -90,6 +92,15 @@ namespace GiftEjecutor
                 dataGridPorEjecutar.DataSource = actividad.getDataTableActividadesNOEjecutablesPorIDFlujo(this.IDFlujo);
                 dataGridPorEjecutar.Columns[4].Visible = false; 
                 dataGridPorEjecutar.Refresh();
+                
+                //cuando se finalizo la actividad simple
+                if (dataGridActividad.RowCount == 0)
+                {
+                    Controlador cont;
+                    cont = new Controlador();
+                    cont.finalizarActividadBitacora(IDExpediente, IDFlujo);
+                    this.Close();
+                }
             }
             //Aqui entra ud luis carlos! Actividades compuestas! ...dice beto
             else {
@@ -105,13 +116,22 @@ namespace GiftEjecutor
                 dataGridPorEjecutar.DataSource = actividad.getDataTableActividadesNOEjecutablesHijasPorIDPadre(this.IDActividadCompuesta);
                 dataGridPorEjecutar.Columns[4].Visible = false;
                 dataGridPorEjecutar.Refresh();
-//
-               /* dataGridActividad.DataSource = actividadCompuesta.getDataTableTodasActividadesHija(45);
-                //dataGridActividad.Columns[4].Visible = false;
-                dataGridActividad.Refresh();*/
 
+                
+
+                //cuando se finalizo la actividad compuesta
+                if (dataGridActividad.RowCount == 0)
+                {
+                    Controlador cont;
+                    cont = new Controlador();
+                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
+                    miPadre.cargarDataGridActividad();
+                    this.Close();
+
+                }
 
             }
+            
 
         }
 
@@ -150,7 +170,7 @@ namespace GiftEjecutor
             //entonces se escribe en bitácora, si no, no se vuelve a escribir.
             else
             {
-                if (!control.checkActividadRealizada(IDActividad, IDExpediente))
+                if (!control.checkActividadIniciada(IDActividad, IDExpediente))
                 {
                     actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
                 }
@@ -166,7 +186,7 @@ namespace GiftEjecutor
               //  FormActividad formActividad = new FormActividad(IDActividad, IDExpediente,1);
               //  formActividad.Show();
 
-                FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false);
+                FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false, this);
                 formListadoActividad.MdiParent = padreMDI;
                 formListadoActividad.setPadreMDI(padreMDI);
                 formListadoActividad.Show();

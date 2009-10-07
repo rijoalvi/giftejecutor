@@ -60,7 +60,7 @@ namespace GiftEjecutor
         {
             int IDExpediente = 13;
             int IDFlujo = 4;
-            FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente, true);
+            FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente, true, null);
             formListadoActividad.MdiParent = padreMDI;
             formListadoActividad.setPadreMDI(padreMDI);
             formListadoActividad.Show();
@@ -378,7 +378,7 @@ namespace GiftEjecutor
                 //MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
                 //MessageBox.Show("correlativo expediente " + correlativoExpediente);
-                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
+                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true,null);
                 actividad.MdiParent = padreMDI;
                 actividad.setPadreMDI(padreMDI);
                 actividad.Show();
@@ -414,7 +414,7 @@ namespace GiftEjecutor
             ActividadCompuesta ac = new ActividadCompuesta();
             ac.setAtributosSegunID(38);
             MessageBox.Show(ac.ToString());
-            FormListadoActividad fa = new FormListadoActividad(38, 999, false);
+            FormListadoActividad fa = new FormListadoActividad(38, 999, false,null);
             fa.Show();
         }
 

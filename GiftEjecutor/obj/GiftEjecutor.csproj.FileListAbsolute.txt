@@ -191,3 +191,5 @@ C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\G
 C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
 C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources

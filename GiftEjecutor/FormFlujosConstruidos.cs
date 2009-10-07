@@ -111,7 +111,7 @@ namespace GiftEjecutor
                 {
                     Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
                     expediente.crearExpediente();
-                    FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true);
+                    FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true,null);
                     actividad.Show();
                 }
                 else

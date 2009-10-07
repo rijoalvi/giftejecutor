@@ -58,6 +58,10 @@ namespace GiftEjecutor
             this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
             dataGridNoPosibles.Refresh();
             miPadre.cargarDataGridActividad();
+            if (dataGridComandos.RowCount == 0) 
+            {
+                //this.Close();
+            }
         }
 
  

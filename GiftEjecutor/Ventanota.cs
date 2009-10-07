@@ -17,7 +17,7 @@ namespace GiftEjecutor
             InitializeComponent();
             Thread t1 = new Thread(new ThreadStart(SplashForm));
             t1.Start();
-            Thread.Sleep(5000); // The amount of time we want our splash form visible
+            Thread.Sleep(2500); // The amount of time we want our splash form visible
             t1.Abort();
             Thread.Sleep(1000);
         }
