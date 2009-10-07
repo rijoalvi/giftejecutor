@@ -53,7 +53,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
+            refrescarDirectorio();
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -237,7 +237,7 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            refrescarDirectorio();            
+            //refrescarDirectorio();            
         }
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -349,10 +349,7 @@ namespace GiftEjecutor
 
         private void botonPruebaBitacora_Click(object sender, EventArgs e)
         {
-            FormVistaBitacora bit = new FormVistaBitacora(999);
-            bit.MdiParent=padreMDI;
-            bit.setPadreMDI(padreMDI);
-            bit.Show();
+            
         }
 
         private void directorio_DoubleClick(object sender, EventArgs e)
@@ -413,6 +410,16 @@ namespace GiftEjecutor
             FormFormulario formFormulario = new FormFormulario(12, 6, 48, 0, 1, 21,"", null);
             //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
             formFormulario.Show();
+        }
+
+
+        //ESTO ES PARA VER LA BITACORA
+        private void verBitacora()
+        {
+            FormVistaBitacora bit = new FormVistaBitacora(999);
+            bit.MdiParent = padreMDI;
+            bit.setPadreMDI(padreMDI);
+            bit.Show();
         }
     }
 }

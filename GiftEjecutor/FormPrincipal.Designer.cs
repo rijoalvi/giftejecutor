@@ -39,7 +39,6 @@ namespace GiftEjecutor
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
-            this.botonPruebaBitacora = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -134,16 +133,6 @@ namespace GiftEjecutor
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             // 
-            // botonPruebaBitacora
-            // 
-            this.botonPruebaBitacora.Location = new System.Drawing.Point(463, 306);
-            this.botonPruebaBitacora.Name = "botonPruebaBitacora";
-            this.botonPruebaBitacora.Size = new System.Drawing.Size(97, 23);
-            this.botonPruebaBitacora.TabIndex = 13;
-            this.botonPruebaBitacora.Text = "PruebaBitacora";
-            this.botonPruebaBitacora.UseVisualStyleBackColor = true;
-            this.botonPruebaBitacora.Click += new System.EventHandler(this.botonPruebaBitacora_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -182,7 +171,6 @@ namespace GiftEjecutor
             this.ClientSize = new System.Drawing.Size(627, 334);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.botonPruebaBitacora);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.pictureBox1);
@@ -213,7 +201,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarNombreToolStripMenuItem;
-        private System.Windows.Forms.Button botonPruebaBitacora;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem eliminarBETAToolStripMenuItem;
         private System.Windows.Forms.Button button1;
