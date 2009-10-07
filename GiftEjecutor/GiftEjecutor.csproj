@@ -151,6 +151,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GiftConfiguradorDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiftConfiguradorDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
     <Compile Include="Program.cs" />
@@ -243,6 +248,17 @@
     </None>
     <None Include="GiftConfiguradorDataSet.xss">
       <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GiftConfiguradorDataSet1.xsc">
+      <DependentUpon>GiftConfiguradorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GiftConfiguradorDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GiftConfiguradorDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GiftConfiguradorDataSet1.xss">
+      <DependentUpon>GiftConfiguradorDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

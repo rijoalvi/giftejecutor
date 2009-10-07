@@ -133,8 +133,18 @@ namespace GiftEjecutor
                     if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
                     {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
                         TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
-                        creado.ForeColor = Color.Silver;                        
-                        creado.Tag = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
+                        Expediente expedienteCreado = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
+                        int finalizado = expedienteCreado.yaFinalizado();
+                        if (finalizado == 1)
+                        {
+                            creado.ForeColor = Color.Red;
+                            creado.Text += " (Finalizado)";
+                        }
+                        else
+                        {
+                            creado.ForeColor = Color.Silver;
+                        }
+                        creado.Tag = expedienteCreado;
                     }
                 }
             }        
@@ -357,22 +367,25 @@ namespace GiftEjecutor
             abrirExpediente();
         }
 
-        private void abrirExpediente() {
+        private void abrirExpediente()
+        {
             TreeNode seleccionado = directorio.SelectedNode;
-            if (seleccionado != null && seleccionado.Name.Contains("E"))
+            if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
             {
                 //MessageBox.Show("Se selecciono el Expediente " + directorio.SelectedNode.Name+" "+directorio.SelectedNode.Text);
-               
+
                 int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
                 //MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
                 //MessageBox.Show("correlativo expediente " + correlativoExpediente);
                 FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true);
-                actividad.MdiParent=padreMDI;
+                actividad.MdiParent = padreMDI;
                 actividad.setPadreMDI(padreMDI);
                 actividad.Show();
+            }else if(seleccionado.ForeColor==Color.Red){
+                MessageBox.Show("El expediente seleccionado ya fue finalizado");
             }
-            
+
         }
 
         private void eliminarBETAToolStripMenuItem_Click(object sender, EventArgs e)
