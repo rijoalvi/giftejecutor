@@ -141,7 +141,7 @@ namespace GiftEjecutor
                 Console.WriteLine(campoE);
                 campoSolo += " " + campoE;
             }
-            System.Windows.Forms.MessageBox.Show(campoSolo);
+          //  System.Windows.Forms.MessageBox.Show(campoSolo);
 
             int cantidadCampos = campos.Count;
             tablaCamposDetalle = new DataTable();

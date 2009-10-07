@@ -248,31 +248,40 @@ namespace GiftEjecutor
                         break;
                 }
             }//Fin for que agrega miembros
-            MaestroDetalle maestro = new MaestroDetalle();
 
 
-            List<String> IDFormularioMaestro = new List<String>();
-            IDFormularioMaestro = maestro.getDetallesIDs(this.IDForm);
-            String campoSolo = null;
-            foreach (String campo in IDFormularioMaestro)
-            {
-                Console.WriteLine(campo);
-                campoSolo += " " + campo;
+
+            if (this.visualizacion  || this.modificacion){
+                MaestroDetalle maestro = new MaestroDetalle();
+
+
+                List<String> IDFormularioMaestro = new List<String>();
+                IDFormularioMaestro = maestro.getDetallesIDs(this.IDForm);
+                String campoSolo = null;
+                foreach (String campo in IDFormularioMaestro)
+                {
+                    Console.WriteLine(campo);
+                    campoSolo += " " + campo;
+                }
+               // MessageBox.Show(campoSolo);
+                int cantidadDetalles = IDFormularioMaestro.Count / 2;
+                TabControl tabControl = new TabControl();
+                tabControl.SetBounds(50, 450, 400, 100);
+                for (int i = 0; i < cantidadDetalles; i++)
+                {
+                    String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
+                    TabPage tabPage = new TabPage("detalles " + nombreTabla);
+                    DataGridView dg = new DataGridView();
+                    dg.Width = 600;
+                    dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
+                    tabPage.Controls.Add(dg);
+                    tabControl.Controls.Add(tabPage);
+                }
+                this.Controls.Add(tabControl);
+
             }
-            MessageBox.Show(campoSolo);
-            int cantidadDetalles = IDFormularioMaestro.Count/2;
-            TabControl tabControl = new TabControl();
-            tabControl.SetBounds(50, 450, 400, 100);
-            for (int i = 0; i < cantidadDetalles; i++)
-            {
-                String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
-                TabPage tabPage = new TabPage("detalles " + nombreTabla);
-                DataGridView dg = new DataGridView();
-                dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
-                tabPage.Controls.Add(dg);
-                tabControl.Controls.Add(tabPage);
-            }
-            this.Controls.Add(tabControl);
+
+
           /*  DataGridView dg = new DataGridView();
             
             List<String> campos = new List<String>();

@@ -410,7 +410,7 @@ namespace GiftEjecutor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormFormulario formFormulario = new FormFormulario(13, 6, 48, 0, 1, 21,"", null);
+            FormFormulario formFormulario = new FormFormulario(12, 6, 48, 0, 1, 21,"", null);
             //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
             formFormulario.Show();
         }
