@@ -44,6 +44,12 @@ namespace GiftEjecutor
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }
+        public SqlDataReader getExclusiva(int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select exclusivo from Actividad where correlativo=" + IDActividad + ";");
+            return dataReader;
+        }
     }
 
 }

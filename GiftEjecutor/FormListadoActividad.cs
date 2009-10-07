@@ -120,6 +120,20 @@ namespace GiftEjecutor
             //this.buttonEjecutarActividad.Enabled = true;
             Actividad actividadAEjecutar = new Actividad();
             int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
+
+            if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
+            {
+                Controlador cont = new Controlador();
+                for (int i = 0; i<dataGridActividad.RowCount; ++i){
+                    if (i != dataGridActividad.CurrentRow.Index)
+                    {
+                        int IDActividadNOEjecutar = System.Int32.Parse(this.dataGridActividad[0, i].Value.ToString());
+                        cont.finalizarActividadBitacora(IDExpediente,IDActividadNOEjecutar);
+                    }
+                }
+                cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
+            }
+
             actividadAEjecutar.setAtributosSegunID(IDActividad);
             actividadAEjecutar.setIDExpediente(this.IDExpediente);
             Controlador control = new Controlador();

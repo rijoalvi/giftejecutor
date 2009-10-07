@@ -546,5 +546,26 @@ namespace GiftEjecutor
         {
             return consultaActividad.insertarEnBitacora(IDExp, IDAct, IDCom, tipoCom, IDInstForm, IDFormConfig, ejec, descripcion);
         }
+
+        //devuelve true si la actividad es exclusiva
+        //devuelve false si la actividad NO es exclusiva
+        public bool getExclusiva(int IDActividad)
+        {
+            bool respuesta = false;
+            SqlDataReader datos;
+            datos = consultaActividad.getExclusiva(IDActividad);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    string exclusiva = datos.GetValue(0).ToString();
+                    if (exclusiva == "true")
+                    {
+                        respuesta = true;
+                    }
+                }
+            }
+            return respuesta;
+        }
     }
 }
