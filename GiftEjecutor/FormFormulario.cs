@@ -20,6 +20,20 @@ namespace GiftEjecutor
         private int IDTupla;
         private int IDComandoConfig;
         private int IDActividad;
+
+        private int tipoComando;//hecho por luisk
+        private int IDFormularioDetalleSeleccionado;//para cuando se va a crear un detalle nuevo, saber cual?
+
+
+        private String nombreTablaSelecionada;
+        private int IDFormSelecionado;
+        private int IDDatosSeleccionados;
+
+
+
+
+
+
         private FormActividad miPadre;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
      
@@ -29,6 +43,7 @@ namespace GiftEjecutor
         private bool eliminacion;
         private String[] nombresCamposTupla;
 
+        private String nombreFormDetalleSeleccionado;
 
         /// <summary>
         /// Constructor que muestra un formulario creado en el constructor
@@ -62,7 +77,8 @@ namespace GiftEjecutor
             miPadre = padre;
             miFormulario = new Formulario(IDForm);
             this.Text = miFormulario.getNombre();
-            nombresCamposTupla = new String[miFormulario.getNumMiembros()];                     
+            nombresCamposTupla = new String[miFormulario.getNumMiembros()];
+            this.tipoComando = tipoComando;//luisk, para mandar a los detalles      
             switch(tipoComando){
                 case 1: //Creacion
                     InitializeComponent();                    
@@ -266,13 +282,15 @@ namespace GiftEjecutor
                // MessageBox.Show(campoSolo);
                 int cantidadDetalles = IDFormularioMaestro.Count / 2;
                 TabControl tabControl = new TabControl();
-                tabControl.SetBounds(50, 450, 400, 100);
+                tabControl.Width = 1000;
+                tabControl.SetBounds(30, 450, 400, 100);
                 for (int i = 0; i < cantidadDetalles; i++)
                 {
                     String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
                     TabPage tabPage = new TabPage("detalles " + nombreTabla);
+                    this.nombreFormDetalleSeleccionado = nombreTabla;
                     DataGridView dg = new DataGridView();
-                    dg.Width = 600;
+                    dg.Width = 800;
                     dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
                     tabPage.Controls.Add(dg);
                     tabControl.Controls.Add(tabPage);
@@ -312,7 +330,24 @@ namespace GiftEjecutor
         }
         void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("Test");
+            int rowSeleccionada = ((DataGridView)sender).CurrentRow.Index;
+
+            this.nombreTablaSelecionada = ((DataGridView)sender)[0, rowSeleccionada].Value.ToString();
+            ConsultaFormulario cf = new ConsultaFormulario();
+            this.IDFormSelecionado = cf.getIDFormularioPorNombre(this.nombreTablaSelecionada);
+            this.IDDatosSeleccionados = Int32.Parse(((DataGridView)sender)[1, rowSeleccionada].Value.ToString());
+            MessageBox.Show(" " + this.nombreTablaSelecionada + " ID: " + this.IDFormSelecionado + " IDDatos: " + this.IDDatosSeleccionados);
+
+            this.buttonNuevoDetalle.Enabled = true;
+            this.buttonNuevoDetalle.Text = "Nuevo detalle " + this.nombreTablaSelecionada;
+            this.buttonVerDetalle.Enabled = true;
+            this.buttonVerDetalle.Text = "Ver detalle " + this.nombreTablaSelecionada +" seleccionado";
+            
+
+
+
+
+         //   this.tab
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
@@ -352,7 +387,10 @@ namespace GiftEjecutor
                         //ingresa el ingreso a la bitacora
                         miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
                         //refresca la ventana de los comandos d la actividad
-                        miPadre.cargarDataGridComandos();
+                        if (miPadre != null)
+                        {//luisk
+                            miPadre.cargarDataGridComandos();
+                        }
                         this.Visible = false;
                     }
                 }
@@ -691,6 +729,18 @@ namespace GiftEjecutor
         private void FormFormulario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonNuevoDetalle_Click(object sender, EventArgs e)
+        {                                                                                                                                      //el 1 es de creacion
+            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, 1, this.IDComandoConfig, "", null);
+            formFormulario.Show();
+        }
+
+        private void buttonVerDetalle_Click(object sender, EventArgs e)
+        {
+            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, this.tipoComando, this.IDComandoConfig, "", null);
+            formFormulario.Show();
         }
 
     }

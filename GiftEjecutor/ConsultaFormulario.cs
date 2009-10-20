@@ -164,5 +164,12 @@ namespace GiftEjecutor
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }
+        public int getIDFormularioPorNombre(String nombreFormulario) {
+            String consulta = "select correlativo, nombre from Formulario where nombre='" + nombreFormulario + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (datos.Read())
+                return int.Parse(datos.GetValue(0).ToString());
+            return -1;
+        }
     }
 }

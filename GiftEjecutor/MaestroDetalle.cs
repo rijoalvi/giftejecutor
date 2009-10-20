@@ -146,7 +146,7 @@ namespace GiftEjecutor
             int cantidadCampos = campos.Count;
             tablaCamposDetalle = new DataTable();
             DataRow fila;
-
+            //cantidadCampos++;
             DataColumn[] campo = new DataColumn[cantidadCampos];
 
 
@@ -154,6 +154,7 @@ namespace GiftEjecutor
             {
                 campo[i] = new DataColumn();
             }
+         //   campo[cantidadCampos] = new DataColumn();
           //  DataColumn IDTipoCampo = new DataColumn();
           //  DataColumn nombreCampo = new DataColumn();
 
@@ -162,6 +163,7 @@ namespace GiftEjecutor
             {
                 campo[i].ColumnName = campos[i];
             }
+          //  campo[cantidadCampos ].ColumnName = "NombreTabla";
             //IDTipoCampo.ColumnName = "IDTipoCampo";
             //nombreCampo.ColumnName = "nombreCampo";
 
@@ -170,15 +172,22 @@ namespace GiftEjecutor
             {
                 campo[i].DataType = Type.GetType("System.String");
             }
+            //campo[cantidadCampos].DataType = Type.GetType("System.String");
             //IDTipoCampo.DataType = Type.GetType("System.String");
             //nombreCampo.DataType = Type.GetType("System.String");
 
 
+            DataColumn colNombreTabla = new DataColumn();
+            colNombreTabla.ColumnName = "NombreTabla";
+            colNombreTabla.DataType = Type.GetType("System.String");
+            tablaCamposDetalle.Columns.Add(colNombreTabla);
             for (int i = 0; i < cantidadCampos; i++)
             {
                 //campo[i].DataType = Type.GetType("System.String");
                 tablaCamposDetalle.Columns.Add(campo[i]);
             }
+
+
 
             //tablaCamposDetalle.Columns.Add(IDTipoCampo);
             //tablaCamposDetalle.Columns.Add(nombreCampo);
@@ -200,8 +209,9 @@ namespace GiftEjecutor
                     for (int i = 0; i < cantidadCampos; i++)
                     {
                         //campo[i].DataType = Type.GetType("System.String");
-                        fila[campos[i]] = datos.GetValue(i+1);
+                        fila[campos[i]] = datos.GetValue(i);
                     }
+                    fila["NombreTabla"] = nombreTabla;
                     //fila[campos[0]] = datos.GetValue(1);
 
                    // fila[campos[1]] = datos.GetValue(2);
@@ -247,6 +257,7 @@ namespace GiftEjecutor
            // campos.
             if (datos != null)
             {
+                campos.Add("correlativo");
                 while (datos.Read())
                 {
                     //fila = tablaComandos.NewRow();
@@ -257,6 +268,7 @@ namespace GiftEjecutor
                     tablaCamposDetalle.Rows.Add(fila);
                     //  IDFormularioDetalle= Int32.Parse(datos.GetValue(3).ToString());
                 }
+
             }
             return campos;
         }

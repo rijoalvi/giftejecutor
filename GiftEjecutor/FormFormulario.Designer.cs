@@ -30,6 +30,8 @@ namespace GiftEjecutor
         {
             this.botonAceptar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
+            this.buttonNuevoDetalle = new System.Windows.Forms.Button();
+            this.buttonVerDetalle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // botonAceptar
@@ -56,11 +58,35 @@ namespace GiftEjecutor
             this.botonCancelar.UseVisualStyleBackColor = true;
             this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
+            // buttonNuevoDetalle
+            // 
+            this.buttonNuevoDetalle.Enabled = false;
+            this.buttonNuevoDetalle.Location = new System.Drawing.Point(74, 576);
+            this.buttonNuevoDetalle.Name = "buttonNuevoDetalle";
+            this.buttonNuevoDetalle.Size = new System.Drawing.Size(225, 23);
+            this.buttonNuevoDetalle.TabIndex = 2;
+            this.buttonNuevoDetalle.Text = "Nuevo detalle";
+            this.buttonNuevoDetalle.UseVisualStyleBackColor = true;
+            this.buttonNuevoDetalle.Click += new System.EventHandler(this.buttonNuevoDetalle_Click);
+            // 
+            // buttonVerDetalle
+            // 
+            this.buttonVerDetalle.Enabled = false;
+            this.buttonVerDetalle.Location = new System.Drawing.Point(74, 602);
+            this.buttonVerDetalle.Name = "buttonVerDetalle";
+            this.buttonVerDetalle.Size = new System.Drawing.Size(225, 23);
+            this.buttonVerDetalle.TabIndex = 3;
+            this.buttonVerDetalle.Text = "Ver Detalle";
+            this.buttonVerDetalle.UseVisualStyleBackColor = true;
+            this.buttonVerDetalle.Click += new System.EventHandler(this.buttonVerDetalle_Click);
+            // 
             // FormFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 647);
+            this.Controls.Add(this.buttonVerDetalle);
+            this.Controls.Add(this.buttonNuevoDetalle);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonAceptar);
             this.Name = "FormFormulario";
@@ -75,6 +101,8 @@ namespace GiftEjecutor
 
         private System.Windows.Forms.Button botonAceptar;
         private System.Windows.Forms.Button botonCancelar;
+        private System.Windows.Forms.Button buttonNuevoDetalle;
+        private System.Windows.Forms.Button buttonVerDetalle;
 
     }
 }

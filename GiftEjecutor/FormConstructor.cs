@@ -69,5 +69,10 @@ namespace GiftEjecutor
         {
             padreMDI = v;
         }
+
+        private void dataGridFlujosTrabajo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

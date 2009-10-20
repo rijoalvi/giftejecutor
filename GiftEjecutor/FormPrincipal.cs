@@ -53,7 +53,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            refrescarDirectorio();
+            refrescarDirectorio();//este es que comenteo a veces, luisk
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -312,7 +312,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-            //refrescarDirectorio();
+            refrescarDirectorio();//este comente a veces, luisk
             //refrescarDirectorioTemp();
         }
 
@@ -420,7 +420,7 @@ namespace GiftEjecutor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormFormulario formFormulario = new FormFormulario(13, 6, 48, 0, 3, 21,"", null);
+            FormFormulario formFormulario = new FormFormulario(13, 6, 48, 1, 3, 21,"", null);
             //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
             formFormulario.Show();
         }
