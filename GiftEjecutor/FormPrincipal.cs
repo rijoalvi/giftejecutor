@@ -53,7 +53,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            //refrescarDirectorio();
+            refrescarDirectorio();
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -247,7 +247,7 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //refrescarDirectorio();            
+            refrescarDirectorio();            
         }
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
