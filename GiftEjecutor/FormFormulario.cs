@@ -276,10 +276,14 @@ namespace GiftEjecutor
                     dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
                     tabPage.Controls.Add(dg);
                     tabControl.Controls.Add(tabPage);
+
+                    dg.CellContentClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
                 }
                 this.Controls.Add(tabControl);
 
             }
+
+
 
 
           /*  DataGridView dg = new DataGridView();
@@ -305,6 +309,10 @@ namespace GiftEjecutor
             //dg.SetBounds(
             this.Controls.Add(dg);*/
 
+        }
+        void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Test");
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
