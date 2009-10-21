@@ -476,19 +476,16 @@ namespace GiftEjecutor
         /// <param name="IDExpediente"></param>
         private void llenarDatosEjecucionExpediente(int IDExpediente, int IDFlujo)
         {
+            TreeNode seleccionado = directorio.SelectedNode;
+            labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente " + seleccionado.Text;
             labelTitulo.Show();
             pictureBox1.Show();
             Controlador c = new Controlador();
             this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
 
-            TreeNode seleccionado = directorio.SelectedNode;
-            if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
-            {
-                int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
                 Actividad act = new Actividad();
                 labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
-            }
+          
 
             panelEjecutorial.Show();
 
