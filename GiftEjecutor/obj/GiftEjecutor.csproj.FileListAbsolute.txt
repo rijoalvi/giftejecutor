@@ -1,261 +1,44 @@
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60167\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea63183\Desktop\Ahora si!!\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\rarias\Desktop\aaaa\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\Alberto\Escritorio\GIFT Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutorNuevo\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Users\Totan\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\Alberto\Escritorio\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Release\GiftEjecutor.exe.config
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Release\GiftEjecutor.exe
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\bin\Release\GiftEjecutor.pdb
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormElegirInstancia.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormEliminar.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormNuevoExpediente.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.FormVistaBitacora.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.Splash.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.Ventanota.resources
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.exe
+C:\Documents and Settings\ea60167\Desktop\Ejecutor\GiftEjecutor\obj\Release\GiftEjecutor.pdb
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea60167\Desktop\Copy of Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb

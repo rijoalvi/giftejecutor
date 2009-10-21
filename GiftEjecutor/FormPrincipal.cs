@@ -12,6 +12,8 @@ namespace GiftEjecutor
     public partial class FormPrincipal : Form
     {
         private Ventanota padreMDI;
+        private int indiceFormularios;
+        private FormFormulario formActual;
         /**
          * Para recordar!!!
          * //Son los macros que se usan para seleccion del combo box.
@@ -22,11 +24,7 @@ namespace GiftEjecutor
          * static final int INCREMENTAL = 5;         
          * static final int JERARQUIA = 6
          * static final int LISTA = 7;
-         */
-     
-        
-        
-        
+         */        
         
         public FormPrincipal()
         {
@@ -41,6 +39,8 @@ namespace GiftEjecutor
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
             panelEjecutorial.Visible = false;
+            panelFormularios.Visible = false;
+            indiceFormularios = 0;
             //refrescarDirectorio();     
 //            panelEjecutorial.Hide();
         }
@@ -429,24 +429,36 @@ namespace GiftEjecutor
         {
             labelTitulo.Hide();
             pictureBox1.Hide();
-            panelEjecutorial.Hide();
+            panelEjecutorial.Hide();            
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E"))
             {
+                panelFormularios.Visible = true;
+                labelTituloExp.Text = labelTituloExp.Text + seleccionado.Text;
+
                 int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
                 ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
                 String[] IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
+                
+                //Aqui se cierra el formulario anterior, si estaba abierto.
+                if (formActual != null)
+                    formActual.Visible = false;
 
-                FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[0]), correlativoExpediente, -1, -1, 6, -1, "", null);
-                formFormulario.TopMost = true;
-                formFormulario.MdiParent = this;
-                formFormulario.StartPosition = FormStartPosition.Manual;
-                formFormulario.Location = new Point(256, 5);
-                formFormulario.Show();
+                if (indiceFormularios > IDsFormularios.Length - 1)
+                {
+                    //Se abre el form correspondiente
+                    FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[indiceFormularios]), correlativoExpediente, -1, -1, 6, -1, "", null);
+                    indiceFormularios++;
+                    formFormulario.TopMost = true;
+                    formFormulario.MdiParent = this;
+                    formFormulario.StartPosition = FormStartPosition.Manual;
+                    formFormulario.Location = new Point(256, 5);
+                    formFormulario.Show();
+                    formActual = formFormulario;
+                }
             }
         }
-
 
         //ESTO ES PARA VER LA BITACORA
         private void verBitacora()
@@ -494,6 +506,7 @@ namespace GiftEjecutor
         private void buttonVerDisenoExpediente_Click(object sender, EventArgs e)
         {
             //Aqui se llama a la parte que esta haciendo BETO
+            mostrarFormularios();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -518,6 +531,37 @@ namespace GiftEjecutor
         {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
 
+            if (directorio.SelectedNode != null)
+            {
+
+                if (directorio.SelectedNode.Name.Contains("E"))
+                {
+                    //MessageBox.Show("Soy Expediente!!!");
+                    TreeNode seleccionado = directorio.SelectedNode;
+                    if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
+                    {
+                        int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                        int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+
+                        llenarDatosEjecucionExpediente(Expediente, Flujo);
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("No soy expediente =(");
+                    panelEjecutorial.Hide();
+                }
+            }
+        }
+
+        private void botonSigFormulario_Click(object sender, EventArgs e)
+        {
+            //llama a mostrar el sig formulario
+            mostrarFormularios();
+        }
+
+        private void botonVerDisenno_Click(object sender, EventArgs e)
+        {
             if (directorio.SelectedNode != null)
             {
 
