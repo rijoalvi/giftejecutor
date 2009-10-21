@@ -40,7 +40,8 @@ namespace GiftEjecutor
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
-            //refrescarDirectorio();            
+            //refrescarDirectorio();     
+//            panelEjecutorial.Hide();
         }
         
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -438,6 +439,30 @@ namespace GiftEjecutor
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void directorio_Click(object sender, EventArgs e)
+        {
+            //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
+        }
+
+        private void labelDetalleActividadesRealizadas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Método que llena los datos de ejecución de un expediente, contenidos dentro del panel "panelEjecutorial"
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        private void llenarDatosEjecucionExpediente(int IDExpediente)
+        {
+
+        }
+
+        private void buttonVerDisenoExpediente_Click(object sender, EventArgs e)
+        {
+            //Aqui se llama a la parte que esta haciendo BETO
         }
     }
 }
