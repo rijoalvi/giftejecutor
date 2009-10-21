@@ -494,10 +494,11 @@ namespace GiftEjecutor
             pictureBox1.Show();
             Controlador c = new Controlador();
             this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
+            Actividad act = new Actividad();
+            labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
+            labelEnCurso.Text = act.getActividadActual(IDExpediente, IDFlujo);
+            labelPorRealizar.Text = act.getSecuenciaActPorRealizar(IDExpediente, IDFlujo);
 
-                Actividad act = new Actividad();
-                labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
-          
 
             panelEjecutorial.Show();
 
@@ -538,7 +539,7 @@ namespace GiftEjecutor
                 {
                     //MessageBox.Show("Soy Expediente!!!");
                     TreeNode seleccionado = directorio.SelectedNode;
-                    if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
+                    if (seleccionado != null && seleccionado.Name.Contains("E"))
                     {
                         int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
                         int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();

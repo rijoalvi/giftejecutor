@@ -230,18 +230,7 @@ namespace GiftEjecutor
                                 unaEjecutable = true;
                             }
                         }
-
-
-
-
-
                     }
-
-
-
-
-
-
                 }
             }
             return tablaActividades;
@@ -598,18 +587,96 @@ namespace GiftEjecutor
                     }
                 }
             }
+            if (respuesta == null)
+            {
+                respuesta = " - Ninguna - ";
+            }
             return respuesta;
         }
 
         public String getActividadActual(int IDExpediente, int IDFlujo)
         {
             String respuesta = null;
+
+            Controlador control = new Controlador();
+            bool unaEjecutable = false;
+            SqlDataReader datos;
+            //ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            //datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    bool SeEjecuta;
+                    SeEjecuta = control.checkActividadIniciada((int)datos.GetValue(1), IDExpediente);
+                    if (SeEjecuta)
+                    {
+                        if (respuesta == null)
+                        {
+                            respuesta = datos.GetValue(2).ToString();
+                        }
+                        else
+                        {
+                            respuesta = respuesta + " --> " + datos.GetValue(2).ToString();
+                        }
+                    }
+                }
+            }
+            if (respuesta == null)
+            {
+                respuesta = " - Ninguna - ";
+            }
             return respuesta;
         }
 
         public String getSecuenciaActPorRealizar(int IDExpediente, int IDFlujo)
         {
             String respuesta = null;
+
+            Controlador control = new Controlador();
+            bool unaEjecutable = false;
+            SqlDataReader datos;
+            //ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            //datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente);
+                    if (!yaSeEjecuto && !control.checkActividadIniciada((int)datos.GetValue(1), IDExpediente))
+                    {
+                        if (respuesta == null)
+                        {
+                            respuesta = datos.GetValue(2).ToString();
+                        }
+                        else
+                        {
+                            respuesta = respuesta + " --> " + datos.GetValue(2).ToString();
+                        }
+                    }
+                }
+            }
+            if (respuesta == null)
+            {
+                respuesta = " - Ninguna - ";
+            }
+            return respuesta;
+        }
+
+        public String getNombreActividadPorID(int IDActividad)
+        {
+            String respuesta= null;
+            SqlDataReader datosActividad = this.consultaActividad.getNombreAct(IDActividad);
+            if (datosActividad != null)
+            {
+                while (datosActividad.Read())//En tería solo ejecuta una vez
+                {
+                    respuesta = datosActividad.GetValue(0).ToString();
+                }
+            }
             return respuesta;
         }
     }

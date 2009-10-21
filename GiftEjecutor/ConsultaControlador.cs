@@ -50,8 +50,9 @@ namespace GiftEjecutor
 
         public void finalizarActividadBitacora(int IDExpediente, int IDActividad)
         {
-            bool valor = true;           
-            String descripcion = "Se termino de ejecutar la actividad " + IDActividad.ToString();
+            bool valor = true;
+            Actividad act = new Actividad();
+            String descripcion = "Se termino de ejecutar la actividad " + act.getNombreActividadPorID(IDActividad);
             String consulta1 = "INSERT INTO BITACORA(IDExpediente, IDActividad, IDComando, tipoComando, IDInstaciaForm, IDFormConfigurador, ejecutada, descripcion)" +
                             "VALUES(" + IDExpediente + ", " + IDActividad + ", " + -1 + ", " + -1 + ", " + -1 + ", " + -1 + ", '" + valor + "', '" + descripcion + "');";
             Console.WriteLine(consulta1);
