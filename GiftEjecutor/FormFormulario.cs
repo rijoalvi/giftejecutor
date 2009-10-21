@@ -13,7 +13,6 @@ namespace GiftEjecutor
     {
         private Ventanota padreMDI;
 
-
         //Miembros
         private int IDForm; //ID del formulario con el q se esta trabajando
         private int IDExpediente; //ID del expediente al cual pertenecen los datos
@@ -234,7 +233,8 @@ namespace GiftEjecutor
                         //Jerarquia
                         //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
                         //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
-
+                        
+                        /*
                         Jerarquia miJerarquia = new Jerarquia(int.Parse(miembro[10]));
                         TreeView jerarquia = miJerarquia.getArbol();
                         jerarquia.Refresh();
@@ -244,6 +244,7 @@ namespace GiftEjecutor
                         componentes[i] = jerarquia;
                         this.Controls.Add(jerarquia);
                         nombresCamposTupla[i] = miembro[1];
+                        */ 
                         break;
                     case 7:
                         //Lista
@@ -489,7 +490,7 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                        
+                        /*
                         TreeView jera = (TreeView)(componentes[i]);
                         nombresCampos += jera.Name;
                         valoresCampos += jera.SelectedNode.FullPath;
@@ -499,7 +500,7 @@ namespace GiftEjecutor
                             valoresCampos += ", ";
                             nombresCampos += ", ";
                         } 
-                        
+                        */
                         break;
                     case 7:
                         //Lista

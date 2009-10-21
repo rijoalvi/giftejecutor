@@ -16,7 +16,7 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="IDflujo"></param>
         /// <returns></returns>
-        public object getIDsFormulariosDelFlujo(String IDflujo)
+        public object getIDsFormulariosDelFlujo(int IDflujo)
         {
 
 

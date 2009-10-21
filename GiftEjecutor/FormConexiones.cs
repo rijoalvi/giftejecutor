@@ -55,7 +55,7 @@ namespace GiftEjecutor
             ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionEjecutorSeleccionada);
 
-            formPrincipal.MdiParent = padreMDI;
+           // formPrincipal.MdiParent = padreMDI;
             formPrincipal.setPadreMDI(padreMDI);
             this.Hide();
             formPrincipal.Show();

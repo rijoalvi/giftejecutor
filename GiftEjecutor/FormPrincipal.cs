@@ -40,6 +40,9 @@ namespace GiftEjecutor
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
+            panelEjecutorial.Visible = false;
+            labelTitulo.Visible = false;
+            pictureBox1.Visible = false;
             //refrescarDirectorio();     
 //            panelEjecutorial.Hide();
         }
@@ -421,9 +424,20 @@ namespace GiftEjecutor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormFormulario formFormulario = new FormFormulario(13, 6, 48, 1, 3, 21,"", null);
-            //FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
-            formFormulario.Show();
+            TreeNode seleccionado = directorio.SelectedNode;
+            if (seleccionado != null && seleccionado.Name.Contains("E"))
+            {
+                int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+                ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
+                String[] IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
+
+                FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[0]), correlativoExpediente, -1, -1, 3, -1, "", null);
+                formFormulario.MdiParent = this;
+                formFormulario.StartPosition = FormStartPosition.Manual;
+                formFormulario.Location = new Point(256, 5);
+                formFormulario.Show();
+            }
         }
 
 
@@ -432,7 +446,6 @@ namespace GiftEjecutor
         {
             FormVistaBitacora bit = new FormVistaBitacora(999);
             bit.MdiParent = padreMDI;
-            bit.setPadreMDI(padreMDI);
             bit.Show();
         }
 

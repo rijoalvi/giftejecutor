@@ -19,7 +19,7 @@ namespace GiftEjecutor
         }
 
         public void construirTablas(String IDWorkflow) {
-            String[] IDsFormularios = buscarFormularios(IDWorkflow);
+            String[] IDsFormularios = buscarFormularios(int.Parse(IDWorkflow));
             String nombreFormulario = "";
             
             //se dividen todos esos formularios y a cada uno se le investiga los campos q tienen
@@ -122,7 +122,7 @@ namespace GiftEjecutor
         /// Busca en la BD los formularios asociados al workflow
         /// </summary>
         /// <param name="workflow"></param>         
-        public String[] buscarFormularios(String IDWorkflow)
+        public String[] buscarFormularios(int IDWorkflow)
         {
             //se busca en la BD configurador entre los formularios cuales pertenecen al flujo
             //puede ser crear un string dnd cada ';' sea un nuevo form 
