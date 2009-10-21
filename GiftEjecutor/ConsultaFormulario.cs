@@ -164,6 +164,7 @@ namespace GiftEjecutor
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }
+
         public int getIDFormularioPorNombre(String nombreFormulario) {
             String consulta = "select correlativo, nombre from Formulario where nombre='" + nombreFormulario + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
@@ -171,5 +172,15 @@ namespace GiftEjecutor
                 return int.Parse(datos.GetValue(0).ToString());
             return -1;
         }
+
+        public int getIDTupla(String nombreForm, int IDExpediente, int IDFormulario)
+        {
+            int IDTupla = -1;
+            String consulta = "select " + nombreForm + ".correlativo, BITACORA.fecha from " + nombreForm + ", BITACORA where " + nombreForm + ".correlativo = BITACORA.IDInstaciaForm AND BITACORA.tipoComando = 1 AND BITACORA.IDExpediente = " + IDExpediente + " AND Bitacora.IDFormConfigurador = " + IDFormulario + ";";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if (datos.Read())
+                IDTupla = int.Parse(datos.GetValue(0).ToString());
+            return IDTupla;
+        }  
     }
 }

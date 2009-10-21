@@ -56,9 +56,9 @@ namespace GiftEjecutor
             this.labelTitulo = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panelFormularios = new System.Windows.Forms.Panel();
-            this.labelTituloExp = new System.Windows.Forms.Label();
-            this.botonSigFormulario = new System.Windows.Forms.Button();
             this.botonVerDisenno = new System.Windows.Forms.Button();
+            this.botonSigFormulario = new System.Windows.Forms.Button();
+            this.labelTituloExp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelEjecutorial.SuspendLayout();
@@ -199,7 +199,7 @@ namespace GiftEjecutor
             this.panelEjecutorial.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.panelEjecutorial.Location = new System.Drawing.Point(256, 189);
             this.panelEjecutorial.Name = "panelEjecutorial";
-            this.panelEjecutorial.Size = new System.Drawing.Size(716, 461);
+            this.panelEjecutorial.Size = new System.Drawing.Size(716, 669);
             this.panelEjecutorial.TabIndex = 16;
             // 
             // labelPorRealizar
@@ -207,7 +207,7 @@ namespace GiftEjecutor
             this.labelPorRealizar.AutoSize = true;
             this.labelPorRealizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPorRealizar.ForeColor = System.Drawing.Color.Firebrick;
-            this.labelPorRealizar.Location = new System.Drawing.Point(5, 173);
+            this.labelPorRealizar.Location = new System.Drawing.Point(7, 249);
             this.labelPorRealizar.Name = "labelPorRealizar";
             this.labelPorRealizar.Size = new System.Drawing.Size(13, 18);
             this.labelPorRealizar.TabIndex = 9;
@@ -218,7 +218,7 @@ namespace GiftEjecutor
             this.labelEnCurso.AutoSize = true;
             this.labelEnCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnCurso.ForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.labelEnCurso.Location = new System.Drawing.Point(5, 113);
+            this.labelEnCurso.Location = new System.Drawing.Point(5, 142);
             this.labelEnCurso.Name = "labelEnCurso";
             this.labelEnCurso.Size = new System.Drawing.Size(13, 18);
             this.labelEnCurso.TabIndex = 8;
@@ -229,7 +229,7 @@ namespace GiftEjecutor
             this.labelRealizadas.AutoSize = true;
             this.labelRealizadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRealizadas.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelRealizadas.Location = new System.Drawing.Point(5, 60);
+            this.labelRealizadas.Location = new System.Drawing.Point(5, 58);
             this.labelRealizadas.Name = "labelRealizadas";
             this.labelRealizadas.Size = new System.Drawing.Size(13, 18);
             this.labelRealizadas.TabIndex = 7;
@@ -238,7 +238,7 @@ namespace GiftEjecutor
             // buttonVerDisenoExpediente
             // 
             this.buttonVerDisenoExpediente.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVerDisenoExpediente.Location = new System.Drawing.Point(504, 434);
+            this.buttonVerDisenoExpediente.Location = new System.Drawing.Point(501, 639);
             this.buttonVerDisenoExpediente.Name = "buttonVerDisenoExpediente";
             this.buttonVerDisenoExpediente.Size = new System.Drawing.Size(209, 23);
             this.buttonVerDisenoExpediente.TabIndex = 6;
@@ -251,7 +251,7 @@ namespace GiftEjecutor
             this.labelDetalleActividadesRealizadas.AutoSize = true;
             this.labelDetalleActividadesRealizadas.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDetalleActividadesRealizadas.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelDetalleActividadesRealizadas.Location = new System.Drawing.Point(-1, 238);
+            this.labelDetalleActividadesRealizadas.Location = new System.Drawing.Point(-1, 319);
             this.labelDetalleActividadesRealizadas.Name = "labelDetalleActividadesRealizadas";
             this.labelDetalleActividadesRealizadas.Size = new System.Drawing.Size(453, 23);
             this.labelDetalleActividadesRealizadas.TabIndex = 5;
@@ -262,7 +262,7 @@ namespace GiftEjecutor
             // 
             this.labelActividadesPorRealizar.AutoSize = true;
             this.labelActividadesPorRealizar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadesPorRealizar.Location = new System.Drawing.Point(3, 146);
+            this.labelActividadesPorRealizar.Location = new System.Drawing.Point(5, 222);
             this.labelActividadesPorRealizar.Name = "labelActividadesPorRealizar";
             this.labelActividadesPorRealizar.Size = new System.Drawing.Size(168, 13);
             this.labelActividadesPorRealizar.TabIndex = 4;
@@ -272,7 +272,7 @@ namespace GiftEjecutor
             // 
             this.labelActividadEnCurso.AutoSize = true;
             this.labelActividadEnCurso.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadEnCurso.Location = new System.Drawing.Point(3, 89);
+            this.labelActividadEnCurso.Location = new System.Drawing.Point(3, 118);
             this.labelActividadEnCurso.Name = "labelActividadEnCurso";
             this.labelActividadEnCurso.Size = new System.Drawing.Size(132, 13);
             this.labelActividadEnCurso.TabIndex = 3;
@@ -282,7 +282,7 @@ namespace GiftEjecutor
             // 
             this.labelActividadesRealizadas.AutoSize = true;
             this.labelActividadesRealizadas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadesRealizadas.Location = new System.Drawing.Point(3, 37);
+            this.labelActividadesRealizadas.Location = new System.Drawing.Point(3, 35);
             this.labelActividadesRealizadas.Name = "labelActividadesRealizadas";
             this.labelActividadesRealizadas.Size = new System.Drawing.Size(179, 13);
             this.labelActividadesRealizadas.TabIndex = 2;
@@ -297,10 +297,10 @@ namespace GiftEjecutor
             this.dataGridDetallesEjecucion.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridDetallesEjecucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDetallesEjecucion.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridDetallesEjecucion.Location = new System.Drawing.Point(3, 264);
+            this.dataGridDetallesEjecucion.Location = new System.Drawing.Point(6, 358);
             this.dataGridDetallesEjecucion.Name = "dataGridDetallesEjecucion";
             this.dataGridDetallesEjecucion.ReadOnly = true;
-            this.dataGridDetallesEjecucion.Size = new System.Drawing.Size(710, 164);
+            this.dataGridDetallesEjecucion.Size = new System.Drawing.Size(710, 256);
             this.dataGridDetallesEjecucion.TabIndex = 1;
             // 
             // labelDetalleEjecutorial
@@ -340,26 +340,26 @@ namespace GiftEjecutor
             // 
             this.panelFormularios.Controls.Add(this.botonVerDisenno);
             this.panelFormularios.Controls.Add(this.botonSigFormulario);
-            this.panelFormularios.Controls.Add(this.labelTituloExp);
-            this.panelFormularios.Location = new System.Drawing.Point(256, 31);
+            this.panelFormularios.Location = new System.Drawing.Point(253, 828);
             this.panelFormularios.Name = "panelFormularios";
-            this.panelFormularios.Size = new System.Drawing.Size(716, 760);
+            this.panelFormularios.Size = new System.Drawing.Size(716, 30);
             this.panelFormularios.TabIndex = 10;
             // 
-            // labelTituloExp
+            // botonVerDisenno
             // 
-            this.labelTituloExp.AutoSize = true;
-            this.labelTituloExp.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloExp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelTituloExp.Location = new System.Drawing.Point(4, 14);
-            this.labelTituloExp.Name = "labelTituloExp";
-            this.labelTituloExp.Size = new System.Drawing.Size(306, 23);
-            this.labelTituloExp.TabIndex = 1;
-            this.labelTituloExp.Text = "Formularios del Expediente";
+            this.botonVerDisenno.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.botonVerDisenno.Location = new System.Drawing.Point(537, 3);
+            this.botonVerDisenno.Name = "botonVerDisenno";
+            this.botonVerDisenno.Size = new System.Drawing.Size(176, 23);
+            this.botonVerDisenno.TabIndex = 3;
+            this.botonVerDisenno.Text = "Ver Estado de Ejecucion";
+            this.botonVerDisenno.UseVisualStyleBackColor = true;
+            this.botonVerDisenno.Click += new System.EventHandler(this.botonVerDisenno_Click);
             // 
             // botonSigFormulario
             // 
-            this.botonSigFormulario.Location = new System.Drawing.Point(537, 17);
+            this.botonSigFormulario.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.botonSigFormulario.Location = new System.Drawing.Point(361, 3);
             this.botonSigFormulario.Name = "botonSigFormulario";
             this.botonSigFormulario.Size = new System.Drawing.Size(156, 23);
             this.botonSigFormulario.TabIndex = 2;
@@ -367,15 +367,16 @@ namespace GiftEjecutor
             this.botonSigFormulario.UseVisualStyleBackColor = true;
             this.botonSigFormulario.Click += new System.EventHandler(this.botonSigFormulario_Click);
             // 
-            // botonVerDisenno
+            // labelTituloExp
             // 
-            this.botonVerDisenno.Location = new System.Drawing.Point(537, 56);
-            this.botonVerDisenno.Name = "botonVerDisenno";
-            this.botonVerDisenno.Size = new System.Drawing.Size(156, 23);
-            this.botonVerDisenno.TabIndex = 3;
-            this.botonVerDisenno.Text = "Ver Estado de Ejecucion";
-            this.botonVerDisenno.UseVisualStyleBackColor = true;
-            this.botonVerDisenno.Click += new System.EventHandler(this.botonVerDisenno_Click);
+            this.labelTituloExp.AutoSize = true;
+            this.labelTituloExp.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloExp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.labelTituloExp.Location = new System.Drawing.Point(260, 31);
+            this.labelTituloExp.Name = "labelTituloExp";
+            this.labelTituloExp.Size = new System.Drawing.Size(306, 23);
+            this.labelTituloExp.TabIndex = 1;
+            this.labelTituloExp.Text = "Formularios del Expediente";
             // 
             // FormPrincipal
             // 
@@ -383,17 +384,18 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 803);
-            this.Controls.Add(this.panelFormularios);
+            this.ClientSize = new System.Drawing.Size(984, 861);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.labelTituloExp);
             this.Controls.Add(this.labelTitulo);
-            this.Controls.Add(this.panelEjecutorial);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panelEjecutorial);
+            this.Controls.Add(this.panelFormularios);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -409,7 +411,6 @@ namespace GiftEjecutor
             this.panelEjecutorial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetallesEjecucion)).EndInit();
             this.panelFormularios.ResumeLayout(false);
-            this.panelFormularios.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

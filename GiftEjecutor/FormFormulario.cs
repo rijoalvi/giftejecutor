@@ -28,11 +28,6 @@ namespace GiftEjecutor
         private int IDFormSelecionado;
         private int IDDatosSeleccionados;
 
-
-
-
-
-
         private FormActividad miPadre;
         private Formulario miFormulario; //El objeto formulario que tiene todos los datos dl configurador
      

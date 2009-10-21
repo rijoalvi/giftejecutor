@@ -184,8 +184,14 @@ namespace GiftEjecutor
             return consultaBD.getTextoDefecto(IDCampo);
         }
 
-        public String getValInicial(int IDCampo){
+        public String getValInicial(int IDCampo)
+        {
             return consultaBD.getValInicialIncremental(IDCampo);
+        }
+
+        public int getID()
+        {
+            return IDForm;
         }
 
         /// <summary>
@@ -261,6 +267,17 @@ namespace GiftEjecutor
         public SqlDataReader eliminarTupla(int IDTupla, String nombreFormulario) { 
             return consultaBD.eliminarTupla(IDTupla, nombreFormulario);
         }
-        
+
+        /// <summary>
+        /// Devuelve el ID de la tupla del formulario correspondiente al expediente
+        /// </summary>
+        /// <param name="nombreForm"></param>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
+        public int getIDDeLaTupla(int IDExpediente)
+        {
+            return consultaBD.getIDTupla(nombre, IDExpediente, IDForm);
+        }
     }
 }

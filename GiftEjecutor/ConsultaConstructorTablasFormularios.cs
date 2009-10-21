@@ -11,6 +11,9 @@ namespace GiftEjecutor
     class ConsultaConstructorTablasFormularios : Consulta
     {
 
+
+        
+
         /// <summary>
         /// Devuelve los IDs de todos los formularios que forman parte del flujo de trabajo
         /// </summary>
@@ -18,20 +21,7 @@ namespace GiftEjecutor
         /// <returns></returns>
         public object getIDsFormulariosDelFlujo(int IDflujo)
         {
-
-
             //Toma todos los IDs de los formularios q trabajan con ese flujo
-           //consulta VIEJA!!!!!!!!
-            /*
-            string strConsulta = "SELECT DISTINCT FORMULARIO.correlativo " +
-                                 "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO " +
-                                 "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
-                                 "AND ACTIVIDAD.correlativoFlujo = FLUJO.correlativo " +
-                                 "AND MIEMBROACTIVIDADSIMPLE.correlativoMadre = ACTIVIDAD.correlativo " +
-                                 "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
-                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
-                                 "ORDER BY FORMULARIO.correlativo;";
-            */
             string strConsulta = "SELECT DISTINCT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO " +
                                  "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido

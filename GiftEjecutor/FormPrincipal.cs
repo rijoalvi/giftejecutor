@@ -427,14 +427,13 @@ namespace GiftEjecutor
 
         private void mostrarFormularios()
         {
-            labelTitulo.Hide();
-            pictureBox1.Hide();
-            panelEjecutorial.Hide();            
+            invalidarPanels();          
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E"))
             {
-                panelFormularios.Visible = true;
-                labelTituloExp.Text = labelTituloExp.Text + seleccionado.Text;
+                panelFormularios.Show();
+                labelTituloExp.Show();
+                labelTituloExp.Text = "Formularios Del Expediente " + seleccionado.Text;
 
                 int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
                 int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
@@ -445,15 +444,26 @@ namespace GiftEjecutor
                 if (formActual != null)
                     formActual.Visible = false;
 
-                if (indiceFormularios > IDsFormularios.Length - 1)
+                //Si se llego al ultimo expediente, volver a empezar dl primero
+                if (indiceFormularios >= IDsFormularios.Length)
+                    indiceFormularios = 0;
+                
+                //Se abre el form correspondiente
+                Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[indiceFormularios]));
+                int IDTupla = elFormulario.getIDDeLaTupla(correlativoExpediente);
+                if (IDTupla == -1)
                 {
-                    //Se abre el form correspondiente
-                    FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[indiceFormularios]), correlativoExpediente, -1, -1, 6, -1, "", null);
+                    MessageBox.Show("¡El Expediente todavía no posee los datos del formulario correspondiente!");
+                    indiceFormularios = 0;
+                }
+                else
+                {
+                    FormFormulario formFormulario = new FormFormulario(elFormulario.getID(), correlativoExpediente, -1, IDTupla, 6, -1, "", null);
                     indiceFormularios++;
                     formFormulario.TopMost = true;
                     formFormulario.MdiParent = this;
                     formFormulario.StartPosition = FormStartPosition.Manual;
-                    formFormulario.Location = new Point(256, 5);
+                    formFormulario.Location = new Point(256, 25);
                     formFormulario.Show();
                     formActual = formFormulario;
                 }
@@ -488,6 +498,7 @@ namespace GiftEjecutor
         /// <param name="IDExpediente"></param>
         private void llenarDatosEjecucionExpediente(int IDExpediente, int IDFlujo)
         {
+            invalidarPanels();
             TreeNode seleccionado = directorio.SelectedNode;
             labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente " + seleccionado.Text;
             labelTitulo.Show();
@@ -531,7 +542,7 @@ namespace GiftEjecutor
         private void directorio_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
-
+            indiceFormularios = 0; //NO BORRAR! Beto
             if (directorio.SelectedNode != null)
             {
 
@@ -550,7 +561,7 @@ namespace GiftEjecutor
                 else
                 {
                     //MessageBox.Show("No soy expediente =(");
-                    panelEjecutorial.Hide();
+                    invalidarPanels();
                 }
             }
         }
@@ -561,27 +572,34 @@ namespace GiftEjecutor
             mostrarFormularios();
         }
 
+        //Esconde los panes y Labels
+        private void invalidarPanels() {
+            panelEjecutorial.Visible = false;
+            panelFormularios.Visible = false;
+            labelTitulo.Visible = false;
+            labelTituloExp.Visible = false;
+        }
+
         private void botonVerDisenno_Click(object sender, EventArgs e)
         {
-            if (directorio.SelectedNode != null)
+            if(indiceFormularios > 0)
+                indiceFormularios--; //resta uno para q desp vuelva a verse el formulario q estaba antes...
+            //Si hubo un formulario antes, se esconde
+            if(formActual != null)
+                formActual.Visible = false;
+            if (directorio.SelectedNode != null && directorio.SelectedNode.Name.Contains("E"))
             {
-
-                if (directorio.SelectedNode.Name.Contains("E"))
+                TreeNode seleccionado = directorio.SelectedNode;
+                if (seleccionado != null && seleccionado.Name.Contains("E"))
                 {
-                    //MessageBox.Show("Soy Expediente!!!");
-                    TreeNode seleccionado = directorio.SelectedNode;
-                    if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
-                    {
-                        int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                        int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-
-                        llenarDatosEjecucionExpediente(Expediente, Flujo);
-                    }
+                    int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                    int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+                    llenarDatosEjecucionExpediente(Expediente, Flujo);
                 }
                 else
                 {
                     //MessageBox.Show("No soy expediente =(");
-                    panelEjecutorial.Hide();
+                    invalidarPanels();
                 }
             }
         }
