@@ -147,6 +147,8 @@ namespace GiftEjecutor
             this.directorio.Size = new System.Drawing.Size(246, 598);
             this.directorio.TabIndex = 10;
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
+            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect_1);
+            this.directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
             this.directorio.Click += new System.EventHandler(this.directorio_Click);
             // 
             // pictureBox1

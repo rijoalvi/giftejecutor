@@ -456,7 +456,6 @@ namespace GiftEjecutor
 
         private void directorio_Click(object sender, EventArgs e)
         {
-            //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
         }
 
         private void labelDetalleActividadesRealizadas_Click(object sender, EventArgs e)
@@ -472,6 +471,7 @@ namespace GiftEjecutor
         {
             Controlador c = new Controlador();
             this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
+            panelEjecutorial.Show();
 
         }
 
@@ -483,6 +483,31 @@ namespace GiftEjecutor
         private void button3_Click(object sender, EventArgs e)
         {
             llenarDatosEjecucionExpediente(7, 60);
+        }
+
+        private void directorio_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+           
+        }
+
+        private void directorio_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+            //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
+
+            if (directorio.SelectedNode != null)
+            {
+
+                if (directorio.SelectedNode.Name.Contains("E"))
+                {
+                    MessageBox.Show("Soy Expediente!!!");
+                    llenarDatosEjecucionExpediente(7, 60);
+                }
+                else
+                {
+                    MessageBox.Show("No soy expediente =(");
+                    panelEjecutorial.Hide();
+                }
+            }
         }
     }
 }
