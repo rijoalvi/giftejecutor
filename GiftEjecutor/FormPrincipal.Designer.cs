@@ -43,21 +43,22 @@ namespace GiftEjecutor
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelEjecutorial = new System.Windows.Forms.Panel();
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelDetalleEjecutorial = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelActividadesRealizadas = new System.Windows.Forms.Label();
-            this.labelActividadEnCurso = new System.Windows.Forms.Label();
-            this.labelActividadesPorRealizar = new System.Windows.Forms.Label();
-            this.labelDetalleActividadesRealizadas = new System.Windows.Forms.Label();
-            this.buttonVerDisenoExpediente = new System.Windows.Forms.Button();
-            this.labelRealizadas = new System.Windows.Forms.Label();
-            this.labelEnCurso = new System.Windows.Forms.Label();
             this.labelPorRealizar = new System.Windows.Forms.Label();
+            this.labelEnCurso = new System.Windows.Forms.Label();
+            this.labelRealizadas = new System.Windows.Forms.Label();
+            this.buttonVerDisenoExpediente = new System.Windows.Forms.Button();
+            this.labelDetalleActividadesRealizadas = new System.Windows.Forms.Label();
+            this.labelActividadesPorRealizar = new System.Windows.Forms.Label();
+            this.labelActividadEnCurso = new System.Windows.Forms.Label();
+            this.labelActividadesRealizadas = new System.Windows.Forms.Label();
+            this.dataGridDetallesEjecucion = new System.Windows.Forms.DataGridView();
+            this.labelDetalleEjecutorial = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelEjecutorial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDetallesEjecucion)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -189,7 +190,7 @@ namespace GiftEjecutor
             this.panelEjecutorial.Controls.Add(this.labelActividadesPorRealizar);
             this.panelEjecutorial.Controls.Add(this.labelActividadEnCurso);
             this.panelEjecutorial.Controls.Add(this.labelActividadesRealizadas);
-            this.panelEjecutorial.Controls.Add(this.dataGridView1);
+            this.panelEjecutorial.Controls.Add(this.dataGridDetallesEjecucion);
             this.panelEjecutorial.Controls.Add(this.labelDetalleEjecutorial);
             this.panelEjecutorial.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.panelEjecutorial.Location = new System.Drawing.Point(256, 189);
@@ -197,66 +198,49 @@ namespace GiftEjecutor
             this.panelEjecutorial.Size = new System.Drawing.Size(716, 461);
             this.panelEjecutorial.TabIndex = 16;
             // 
-            // labelTitulo
+            // labelPorRealizar
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Verdana", 36F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic)
-                            | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelTitulo.Location = new System.Drawing.Point(295, 69);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(395, 59);
-            this.labelTitulo.TabIndex = 0;
-            this.labelTitulo.Text = "GIFT Ejecutor";
+            this.labelPorRealizar.AutoSize = true;
+            this.labelPorRealizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPorRealizar.ForeColor = System.Drawing.Color.Firebrick;
+            this.labelPorRealizar.Location = new System.Drawing.Point(5, 173);
+            this.labelPorRealizar.Name = "labelPorRealizar";
+            this.labelPorRealizar.Size = new System.Drawing.Size(13, 18);
+            this.labelPorRealizar.TabIndex = 9;
+            this.labelPorRealizar.Text = " ";
             // 
-            // labelDetalleEjecutorial
+            // labelEnCurso
             // 
-            this.labelDetalleEjecutorial.AutoSize = true;
-            this.labelDetalleEjecutorial.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDetalleEjecutorial.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelDetalleEjecutorial.Location = new System.Drawing.Point(-1, 0);
-            this.labelDetalleEjecutorial.Name = "labelDetalleEjecutorial";
-            this.labelDetalleEjecutorial.Size = new System.Drawing.Size(401, 23);
-            this.labelDetalleEjecutorial.TabIndex = 0;
-            this.labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente ";
+            this.labelEnCurso.AutoSize = true;
+            this.labelEnCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnCurso.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.labelEnCurso.Location = new System.Drawing.Point(5, 113);
+            this.labelEnCurso.Name = "labelEnCurso";
+            this.labelEnCurso.Size = new System.Drawing.Size(13, 18);
+            this.labelEnCurso.TabIndex = 8;
+            this.labelEnCurso.Text = " ";
             // 
-            // dataGridView1
+            // labelRealizadas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 264);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(710, 164);
-            this.dataGridView1.TabIndex = 1;
+            this.labelRealizadas.AutoSize = true;
+            this.labelRealizadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRealizadas.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelRealizadas.Location = new System.Drawing.Point(5, 60);
+            this.labelRealizadas.Name = "labelRealizadas";
+            this.labelRealizadas.Size = new System.Drawing.Size(13, 18);
+            this.labelRealizadas.TabIndex = 7;
+            this.labelRealizadas.Text = " ";
             // 
-            // labelActividadesRealizadas
+            // buttonVerDisenoExpediente
             // 
-            this.labelActividadesRealizadas.AutoSize = true;
-            this.labelActividadesRealizadas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadesRealizadas.Location = new System.Drawing.Point(3, 37);
-            this.labelActividadesRealizadas.Name = "labelActividadesRealizadas";
-            this.labelActividadesRealizadas.Size = new System.Drawing.Size(179, 13);
-            this.labelActividadesRealizadas.TabIndex = 2;
-            this.labelActividadesRealizadas.Text = "Actividades ya realizadas:";
-            // 
-            // labelActividadEnCurso
-            // 
-            this.labelActividadEnCurso.AutoSize = true;
-            this.labelActividadEnCurso.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadEnCurso.Location = new System.Drawing.Point(3, 89);
-            this.labelActividadEnCurso.Name = "labelActividadEnCurso";
-            this.labelActividadEnCurso.Size = new System.Drawing.Size(132, 13);
-            this.labelActividadEnCurso.TabIndex = 3;
-            this.labelActividadEnCurso.Text = "Actividad en curso:";
-            // 
-            // labelActividadesPorRealizar
-            // 
-            this.labelActividadesPorRealizar.AutoSize = true;
-            this.labelActividadesPorRealizar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActividadesPorRealizar.Location = new System.Drawing.Point(3, 146);
-            this.labelActividadesPorRealizar.Name = "labelActividadesPorRealizar";
-            this.labelActividadesPorRealizar.Size = new System.Drawing.Size(168, 13);
-            this.labelActividadesPorRealizar.TabIndex = 4;
-            this.labelActividadesPorRealizar.Text = "Actividades por realizar:";
+            this.buttonVerDisenoExpediente.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVerDisenoExpediente.Location = new System.Drawing.Point(504, 434);
+            this.buttonVerDisenoExpediente.Name = "buttonVerDisenoExpediente";
+            this.buttonVerDisenoExpediente.Size = new System.Drawing.Size(209, 23);
+            this.buttonVerDisenoExpediente.TabIndex = 6;
+            this.buttonVerDisenoExpediente.Text = "Ver el Diseño del Expediente";
+            this.buttonVerDisenoExpediente.UseVisualStyleBackColor = true;
+            this.buttonVerDisenoExpediente.Click += new System.EventHandler(this.buttonVerDisenoExpediente_Click);
             // 
             // labelDetalleActividadesRealizadas
             // 
@@ -270,49 +254,80 @@ namespace GiftEjecutor
             this.labelDetalleActividadesRealizadas.Text = "Detalles del trabajo sobre el expediente:";
             this.labelDetalleActividadesRealizadas.Click += new System.EventHandler(this.labelDetalleActividadesRealizadas_Click);
             // 
-            // buttonVerDisenoExpediente
+            // labelActividadesPorRealizar
             // 
-            this.buttonVerDisenoExpediente.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVerDisenoExpediente.Location = new System.Drawing.Point(504, 434);
-            this.buttonVerDisenoExpediente.Name = "buttonVerDisenoExpediente";
-            this.buttonVerDisenoExpediente.Size = new System.Drawing.Size(209, 23);
-            this.buttonVerDisenoExpediente.TabIndex = 6;
-            this.buttonVerDisenoExpediente.Text = "Ver el Diseño del Expediente";
-            this.buttonVerDisenoExpediente.UseVisualStyleBackColor = true;
-            this.buttonVerDisenoExpediente.Click += new System.EventHandler(this.buttonVerDisenoExpediente_Click);
+            this.labelActividadesPorRealizar.AutoSize = true;
+            this.labelActividadesPorRealizar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActividadesPorRealizar.Location = new System.Drawing.Point(3, 146);
+            this.labelActividadesPorRealizar.Name = "labelActividadesPorRealizar";
+            this.labelActividadesPorRealizar.Size = new System.Drawing.Size(168, 13);
+            this.labelActividadesPorRealizar.TabIndex = 4;
+            this.labelActividadesPorRealizar.Text = "Actividades por realizar:";
             // 
-            // labelRealizadas
+            // labelActividadEnCurso
             // 
-            this.labelRealizadas.AutoSize = true;
-            this.labelRealizadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRealizadas.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelRealizadas.Location = new System.Drawing.Point(5, 60);
-            this.labelRealizadas.Name = "labelRealizadas";
-            this.labelRealizadas.Size = new System.Drawing.Size(13, 18);
-            this.labelRealizadas.TabIndex = 7;
-            this.labelRealizadas.Text = " ";
+            this.labelActividadEnCurso.AutoSize = true;
+            this.labelActividadEnCurso.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActividadEnCurso.Location = new System.Drawing.Point(3, 89);
+            this.labelActividadEnCurso.Name = "labelActividadEnCurso";
+            this.labelActividadEnCurso.Size = new System.Drawing.Size(132, 13);
+            this.labelActividadEnCurso.TabIndex = 3;
+            this.labelActividadEnCurso.Text = "Actividad en curso:";
             // 
-            // labelEnCurso
+            // labelActividadesRealizadas
             // 
-            this.labelEnCurso.AutoSize = true;
-            this.labelEnCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnCurso.ForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.labelEnCurso.Location = new System.Drawing.Point(5, 113);
-            this.labelEnCurso.Name = "labelEnCurso";
-            this.labelEnCurso.Size = new System.Drawing.Size(13, 18);
-            this.labelEnCurso.TabIndex = 8;
-            this.labelEnCurso.Text = " ";
+            this.labelActividadesRealizadas.AutoSize = true;
+            this.labelActividadesRealizadas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActividadesRealizadas.Location = new System.Drawing.Point(3, 37);
+            this.labelActividadesRealizadas.Name = "labelActividadesRealizadas";
+            this.labelActividadesRealizadas.Size = new System.Drawing.Size(179, 13);
+            this.labelActividadesRealizadas.TabIndex = 2;
+            this.labelActividadesRealizadas.Text = "Actividades ya realizadas:";
             // 
-            // labelPorRealizar
+            // dataGridDetallesEjecucion
             // 
-            this.labelPorRealizar.AutoSize = true;
-            this.labelPorRealizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPorRealizar.ForeColor = System.Drawing.Color.Firebrick;
-            this.labelPorRealizar.Location = new System.Drawing.Point(5, 173);
-            this.labelPorRealizar.Name = "labelPorRealizar";
-            this.labelPorRealizar.Size = new System.Drawing.Size(13, 18);
-            this.labelPorRealizar.TabIndex = 9;
-            this.labelPorRealizar.Text = " ";
+            this.dataGridDetallesEjecucion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridDetallesEjecucion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridDetallesEjecucion.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridDetallesEjecucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDetallesEjecucion.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridDetallesEjecucion.Location = new System.Drawing.Point(3, 264);
+            this.dataGridDetallesEjecucion.Name = "dataGridDetallesEjecucion";
+            this.dataGridDetallesEjecucion.Size = new System.Drawing.Size(710, 164);
+            this.dataGridDetallesEjecucion.TabIndex = 1;
+            // 
+            // labelDetalleEjecutorial
+            // 
+            this.labelDetalleEjecutorial.AutoSize = true;
+            this.labelDetalleEjecutorial.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetalleEjecutorial.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.labelDetalleEjecutorial.Location = new System.Drawing.Point(-1, 0);
+            this.labelDetalleEjecutorial.Name = "labelDetalleEjecutorial";
+            this.labelDetalleEjecutorial.Size = new System.Drawing.Size(401, 23);
+            this.labelDetalleEjecutorial.TabIndex = 0;
+            this.labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente ";
+            // 
+            // labelTitulo
+            // 
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Verdana", 36F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic)
+                            | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelTitulo.Location = new System.Drawing.Point(295, 69);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(395, 59);
+            this.labelTitulo.TabIndex = 0;
+            this.labelTitulo.Text = "GIFT Ejecutor";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(166, 635);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "buttonCillo";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormPrincipal
             // 
@@ -320,6 +335,7 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(984, 662);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.panelEjecutorial);
             this.Controls.Add(this.button2);
@@ -340,7 +356,7 @@ namespace GiftEjecutor
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelEjecutorial.ResumeLayout(false);
             this.panelEjecutorial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDetallesEjecucion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,7 +379,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelEjecutorial;
         private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridDetallesEjecucion;
         private System.Windows.Forms.Label labelDetalleEjecutorial;
         private System.Windows.Forms.Label labelDetalleActividadesRealizadas;
         private System.Windows.Forms.Label labelActividadesPorRealizar;
@@ -373,5 +389,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelPorRealizar;
         private System.Windows.Forms.Label labelEnCurso;
         private System.Windows.Forms.Label labelRealizadas;
+        private System.Windows.Forms.Button button3;
     }
 }

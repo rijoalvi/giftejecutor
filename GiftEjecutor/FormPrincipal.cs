@@ -455,14 +455,21 @@ namespace GiftEjecutor
         /// Método que llena los datos de ejecución de un expediente, contenidos dentro del panel "panelEjecutorial"
         /// </summary>
         /// <param name="IDExpediente"></param>
-        private void llenarDatosEjecucionExpediente(int IDExpediente)
+        private void llenarDatosEjecucionExpediente(int IDExpediente, int IDFlujo)
         {
+            Controlador c = new Controlador();
+            this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
 
         }
 
         private void buttonVerDisenoExpediente_Click(object sender, EventArgs e)
         {
             //Aqui se llama a la parte que esta haciendo BETO
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            llenarDatosEjecucionExpediente(7, 60);
         }
     }
 }

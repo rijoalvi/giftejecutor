@@ -567,5 +567,23 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
+
+        public String getSecuenciaActRealizadas(int IDExpediente, int IDFlujo)
+        {
+            String respuesta = null;
+            return respuesta;
+        }
+
+        public String getActividadActual(int IDExpediente, int IDFlujo)
+        {
+            String respuesta = null;
+            return respuesta;
+        }
+
+        public String getSecuenciaActPorRealizar(int IDExpediente, int IDFlujo)
+        {
+            String respuesta = null;
+            return respuesta;
+        }
     }
 }
