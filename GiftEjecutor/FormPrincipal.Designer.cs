@@ -285,6 +285,8 @@ namespace GiftEjecutor
             // 
             // dataGridDetallesEjecucion
             // 
+            this.dataGridDetallesEjecucion.AllowUserToAddRows = false;
+            this.dataGridDetallesEjecucion.AllowUserToDeleteRows = false;
             this.dataGridDetallesEjecucion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridDetallesEjecucion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridDetallesEjecucion.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -292,6 +294,7 @@ namespace GiftEjecutor
             this.dataGridDetallesEjecucion.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridDetallesEjecucion.Location = new System.Drawing.Point(3, 264);
             this.dataGridDetallesEjecucion.Name = "dataGridDetallesEjecucion";
+            this.dataGridDetallesEjecucion.ReadOnly = true;
             this.dataGridDetallesEjecucion.Size = new System.Drawing.Size(710, 164);
             this.dataGridDetallesEjecucion.TabIndex = 1;
             // 
@@ -334,7 +337,7 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 662);
+            this.ClientSize = new System.Drawing.Size(984, 803);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.panelEjecutorial);

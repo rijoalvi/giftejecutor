@@ -40,6 +40,7 @@ namespace GiftEjecutor
         private bool modificacion;
         private bool visualizacion;
         private bool eliminacion;
+        private bool noEsComando;
         private String[] nombresCamposTupla;
 
         private String nombreFormDetalleSeleccionado;
@@ -74,6 +75,7 @@ namespace GiftEjecutor
             IDActividad = IDAct;
             IDComandoConfig = IDComando;
             miPadre = padre;
+            noEsComando = false;
             miFormulario = new Formulario(IDForm);
             this.Text = miFormulario.getNombre();
             nombresCamposTupla = new String[miFormulario.getNumMiembros()];
@@ -84,6 +86,7 @@ namespace GiftEjecutor
                     modificacion = false; //xq se va a crear una nueva tupla, no midificar otra
                     visualizacion = false; //no es comando d visualizar
                     eliminacion = false;
+                    noEsComando = false;
                     nombresCamposTupla = new String[miFormulario.getNumMiembros()];
                     crearFormulario();
                     break;
@@ -91,6 +94,7 @@ namespace GiftEjecutor
                     modificacion = true; //xq se va a modificar una tupla, no crear una nueva
                     visualizacion = false; //no es comando d visualizar
                     eliminacion = false;
+                    noEsComando = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
@@ -99,6 +103,7 @@ namespace GiftEjecutor
                     modificacion = false;
                     visualizacion = true; //es comando d visualizar
                     eliminacion = false;
+                    noEsComando = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
@@ -107,6 +112,7 @@ namespace GiftEjecutor
                     modificacion = false;
                     visualizacion = true; //Es de borrado, pero esto es para hacer q sea de read-only
                     eliminacion = true;
+                    noEsComando = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
@@ -116,14 +122,28 @@ namespace GiftEjecutor
                     modificacion = false;
                     visualizacion = true; //Es con mascara, pero esto es para hacer q sea de read-only
                     eliminacion = false;
+                    noEsComando = false;
                     crearFormulario();
                     //llena los datos al leer la tupla especifica
                     llenarFormulario();
+                    //cambia el texto del boton Cancelar, para cerrar nada mas el form
                     botonAceptar.Visible = false;
                     botonCancelar.Text = "Cerrar";
                     //refresca la ventana de los comandos d la actividad
                     miPadre.cargarDataGridComandos();
                     MessageBox.Show("Este es el formulario resultante, luego de ejecutar el siguiente cambio del comando con máscara: \n"+ datosConMascara);
+                    break;
+                case 6: //visualizacion de los formularios en el fram principal
+                    modificacion = false;
+                    visualizacion = true; //es comando d visualizar
+                    eliminacion = false;
+                    noEsComando = true;
+                    crearFormulario();
+                    //llena los datos al leer la tupla especifica
+                    llenarFormulario();
+                    //cambia el texto del boton Cancelar, para cerrar nada mas el form
+                    botonAceptar.Visible = false;
+                    botonCancelar.Text = "Cerrar";
                     break;
                 default:
                     break;
@@ -292,6 +312,7 @@ namespace GiftEjecutor
                     TabPage tabPage = new TabPage("detalles " + nombreTabla);
                     this.nombreFormDetalleSeleccionado = nombreTabla;
                     DataGridView dg = new DataGridView();
+                    //dg. quiero quitarle q deje editar las filas, pero no puedo... :s
                     dg.Width = 600;
                     dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
 

@@ -438,7 +438,7 @@ namespace GiftEjecutor
                 ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
                 String[] IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
 
-                FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[0]), correlativoExpediente, -1, -1, 3, -1, "", null);
+                FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[0]), correlativoExpediente, -1, -1, 6, -1, "", null);
                 formFormulario.TopMost = true;
                 formFormulario.MdiParent = this;
                 formFormulario.StartPosition = FormStartPosition.Manual;
