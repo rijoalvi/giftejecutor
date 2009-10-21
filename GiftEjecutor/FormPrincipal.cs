@@ -247,7 +247,7 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            refrescarDirectorio();            
+            
         }
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)

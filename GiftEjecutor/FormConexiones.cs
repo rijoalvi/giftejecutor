@@ -52,9 +52,9 @@ namespace GiftEjecutor
 
         private void buttonIniciar_Click(object sender, EventArgs e)
         {
+            ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             FormPrincipal formPrincipal = new FormPrincipal(this.conexionEjecutorSeleccionada);
 
-            ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             formPrincipal.MdiParent = padreMDI;
             formPrincipal.setPadreMDI(padreMDI);
             this.Hide();
