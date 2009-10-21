@@ -21,6 +21,8 @@ namespace GiftEjecutor
 
 
             //Toma todos los IDs de los formularios q trabajan con ese flujo
+           //consulta VIEJA!!!!!!!!
+            /*
             string strConsulta = "SELECT DISTINCT FORMULARIO.correlativo " +
                                  "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO " +
                                  "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
@@ -29,8 +31,34 @@ namespace GiftEjecutor
                                  "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
                                  "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
                                  "ORDER BY FORMULARIO.correlativo;";
-            //******ATENCION AQUI NO SE COMO ARREGLARLO***********
-            //Creo q asi... :p Beto
+            */
+            string strConsulta = "SELECT DISTINCT FORMULARIO.correlativo " +
+                                 "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, COMANDO, FORMULARIO " +
+                                 "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
+                                 "AND ACTIVIDAD.correlativoFlujo = FLUJO.correlativo " +
+                                 "AND MIEMBROACTIVIDADSIMPLE.correlativoMadre = ACTIVIDAD.correlativo " +
+                                 "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
+                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
+                                 "Union " +
+                                 "SELECT DISTINCT FORMULARIO.correlativo " +
+                                 "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, MIEMBROACTIVIDADCOMPUESTA, COMANDO, FORMULARIO " +
+                                 "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
+                                 "AND ACTIVIDAD.correlativoFlujo = FLUJO.correlativo  " +
+                                 "AND MIEMBROACTIVIDADCOMPUESTA.correlativoMadre = ACTIVIDAD.correlativo " +
+                                 "AND MIEMBROACTIVIDADCOMPUESTA.correlativoHija = MIEMBROACTIVIDADSIMPLE.correlativoMadre " +
+                                 "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
+                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
+                                 "Union " +
+                                 "SELECT DISTINCT FORMULARIO.correlativo " +
+                                 "FROM FLUJO, ACTIVIDAD, MIEMBROACTIVIDADSIMPLE, MIEMBROACTIVIDADCOMPUESTA c1, MIEMBROACTIVIDADCOMPUESTA c2, COMANDO, FORMULARIO " +
+                                 "WHERE FLUJO.correlativo = '" + IDflujo + "' " + //aqui compara cn el flujo escogido
+                                 "AND ACTIVIDAD.correlativoFlujo = FLUJO.correlativo  " +
+                                 "AND c1.correlativoMadre = ACTIVIDAD.correlativo " +
+                                 "AND c1.correlativoHija = c2.correlativoMadre " +
+                                 "AND c2.correlativoHija = MIEMBROACTIVIDADSIMPLE.correlativoMadre " +
+                                 "AND COMANDO.ID = MIEMBROACTIVIDADSIMPLE.correlativoComando " +
+                                 "AND COMANDO.IDFormulario = FORMULARIO.correlativo " +
+                                 "ORDER BY FORMULARIO.correlativo;";
             Object datos = this.controladoBD.hacerConsultaConfigurador(strConsulta);
             return datos;            
         }
