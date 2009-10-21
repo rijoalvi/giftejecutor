@@ -61,7 +61,7 @@ namespace GiftEjecutor
             // buttonNuevoDetalle
             // 
             this.buttonNuevoDetalle.Enabled = false;
-            this.buttonNuevoDetalle.Location = new System.Drawing.Point(74, 576);
+            this.buttonNuevoDetalle.Location = new System.Drawing.Point(57, 602);
             this.buttonNuevoDetalle.Name = "buttonNuevoDetalle";
             this.buttonNuevoDetalle.Size = new System.Drawing.Size(225, 23);
             this.buttonNuevoDetalle.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace GiftEjecutor
             // buttonVerDetalle
             // 
             this.buttonVerDetalle.Enabled = false;
-            this.buttonVerDetalle.Location = new System.Drawing.Point(74, 602);
+            this.buttonVerDetalle.Location = new System.Drawing.Point(57, 637);
             this.buttonVerDetalle.Name = "buttonVerDetalle";
             this.buttonVerDetalle.Size = new System.Drawing.Size(225, 23);
             this.buttonVerDetalle.TabIndex = 3;
@@ -84,7 +84,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 647);
+            this.ClientSize = new System.Drawing.Size(632, 683);
             this.Controls.Add(this.buttonVerDetalle);
             this.Controls.Add(this.buttonNuevoDetalle);
             this.Controls.Add(this.botonCancelar);

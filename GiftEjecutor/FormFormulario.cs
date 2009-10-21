@@ -283,15 +283,20 @@ namespace GiftEjecutor
                 int cantidadDetalles = IDFormularioMaestro.Count / 2;
                 TabControl tabControl = new TabControl();
                 tabControl.Width = 1000;
-                tabControl.SetBounds(30, 450, 400, 100);
+                tabControl.SetBounds(0, 450, 600, 150);
+            //    tabControl.SetBounds(
                 for (int i = 0; i < cantidadDetalles; i++)
                 {
                     String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
                     TabPage tabPage = new TabPage("detalles " + nombreTabla);
                     this.nombreFormDetalleSeleccionado = nombreTabla;
                     DataGridView dg = new DataGridView();
-                    dg.Width = 800;
+                    dg.Width = 600;
                     dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
+
+                    //dg.Columns[0].Visible = false;
+                   // dg.Columns[1].Visible = false;
+
                     tabPage.Controls.Add(dg);
                     tabControl.Controls.Add(tabPage);
 
