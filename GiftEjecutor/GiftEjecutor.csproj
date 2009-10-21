@@ -268,6 +268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Otros_recursos\Datos Jerarquia Div Politica.txt" />
+    <None Include="Otros_recursos\Fondo.JPG" />
     <Content Include="Otros_recursos\GIFT.png" />
     <Content Include="Otros_recursos\GIFTPequeno.png" />
     <Content Include="Otros_recursos\tablas Ejecutor.txt" />

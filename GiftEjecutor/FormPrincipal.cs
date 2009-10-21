@@ -41,8 +41,6 @@ namespace GiftEjecutor
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
             panelEjecutorial.Visible = false;
-            labelTitulo.Visible = false;
-            pictureBox1.Visible = false;
             //refrescarDirectorio();     
 //            panelEjecutorial.Hide();
         }
@@ -424,6 +422,14 @@ namespace GiftEjecutor
 
         private void button2_Click(object sender, EventArgs e)
         {
+            mostrarFormularios();
+        }
+
+        private void mostrarFormularios()
+        {
+            labelTitulo.Hide();
+            pictureBox1.Hide();
+            panelEjecutorial.Hide();
             TreeNode seleccionado = directorio.SelectedNode;
             if (seleccionado != null && seleccionado.Name.Contains("E"))
             {
@@ -433,6 +439,7 @@ namespace GiftEjecutor
                 String[] IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
 
                 FormFormulario formFormulario = new FormFormulario(int.Parse(IDsFormularios[0]), correlativoExpediente, -1, -1, 3, -1, "", null);
+                formFormulario.TopMost = true;
                 formFormulario.MdiParent = this;
                 formFormulario.StartPosition = FormStartPosition.Manual;
                 formFormulario.Location = new Point(256, 5);
@@ -469,8 +476,20 @@ namespace GiftEjecutor
         /// <param name="IDExpediente"></param>
         private void llenarDatosEjecucionExpediente(int IDExpediente, int IDFlujo)
         {
+            labelTitulo.Show();
+            pictureBox1.Show();
             Controlador c = new Controlador();
             this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
+
+            TreeNode seleccionado = directorio.SelectedNode;
+            if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
+            {
+                int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+                Actividad act = new Actividad();
+                labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
+            }
+
             panelEjecutorial.Show();
 
         }
@@ -482,7 +501,15 @@ namespace GiftEjecutor
 
         private void button3_Click(object sender, EventArgs e)
         {
-            llenarDatosEjecucionExpediente(7, 60);
+            TreeNode seleccionado = directorio.SelectedNode;
+            if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
+            {
+                int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+
+                llenarDatosEjecucionExpediente(Expediente, Flujo);
+            }
+            
         }
 
         private void directorio_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -499,12 +526,19 @@ namespace GiftEjecutor
 
                 if (directorio.SelectedNode.Name.Contains("E"))
                 {
-                    MessageBox.Show("Soy Expediente!!!");
-                    llenarDatosEjecucionExpediente(7, 60);
+                    //MessageBox.Show("Soy Expediente!!!");
+                    TreeNode seleccionado = directorio.SelectedNode;
+                    if (seleccionado != null && seleccionado.Name.Contains("E") && seleccionado.ForeColor != Color.Red)
+                    {
+                        int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                        int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+
+                        llenarDatosEjecucionExpediente(Expediente, Flujo);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No soy expediente =(");
+                    //MessageBox.Show("No soy expediente =(");
                     panelEjecutorial.Hide();
                 }
             }

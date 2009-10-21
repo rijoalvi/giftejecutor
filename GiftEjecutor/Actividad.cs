@@ -571,6 +571,33 @@ namespace GiftEjecutor
         public String getSecuenciaActRealizadas(int IDExpediente, int IDFlujo)
         {
             String respuesta = null;
+
+
+            Controlador control = new Controlador();
+            bool unaEjecutable = false;
+            SqlDataReader datos;
+            //ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            //datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    bool yaSeEjecuto;
+                    yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente);
+                    if (yaSeEjecuto)
+                    {
+                        if (respuesta == null)
+                        {
+                            respuesta = datos.GetValue(2).ToString();
+                        }
+                        else
+                        {
+                            respuesta = respuesta + " --> "+datos.GetValue(2).ToString();
+                        }
+                    }
+                }
+            }
             return respuesta;
         }
 

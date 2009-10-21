@@ -60,6 +60,13 @@ namespace GiftEjecutor.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Fondo {
+            get {
+                object obj = ResourceManager.GetObject("Fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap GIFT {
             get {
                 object obj = ResourceManager.GetObject("GIFT", resourceCulture);
