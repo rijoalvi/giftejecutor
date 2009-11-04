@@ -25,7 +25,7 @@ namespace GiftEjecutor
 
         private void NuevoPerfil_Load(object sender, EventArgs e)
         {
-
+            this.textBoxNombrePerfil.Focus();
         }
 
         private void buttonOK_Click(object sender, EventArgs e)

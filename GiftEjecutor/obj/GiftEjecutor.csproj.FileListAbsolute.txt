@@ -44,6 +44,33 @@ C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\Gift
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.GestionPerfiles.resources
 C:\Documents and Settings\lucachaco\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.NuevoPerfil.resources
+<<<<<<< .mine
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.GestionPerfiles.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.NuevoPerfil.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Documents and Settings\ea61521\Desktop\ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormDetallesPerfil.resources
+=======
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
@@ -68,3 +95,4 @@ C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEj
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
 C:\Documents and Settings\ea60289\Desktop\Ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+>>>>>>> .r132

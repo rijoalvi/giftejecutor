@@ -43,7 +43,7 @@ namespace GiftEjecutor
             this.buttonOK.Location = new System.Drawing.Point(307, 225);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 0;
+            this.buttonOK.TabIndex = 2;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -53,7 +53,7 @@ namespace GiftEjecutor
             this.buttonCancelar.Location = new System.Drawing.Point(212, 225);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 1;
+            this.buttonCancelar.TabIndex = 3;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -63,14 +63,14 @@ namespace GiftEjecutor
             this.textBoxNombrePerfil.Location = new System.Drawing.Point(128, 34);
             this.textBoxNombrePerfil.Name = "textBoxNombrePerfil";
             this.textBoxNombrePerfil.Size = new System.Drawing.Size(149, 20);
-            this.textBoxNombrePerfil.TabIndex = 2;
+            this.textBoxNombrePerfil.TabIndex = 0;
             // 
             // textBoxTipoPerfil
             // 
             this.textBoxTipoPerfil.Location = new System.Drawing.Point(128, 73);
             this.textBoxTipoPerfil.Name = "textBoxTipoPerfil";
             this.textBoxTipoPerfil.Size = new System.Drawing.Size(149, 20);
-            this.textBoxTipoPerfil.TabIndex = 3;
+            this.textBoxTipoPerfil.TabIndex = 1;
             // 
             // labelNombrePerfil
             // 

@@ -23,6 +23,7 @@ namespace GiftEjecutor
         }
         public void actulizarDataGrid(){
             this.dataGridViewPerfiles.DataSource = this.perfil.getDataTableTodosPerfiles();
+            this.dataGridViewPerfiles.Columns[0].Visible = false;
         }
         private void buttonAgregarPerfil_Click(object sender, EventArgs e)
         {
