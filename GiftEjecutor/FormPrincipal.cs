@@ -501,10 +501,12 @@ namespace GiftEjecutor
             invalidarPanels();
             TreeNode seleccionado = directorio.SelectedNode;
             labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente " + seleccionado.Text;
-            labelTitulo.Show();
-            pictureBox1.Show();
+            
             Controlador c = new Controlador();
-            this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
+
+            //Llenar un DataGrid para mostrar la bitacoraza
+
+            //this.dataGridDetallesEjecucion.DataSource = c.getDataTableBitacora(IDExpediente);
             Actividad act = new Actividad();
             labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
             labelEnCurso.Text = act.getActividadActual(IDExpediente, IDFlujo);
@@ -576,7 +578,6 @@ namespace GiftEjecutor
         private void invalidarPanels() {
             panelEjecutorial.Visible = false;
             panelFormularios.Visible = false;
-            labelTitulo.Visible = false;
             labelTituloExp.Visible = false;
         }
 
@@ -608,6 +609,11 @@ namespace GiftEjecutor
         {
             GestionPerfiles gp = new GestionPerfiles();
             gp.Show();
+        }
+
+        private void panelEjecutorial_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
