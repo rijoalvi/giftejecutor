@@ -64,7 +64,7 @@ namespace GiftEjecutor
             this.módulosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -242,19 +242,19 @@ namespace GiftEjecutor
             // listaFormularios
             // 
             this.listaFormularios.FormattingEnabled = true;
-            this.listaFormularios.Location = new System.Drawing.Point(864, 131);
+            this.listaFormularios.Location = new System.Drawing.Point(910, 71);
             this.listaFormularios.Name = "listaFormularios";
-            this.listaFormularios.Size = new System.Drawing.Size(144, 199);
+            this.listaFormularios.Size = new System.Drawing.Size(127, 199);
             this.listaFormularios.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(861, 115);
+            this.label1.Location = new System.Drawing.Point(907, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
+            this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Lista de formularios creados:";
+            this.label1.Text = "Formularios creados:";
             // 
             // FormPrincipal
             // 
@@ -262,7 +262,7 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1020, 886);
+            this.ClientSize = new System.Drawing.Size(1048, 886);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
