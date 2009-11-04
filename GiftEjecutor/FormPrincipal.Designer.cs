@@ -39,26 +39,15 @@ namespace GiftEjecutor
             this.gestiónPerfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panelEjecutorial = new System.Windows.Forms.Panel();
             this.labelPorRealizar = new System.Windows.Forms.Label();
             this.labelEnCurso = new System.Windows.Forms.Label();
             this.labelRealizadas = new System.Windows.Forms.Label();
-            this.buttonVerDisenoExpediente = new System.Windows.Forms.Button();
             this.labelActividadesPorRealizar = new System.Windows.Forms.Label();
             this.labelActividadEnCurso = new System.Windows.Forms.Label();
-            this.labelDetalleEjecutorial = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.labelTituloExp = new System.Windows.Forms.Label();
-            this.botonSigFormulario = new System.Windows.Forms.Button();
-            this.botonVerDisenno = new System.Windows.Forms.Button();
-            this.panelFormularios = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.panelEjecutorial.SuspendLayout();
-            this.panelFormularios.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,44 +139,12 @@ namespace GiftEjecutor
             // 
             this.directorio.Location = new System.Drawing.Point(4, 31);
             this.directorio.Name = "directorio";
-            this.directorio.Size = new System.Drawing.Size(246, 598);
+            this.directorio.Size = new System.Drawing.Size(246, 843);
             this.directorio.TabIndex = 10;
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
-            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect_1);
+            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
             this.directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
             this.directorio.Click += new System.EventHandler(this.directorio_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 635);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "pruebaActividad";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(85, 635);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "abrir form";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // panelEjecutorial
-            // 
-            this.panelEjecutorial.Controls.Add(this.buttonVerDisenoExpediente);
-            this.panelEjecutorial.Controls.Add(this.labelDetalleEjecutorial);
-            this.panelEjecutorial.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.panelEjecutorial.Location = new System.Drawing.Point(258, 57);
-            this.panelEjecutorial.Name = "panelEjecutorial";
-            this.panelEjecutorial.Size = new System.Drawing.Size(716, 669);
-            this.panelEjecutorial.TabIndex = 16;
-            this.panelEjecutorial.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEjecutorial_Paint);
             // 
             // labelPorRealizar
             // 
@@ -222,17 +179,6 @@ namespace GiftEjecutor
             this.labelRealizadas.TabIndex = 7;
             this.labelRealizadas.Text = " ";
             // 
-            // buttonVerDisenoExpediente
-            // 
-            this.buttonVerDisenoExpediente.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVerDisenoExpediente.Location = new System.Drawing.Point(501, 639);
-            this.buttonVerDisenoExpediente.Name = "buttonVerDisenoExpediente";
-            this.buttonVerDisenoExpediente.Size = new System.Drawing.Size(209, 23);
-            this.buttonVerDisenoExpediente.TabIndex = 6;
-            this.buttonVerDisenoExpediente.Text = "Ver el Diseño del Expediente";
-            this.buttonVerDisenoExpediente.UseVisualStyleBackColor = true;
-            this.buttonVerDisenoExpediente.Click += new System.EventHandler(this.buttonVerDisenoExpediente_Click);
-            // 
             // labelActividadesPorRealizar
             // 
             this.labelActividadesPorRealizar.AutoSize = true;
@@ -253,27 +199,6 @@ namespace GiftEjecutor
             this.labelActividadEnCurso.TabIndex = 3;
             this.labelActividadEnCurso.Text = "Actividad en curso:";
             // 
-            // labelDetalleEjecutorial
-            // 
-            this.labelDetalleEjecutorial.AutoSize = true;
-            this.labelDetalleEjecutorial.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDetalleEjecutorial.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelDetalleEjecutorial.Location = new System.Drawing.Point(-1, 0);
-            this.labelDetalleEjecutorial.Name = "labelDetalleEjecutorial";
-            this.labelDetalleEjecutorial.Size = new System.Drawing.Size(401, 23);
-            this.labelDetalleEjecutorial.TabIndex = 0;
-            this.labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente ";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(166, 635);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "buttonCillo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // labelTituloExp
             // 
             this.labelTituloExp.AutoSize = true;
@@ -284,38 +209,6 @@ namespace GiftEjecutor
             this.labelTituloExp.Size = new System.Drawing.Size(306, 23);
             this.labelTituloExp.TabIndex = 1;
             this.labelTituloExp.Text = "Formularios del Expediente";
-            // 
-            // botonSigFormulario
-            // 
-            this.botonSigFormulario.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.botonSigFormulario.Location = new System.Drawing.Point(361, 3);
-            this.botonSigFormulario.Name = "botonSigFormulario";
-            this.botonSigFormulario.Size = new System.Drawing.Size(156, 23);
-            this.botonSigFormulario.TabIndex = 2;
-            this.botonSigFormulario.Text = "Ver Siguiente Formulario";
-            this.botonSigFormulario.UseVisualStyleBackColor = true;
-            this.botonSigFormulario.Click += new System.EventHandler(this.botonSigFormulario_Click);
-            // 
-            // botonVerDisenno
-            // 
-            this.botonVerDisenno.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.botonVerDisenno.Location = new System.Drawing.Point(537, 3);
-            this.botonVerDisenno.Name = "botonVerDisenno";
-            this.botonVerDisenno.Size = new System.Drawing.Size(176, 23);
-            this.botonVerDisenno.TabIndex = 3;
-            this.botonVerDisenno.Text = "Ver Estado de Ejecucion";
-            this.botonVerDisenno.UseVisualStyleBackColor = true;
-            this.botonVerDisenno.Click += new System.EventHandler(this.botonVerDisenno_Click);
-            // 
-            // panelFormularios
-            // 
-            this.panelFormularios.Controls.Add(this.botonVerDisenno);
-            this.panelFormularios.Controls.Add(this.botonSigFormulario);
-            this.panelFormularios.Location = new System.Drawing.Point(253, 828);
-            this.panelFormularios.Name = "panelFormularios";
-            this.panelFormularios.Size = new System.Drawing.Size(716, 30);
-            this.panelFormularios.TabIndex = 10;
-            this.panelFormularios.Visible = false;
             // 
             // panel1
             // 
@@ -347,16 +240,11 @@ namespace GiftEjecutor
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 886);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.labelTituloExp);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panelEjecutorial);
-            this.Controls.Add(this.panelFormularios);
+            this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -367,9 +255,6 @@ namespace GiftEjecutor
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panelEjecutorial.ResumeLayout(false);
-            this.panelEjecutorial.PerformLayout();
-            this.panelFormularios.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -389,22 +274,13 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarNombreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarBETAToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panelEjecutorial;
-        private System.Windows.Forms.Label labelDetalleEjecutorial;
         private System.Windows.Forms.Label labelActividadesPorRealizar;
         private System.Windows.Forms.Label labelActividadEnCurso;
-        private System.Windows.Forms.Button buttonVerDisenoExpediente;
         private System.Windows.Forms.Label labelPorRealizar;
         private System.Windows.Forms.Label labelEnCurso;
         private System.Windows.Forms.Label labelRealizadas;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label labelTituloExp;
         private System.Windows.Forms.ToolStripMenuItem gestiónPerfilesToolStripMenuItem;
-        private System.Windows.Forms.Button botonSigFormulario;
-        private System.Windows.Forms.Button botonVerDisenno;
-        private System.Windows.Forms.Panel panelFormularios;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelActividadesRealizadas;
     }

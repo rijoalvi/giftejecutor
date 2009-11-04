@@ -12,8 +12,11 @@ namespace GiftEjecutor
     public partial class FormPrincipal : Form
     {
         private Ventanota padreMDI;
-        private int indiceFormularios;
-        private FormFormulario formActual;
+        private int IDExpediente;
+        private String[] IDsFormularios;
+        private FormFormulario formCaratula;
+
+
         /**
          * Para recordar!!!
          * //Son los macros que se usan para seleccion del combo box.
@@ -38,9 +41,6 @@ namespace GiftEjecutor
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
-            panelEjecutorial.Visible = false;
-            panelFormularios.Visible = false;
-            indiceFormularios = 0;
             //refrescarDirectorio();     
 //            panelEjecutorial.Hide();
         }
@@ -244,14 +244,6 @@ namespace GiftEjecutor
             return nodoPadre;
         }
 
-      
-
-
-        private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            
-        }
-
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (directorio.SelectedNode != null)
@@ -420,55 +412,8 @@ namespace GiftEjecutor
             fa.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            mostrarFormularios();
-        }
 
-        private void mostrarFormularios()
-        {
-            invalidarPanels();          
-            TreeNode seleccionado = directorio.SelectedNode;
-            if (seleccionado != null && seleccionado.Name.Contains("E"))
-            {
-                panelFormularios.Show();
-                labelTituloExp.Show();
-                labelTituloExp.Text = "Formularios Del Expediente " + seleccionado.Text;
-
-                int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                int correlativoExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-                ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
-                String[] IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
-                
-                //Aqui se cierra el formulario anterior, si estaba abierto.
-                if (formActual != null)
-                    formActual.Visible = false;
-
-                //Si se llego al ultimo expediente, volver a empezar dl primero
-                if (indiceFormularios >= IDsFormularios.Length)
-                    indiceFormularios = 0;
-                
-                //Se abre el form correspondiente
-                Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[indiceFormularios]));
-                int IDTupla = elFormulario.getIDDeLaTupla(correlativoExpediente);
-                if (IDTupla == -1)
-                {
-                    MessageBox.Show("¡El Expediente todavía no posee los datos del formulario correspondiente!");
-                    indiceFormularios = 0;
-                }
-                else
-                {
-                    FormFormulario formFormulario = new FormFormulario(elFormulario.getID(), correlativoExpediente, -1, IDTupla, 6, -1, "", null);
-                    indiceFormularios++;
-                    formFormulario.TopMost = true;
-                    formFormulario.MdiParent = this;
-                    formFormulario.StartPosition = FormStartPosition.Manual;
-                    formFormulario.Location = new Point(256, 25);
-                    formFormulario.Show();
-                    formActual = formFormulario;
-                }
-            }
-        }
+        
 
         //ESTO ES PARA VER LA BITACORA
         private void verBitacora()
@@ -500,7 +445,6 @@ namespace GiftEjecutor
         {
             invalidarPanels();
             TreeNode seleccionado = directorio.SelectedNode;
-            labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente " + seleccionado.Text;
             
             Controlador c = new Controlador();
 
@@ -511,16 +455,6 @@ namespace GiftEjecutor
             labelRealizadas.Text = act.getSecuenciaActRealizadas(IDExpediente, IDFlujo);
             labelEnCurso.Text = act.getActividadActual(IDExpediente, IDFlujo);
             labelPorRealizar.Text = act.getSecuenciaActPorRealizar(IDExpediente, IDFlujo);
-
-
-            panelEjecutorial.Show();
-
-        }
-
-        private void buttonVerDisenoExpediente_Click(object sender, EventArgs e)
-        {
-            //Aqui se llama a la parte que esta haciendo BETO
-            mostrarFormularios();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -530,10 +464,8 @@ namespace GiftEjecutor
             {
                 int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
                 int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-
                 llenarDatosEjecucionExpediente(Expediente, Flujo);
             }
-            
         }
 
         private void directorio_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -541,12 +473,13 @@ namespace GiftEjecutor
            
         }
 
-        private void directorio_AfterSelect_1(object sender, TreeViewEventArgs e)
+        private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
-            indiceFormularios = 0; //NO BORRAR! Beto
             if (directorio.SelectedNode != null)
             {
+                if (formCaratula != null)
+                    formCaratula.Dispose();
 
                 if (directorio.SelectedNode.Name.Contains("E"))
                 {
@@ -559,6 +492,18 @@ namespace GiftEjecutor
 
                         llenarDatosEjecucionExpediente(Expediente, Flujo);
                     }
+
+                    //se obtienen los datos de los formularios
+                    labelTituloExp.Show();
+                    labelTituloExp.Text = "Expediente " + seleccionado.Text;
+
+                    //obtiene los datos de todos los formularios del expediente
+                    int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
+                    IDExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
+                    ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
+                    IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
+                    //muestra el formulario caratula
+                    mostrarFormulario(0);
                 }
                 else
                 {
@@ -568,19 +513,41 @@ namespace GiftEjecutor
             }
         }
 
+        private void mostrarFormulario(int index)
+        {
+            //Se abre el form correspondiente
+            Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[index]));
+            int IDTupla = elFormulario.getIDDeLaTupla(this.IDExpediente);
+            if (IDTupla == -1)
+            {
+                MessageBox.Show("¡El Expediente todavía no posee los datos del formulario correspondiente!");
+            }
+            else
+            {
+                FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null);
+                formEsteFormulario.TopMost = true;
+                formEsteFormulario.MdiParent = this;
+                formEsteFormulario.StartPosition = FormStartPosition.Manual;
+                formEsteFormulario.Location = new Point(256, 25);
+                formEsteFormulario.Show();
+                if (index == 0)
+                    formCaratula = formEsteFormulario;
+            }
+        }
+
+        /*
         private void botonSigFormulario_Click(object sender, EventArgs e)
         {
             //llama a mostrar el sig formulario
             mostrarFormularios();
         }
-
+        */
         //Esconde los panes y Labels
         private void invalidarPanels() {
-            panelEjecutorial.Visible = false;
-            panelFormularios.Visible = false;
             labelTituloExp.Visible = false;
         }
 
+        /*
         private void botonVerDisenno_Click(object sender, EventArgs e)
         {
             if(indiceFormularios > 0)
@@ -603,7 +570,7 @@ namespace GiftEjecutor
                     invalidarPanels();
                 }
             }
-        }
+        }*/
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
