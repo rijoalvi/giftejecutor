@@ -574,7 +574,7 @@ namespace GiftEjecutor
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GestionPerfiles gp = new GestionPerfiles();
+            FormGestionPerfiles gp = new FormGestionPerfiles();
             gp.Show();
         }
 

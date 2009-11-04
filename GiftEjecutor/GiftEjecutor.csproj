@@ -67,6 +67,12 @@
     <Compile Include="ConsultaActividad.cs" />
     <Compile Include="ConsultaExpediente.cs" />
     <Compile Include="Expediente.cs" />
+    <Compile Include="FormAsignarColeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAsignarColeccion.Designer.cs">
+      <DependentUpon>FormAsignarColeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDetallesPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,11 +159,11 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario.cs" />
-    <Compile Include="GestionPerfiles.cs">
+    <Compile Include="FormGestionPerfiles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionPerfiles.Designer.cs">
-      <DependentUpon>GestionPerfiles.cs</DependentUpon>
+    <Compile Include="FormGestionPerfiles.Designer.cs">
+      <DependentUpon>FormGestionPerfiles.cs</DependentUpon>
     </Compile>
     <Compile Include="GiftConfiguradorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -166,15 +172,19 @@
     </Compile>
     <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
-    <Compile Include="NuevoPerfil.cs">
+    <Compile Include="FormNuevoPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevoPerfil.Designer.cs">
-      <DependentUpon>NuevoPerfil.cs</DependentUpon>
+    <Compile Include="FormNuevoPerfil.Designer.cs">
+      <DependentUpon>FormNuevoPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Perfil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAsignarColeccion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAsignarColeccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDetallesPerfil.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormDetallesPerfil.cs</DependentUpon>
@@ -227,13 +237,13 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormVistaBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionPerfiles.resx">
+    <EmbeddedResource Include="FormGestionPerfiles.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>GestionPerfiles.cs</DependentUpon>
+      <DependentUpon>FormGestionPerfiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevoPerfil.resx">
+    <EmbeddedResource Include="FormNuevoPerfil.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>NuevoPerfil.cs</DependentUpon>
+      <DependentUpon>FormNuevoPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -300,6 +310,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="otras notas\tipos de perfiles.txt" />
     <Content Include="Otros_recursos\Datos Jerarquia Div Politica.txt" />
     <None Include="Otros_recursos\BD AdministracionUsuarios.vsd" />
     <None Include="Otros_recursos\Fondo.JPG" />

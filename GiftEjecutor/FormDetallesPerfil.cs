@@ -14,5 +14,11 @@ namespace GiftEjecutor
         {
             InitializeComponent();
         }
+
+        private void buttonAgregarPerfil_Click(object sender, EventArgs e)
+        {
+            FormAsignarColeccion fac = new FormAsignarColeccion();
+            fac.Show();
+        }
     }
 }
