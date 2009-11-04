@@ -41,6 +41,7 @@
     <Compile Include="Actividad.cs" />
     <Compile Include="ActividadCompuesta.cs" />
     <Compile Include="ActividadSimple.cs" />
+    <Compile Include="ArbolGift.cs" />
     <Compile Include="Coleccion.cs" />
     <Compile Include="Comando.cs" />
     <Compile Include="ComandoMascara.cs" />

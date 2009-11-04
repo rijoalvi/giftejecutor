@@ -1,26 +1,52 @@
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\bin\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarColeccion.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormDetallesPerfil.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormGestionPerfiles.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoPerfil.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.exe
-C:\Documents and Settings\ea61521\Desktop\ejecutor222\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarColeccion.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormDetallesPerfil.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormGestionPerfiles.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoPerfil.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Users\Totan\Desktop\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarColeccion.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormDetallesPerfil.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormGestionPerfiles.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoPerfil.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
+G:\4 nov - funcionando - copia\Gift ejecutor\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache

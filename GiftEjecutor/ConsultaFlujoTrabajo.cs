@@ -44,8 +44,14 @@ namespace GiftEjecutor
         public SqlDataReader getFlujosConstruidos()
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaEjecutor("SELECT idFlujo FROM FLUJOSACTIVOS;");
-            return dataReader;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("SELECT idFlujo FROM FLUJOSACTIVOS");
+            SqlDataReader tamano= this.controladoBD.hacerConsultaEjecutor("select count(*) from FLUJOSACTIVOS");
+            
+            String taman;
+            if (tamano.Read())
+                taman = tamano.GetValue(0).ToString();
+
+                        return dataReader;
         }
 
 

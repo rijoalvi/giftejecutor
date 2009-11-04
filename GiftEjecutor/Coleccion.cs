@@ -8,7 +8,7 @@ namespace GiftEjecutor
         private String nombre;
    //     private String nombrePadre;
         private int IDCorrelativo;
-        private int IDCorrelativoPadre; // Correlativo del padre en cero indica que esta en la raiz
+        private int IDCorrelativoPadre; // Correlativo del padre en cero indica que esta en la raíz
         private int correlativoFlujo;
         private ConsultaColeccion consultaColeccion;
 
@@ -75,7 +75,9 @@ namespace GiftEjecutor
         {
             return this.correlativoFlujo;
         }
-
+        public int getCorrelativo() {
+            return this.IDCorrelativo;
+        }
         public String getNombre() {
             return this.nombre;
         }
