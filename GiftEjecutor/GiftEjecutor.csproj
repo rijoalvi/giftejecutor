@@ -61,6 +61,7 @@
     <Compile Include="ConsultaFormulario.cs" />
     <Compile Include="ConsultaJerarquia.cs" />
     <Compile Include="ConsultaMaestroDetalle.cs" />
+    <Compile Include="ConsultaPerfil.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaActividad.cs" />
@@ -159,6 +160,12 @@
     </Compile>
     <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
+    <Compile Include="NuevoPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoPerfil.Designer.cs">
+      <DependentUpon>NuevoPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Perfil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +220,10 @@
     <EmbeddedResource Include="GestionPerfiles.resx">
       <SubType>Designer</SubType>
       <DependentUpon>GestionPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoPerfil.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuevoPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -280,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Otros_recursos\Datos Jerarquia Div Politica.txt" />
+    <None Include="Otros_recursos\BD AdministracionUsuarios.vsd" />
     <None Include="Otros_recursos\Fondo.JPG" />
     <Content Include="Otros_recursos\GIFT.png" />
     <Content Include="Otros_recursos\GIFTPequeno.png" />
