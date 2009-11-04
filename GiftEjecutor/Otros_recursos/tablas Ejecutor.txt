@@ -64,3 +64,41 @@ CREATE TABLE Perfil(
         IDFlujo                 int
 	PRIMARY KEY(correlativo)
 );
+
+--drop ColeccionAsignada Perfil;
+CREATE TABLE ColeccionAsignada(
+	correlativo		int identity(1,1) NOT NULL,
+        IDPerfil                  int,
+        IDColeccion               int
+	PRIMARY KEY(correlativo)
+    FOREIGN KEY(IDPerfil) REFERENCES Perfil(correlativo)
+);
+
+--drop ActividadAsignada Perfil;
+CREATE TABLE ActividadAsignada(
+	IDColeccionAsignada           int,
+        IDActividad               int
+	PRIMARY KEY(IDColeccionAsignada)
+    FOREIGN KEY(IDColeccionAsignada) REFERENCES ColeccionAsignada(correlativo)
+);
+
+--drop TABLE Usuario;
+CREATE TABLE Usuario(
+		correlativo			int identity(1,1) NOT NULL,
+        nombreUsuario		varchar(100),
+        contrasena          varchar(100),
+        preguntaSecreta		varchar(100),
+        respuesta			varchar(100),
+		IDPerfil			int
+	PRIMARY KEY(correlativo)
+	FOREIGN KEY(IDPerfil) REFERENCES Perfil(correlativo)
+);
+
+--drop TABLE PermisosUsuario;
+CREATE TABLE PermisosUsuario(
+		correlativo			int identity(1,1) NOT NULL,
+        IDUsuario			int,
+		IDExpediente		int
+	PRIMARY KEY(correlativo)
+	FOREIGN KEY(IDUsuario) REFERENCES Usuario(correlativo)
+);
