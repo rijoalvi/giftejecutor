@@ -47,6 +47,8 @@ namespace GiftEjecutor
             this.labelTituloExp = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
+            this.listaFormularios = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +60,7 @@ namespace GiftEjecutor
             this.módulosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -233,13 +235,32 @@ namespace GiftEjecutor
             this.labelActividadesRealizadas.TabIndex = 3;
             this.labelActividadesRealizadas.Text = "Actividades ya realizadas:";
             // 
+            // listaFormularios
+            // 
+            this.listaFormularios.FormattingEnabled = true;
+            this.listaFormularios.Location = new System.Drawing.Point(864, 131);
+            this.listaFormularios.Name = "listaFormularios";
+            this.listaFormularios.Size = new System.Drawing.Size(144, 199);
+            this.listaFormularios.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(861, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Lista de formularios creados:";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 886);
+            this.ClientSize = new System.Drawing.Size(1020, 886);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
@@ -283,5 +304,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem gestiónPerfilesToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelActividadesRealizadas;
+        private System.Windows.Forms.ListBox listaFormularios;
+        private System.Windows.Forms.Label label1;
     }
 }
