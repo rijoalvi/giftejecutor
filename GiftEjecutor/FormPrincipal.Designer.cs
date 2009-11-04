@@ -59,6 +59,7 @@ namespace GiftEjecutor
             this.botonVerDisenno = new System.Windows.Forms.Button();
             this.botonSigFormulario = new System.Windows.Forms.Button();
             this.labelTituloExp = new System.Windows.Forms.Label();
+            this.gestiónPerfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelEjecutorial.SuspendLayout();
@@ -119,7 +120,8 @@ namespace GiftEjecutor
             // módulosToolStripMenuItem
             // 
             this.módulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.constructorToolStripMenuItem});
+            this.constructorToolStripMenuItem,
+            this.gestiónPerfilesToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
             this.módulosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
@@ -127,7 +129,7 @@ namespace GiftEjecutor
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
@@ -378,13 +380,20 @@ namespace GiftEjecutor
             this.labelTituloExp.TabIndex = 1;
             this.labelTituloExp.Text = "Formularios del Expediente";
             // 
+            // gestiónPerfilesToolStripMenuItem
+            // 
+            this.gestiónPerfilesToolStripMenuItem.Name = "gestiónPerfilesToolStripMenuItem";
+            this.gestiónPerfilesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.gestiónPerfilesToolStripMenuItem.Text = "Gestión perfiles";
+            this.gestiónPerfilesToolStripMenuItem.Click += new System.EventHandler(this.gestiónPerfilesToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 861);
+            this.ClientSize = new System.Drawing.Size(984, 746);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.labelTituloExp);
             this.Controls.Add(this.labelTitulo);
@@ -448,5 +457,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelTituloExp;
         private System.Windows.Forms.Button botonVerDisenno;
         private System.Windows.Forms.Button botonSigFormulario;
+        private System.Windows.Forms.ToolStripMenuItem gestiónPerfilesToolStripMenuItem;
     }
 }

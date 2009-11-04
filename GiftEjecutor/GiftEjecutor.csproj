@@ -146,6 +146,12 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario.cs" />
+    <Compile Include="GestionPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPerfiles.Designer.cs">
+      <DependentUpon>GestionPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiftConfiguradorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,6 +159,7 @@
     </Compile>
     <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
+    <Compile Include="Perfil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormElegirInstancia.resx">
@@ -202,6 +209,10 @@
     <EmbeddedResource Include="FormVistaBitacora.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormVistaBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPerfiles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GestionPerfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -259,6 +270,7 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <Compile Include="Ventanota.cs">
       <SubType>Form</SubType>
     </Compile>
