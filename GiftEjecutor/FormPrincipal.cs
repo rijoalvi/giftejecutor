@@ -63,7 +63,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            refrescarDirectorio();//este es que comenteo a veces, luisk
+            //refrescarDirectorio();//este es que comenteo a veces, luisk
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-            refrescarDirectorio();//este comente a veces, luisk
+            //refrescarDirectorio();//este comente a veces, luisk
             //refrescarDirectorioTemp();
         }
 
