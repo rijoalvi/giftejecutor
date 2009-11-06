@@ -38,11 +38,7 @@ namespace GiftEjecutor
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónPerfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
-            
-            //Inicialización del TreeView
-            System.Windows.Forms.TreeView directorio = new System.Windows.Forms.TreeView();
-            
-
+            this.directorio = new System.Windows.Forms.TreeView();
             this.labelPorRealizar = new System.Windows.Forms.Label();
             this.labelEnCurso = new System.Windows.Forms.Label();
             this.labelRealizadas = new System.Windows.Forms.Label();
@@ -67,6 +63,7 @@ namespace GiftEjecutor
             this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // archivoToolStripMenuItem
             // 
@@ -143,14 +140,14 @@ namespace GiftEjecutor
             // 
             // directorio
             // 
-            directorio.Location = new System.Drawing.Point(4, 31);
-            directorio.Name = "directorio";
-            directorio.Size = new System.Drawing.Size(246, 598);
-            directorio.TabIndex = 10;
-            directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
-            directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
-            directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
-            directorio.Click += new System.EventHandler(this.directorio_Click);
+            this.directorio.Location = new System.Drawing.Point(4, 31);
+            this.directorio.Name = "directorio";
+            this.directorio.Size = new System.Drawing.Size(246, 598);
+            this.directorio.TabIndex = 10;
+            this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
+            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
+            this.directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
+            this.directorio.Click += new System.EventHandler(this.directorio_Click);
             // 
             // labelPorRealizar
             // 
@@ -262,11 +259,11 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1048, 886);
+            this.ClientSize = new System.Drawing.Size(1048, 746);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
-            this.Controls.Add(directorio);
+            this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
@@ -284,9 +281,6 @@ namespace GiftEjecutor
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-            
-            
-            this.arbol = new ArbolGift(directorio);
 
         }
 
@@ -315,5 +309,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelActividadesRealizadas;
         private System.Windows.Forms.ListBox listaFormularios;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TreeView directorio;
     }
 }

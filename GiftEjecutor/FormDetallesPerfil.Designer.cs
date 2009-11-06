@@ -36,6 +36,7 @@ namespace GiftEjecutor
             this.ColleccionesAsignadas = new System.Windows.Forms.GroupBox();
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.buttonAgregarPerfil = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ColleccionesAsignadas.SuspendLayout();
             this.SuspendLayout();
@@ -115,11 +116,20 @@ namespace GiftEjecutor
             this.buttonAgregarPerfil.UseVisualStyleBackColor = true;
             this.buttonAgregarPerfil.Click += new System.EventHandler(this.buttonAgregarPerfil_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(346, 46);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
             // FormDetallesPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 332);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ColleccionesAsignadas);
             this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.textBoxNombre);
@@ -128,6 +138,7 @@ namespace GiftEjecutor
             this.Name = "FormDetallesPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalles Perfil";
+            this.Load += new System.EventHandler(this.FormDetallesPerfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ColleccionesAsignadas.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -145,5 +156,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.GroupBox ColleccionesAsignadas;
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.Button buttonAgregarPerfil;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

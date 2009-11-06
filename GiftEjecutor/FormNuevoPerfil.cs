@@ -27,11 +27,29 @@ namespace GiftEjecutor
         {
             this.textBoxNombrePerfil.Focus();
         }
-
+        private String getTipoSeleccionado() { 
+            if(this.radioButton1.Checked){
+                return this.radioButton1.Text;
+            }
+            if (this.radioButton2.Checked)
+            {
+                return this.radioButton2.Text;
+            }
+            if (this.radioButton3.Checked)
+            {
+                return this.radioButton3.Text;
+            }
+            if (this.radioButton4.Checked)
+            {
+                return this.radioButton4.Text;
+            }
+            MessageBox.Show("Tipo no seleccionado");
+            return null;
+        }
         private void buttonOK_Click(object sender, EventArgs e)
         {
             if (this.camposValidos()) {
-                this.perfil.addNuevoPerfil(this.textBoxNombrePerfil.Text, this.textBoxTipoPerfil.Text, -1);
+                this.perfil.addNuevoPerfil(this.textBoxNombrePerfil.Text, this.getTipoSeleccionado(), -1);
                 this.gestionPerfiles.actulizarDataGrid();
                 this.Dispose();
             }
@@ -42,11 +60,7 @@ namespace GiftEjecutor
                 this.mostrarError();
                 return false;
             }
-            if (this.textBoxTipoPerfil.Text.Equals(""))
-            {
-                this.mostrarError();
-                return false;
-            }
+
             return true;
         }
         public void mostrarError() {
@@ -56,6 +70,16 @@ namespace GiftEjecutor
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void textBoxNombrePerfil_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelNombrePerfil_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

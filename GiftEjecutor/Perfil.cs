@@ -10,9 +10,26 @@ namespace GiftEjecutor
     {
         ConsultaPerfil consultaPerfil;
 
+        public String correlativo;
+        public String nombre;
+        public String tipo;
+        public String fechaActualizacion;
+        public List<Perfil> perfiles;// = new List<string>();
+      //  l.Add("one");
+
         public Perfil() {
             consultaPerfil = new ConsultaPerfil();
+            //this.perfiles = new List<Perfil>();
+            this.perfiles = this.getListTodosPerfiles();
         }
+
+
+        
+        public Perfil(int IDPerfil) {
+            consultaPerfil = new ConsultaPerfil();
+            this.setDatosPorID(IDPerfil);
+        }
+
         /// <summary>
         /// Devuelve un DataTable para un DataGridView con todos los perfiles registrados en la BD
         /// </summary>
@@ -64,12 +81,55 @@ namespace GiftEjecutor
             }
             return tablaPerfiles;
         }
+
+        public List<Perfil> getListTodosPerfiles()
+        {
+
+            List<Perfil> lista=new List<Perfil>();
+
+
+            SqlDataReader datos;
+            datos = this.consultaPerfil.getTodosPerfiles();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    int IDPerfil = Int32.Parse(datos.GetValue(0).ToString());
+                    lista.Add(new Perfil(IDPerfil));
+
+    
+                }
+            }
+            return lista;
+        }
         public void addNuevoPerfil(String nombre, String tipo, int IDFlujo){
             this.consultaPerfil.insertPerfil(nombre, tipo);
         }
         public void deletePerfil(int IDPerfil) {
             this.consultaPerfil.deletePerfil(IDPerfil);
         
+        }
+        public void setDatosPorID(int IDPerfil){
+            SqlDataReader datos;
+            datos = this.consultaPerfil.selectPerfilPorID(IDPerfil);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    
+                    this.correlativo=datos.GetValue(0).ToString(); ;
+                    this.nombre= datos.GetValue(1).ToString();
+                    this.tipo=datos.GetValue(2).ToString();
+                    this.fechaActualizacion = datos.GetValue(3).ToString();
+
+    
+                }
+            }
+    
+        }
+        public override String ToString() {
+            return this.nombre;
         }
     }
 }

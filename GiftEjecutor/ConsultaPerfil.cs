@@ -22,5 +22,11 @@ namespace GiftEjecutor
         {
             this.controladoBD.hacerConsultaEjecutor("delete from Perfil where correlativo="+IDPerfil+";");
         }
+        public SqlDataReader selectPerfilPorID(int IDPerfil)
+        {
+            SqlDataReader dataReader = null;
+            dataReader=this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, tipo, fechaActualizacion from Perfil where correlativo=" + IDPerfil + ";");
+            return dataReader;
+        }
     }
 }

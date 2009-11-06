@@ -24,6 +24,7 @@ namespace GiftEjecutor
         public void actulizarDataGrid(){
             this.dataGridViewPerfiles.DataSource = this.perfil.getDataTableTodosPerfiles();
             this.dataGridViewPerfiles.Columns[0].Visible = false;
+            this.dataGridViewPerfiles.Columns[4].Visible = false;
         }
         private void buttonAgregarPerfil_Click(object sender, EventArgs e)
         {
@@ -86,7 +87,8 @@ namespace GiftEjecutor
         private void buttonEliminarPerfil_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Eliminar: "+this.dataGridViewPerfiles[0,this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
-            this.perfil.deletePerfil(Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString()));
+            int IDPerfilSeleccionado = Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
+            this.perfil.deletePerfil(IDPerfilSeleccionado);
 
             MessageBox.Show("Eliminado perfil: " + this.dataGridViewPerfiles[1, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
             this.actulizarDataGrid();
@@ -94,7 +96,10 @@ namespace GiftEjecutor
 
         private void buttonDetalles_Click(object sender, EventArgs e)
         {
-            FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil();
+            //FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil();
+           // formDetallesPerfil.Show();
+            int IDPerfilSeleccionado = Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
+            FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil(IDPerfilSeleccionado);
             formDetallesPerfil.Show();
         }
 

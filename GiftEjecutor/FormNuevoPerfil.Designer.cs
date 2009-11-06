@@ -31,16 +31,18 @@ namespace GiftEjecutor
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxNombrePerfil = new System.Windows.Forms.TextBox();
-            this.textBoxTipoPerfil = new System.Windows.Forms.TextBox();
             this.labelNombrePerfil = new System.Windows.Forms.Label();
-            this.labelTipoPerfil = new System.Windows.Forms.Label();
-            this.groupBoxNuevoPerfil = new System.Windows.Forms.GroupBox();
-            this.groupBoxNuevoPerfil.SuspendLayout();
+            this.groupBoxTipo = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(307, 225);
+            this.buttonOK.Location = new System.Drawing.Point(177, 274);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 2;
@@ -50,7 +52,7 @@ namespace GiftEjecutor
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(212, 225);
+            this.buttonCancelar.Location = new System.Drawing.Point(96, 274);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 3;
@@ -60,64 +62,95 @@ namespace GiftEjecutor
             // 
             // textBoxNombrePerfil
             // 
-            this.textBoxNombrePerfil.Location = new System.Drawing.Point(128, 34);
+            this.textBoxNombrePerfil.Location = new System.Drawing.Point(109, 25);
             this.textBoxNombrePerfil.Name = "textBoxNombrePerfil";
             this.textBoxNombrePerfil.Size = new System.Drawing.Size(149, 20);
             this.textBoxNombrePerfil.TabIndex = 0;
-            // 
-            // textBoxTipoPerfil
-            // 
-            this.textBoxTipoPerfil.Location = new System.Drawing.Point(128, 73);
-            this.textBoxTipoPerfil.Name = "textBoxTipoPerfil";
-            this.textBoxTipoPerfil.Size = new System.Drawing.Size(149, 20);
-            this.textBoxTipoPerfil.TabIndex = 1;
+            this.textBoxNombrePerfil.TextChanged += new System.EventHandler(this.textBoxNombrePerfil_TextChanged);
             // 
             // labelNombrePerfil
             // 
             this.labelNombrePerfil.AutoSize = true;
-            this.labelNombrePerfil.Location = new System.Drawing.Point(14, 34);
+            this.labelNombrePerfil.Location = new System.Drawing.Point(39, 32);
             this.labelNombrePerfil.Name = "labelNombrePerfil";
             this.labelNombrePerfil.Size = new System.Drawing.Size(44, 13);
             this.labelNombrePerfil.TabIndex = 4;
             this.labelNombrePerfil.Text = "Nombre";
+            this.labelNombrePerfil.Click += new System.EventHandler(this.labelNombrePerfil_Click);
             // 
-            // labelTipoPerfil
+            // groupBoxTipo
             // 
-            this.labelTipoPerfil.AutoSize = true;
-            this.labelTipoPerfil.Location = new System.Drawing.Point(14, 73);
-            this.labelTipoPerfil.Name = "labelTipoPerfil";
-            this.labelTipoPerfil.Size = new System.Drawing.Size(28, 13);
-            this.labelTipoPerfil.TabIndex = 5;
-            this.labelTipoPerfil.Text = "Tipo";
+            this.groupBoxTipo.Controls.Add(this.radioButton4);
+            this.groupBoxTipo.Controls.Add(this.radioButton3);
+            this.groupBoxTipo.Controls.Add(this.radioButton2);
+            this.groupBoxTipo.Controls.Add(this.radioButton1);
+            this.groupBoxTipo.Location = new System.Drawing.Point(42, 76);
+            this.groupBoxTipo.Name = "groupBoxTipo";
+            this.groupBoxTipo.Size = new System.Drawing.Size(216, 133);
+            this.groupBoxTipo.TabIndex = 7;
+            this.groupBoxTipo.TabStop = false;
+            this.groupBoxTipo.Text = "Tipo";
             // 
-            // groupBoxNuevoPerfil
+            // radioButton1
             // 
-            this.groupBoxNuevoPerfil.Controls.Add(this.textBoxNombrePerfil);
-            this.groupBoxNuevoPerfil.Controls.Add(this.labelTipoPerfil);
-            this.groupBoxNuevoPerfil.Controls.Add(this.textBoxTipoPerfil);
-            this.groupBoxNuevoPerfil.Controls.Add(this.labelNombrePerfil);
-            this.groupBoxNuevoPerfil.Location = new System.Drawing.Point(30, 43);
-            this.groupBoxNuevoPerfil.Name = "groupBoxNuevoPerfil";
-            this.groupBoxNuevoPerfil.Size = new System.Drawing.Size(352, 139);
-            this.groupBoxNuevoPerfil.TabIndex = 6;
-            this.groupBoxNuevoPerfil.TabStop = false;
-            this.groupBoxNuevoPerfil.Text = "Nuevo Perfil";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(67, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(88, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Administrador";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // NuevoPerfil
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(67, 44);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(57, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "Dueño";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(67, 67);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(62, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Text = "Creador";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(67, 91);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(82, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.Text = "Colaborador";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // FormNuevoPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 309);
-            this.Controls.Add(this.groupBoxNuevoPerfil);
+            this.ClientSize = new System.Drawing.Size(331, 343);
+            this.Controls.Add(this.textBoxNombrePerfil);
+            this.Controls.Add(this.groupBoxTipo);
+            this.Controls.Add(this.labelNombrePerfil);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonOK);
-            this.Name = "NuevoPerfil";
+            this.Name = "FormNuevoPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Perfil";
             this.Load += new System.EventHandler(this.NuevoPerfil_Load);
-            this.groupBoxNuevoPerfil.ResumeLayout(false);
-            this.groupBoxNuevoPerfil.PerformLayout();
+            this.groupBoxTipo.ResumeLayout(false);
+            this.groupBoxTipo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,9 +159,11 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxNombrePerfil;
-        private System.Windows.Forms.TextBox textBoxTipoPerfil;
         private System.Windows.Forms.Label labelNombrePerfil;
-        private System.Windows.Forms.Label labelTipoPerfil;
-        private System.Windows.Forms.GroupBox groupBoxNuevoPerfil;
+        private System.Windows.Forms.GroupBox groupBoxTipo;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
