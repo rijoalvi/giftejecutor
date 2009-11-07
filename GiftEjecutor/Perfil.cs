@@ -10,11 +10,11 @@ namespace GiftEjecutor
     {
         ConsultaPerfil consultaPerfil;
 
-        public int correlativo;
-        public String nombre;
-        public String tipo;
-        public String fechaActualizacion;
-        public List<Perfil> perfiles;// = new List<string>();
+        private int correlativo;
+        private String nombre;
+        private String tipo;
+        private String fechaActualizacion;
+        private List<Perfil> perfiles;// = new List<string>();
       //  l.Add("one");
 
         public Perfil() {
@@ -124,6 +124,16 @@ namespace GiftEjecutor
     
         }
         public override String ToString() {
+            return this.nombre;
+        }
+
+        public String getTipo()
+        {
+            return this.tipo;
+        }
+
+        public String getNombre()
+        {
             return this.nombre;
         }
     }

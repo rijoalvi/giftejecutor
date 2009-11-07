@@ -58,6 +58,30 @@ namespace GiftEjecutor
             return consultaBD.comprobarUsuario(nombre, password);
         }
 
+        /// <summary>
+        /// Devuelve un int indicando u tipo
+        /// 0 = Administrador
+        /// 1 = Dueño
+        /// 2 = Creador
+        /// 3 = Colaborador
+        /// </summary>
+        /// <returns></returns>
+        public int getTipo() {
+            String tipo = miPerfil.getTipo();
+            int tipoInt = 0;
+            if (tipo.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                tipoInt = 0;
+            else
+                if (tipo.Equals("Dueño", StringComparison.OrdinalIgnoreCase))
+                    tipoInt = 1;
+                else
+                    if (tipo.Equals("Creador", StringComparison.OrdinalIgnoreCase))
+                        tipoInt = 2;
+                    else
+                        if (tipo.Equals("Colaborador", StringComparison.OrdinalIgnoreCase))
+                            tipoInt = 3;
+            return tipoInt;
+        }
 
     }
 }

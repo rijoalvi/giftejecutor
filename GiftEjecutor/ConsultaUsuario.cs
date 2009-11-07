@@ -32,9 +32,8 @@ namespace GiftEjecutor
         /// <returns></returns>
         public int[] obtenerIDsExpedientes(int idUsuario)
         {
-            String consulta = "SELECT IDExpediente FROM PermisosUsuario WHERE IDUsuario = '" + idUsuario + "';";
+            String consulta = "SELECT IDExpediente FROM PermisosUsuario WHERE IDUsuario = '" + idUsuario + "' ORDER BY IDExpediente;";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
-            int cant = 0;
             String IDs = "";
             while(datos.Read())
             {
@@ -42,7 +41,7 @@ namespace GiftEjecutor
             }
             if (IDs.Length > 0)
             {
-                String[] losIdsStr = IDs.Split(';');
+                String[] losIdsStr = IDs.Substring(0, IDs.Length-1).Split(';');
                 int[] losIds = new int[losIdsStr.Length];
                 for (int k = 0; k < losIdsStr.Length; ++k)
                     losIds[k] = int.Parse(losIdsStr[k]);

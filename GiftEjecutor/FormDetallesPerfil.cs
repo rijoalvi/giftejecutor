@@ -20,8 +20,8 @@ namespace GiftEjecutor
             InitializeComponent();
             perfil = new Perfil();
             perfil.setDatosPorID(IDPerfil);
-            this.textBoxNombre.Text = perfil.nombre;
-            this.textBoxTipo.Text = perfil.tipo;
+            this.textBoxNombre.Text = perfil.getNombre();
+            this.textBoxTipo.Text = perfil.getTipo();
         }
         private void buttonAgregarPerfil_Click(object sender, EventArgs e)
         {
