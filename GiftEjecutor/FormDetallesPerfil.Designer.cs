@@ -37,6 +37,7 @@ namespace GiftEjecutor
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.buttonAgregarPerfil = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxFlujoTrabajo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ColleccionesAsignadas.SuspendLayout();
             this.SuspendLayout();
@@ -124,11 +125,21 @@ namespace GiftEjecutor
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 6;
             // 
+            // comboBoxFlujoTrabajo
+            // 
+            this.comboBoxFlujoTrabajo.FormattingEnabled = true;
+            this.comboBoxFlujoTrabajo.Location = new System.Drawing.Point(346, 85);
+            this.comboBoxFlujoTrabajo.Name = "comboBoxFlujoTrabajo";
+            this.comboBoxFlujoTrabajo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFlujoTrabajo.TabIndex = 7;
+            this.comboBoxFlujoTrabajo.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlujoTrabajo_SelectedIndexChanged);
+            // 
             // FormDetallesPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 332);
+            this.Controls.Add(this.comboBoxFlujoTrabajo);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ColleccionesAsignadas);
             this.Controls.Add(this.textBoxTipo);
@@ -157,5 +168,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.Button buttonAgregarPerfil;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxFlujoTrabajo;
     }
 }

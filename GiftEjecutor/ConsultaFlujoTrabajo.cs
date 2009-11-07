@@ -41,6 +41,14 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        public SqlDataReader selectFlujoTrabajoPorID(int IDFlujo)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("SELECT correlativo, nombre, descripcion, fechaActualizacion FROM FLUJO where correlativo=" + IDFlujo + ";");
+
+            return dataReader;
+        }
+
         public SqlDataReader getFlujosConstruidos()
         {
             SqlDataReader dataReader = null;

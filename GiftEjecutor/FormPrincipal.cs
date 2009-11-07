@@ -66,7 +66,11 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+<<<<<<< .mine
+           // refrescarDirectorio();//este es que comenteo a veces, luisk
+=======
             //refrescarDirectorio();//este es que comenteo a veces, luisk
+>>>>>>> .r145
         }
         
         private void FormPrincipal_Shown(object sender, EventArgs e)
@@ -182,6 +186,14 @@ namespace GiftEjecutor
             }            
         }
 
+<<<<<<< .mine
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+           // refrescarDirectorio();//este comente a veces, luisk
+            //refrescarDirectorioTemp();
+        }
+=======
+>>>>>>> .r145
 
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -9,9 +9,33 @@ namespace GiftEjecutor
     class FlujoTrabajo
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
+
         int correlativo;
         String nombre;
         String descripcion;
+        String fechaActualizacion;
+
+        public List<FlujoTrabajo> flujosTrabajo;//para cuando quiero recibir todos los flujos
+
+        public void setDatosPorID(int IDPerfil)
+        {
+            SqlDataReader datos;
+            datos = this.consultaFlujoTrabajo.selectFlujoTrabajoPorID(IDPerfil);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    this.correlativo = Int32.Parse( datos.GetValue(0).ToString()) ;
+                    this.nombre = datos.GetValue(1).ToString();
+                    this.descripcion = datos.GetValue(2).ToString();
+                    this.fechaActualizacion = datos.GetValue(3).ToString();
+
+
+                }
+            }
+
+        }
 
         public FlujoTrabajo(int correlativo, String nombre, String descripcion) {
             this.correlativo = correlativo;
@@ -24,6 +48,7 @@ namespace GiftEjecutor
 
         public FlujoTrabajo() {
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+            this.flujosTrabajo = this.getListaTodosLosFlujosDeTrabajo();
         }
 
         public FlujoTrabajo(int correlativoFlujo) {
@@ -31,7 +56,12 @@ namespace GiftEjecutor
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
             String [] datos = consultaFlujoTrabajo.getDatosFlujo(correlativo);            
         }
-
+        public FlujoTrabajo(int IDFlujo,int NOseUSA)
+        {
+            //this.correlativo = correlativoFlujo;
+            consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
+            this.setDatosPorID(IDFlujo);
+        }
         /// <summary>
         /// Devuelve un dataTable con todos los datos del flujo de trabajo instanciado
         /// </summary>
@@ -120,42 +150,23 @@ namespace GiftEjecutor
 
 
 
-        public DataTable getListaTodosLosFlujosDeTrabajo()
+        public List<FlujoTrabajo> getListaTodosLosFlujosDeTrabajo()
         {
+            List<FlujoTrabajo> lista = new List<FlujoTrabajo>();
             SqlDataReader datos;
             datos = consultaFlujoTrabajo.getTodosLosFlujosTrabajo();
 
-            DataTable tabla = new DataTable();
-            DataRow fila;
-            DataColumn IDFlujo = new DataColumn();
-            DataColumn nombre = new DataColumn();
-            DataColumn descripcion = new DataColumn();
-
-            IDFlujo.ColumnName = "IDFlujo";
-            IDFlujo.DataType = Type.GetType("System.String");
-
-            nombre.ColumnName = "nombre";
-            nombre.DataType = Type.GetType("System.String");
-
-            descripcion.ColumnName = "descripcion";
-            descripcion.DataType = Type.GetType("System.String");
-
-            tabla.Columns.Add(IDFlujo);
-            tabla.Columns.Add(nombre);
-            tabla.Columns.Add(descripcion);
             if (datos != null)
             {
                 while (
                 datos.Read())
                 {
-                    fila = tabla.NewRow();
-                    fila["IDFlujo"] = datos.GetValue(0);
-                    fila["nombre"] = datos.GetValue(1);
-                    fila["descripcion"] = datos.GetValue(2).ToString();
-                    tabla.Rows.Add(fila);
+                    int IDFlujo = Int32.Parse(datos.GetValue(0).ToString());
+                    lista.Add(new FlujoTrabajo(IDFlujo,-1));
+         
                 }
             }
-            return tabla;
+            return lista;
         }
 
 
@@ -266,6 +277,10 @@ namespace GiftEjecutor
         }
         public int getCorrelativo() {
             return this.correlativo;
+        }
+        public override String ToString()
+        {
+            return this.nombre;
         }
     }
 }

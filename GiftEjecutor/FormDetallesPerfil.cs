@@ -31,14 +31,25 @@ namespace GiftEjecutor
 
         private void FormDetallesPerfil_Load(object sender, EventArgs e)
         {
-            Perfil p = new Perfil();
-            //List < Perfil >lista;
-            //lista= p.getListTodosPerfiles();
+          /*  Perfil p = new Perfil();
+    
             for (int i = 0; i < p.perfiles.Count; i++)
             {
-                comboBox1.Items.Add(p.perfiles[i]);
+                comboBox.Items.Add(p.perfiles[i]);
+            }*/
+
+
+
+            FlujoTrabajo f = new FlujoTrabajo();
+            for (int i = 0; i < f.flujosTrabajo.Count; i++)
+            {
+                comboBox1.Items.Add(f.flujosTrabajo[i]);
             }
-            
+        }
+
+        private void comboBoxFlujoTrabajo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
