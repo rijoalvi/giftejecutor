@@ -10,7 +10,7 @@ namespace GiftEjecutor
     {
         ConsultaPerfil consultaPerfil;
 
-        public String correlativo;
+        public int correlativo;
         public String nombre;
         public String tipo;
         public String fechaActualizacion;
@@ -116,14 +116,11 @@ namespace GiftEjecutor
             if (datos != null)
             {
                 while (datos.Read())
-                {
-                    
-                    this.correlativo=datos.GetValue(0).ToString(); ;
+                {                    
+                    this.correlativo= int.Parse(datos.GetValue(0).ToString());
                     this.nombre= datos.GetValue(1).ToString();
                     this.tipo=datos.GetValue(2).ToString();
-                    this.fechaActualizacion = datos.GetValue(3).ToString();
-
-    
+                    this.fechaActualizacion = datos.GetValue(3).ToString();    
                 }
             }
     

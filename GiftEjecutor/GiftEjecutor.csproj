@@ -63,6 +63,7 @@
     <Compile Include="ConsultaJerarquia.cs" />
     <Compile Include="ConsultaMaestroDetalle.cs" />
     <Compile Include="ConsultaPerfil.cs" />
+    <Compile Include="ConsultaUsuario.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaActividad.cs" />
