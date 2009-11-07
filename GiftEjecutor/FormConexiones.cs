@@ -13,17 +13,16 @@ namespace GiftEjecutor
     {
         private Ventanota padreMDI;
 
-        private const int MYSQL=1;
-        private const int SQLSERVER=2;
-
         private const int CONEXION_EXTERNA = 1;
         private const int CONEXION_ECCI = 2;
 
-        private int conexionEjecutorSeleccionada = CONEXION_EXTERNA;// por default
-        private int conexionConfiguradorSeleccionada = CONEXION_EXTERNA;
+        private int conexionSeleccionada = CONEXION_EXTERNA;// por default
+        //private int conexionConfiguradorSeleccionada = CONEXION_EXTERNA;
         public FormConexiones()
         {
             InitializeComponent();
+            labelError.Hide();
+            this.txtUsuario.Focus();
 /*
             Thread t1 = new Thread(new ThreadStart(SplashForm));
             t1.Start();
@@ -32,35 +31,44 @@ namespace GiftEjecutor
             Thread.Sleep(1000);*/
         }
 
-        private void FormConexiones_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButtonMYSQL_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonExterna_CheckedChanged(object sender, EventArgs e)
         {
    
-            if (true == radioButtonEjecutorExterna.Checked)
+            if (true == radioButtonExterna.Checked)
             {
-                conexionEjecutorSeleccionada = MYSQL;
+                this.conexionSeleccionada = CONEXION_EXTERNA;
             }
             else {
-                conexionEjecutorSeleccionada = SQLSERVER;
+                this.conexionSeleccionada = CONEXION_ECCI;
             }
-            System.Console.Write(conexionEjecutorSeleccionada);
+            System.Console.Write(this.conexionSeleccionada);
         }
 
         private void buttonIniciar_Click(object sender, EventArgs e)
         {
-            ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
-            FormPrincipal formPrincipal = new FormPrincipal(this.conexionEjecutorSeleccionada);
+            //asigna la coneccion
+            ControladorBD.conexionConfiguracionSeleccionada = this.conexionSeleccionada;
+            
+            Usuario user = new Usuario();
+            int idUsuario = user.comprobarUsuario(this.txtUsuario.Text, this.txtPassword.Text);
+            //nombre de usuario o password incorrecto!
+            if (idUsuario == -1)
+            {
+                labelError.Show();
+                this.txtPassword.Text = "";
+                this.txtPassword.Focus();
+            }
+            else
+            {
+                FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada, idUsuario);
 
-           // formPrincipal.MdiParent = padreMDI;
-            formPrincipal.setPadreMDI(padreMDI);
-            this.Hide();
-            formPrincipal.Show();
-            //Este si lo esconde, pero entonces nunk se mata el programa, asi q no funca
-            //this.Visible = false;            
+                // formPrincipal.MdiParent = padreMDI;
+                formPrincipal.setPadreMDI(padreMDI);
+                this.Hide();
+                formPrincipal.Show();
+                //Este si lo esconde, pero entonces nunk se mata el programa, asi q no funca
+                //this.Visible = false;     
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,21 +82,7 @@ namespace GiftEjecutor
 
         }
 
-        private void mySqlConnection1_StateChange(object sender, StateChangeEventArgs e)
-        {
-
-        }
-
-        private void sqlConnection1_InfoMessage(object sender, System.Data.SqlClient.SqlInfoMessageEventArgs e)
-        {
-
-        }
-
-        private void radioButtonConfiguradorEEUU_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /*
         private void radioButtonConexionExternaConfigurador_CheckedChanged(object sender, EventArgs e)
         {
             if (true == this.radioButtonConfiguradorExterna.Checked)
@@ -101,8 +95,9 @@ namespace GiftEjecutor
             }
             System.Console.Write(conexionEjecutorSeleccionada);
         }
-
+        */
         
+        /*
         private void radioButtonSQLServerConfigurador_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonEjecutorECCI.Checked)
@@ -116,7 +111,8 @@ namespace GiftEjecutor
                 radioButtonConfiguradorExterna.Checked = true;
             }
         }
-
+        */
+          
         private void SplashForm()
         {
             Splash newSplashForm = new Splash();

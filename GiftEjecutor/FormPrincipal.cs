@@ -15,6 +15,7 @@ namespace GiftEjecutor
         private int IDExpediente;
         private String[] IDsFormularios;
         private FormFormulario formCaratula;
+        private Usuario user;
 
 
         //private ArbolGift arbol;
@@ -36,17 +37,19 @@ namespace GiftEjecutor
             //arbol = new ArbolGift(directorio);           
         }
 
-        public FormPrincipal(int conexionSeleccionada)
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="conexionSeleccionada">La coneccion a utilizar, ECCI o USA</param>
+        /// <param name="idUsuario">EL id del usuario logueado</param>
+        public FormPrincipal(int conexionSeleccionada, int idUsuario)
         {
            //ControladorBD.conexionSelecciona = conexionSeleccionada;
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
-           /* panelEjecutorial.Visible = false;
-            panelFormularios.Visible = false;
-            indiceFormularios = 0;*/
             //refrescarDirectorio();     
-//            panelEjecutorial.Hide();
+            user = new Usuario(idUsuario);
         }
 
         public void refrescarDirectorio() {
@@ -63,7 +66,12 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            refrescarDirectorio();//este es que comenteo a veces, luisk
+            //refrescarDirectorio();//este es que comenteo a veces, luisk
+        }
+        
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            //refrescarDirectorio();//este comente a veces, luisk
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -174,19 +182,6 @@ namespace GiftEjecutor
             }            
         }
 
-        private void FormPrincipal_Shown(object sender, EventArgs e)
-        {
-            refrescarDirectorio();//este comente a veces, luisk
-            //refrescarDirectorioTemp();
-        }
-
-        //Beto
-        private void refrescarDirectorioTemp() {
-
-            Jerarquia miJera = new Jerarquia(12);
-            //directorio = miJera.getArbol();
-            //directorio.Refresh();
-        }
 
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {

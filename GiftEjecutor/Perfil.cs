@@ -22,9 +22,7 @@ namespace GiftEjecutor
             //this.perfiles = new List<Perfil>();
             this.perfiles = this.getListTodosPerfiles();
         }
-
-
-        
+                
         public Perfil(int IDPerfil) {
             consultaPerfil = new ConsultaPerfil();
             this.setDatosPorID(IDPerfil);

@@ -29,61 +29,61 @@ namespace GiftEjecutor
         private void InitializeComponent()
         {
             this.groupBoxConexiones = new System.Windows.Forms.GroupBox();
-            this.radioButtonEjecutorECCI = new System.Windows.Forms.RadioButton();
-            this.radioButtonEjecutorExterna = new System.Windows.Forms.RadioButton();
+            this.radioButtonECCI = new System.Windows.Forms.RadioButton();
+            this.radioButtonExterna = new System.Windows.Forms.RadioButton();
             this.buttonIniciar = new System.Windows.Forms.Button();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonConfiguradorECCI = new System.Windows.Forms.RadioButton();
-            this.radioButtonConfiguradorExterna = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.groupBoxConexiones.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxConexiones
             // 
-            this.groupBoxConexiones.Controls.Add(this.radioButtonEjecutorECCI);
-            this.groupBoxConexiones.Controls.Add(this.radioButtonEjecutorExterna);
-            this.groupBoxConexiones.Location = new System.Drawing.Point(30, 75);
+            this.groupBoxConexiones.Controls.Add(this.radioButtonECCI);
+            this.groupBoxConexiones.Controls.Add(this.radioButtonExterna);
+            this.groupBoxConexiones.Location = new System.Drawing.Point(15, 205);
             this.groupBoxConexiones.Name = "groupBoxConexiones";
-            this.groupBoxConexiones.Size = new System.Drawing.Size(205, 67);
-            this.groupBoxConexiones.TabIndex = 0;
+            this.groupBoxConexiones.Size = new System.Drawing.Size(293, 49);
+            this.groupBoxConexiones.TabIndex = 3;
             this.groupBoxConexiones.TabStop = false;
-            this.groupBoxConexiones.Text = "Ejecutor";
             // 
-            // radioButtonEjecutorECCI
+            // radioButtonECCI
             // 
-            this.radioButtonEjecutorECCI.AutoSize = true;
-            this.radioButtonEjecutorECCI.Location = new System.Drawing.Point(21, 42);
-            this.radioButtonEjecutorECCI.Name = "radioButtonEjecutorECCI";
-            this.radioButtonEjecutorECCI.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonEjecutorECCI.TabIndex = 2;
-            this.radioButtonEjecutorECCI.Text = "SQLServer, ECCI";
-            this.radioButtonEjecutorECCI.UseVisualStyleBackColor = true;
-            this.radioButtonEjecutorECCI.CheckedChanged += new System.EventHandler(this.radioButtonSQLServerConfigurador_CheckedChanged);
+            this.radioButtonECCI.AutoSize = true;
+            this.radioButtonECCI.Location = new System.Drawing.Point(172, 19);
+            this.radioButtonECCI.Name = "radioButtonECCI";
+            this.radioButtonECCI.Size = new System.Drawing.Size(107, 17);
+            this.radioButtonECCI.TabIndex = 3;
+            this.radioButtonECCI.Text = "SQLServer, ECCI";
+            this.radioButtonECCI.UseVisualStyleBackColor = true;
             // 
-            // radioButtonEjecutorExterna
+            // radioButtonExterna
             // 
-            this.radioButtonEjecutorExterna.AutoSize = true;
-            this.radioButtonEjecutorExterna.Checked = true;
-            this.radioButtonEjecutorExterna.Location = new System.Drawing.Point(21, 19);
-            this.radioButtonEjecutorExterna.Name = "radioButtonEjecutorExterna";
-            this.radioButtonEjecutorExterna.Size = new System.Drawing.Size(113, 17);
-            this.radioButtonEjecutorExterna.TabIndex = 1;
-            this.radioButtonEjecutorExterna.TabStop = true;
-            this.radioButtonEjecutorExterna.Text = "SQLServer, EEUU";
-            this.radioButtonEjecutorExterna.UseVisualStyleBackColor = true;
-            this.radioButtonEjecutorExterna.CheckedChanged += new System.EventHandler(this.radioButtonMYSQL_CheckedChanged);
+            this.radioButtonExterna.AutoSize = true;
+            this.radioButtonExterna.Checked = true;
+            this.radioButtonExterna.Location = new System.Drawing.Point(21, 19);
+            this.radioButtonExterna.Name = "radioButtonExterna";
+            this.radioButtonExterna.Size = new System.Drawing.Size(113, 17);
+            this.radioButtonExterna.TabIndex = 3;
+            this.radioButtonExterna.TabStop = true;
+            this.radioButtonExterna.Text = "SQLServer, EEUU";
+            this.radioButtonExterna.UseVisualStyleBackColor = true;
+            this.radioButtonExterna.CheckedChanged += new System.EventHandler(this.radioButtonExterna_CheckedChanged);
             // 
             // buttonIniciar
             // 
             this.buttonIniciar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIniciar.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonIniciar.Location = new System.Drawing.Point(213, 172);
+            this.buttonIniciar.Location = new System.Drawing.Point(219, 280);
             this.buttonIniciar.Name = "buttonIniciar";
             this.buttonIniciar.Size = new System.Drawing.Size(75, 23);
-            this.buttonIniciar.TabIndex = 0;
+            this.buttonIniciar.TabIndex = 4;
             this.buttonIniciar.Text = "Iniciar";
             this.buttonIniciar.UseVisualStyleBackColor = true;
             this.buttonIniciar.Click += new System.EventHandler(this.buttonIniciar_Click);
@@ -93,71 +93,93 @@ namespace GiftEjecutor
             this.sqlConnection1.ConnectionString = "Data Source=BD;Initial Catalog=bdInge1g2_g2;Persist Security Info=True;User ID=us" +
                 "uarioInge1_g2;Password=ui1_g2";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
-            this.sqlConnection1.InfoMessage += new System.Data.SqlClient.SqlInfoMessageEventHandler(this.sqlConnection1_InfoMessage);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButtonConfiguradorECCI);
-            this.groupBox1.Controls.Add(this.radioButtonConfiguradorExterna);
-            this.groupBox1.Location = new System.Drawing.Point(262, 75);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(205, 67);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configurador";
-            // 
-            // radioButtonConfiguradorECCI
-            // 
-            this.radioButtonConfiguradorECCI.AutoSize = true;
-            this.radioButtonConfiguradorECCI.Location = new System.Drawing.Point(17, 42);
-            this.radioButtonConfiguradorECCI.Name = "radioButtonConfiguradorECCI";
-            this.radioButtonConfiguradorECCI.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonConfiguradorECCI.TabIndex = 3;
-            this.radioButtonConfiguradorECCI.TabStop = true;
-            this.radioButtonConfiguradorECCI.Text = "SQLServer, ECCI";
-            this.radioButtonConfiguradorECCI.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonConfiguradorExterna
-            // 
-            this.radioButtonConfiguradorExterna.AutoSize = true;
-            this.radioButtonConfiguradorExterna.Checked = true;
-            this.radioButtonConfiguradorExterna.Location = new System.Drawing.Point(17, 19);
-            this.radioButtonConfiguradorExterna.Name = "radioButtonConfiguradorExterna";
-            this.radioButtonConfiguradorExterna.Size = new System.Drawing.Size(113, 17);
-            this.radioButtonConfiguradorExterna.TabIndex = 2;
-            this.radioButtonConfiguradorExterna.TabStop = true;
-            this.radioButtonConfiguradorExterna.Text = "SQLServer, EEUU";
-            this.radioButtonConfiguradorExterna.UseVisualStyleBackColor = true;
-            this.radioButtonConfiguradorExterna.CheckedChanged += new System.EventHandler(this.radioButtonConexionExternaConfigurador_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(11, 24);
+            this.label1.Location = new System.Drawing.Point(12, 172);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(474, 23);
+            this.label1.Size = new System.Drawing.Size(377, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Seleccione la Conexión que Desea Utilizar:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label2.Location = new System.Drawing.Point(12, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(451, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Favor ingresar el nombre de usuario y contraseña:";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(15, 98);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(15, 139);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Usuario:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Contraseña:";
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Verdana", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(13, 13);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(328, 32);
+            this.labelError.TabIndex = 8;
+            this.labelError.Text = "Nombre de usuario o contraseña incorrecto, \r\nfavor intentar nuevamente";
+            // 
             // FormConexiones
             // 
+            this.AcceptButton = this.buttonIniciar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 207);
+            this.ClientSize = new System.Drawing.Size(497, 331);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonIniciar);
             this.Controls.Add(this.groupBoxConexiones);
             this.Name = "FormConexiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Seleccionar Conexión";
-            this.Load += new System.EventHandler(this.FormConexiones_Load);
+            this.Text = "Login";
             this.groupBoxConexiones.ResumeLayout(false);
             this.groupBoxConexiones.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,14 +188,17 @@ namespace GiftEjecutor
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxConexiones;
-        private System.Windows.Forms.RadioButton radioButtonEjecutorECCI;
-        private System.Windows.Forms.RadioButton radioButtonEjecutorExterna;
+        private System.Windows.Forms.RadioButton radioButtonECCI;
+        private System.Windows.Forms.RadioButton radioButtonExterna;
         private System.Windows.Forms.Button buttonIniciar;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         //private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonConfiguradorECCI;
-        private System.Windows.Forms.RadioButton radioButtonConfiguradorExterna;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.MaskedTextBox txtPassword;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelError;
     }
 }

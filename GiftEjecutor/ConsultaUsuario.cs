@@ -16,7 +16,7 @@ namespace GiftEjecutor
         /// <returns></returns>
         public String[] obtenerDatos(int idUsuario){
             String[] respuesta = { "", "" };
-            String consulta = "SELECT nombreUsuario, IDPerfil FROM Usuario WHERE correlativo = " + idUsuario + ";";
+            String consulta = "SELECT nombreUsuario, IDPerfil FROM Usuario WHERE correlativo = '" + idUsuario + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             if(datos.Read()) {
                 respuesta[0] = datos.GetValue(0).ToString();
@@ -30,18 +30,42 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="idUsuario"></param>
         /// <returns></returns>
-        public String[] obtenerIDsExpedientes(int idUsuario)
+        public int[] obtenerIDsExpedientes(int idUsuario)
         {
-            String[] respuesta = { "", "" };
-            String consulta = "SELECT IDExpediente FROM PermisosUsuario WHERE IDUsuario = " + idUsuario + ";";
+            String consulta = "SELECT IDExpediente FROM PermisosUsuario WHERE IDUsuario = '" + idUsuario + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             int cant = 0;
+            String IDs = "";
             while(datos.Read())
             {
-                respuesta[cant] = datos.GetValue(0).ToString();
+                IDs += int.Parse(datos.GetValue(0).ToString())+";";
             }
-            return respuesta;
+            if (IDs.Length > 0)
+            {
+                String[] losIdsStr = IDs.Split(';');
+                int[] losIds = new int[losIdsStr.Length];
+                for (int k = 0; k < losIdsStr.Length; ++k)
+                    losIds[k] = int.Parse(losIdsStr[k]);
+                return losIds;
+            }
+            return null;
         }
 
+        /// <summary>
+        /// Indica el ID del usuario si los datos son correctos, de lo contrario devuelve un -1
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public int comprobarUsuario(String user, String password)
+        {
+            String consulta = "SELECT correlativo FROM Usuario WHERE nombreUsuario = '" + user + "' AND contrasena = '" + password + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if (datos.Read())
+            {
+                return int.Parse(datos.GetValue(0).ToString());
+            }
+            return -1;
+        }
     }
 }
