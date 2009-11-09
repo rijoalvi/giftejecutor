@@ -124,5 +124,10 @@ namespace GiftEjecutor
         {
             padreMDI = v;
         }
+
+        private void FormConexiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

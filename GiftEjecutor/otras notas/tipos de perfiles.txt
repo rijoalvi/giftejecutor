@@ -5,14 +5,16 @@ Administrador:
 
 Dueño:
 	Ejecutar (cualquier actividad) del flujo pero no crearlo.
+	marcar todas y bloquear
 
 
 	
 Creador:
 	Crear Expedientes de UNA coleccion asignada y ejecutar actividad inicial
+	no puede ejecutar mas que la primera
 
 
 Colaborador:
-	Ejecuta algunas actividades de una coleccion
+	Ejecuta algunas actividades de algunas coleccion
 	
 Si se le asigna un flujo, se le asignan todas las colecciones.	
