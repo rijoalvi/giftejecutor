@@ -94,5 +94,11 @@ namespace GiftEjecutor
             
             return lista;
         }
+        public SqlDataReader getlistaColeccionesDeUnFlujo(int IDFlujo)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, correlativoPadre, correlativoFlujo from Coleccion where correlativoFlujo="+IDFlujo+";");
+            return dataReader;
+        }
     }
 }

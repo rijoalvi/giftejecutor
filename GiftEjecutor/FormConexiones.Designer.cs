@@ -122,6 +122,7 @@ namespace GiftEjecutor
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.Text = "admin";
             // 
             // txtPassword
             // 
@@ -130,6 +131,7 @@ namespace GiftEjecutor
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "1";
             // 
             // label3
             // 

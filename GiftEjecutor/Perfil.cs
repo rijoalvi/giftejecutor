@@ -14,7 +14,7 @@ namespace GiftEjecutor
         private String nombre;
         private String tipo;
         private String fechaActualizacion;
-        private List<Perfil> perfiles;// = new List<string>();
+        public List<Perfil> perfiles;// = new List<string>();
       //  l.Add("one");
 
         public Perfil() {
@@ -27,7 +27,15 @@ namespace GiftEjecutor
             consultaPerfil = new ConsultaPerfil();
             this.setDatosPorID(IDPerfil);
         }
-
+        public Perfil(int correlativo, String nombre, String tipo, String fechaActualizacion) {
+            this.setDatos(correlativo, nombre, tipo, fechaActualizacion);
+        }
+        public void setDatos(int correlativo, String nombre, String tipo, String fechaActualizacion){
+            this.correlativo=correlativo;
+            this.nombre=nombre;
+            this.tipo=tipo;
+            this.fechaActualizacion=fechaActualizacion;
+        }
         /// <summary>
         /// Devuelve un DataTable para un DataGridView con todos los perfiles registrados en la BD
         /// </summary>
@@ -94,7 +102,10 @@ namespace GiftEjecutor
                 {
 
                     int IDPerfil = Int32.Parse(datos.GetValue(0).ToString());
-                    lista.Add(new Perfil(IDPerfil));
+                    String nombre = datos.GetValue(1).ToString();
+                    String tipo = datos.GetValue(2).ToString();
+                    String fechaActualizacion = datos.GetValue(3).ToString();  
+                    lista.Add(new Perfil(IDPerfil,nombre,tipo,fechaActualizacion));
 
     
                 }
