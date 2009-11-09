@@ -66,5 +66,27 @@ namespace GiftEjecutor
             }
             return -1;
         }
+
+        /// <summary>
+        /// Devuelve todos los datos de la tabla usuario 
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
+        public String[] obtenerTodosLosDatos(int idUsuario)
+        {
+            String[] respuesta = { "", "" };
+            String consulta = "SELECT nombreUsuario, IDPerfil, contrasena, preguntaSecreta, respuesta FROM Usuario WHERE correlativo = '" + idUsuario + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if (datos.Read())
+            {
+                respuesta[0] = datos.GetValue(0).ToString();
+                respuesta[1] = datos.GetValue(1).ToString();
+                respuesta[2] = datos.GetValue(2).ToString();
+                respuesta[3] = datos.GetValue(3).ToString();
+                respuesta[4] = datos.GetValue(4).ToString();
+
+            }
+            return respuesta;
+        }
     }
 }

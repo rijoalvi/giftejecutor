@@ -532,5 +532,11 @@ namespace GiftEjecutor
         {
 
         }
+
+        private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormGestionUsuarios usuarios = new FormGestionUsuarios();
+            usuarios.Show();
+        }
     }
 }
