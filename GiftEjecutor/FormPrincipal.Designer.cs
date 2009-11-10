@@ -38,6 +38,7 @@ namespace GiftEjecutor
             this.constructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónPerfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDeExpedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
             this.labelPorRealizar = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@ namespace GiftEjecutor
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.asignaciónDeExpedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,6 @@ namespace GiftEjecutor
             this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // archivoToolStripMenuItem
             // 
@@ -137,6 +136,13 @@ namespace GiftEjecutor
             this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de Usuarios";
             this.gestiónDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeUsuariosToolStripMenuItem_Click);
+            // 
+            // asignaciónDeExpedientesToolStripMenuItem
+            // 
+            this.asignaciónDeExpedientesToolStripMenuItem.Name = "asignaciónDeExpedientesToolStripMenuItem";
+            this.asignaciónDeExpedientesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.asignaciónDeExpedientesToolStripMenuItem.Text = "Asignación de Expedientes";
+            this.asignaciónDeExpedientesToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDeExpedientesToolStripMenuItem_Click);
             // 
             // buttonActividad
             // 
@@ -263,12 +269,6 @@ namespace GiftEjecutor
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 22;
             this.label1.Text = "Formularios creados:";
-            // 
-            // asignaciónDeExpedientesToolStripMenuItem
-            // 
-            this.asignaciónDeExpedientesToolStripMenuItem.Name = "asignaciónDeExpedientesToolStripMenuItem";
-            this.asignaciónDeExpedientesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.asignaciónDeExpedientesToolStripMenuItem.Text = "Asignación de Expedientes";
             // 
             // FormPrincipal
             // 

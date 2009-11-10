@@ -39,8 +39,6 @@ namespace GiftEjecutor
                 comboBox1.Items.Add(p.perfiles[i]);
             }*/
 
-
-
             FlujoTrabajo f = new FlujoTrabajo();
             for (int i = 0; i < f.flujosTrabajo.Count; i++)
             {

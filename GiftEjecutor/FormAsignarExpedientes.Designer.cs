@@ -52,6 +52,7 @@ namespace GiftEjecutor
             this.comboUsuarios.Name = "comboUsuarios";
             this.comboUsuarios.Size = new System.Drawing.Size(121, 21);
             this.comboUsuarios.TabIndex = 1;
+            this.comboUsuarios.SelectedIndexChanged += new System.EventHandler(this.comboUsuarios_SelectedIndexChanged);
             // 
             // comboExpedientes
             // 

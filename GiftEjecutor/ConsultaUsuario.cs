@@ -121,7 +121,7 @@ namespace GiftEjecutor
 
         public SqlDataReader obtenerTodosLosUsuarios()
         {
-            String consulta = "SELECT correlativo FROM PermisosUsuario ORDER BY correlativo;";
+            String consulta = "SELECT correlativo FROM Usuario ORDER BY correlativo;";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }

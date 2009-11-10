@@ -211,8 +211,8 @@ namespace GiftEjecutor
                 Expediente expediente = arbol.expedienteSeleccionado();
                 if (expediente != null)
                 {
-                    correlativoFlujo = expediente.getCorrelativoFlujo().ToString();
-                    correlativoPadre = expediente.getCorrelativoColeccion().ToString();
+                    correlativoFlujo = expediente.getIDFlujo().ToString();
+                    correlativoPadre = expediente.getIDColeccion().ToString();
                     String correlativoExpediente = expediente.getCorrelativo().ToString();
                     FormFlujosConstruidos form = new FormFlujosConstruidos(this, correlativoExpediente, correlativoPadre, correlativoFlujo);
                     form.MdiParent = padreMDI;
@@ -254,7 +254,7 @@ namespace GiftEjecutor
             {
                 //MessageBox.Show("Se selecciono el Expediente " + arbol.nodoSeleccionado().Name+" "+arbol.nodoSeleccionado().Text);
 
-                int correlativoFlujo = expediente.getCorrelativoFlujo();
+                int correlativoFlujo = expediente.getIDFlujo();
                 //MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
                 int correlativoExpediente = expediente.getCorrelativo();
                 //MessageBox.Show("correlativo expediente " + correlativoExpediente);
@@ -376,7 +376,7 @@ namespace GiftEjecutor
             Expediente expediente = arbol.expedienteSeleccionado();
             if (expediente != null && expediente.yaFinalizado() != 1)
             {
-                int Flujo = expediente.getCorrelativoFlujo();
+                int Flujo = expediente.getIDFlujo();
                 int Expediente = expediente.getCorrelativo();
                 llenarDatosEjecucionExpediente(Expediente, Flujo);
             }
@@ -441,7 +441,7 @@ namespace GiftEjecutor
             if (expediente != null)
             {
                 //MessageBox.Show("Soy Expediente!!!");
-                int Flujo = expediente.getCorrelativoFlujo();
+                int Flujo = expediente.getIDFlujo();
                 int Expediente = expediente.getCorrelativo();
 
                 llenarDatosEjecucionExpediente(Expediente, Flujo);
@@ -451,7 +451,7 @@ namespace GiftEjecutor
                 labelTituloExp.Text = "Expediente " + expediente.getNombre();
 
                 //obtiene los datos de todos los formularios del expediente
-                int correlativoFlujo = expediente.getCorrelativoFlujo();
+                int correlativoFlujo = expediente.getIDFlujo();
                 IDExpediente = expediente.getCorrelativo();
                 ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
                 IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
@@ -523,20 +523,18 @@ namespace GiftEjecutor
             gp.Show();
         }
 
-        private void panelEjecutorial_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormGestionUsuarios usuarios = new FormGestionUsuarios();
             usuarios.Show();
+        }
+
+        private void asignaciónDeExpedientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAsignarExpedientes asignador = new FormAsignarExpedientes(this.user);
+            asignador.MdiParent = padreMDI;
+            asignador.setPadreMDI(padreMDI);
+            asignador.Show();
         }
     }
 }

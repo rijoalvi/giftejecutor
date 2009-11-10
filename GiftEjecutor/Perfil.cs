@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
-    class Perfil
+    public class Perfil
     {
         ConsultaPerfil consultaPerfil;
 

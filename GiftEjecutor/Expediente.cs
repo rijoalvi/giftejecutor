@@ -5,12 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
-    class Expediente
+    public class Expediente
     {
         private String nombre;
-   //     private String nombrePadre;
         private int correlativo;
-        private int correlativoColeccion; // Correlativo del la coleccion a la que pertenece
+        private int IDColeccion; // Correlativo del la coleccion a la que pertenece
         private int IDFlujo;
         private int finalizado;
         private ConsultaExpediente consultaExpediente;
@@ -22,12 +21,29 @@ namespace GiftEjecutor
             finalizado = 0;
         }
 
+        /// <summary>
+        /// Crea un expediente a partir del correlativo, le inicializa todos sus datos de una vez
+        /// </summary>
+        /// <param name="correlativo"></param>
+        public Expediente(int correlativo)
+        {
+            consultaExpediente = new ConsultaExpediente();
+            this.correlativo = correlativo;
+            SqlDataReader datos;
+            datos = consultaExpediente.obtenerDatosExpediente(this.correlativo);
+            if(datos.Read()){
+                this.IDFlujo = int.Parse(datos.GetValue(0).ToString());
+                this.IDColeccion = int.Parse(datos.GetValue(1).ToString());
+                this.nombre = datos.GetValue(2).ToString();
+            }
+        }
+
         public Expediente(String nombre, int correlativoPadre,int IDFlujo)
         {
             consultaExpediente = new ConsultaExpediente();
             this.nombre = nombre;
             this.IDFlujo = IDFlujo;
-            this.correlativoColeccion= correlativoPadre;
+            this.IDColeccion= correlativoPadre;
             this.correlativo = consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
             Actividad act = new Actividad();
             DataTable tabla = act.getDataTableActividadesEjecutablesPorIDFlujo(this.IDFlujo);
@@ -38,7 +54,7 @@ namespace GiftEjecutor
             else {
                 finalizado = 0;
             }
-            Console.WriteLine("Correlativo Padre " + correlativoColeccion);
+            Console.WriteLine("Correlativo Padre " + IDColeccion);
         }
 
         public Expediente(String nombre, int correlativo) {
@@ -47,23 +63,34 @@ namespace GiftEjecutor
             this.correlativo = correlativo;
             this.finalizado = 0;
         }
-   /*     public Coleccion(String nombre, String nombrePadre)
-        {
-            consultaColeccion = new ConsultaColeccion();
-            this.nombre = nombre;
-            this.nombrePadre = nombrePadre;
-        }
-        */
-        public int getIDExpediente() {
-            return correlativo;
-        }
-
+               
         public void crearExpediente(){
-            correlativo = consultaExpediente.crearExpediente(nombre, correlativoColeccion, IDFlujo);
+            correlativo = consultaExpediente.crearExpediente(nombre, IDColeccion, IDFlujo);
         }
 
-        public List<String[]> listarExpedientes() {         
+        public List<String[]> listarExpedientes()
+        {
             return this.consultaExpediente.listarExpedientes();
+        }
+
+        public List<Expediente> getTodosLosExpedientes()
+        {            
+            SqlDataReader datos;
+            datos = consultaExpediente.obtenerTodosLosExpedientes();
+            List<Expediente> expedientes = new List<Expediente>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    int idExp = Int32.Parse(datos.GetValue(0).ToString());
+                    String nombreExp = datos.GetValue(3).ToString();
+                    Expediente expTemp = new Expediente(nombreExp, idExp);
+                    expTemp.setIDFlujo(Int32.Parse(datos.GetValue(12).ToString())); 
+                    expTemp.setIDColeccion(Int32.Parse(datos.GetValue(2).ToString()));                    
+                    expedientes.Add(expTemp);
+                }
+            }
+            return expedientes;
         }
 
         public void modificarNombre()
@@ -71,20 +98,32 @@ namespace GiftEjecutor
             this.consultaExpediente.modificarNombre(this.correlativo, this.nombre);
         }
 
-        public void setCorrelativoColeccion(int correlativoColeccion) {
-            this.correlativoColeccion = correlativoColeccion;
+        public int getIDExpediente()
+        {
+            return correlativo;
         }
 
-        public int getCorrelativoColeccion() {
-            return this.correlativoColeccion;
+        public int getIDFlujo()
+        {
+            return IDFlujo;
+        }
+
+        public void setIDFlujo(int elID)
+        {
+            this.IDFlujo = elID;
+        }
+
+        public void setIDColeccion(int elID)
+        {
+            this.IDColeccion = elID;
+        }
+
+        public int getIDColeccion() {
+            return this.IDColeccion;
         }
 
         public String getNombre() {
             return this.nombre;
-        }
-
-        public int getCorrelativoFlujo() {
-            return this.IDFlujo;
         }
 
         public String toString() {
@@ -110,6 +149,11 @@ namespace GiftEjecutor
                 }
             }
             return finalizado;
+        }
+
+        public override String ToString()
+        {
+            return this.nombre;
         }
 
     }

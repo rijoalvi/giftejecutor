@@ -49,6 +49,20 @@ namespace GiftEjecutor
             return lista;
         }
 
+        public SqlDataReader obtenerTodosLosExpedientes()
+        {
+            String consulta = "SELECT correlativo, IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE eliminado = 'False';";
+            SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return resultado;
+        }
+
+        public SqlDataReader obtenerDatosExpediente(int correlativo)
+        {
+            String consulta = "SELECT IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE correlativo = '" + correlativo + "';";
+            SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return resultado;
+        }
+
         public String buscarNombreExpediente(int IDExpediente)
         {
             String consulta = "SELECT nombre From EXPEDIENTE where correlativo ="+ IDExpediente +";";

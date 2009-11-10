@@ -278,6 +278,7 @@ namespace GiftEjecutor
         public int getCorrelativo() {
             return this.correlativo;
         }
+
         public override String ToString()
         {
             return this.nombre;

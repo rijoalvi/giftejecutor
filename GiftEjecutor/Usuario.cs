@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
-    class Usuario
+    public class Usuario
     {
         private ConsultaUsuario consultaBD;
         private int correlativo;
@@ -205,13 +205,20 @@ namespace GiftEjecutor
         {
             return respuesta;
         }
+
         public String getNombre()
         {
             return nombre;
         }
+
         public void crearNuevoUsuario(String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
         {
             consultaBD.crearUsuario(nombre, contrasena,pregunta,respuesta,IDPerfil);
+        }
+
+        public override String ToString()
+        {
+            return this.nombre;
         }
     }
 }

@@ -10,18 +10,45 @@ namespace GiftEjecutor
 {
     public partial class FormAsignarExpedientes : Form
     {
+        private Ventanota padreMDI;
+        private Usuario usuarioActual;
+        private Expediente miExpediente;
 
-        Usuario miUsuario;
-        Expediente miExpediente;
-
-        public FormAsignarExpedientes()
+        public FormAsignarExpedientes(Usuario user)
         {
             InitializeComponent();
+            usuarioActual = user;
             llenarComboUsuarios();
         }
 
-        private void llenarComboUsuarios() { 
-            
+        private void llenarComboUsuarios() {
+            List<Usuario> usuarios = new List<Usuario>();
+            usuarios = usuarioActual.getTodosLosUsuarios();
+            comboUsuarios.Items.Clear();
+            for (int i = 0; i < usuarios.Count; i++)
+            {
+                comboUsuarios.Items.Add(usuarios[i]);
+            }
+        }
+
+
+        private void llenarComboExpedientes()
+        {            
+            /*
+            miExpediente = new Expediente("basura");
+            List<Expediente> expedientes = new List<Expediente>();
+            expedientes = miExpediente.listarExpedientes();
+            comboExpedientes.Items.Clear();
+            for (int i = 0; i < expedientes.Count; i++)
+            {
+                comboExpedientes.Items.Add(expedientes[i]);
+            }
+            */ 
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
 
         private void botonCerrar_Click(object sender, EventArgs e)
@@ -32,6 +59,11 @@ namespace GiftEjecutor
         private void botonAgregar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarComboExpedientes();
         }
     }
 }
