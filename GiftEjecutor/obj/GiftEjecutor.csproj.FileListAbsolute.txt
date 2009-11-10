@@ -132,3 +132,4 @@ C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\Gift
 C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
 C:\Documents and Settings\ea61521\Desktop\New Folder\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Users\Ricardo\Documents\Universidad\Laboratorio Ingeniería 2\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarExpedientes.resources

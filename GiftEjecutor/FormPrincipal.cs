@@ -53,7 +53,7 @@ namespace GiftEjecutor
         }
 
         public void refrescarDirectorio() {
-            arbol.refrescar();
+            //arbol.refrescar();
         }
 
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)

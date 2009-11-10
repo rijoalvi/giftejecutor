@@ -26,6 +26,25 @@ namespace GiftEjecutor
         }
 
         /// <summary>
+        /// obtiene la contraseña, pregunta secreta y respuesta del usuario
+        /// </summary>
+        /// <param name="correlativo"></param>
+        /// <returns></returns>
+        public String[]obtenerDatosPrivados(int correlativo)
+        {
+            String[] respuesta = { "", "" };
+            String consulta = "SELECT contrasena, preguntaSecreta, respuesta FROM Usuario WHERE correlativo = '" + correlativo + "';";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            if(datos.Read()) {
+                respuesta[0] = datos.GetValue(0).ToString();
+                respuesta[1] = datos.GetValue(1).ToString();
+                respuesta[2] = datos.GetValue(2).ToString();
+            }
+            return respuesta;
+        }
+
+
+        /// <summary>
         /// Obtiene los IDs de los expedientes asociados al usuario
         /// </summary>
         /// <param name="idUsuario"></param>
@@ -105,6 +124,25 @@ namespace GiftEjecutor
             String consulta = "SELECT correlativo FROM PermisosUsuario ORDER BY correlativo;";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
+        }
+
+        /// <summary>
+        /// Obtiene los datos de todos los usuarios en el sistema
+        /// </summary>
+        /// <returns></returns>
+        public SqlDataReader getTodosUsuarios()
+        {
+            SqlDataReader dataReader = null;
+
+            dataReader = this.controladoBD.hacerConsultaEjecutor("SELECT correlativo, nombreUsuario, IDPerfil, contrasena, preguntaSecreta, respuesta, fechaActualizacion FROM Usuario;");
+            return dataReader;
+        }
+
+        public void crearUsuario(String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
+        {
+            SqlDataReader dataReader = null;
+
+            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into Usuario (nombreUsuario, contrasena, preguntaSecreta, respuesta,IDPerfil) VALUES ('" + nombre + "','" + contrasena + "','" + pregunta + "','" + respuesta + "');");
         }
     }
 }

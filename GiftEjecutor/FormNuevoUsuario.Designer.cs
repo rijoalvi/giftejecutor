@@ -31,17 +31,17 @@ namespace GiftEjecutor
             this.textBoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBoxDatosUsuario = new System.Windows.Forms.GroupBox();
-            this.labelNombrePerfil = new System.Windows.Forms.Label();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.labelNombreUsuario = new System.Windows.Forms.Label();
-            this.labelContrasena = new System.Windows.Forms.Label();
-            this.textBoxContrasena = new System.Windows.Forms.TextBox();
-            this.labelConfirmaContrasena = new System.Windows.Forms.Label();
-            this.textBoxConfirmaContrasena = new System.Windows.Forms.TextBox();
-            this.labelPreguntaSecreta = new System.Windows.Forms.Label();
-            this.textBoxPreguntaSecreta = new System.Windows.Forms.TextBox();
             this.labelRespuesta = new System.Windows.Forms.Label();
             this.textBoxRespuesta = new System.Windows.Forms.TextBox();
+            this.labelPreguntaSecreta = new System.Windows.Forms.Label();
+            this.textBoxPreguntaSecreta = new System.Windows.Forms.TextBox();
+            this.labelConfirmaContrasena = new System.Windows.Forms.Label();
+            this.textBoxConfirmaContrasena = new System.Windows.Forms.TextBox();
+            this.labelContrasena = new System.Windows.Forms.Label();
+            this.textBoxContrasena = new System.Windows.Forms.TextBox();
+            this.labelNombreUsuario = new System.Windows.Forms.Label();
+            this.labelNombrePerfil = new System.Windows.Forms.Label();
+            this.buttonOK = new System.Windows.Forms.Button();
             this.comboPerfiles = new System.Windows.Forms.ComboBox();
             this.groupBoxDatosUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -81,49 +81,37 @@ namespace GiftEjecutor
             this.groupBoxDatosUsuario.TabStop = false;
             this.groupBoxDatosUsuario.Text = "Datos del Usuario";
             // 
-            // labelNombrePerfil
+            // labelRespuesta
             // 
-            this.labelNombrePerfil.AutoSize = true;
-            this.labelNombrePerfil.Location = new System.Drawing.Point(23, 36);
-            this.labelNombrePerfil.Name = "labelNombrePerfil";
-            this.labelNombrePerfil.Size = new System.Drawing.Size(86, 13);
-            this.labelNombrePerfil.TabIndex = 11;
-            this.labelNombrePerfil.Text = "Perfil del Usuario";
+            this.labelRespuesta.AutoSize = true;
+            this.labelRespuesta.Location = new System.Drawing.Point(16, 126);
+            this.labelRespuesta.Name = "labelRespuesta";
+            this.labelRespuesta.Size = new System.Drawing.Size(58, 13);
+            this.labelRespuesta.TabIndex = 21;
+            this.labelRespuesta.Text = "Respuesta";
             // 
-            // buttonOK
+            // textBoxRespuesta
             // 
-            this.buttonOK.Location = new System.Drawing.Point(194, 284);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 9;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = true;
+            this.textBoxRespuesta.Location = new System.Drawing.Point(157, 123);
+            this.textBoxRespuesta.Name = "textBoxRespuesta";
+            this.textBoxRespuesta.Size = new System.Drawing.Size(130, 20);
+            this.textBoxRespuesta.TabIndex = 20;
             // 
-            // labelNombreUsuario
+            // labelPreguntaSecreta
             // 
-            this.labelNombreUsuario.AutoSize = true;
-            this.labelNombreUsuario.Location = new System.Drawing.Point(16, 22);
-            this.labelNombreUsuario.Name = "labelNombreUsuario";
-            this.labelNombreUsuario.Size = new System.Drawing.Size(98, 13);
-            this.labelNombreUsuario.TabIndex = 13;
-            this.labelNombreUsuario.Text = "Nombre de Usuario";
+            this.labelPreguntaSecreta.AutoSize = true;
+            this.labelPreguntaSecreta.Location = new System.Drawing.Point(16, 100);
+            this.labelPreguntaSecreta.Name = "labelPreguntaSecreta";
+            this.labelPreguntaSecreta.Size = new System.Drawing.Size(90, 13);
+            this.labelPreguntaSecreta.TabIndex = 19;
+            this.labelPreguntaSecreta.Text = "Pregunta Secreta";
             // 
-            // labelContrasena
+            // textBoxPreguntaSecreta
             // 
-            this.labelContrasena.AutoSize = true;
-            this.labelContrasena.Location = new System.Drawing.Point(16, 48);
-            this.labelContrasena.Name = "labelContrasena";
-            this.labelContrasena.Size = new System.Drawing.Size(61, 13);
-            this.labelContrasena.TabIndex = 15;
-            this.labelContrasena.Text = "Contraseña";
-            // 
-            // textBoxContrasena
-            // 
-            this.textBoxContrasena.Location = new System.Drawing.Point(157, 45);
-            this.textBoxContrasena.Name = "textBoxContrasena";
-            this.textBoxContrasena.Size = new System.Drawing.Size(130, 20);
-            this.textBoxContrasena.TabIndex = 14;
-            this.textBoxContrasena.UseSystemPasswordChar = true;
+            this.textBoxPreguntaSecreta.Location = new System.Drawing.Point(157, 97);
+            this.textBoxPreguntaSecreta.Name = "textBoxPreguntaSecreta";
+            this.textBoxPreguntaSecreta.Size = new System.Drawing.Size(130, 20);
+            this.textBoxPreguntaSecreta.TabIndex = 18;
             // 
             // labelConfirmaContrasena
             // 
@@ -142,37 +130,50 @@ namespace GiftEjecutor
             this.textBoxConfirmaContrasena.TabIndex = 16;
             this.textBoxConfirmaContrasena.UseSystemPasswordChar = true;
             // 
-            // labelPreguntaSecreta
+            // labelContrasena
             // 
-            this.labelPreguntaSecreta.AutoSize = true;
-            this.labelPreguntaSecreta.Location = new System.Drawing.Point(16, 100);
-            this.labelPreguntaSecreta.Name = "labelPreguntaSecreta";
-            this.labelPreguntaSecreta.Size = new System.Drawing.Size(90, 13);
-            this.labelPreguntaSecreta.TabIndex = 19;
-            this.labelPreguntaSecreta.Text = "Pregunta Secreta";
+            this.labelContrasena.AutoSize = true;
+            this.labelContrasena.Location = new System.Drawing.Point(16, 48);
+            this.labelContrasena.Name = "labelContrasena";
+            this.labelContrasena.Size = new System.Drawing.Size(61, 13);
+            this.labelContrasena.TabIndex = 15;
+            this.labelContrasena.Text = "Contraseña";
             // 
-            // textBoxPreguntaSecreta
+            // textBoxContrasena
             // 
-            this.textBoxPreguntaSecreta.Location = new System.Drawing.Point(157, 97);
-            this.textBoxPreguntaSecreta.Name = "textBoxPreguntaSecreta";
-            this.textBoxPreguntaSecreta.Size = new System.Drawing.Size(130, 20);
-            this.textBoxPreguntaSecreta.TabIndex = 18;
+            this.textBoxContrasena.Location = new System.Drawing.Point(157, 45);
+            this.textBoxContrasena.Name = "textBoxContrasena";
+            this.textBoxContrasena.Size = new System.Drawing.Size(130, 20);
+            this.textBoxContrasena.TabIndex = 14;
+            this.textBoxContrasena.UseSystemPasswordChar = true;
             // 
-            // labelRespuesta
+            // labelNombreUsuario
             // 
-            this.labelRespuesta.AutoSize = true;
-            this.labelRespuesta.Location = new System.Drawing.Point(16, 126);
-            this.labelRespuesta.Name = "labelRespuesta";
-            this.labelRespuesta.Size = new System.Drawing.Size(58, 13);
-            this.labelRespuesta.TabIndex = 21;
-            this.labelRespuesta.Text = "Respuesta";
+            this.labelNombreUsuario.AutoSize = true;
+            this.labelNombreUsuario.Location = new System.Drawing.Point(16, 22);
+            this.labelNombreUsuario.Name = "labelNombreUsuario";
+            this.labelNombreUsuario.Size = new System.Drawing.Size(98, 13);
+            this.labelNombreUsuario.TabIndex = 13;
+            this.labelNombreUsuario.Text = "Nombre de Usuario";
             // 
-            // textBoxRespuesta
+            // labelNombrePerfil
             // 
-            this.textBoxRespuesta.Location = new System.Drawing.Point(157, 123);
-            this.textBoxRespuesta.Name = "textBoxRespuesta";
-            this.textBoxRespuesta.Size = new System.Drawing.Size(130, 20);
-            this.textBoxRespuesta.TabIndex = 20;
+            this.labelNombrePerfil.AutoSize = true;
+            this.labelNombrePerfil.Location = new System.Drawing.Point(23, 36);
+            this.labelNombrePerfil.Name = "labelNombrePerfil";
+            this.labelNombrePerfil.Size = new System.Drawing.Size(86, 13);
+            this.labelNombrePerfil.TabIndex = 11;
+            this.labelNombrePerfil.Text = "Perfil del Usuario";
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.Location = new System.Drawing.Point(194, 284);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 9;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // comboPerfiles
             // 

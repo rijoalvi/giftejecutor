@@ -39,6 +39,9 @@ namespace GiftEjecutor
             // 
             // dataGridViewPerfiles
             // 
+            this.dataGridViewPerfiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPerfiles.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewPerfiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPerfiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPerfiles.Location = new System.Drawing.Point(22, 19);
             this.dataGridViewPerfiles.Name = "dataGridViewPerfiles";
@@ -93,13 +96,13 @@ namespace GiftEjecutor
             this.buttonDetalles.UseVisualStyleBackColor = true;
             this.buttonDetalles.Click += new System.EventHandler(this.buttonDetalles_Click);
             // 
-            // GestionPerfiles
+            // FormGestionPerfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 443);
             this.Controls.Add(this.groupBoxPerfiles);
-            this.Name = "GestionPerfiles";
+            this.Name = "FormGestionPerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionPerfiles";
             this.Load += new System.EventHandler(this.GestionPerfiles_Load);

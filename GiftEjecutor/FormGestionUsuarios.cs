@@ -10,26 +10,33 @@ namespace GiftEjecutor
 {
     public partial class FormGestionUsuarios : Form
     {
-        //Perfil perfil;
+        Usuario usuario;
         public FormGestionUsuarios()
         {
-            //this.perfil = new Perfil();
+            this.usuario = new Usuario();
             InitializeComponent();
+
+            //OJO, ESTO ES PARA QUE EL DATAGRID SE VEA "BONITO":
+            dataGridViewUsuarios.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
+            
         }
 
         private void GestionUsuarios_Load(object sender, EventArgs e)
         {
-            //this.actulizarDataGrid();
+            this.actulizarDataGrid();
         }
         public void actulizarDataGrid(){
-          //  this.dataGridViewPerfiles.DataSource = this.perfil.getDataTableTodosPerfiles();
-            //this.dataGridViewPerfiles.Columns[0].Visible = false;
-            //this.dataGridViewPerfiles.Columns[4].Visible = false;
+            this.dataGridViewUsuarios.DataSource = this.usuario.getDataTableTodosUsuarios();
+            this.dataGridViewUsuarios.Columns[0].Visible = false;
+            this.dataGridViewUsuarios.Columns[3].Visible = false;
+            this.dataGridViewUsuarios.Columns[4].Visible = false;
+            this.dataGridViewUsuarios.Columns[5].Visible = false;
+            this.dataGridViewUsuarios.Columns[7].Visible = false;
         }
         private void buttonAgregarPerfil_Click(object sender, EventArgs e)
         {
-            //FormNuevoPerfil nuevoPerfil = new FormNuevoPerfil(this);
-            //nuevoPerfil.Show();
+            FormNuevoUsuario nuevoUsuario = new FormNuevoUsuario(this);
+            nuevoUsuario.Show();
         }
 
         private void dataGridViewPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -102,6 +109,5 @@ namespace GiftEjecutor
                        FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil(IDPerfilSeleccionado);
                        formDetallesPerfil.Show();*/
         }
-
     }
 }

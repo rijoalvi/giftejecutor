@@ -32,9 +32,9 @@ namespace GiftEjecutor
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.groupBoxPerfiles = new System.Windows.Forms.GroupBox();
             this.buttonDetalles = new System.Windows.Forms.Button();
-            this.dataGridViewPerfiles = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBoxPerfiles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerfiles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAgregarPerfil
@@ -62,7 +62,7 @@ namespace GiftEjecutor
             // groupBoxPerfiles
             // 
             this.groupBoxPerfiles.Controls.Add(this.buttonDetalles);
-            this.groupBoxPerfiles.Controls.Add(this.dataGridViewPerfiles);
+            this.groupBoxPerfiles.Controls.Add(this.dataGridViewUsuarios);
             this.groupBoxPerfiles.Controls.Add(this.buttonEliminarPerfil);
             this.groupBoxPerfiles.Controls.Add(this.buttonAgregarPerfil);
             this.groupBoxPerfiles.Location = new System.Drawing.Point(12, 12);
@@ -83,15 +83,20 @@ namespace GiftEjecutor
             this.buttonDetalles.UseVisualStyleBackColor = true;
             this.buttonDetalles.Click += new System.EventHandler(this.buttonDetalles_Click);
             // 
-            // dataGridViewPerfiles
+            // dataGridViewUsuarios
             // 
-            this.dataGridViewPerfiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPerfiles.Location = new System.Drawing.Point(22, 19);
-            this.dataGridViewPerfiles.Name = "dataGridViewPerfiles";
-            this.dataGridViewPerfiles.Size = new System.Drawing.Size(547, 242);
-            this.dataGridViewPerfiles.TabIndex = 0;
-            this.dataGridViewPerfiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellClick);
-            this.dataGridViewPerfiles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellContentClick);
+            this.dataGridViewUsuarios.AllowUserToAddRows = false;
+            this.dataGridViewUsuarios.AllowUserToDeleteRows = false;
+            this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(22, 19);
+            this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
+            this.dataGridViewUsuarios.ReadOnly = true;
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(547, 242);
+            this.dataGridViewUsuarios.TabIndex = 0;
+            this.dataGridViewUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellClick);
+            this.dataGridViewUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellContentClick);
             // 
             // FormGestionUsuarios
             // 
@@ -104,7 +109,7 @@ namespace GiftEjecutor
             this.Text = "GestionPerfiles";
             this.Load += new System.EventHandler(this.GestionUsuarios_Load);
             this.groupBoxPerfiles.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerfiles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,6 +120,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.GroupBox groupBoxPerfiles;
         private System.Windows.Forms.Button buttonDetalles;
-        private System.Windows.Forms.DataGridView dataGridViewPerfiles;
+        private System.Windows.Forms.DataGridView dataGridViewUsuarios;
     }
 }

@@ -89,9 +89,11 @@ CREATE TABLE Usuario(
         contrasena          varchar(100),
         preguntaSecreta		varchar(100),
         respuesta			varchar(100),
-		IDPerfil			int
+		IDPerfil			int,
+		fechaActualizacion	SMALLDATETIME	DEFAULT GetDate()
 	PRIMARY KEY(correlativo)
 	FOREIGN KEY(IDPerfil) REFERENCES Perfil(correlativo)
+	
 );
 
 --drop TABLE PermisosUsuario;

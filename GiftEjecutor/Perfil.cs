@@ -105,8 +105,6 @@ namespace GiftEjecutor
                     String tipo = datos.GetValue(2).ToString();
                     String fechaActualizacion = datos.GetValue(3).ToString();  
                     lista.Add(new Perfil(IDPerfil,nombre,tipo,fechaActualizacion));
-
-    
                 }
             }
             return lista;
@@ -128,13 +126,18 @@ namespace GiftEjecutor
                     this.correlativo= int.Parse(datos.GetValue(0).ToString());
                     this.nombre= datos.GetValue(1).ToString();
                     this.tipo=datos.GetValue(2).ToString();
-                    this.fechaActualizacion = datos.GetValue(3).ToString();    
+                    this.fechaActualizacion = datos.GetValue(3).ToString();
                 }
             }
     
         }
         public override String ToString() {
             return this.nombre;
+        }
+
+        public int getCorrelativo()
+        {
+            return correlativo;
         }
 
         public String getTipo()
