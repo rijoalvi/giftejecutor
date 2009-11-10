@@ -105,7 +105,7 @@ namespace GiftEjecutor
         /// Devuelve 
         /// </summary>
         /// <returns></returns>
-        public int[] getTodosLosUsuarios()
+        public List<Usuario> getTodosLosUsuarios()
         {
             SqlDataReader datos;
             datos = consultaBD.obtenerTodosLosUsuarios();
@@ -115,7 +115,7 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
                     int idUser = Int32.Parse(datos.GetValue(0).ToString());
-                    lista.Add(new Usuario(idUser));
+                    usuarios.Add(new Usuario(idUser));
                 }
             }
             return usuarios;
