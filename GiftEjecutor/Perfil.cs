@@ -15,7 +15,6 @@ namespace GiftEjecutor
         private String tipo;
         private String fechaActualizacion;
         public List<Perfil> perfiles;// = new List<string>();
-      //  l.Add("one");
 
         public Perfil() {
             consultaPerfil = new ConsultaPerfil();

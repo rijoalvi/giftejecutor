@@ -88,5 +88,23 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
+
+        /// <summary>
+        /// Asigna un expediente a un usuario
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idExpediente"></param>
+        public void asignarExpediente(int idUsuario, int idExpediente)
+        {
+            String consulta = "INSERT INTO PermisosUsuario(IDUsuario ,IDExpediente) VALUES('" + idUsuario + "', '" + idExpediente + "');";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
+
+        public SqlDataReader obtenerTodosLosUsuarios()
+        {
+            String consulta = "SELECT correlativo FROM PermisosUsuario ORDER BY correlativo;";
+            SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return datos;
+        }
     }
 }

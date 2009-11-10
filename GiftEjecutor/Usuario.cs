@@ -83,5 +83,29 @@ namespace GiftEjecutor
             return tipoInt;
         }
 
+        public void asignarExpediente(int idExpediente) {
+            consultaBD.asignarExpediente(correlativo, idExpediente);
+        }
+
+        /// <summary>
+        /// Devuelve 
+        /// </summary>
+        /// <returns></returns>
+        public int[] getTodosLosUsuarios()
+        {
+            SqlDataReader datos;
+            datos = consultaBD.obtenerTodosLosUsuarios();
+            List<Usuario> usuarios = new List<Usuario>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    int idUser = Int32.Parse(datos.GetValue(0).ToString());
+                    lista.Add(new Usuario(idUser));
+                }
+            }
+            return usuarios;
+        }
+
     }
 }

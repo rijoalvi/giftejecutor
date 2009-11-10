@@ -50,6 +50,7 @@ namespace GiftEjecutor
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.asignaciónDeExpedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +75,7 @@ namespace GiftEjecutor
             this.cambiarNombreToolStripMenuItem,
             this.eliminarBETAToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // agregarColeccionToolStripMenuItem
@@ -110,29 +111,30 @@ namespace GiftEjecutor
             this.módulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.constructorToolStripMenuItem,
             this.gestiónPerfilesToolStripMenuItem,
-            this.gestiónDeUsuariosToolStripMenuItem});
+            this.gestiónDeUsuariosToolStripMenuItem,
+            this.asignaciónDeExpedientesToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
-            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
             // 
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
             // gestiónPerfilesToolStripMenuItem
             // 
             this.gestiónPerfilesToolStripMenuItem.Name = "gestiónPerfilesToolStripMenuItem";
-            this.gestiónPerfilesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gestiónPerfilesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.gestiónPerfilesToolStripMenuItem.Text = "Gestión perfiles";
             this.gestiónPerfilesToolStripMenuItem.Click += new System.EventHandler(this.gestiónPerfilesToolStripMenuItem_Click);
             // 
             // gestiónDeUsuariosToolStripMenuItem
             // 
             this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
-            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de Usuarios";
             this.gestiónDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeUsuariosToolStripMenuItem_Click);
             // 
@@ -262,6 +264,12 @@ namespace GiftEjecutor
             this.label1.TabIndex = 22;
             this.label1.Text = "Formularios creados:";
             // 
+            // asignaciónDeExpedientesToolStripMenuItem
+            // 
+            this.asignaciónDeExpedientesToolStripMenuItem.Name = "asignaciónDeExpedientesToolStripMenuItem";
+            this.asignaciónDeExpedientesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.asignaciónDeExpedientesToolStripMenuItem.Text = "Asignación de Expedientes";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,5 +328,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView directorio;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDeExpedientesToolStripMenuItem;
     }
 }
