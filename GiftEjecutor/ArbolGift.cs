@@ -13,8 +13,9 @@ namespace GiftEjecutor
         private TreeView directorio;
         private Usuario usuario;
 
-        public ArbolGift(TreeView directorio) {
-            this.directorio = directorio;            
+        public ArbolGift(TreeView directorio,Usuario usuario) {
+            this.directorio = directorio;
+            this.usuario = usuario;
         }
 
         public void setUsuario(Usuario usuario){

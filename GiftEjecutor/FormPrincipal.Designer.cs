@@ -42,9 +42,7 @@ namespace GiftEjecutor
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desconexiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
-            System.Windows.Forms.TreeView directorio = new System.Windows.Forms.TreeView();
-
-            
+            this.directorio = new System.Windows.Forms.TreeView();
             this.labelPorRealizar = new System.Windows.Forms.Label();
             this.labelEnCurso = new System.Windows.Forms.Label();
             this.labelRealizadas = new System.Windows.Forms.Label();
@@ -79,7 +77,7 @@ namespace GiftEjecutor
             this.cambiarNombreToolStripMenuItem,
             this.eliminarBETAToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // agregarColeccionToolStripMenuItem
@@ -118,34 +116,34 @@ namespace GiftEjecutor
             this.gestiónDeUsuariosToolStripMenuItem,
             this.asignaciónDeExpedientesToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
-            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
             // 
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             this.constructorToolStripMenuItem.Click += new System.EventHandler(this.constructorToolStripMenuItem_Click);
             // 
             // gestiónPerfilesToolStripMenuItem
             // 
             this.gestiónPerfilesToolStripMenuItem.Name = "gestiónPerfilesToolStripMenuItem";
-            this.gestiónPerfilesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.gestiónPerfilesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.gestiónPerfilesToolStripMenuItem.Text = "Gestión perfiles";
             this.gestiónPerfilesToolStripMenuItem.Click += new System.EventHandler(this.gestiónPerfilesToolStripMenuItem_Click);
             // 
             // gestiónDeUsuariosToolStripMenuItem
             // 
             this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
-            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de Usuarios";
             this.gestiónDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeUsuariosToolStripMenuItem_Click);
             // 
             // asignaciónDeExpedientesToolStripMenuItem
             // 
             this.asignaciónDeExpedientesToolStripMenuItem.Name = "asignaciónDeExpedientesToolStripMenuItem";
-            this.asignaciónDeExpedientesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.asignaciónDeExpedientesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.asignaciónDeExpedientesToolStripMenuItem.Text = "Asignación de Expedientes";
             this.asignaciónDeExpedientesToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDeExpedientesToolStripMenuItem_Click);
             // 
@@ -154,13 +152,13 @@ namespace GiftEjecutor
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.desconexiónToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // desconexiónToolStripMenuItem
             // 
             this.desconexiónToolStripMenuItem.Name = "desconexiónToolStripMenuItem";
-            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.desconexiónToolStripMenuItem.Text = "Desconexión";
             this.desconexiónToolStripMenuItem.Click += new System.EventHandler(this.desconexiónToolStripMenuItem_Click);
             // 
@@ -177,16 +175,14 @@ namespace GiftEjecutor
             // 
             // directorio
             // 
-            directorio.Location = new System.Drawing.Point(4, 31);
-            directorio.Name = "directorio";
-            directorio.Size = new System.Drawing.Size(246, 598);
-            directorio.TabIndex = 10;
-            directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
-            directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
-            directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
-            directorio.Click += new System.EventHandler(this.directorio_Click);
-
-            this.arbol = new ArbolGift(directorio);
+            this.directorio.Location = new System.Drawing.Point(4, 31);
+            this.directorio.Name = "directorio";
+            this.directorio.Size = new System.Drawing.Size(246, 598);
+            this.directorio.TabIndex = 10;
+            this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
+            this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
+            this.directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
+            this.directorio.Click += new System.EventHandler(this.directorio_Click);
             // 
             // labelPorRealizar
             // 
@@ -298,11 +294,11 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1048, 916);
+            this.ClientSize = new System.Drawing.Size(1048, 784);
             this.Controls.Add(this.labelFormulariosCreados);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
-            this.Controls.Add(directorio);
+            this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
@@ -329,9 +325,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem módulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem constructorToolStripMenuItem;
         private System.Windows.Forms.Button buttonActividad;
-       // private System.Windows.Forms.TreeView directorio;
-        private ArbolGift arbol;
-
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarColeccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExpedienteToolStripMenuItem;
@@ -348,10 +341,11 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelActividadesRealizadas;
         private System.Windows.Forms.ListBox listaFormularios;
         private System.Windows.Forms.Label labelFormulariosCreados;
-  //      private System.Windows.Forms.TreeView directorio;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDeExpedientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desconexiónToolStripMenuItem;
+        private System.Windows.Forms.TreeView directorio;
+        private ArbolGift arbol;
     }
 }

@@ -47,8 +47,7 @@ namespace GiftEjecutor
             
             labelTituloExp.Hide();
             user = new Usuario(idUsuario);
-            arbol.setUsuario(user);
-            refrescarDirectorio();
+            this.arbol = new ArbolGift(directorio, user);                        
         }
 
         public void refrescarDirectorio() {
@@ -65,11 +64,7 @@ namespace GiftEjecutor
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
-           // refrescarDirectorio();//este es que comenteo a veces, luisk
-
-            //refrescarDirectorio();//este es que comenteo a veces, luisk
-
+         
         }
         
         private void FormPrincipal_Shown(object sender, EventArgs e)
