@@ -289,7 +289,7 @@ namespace GiftEjecutor
         bool actividadValida(int IDActividad, int IDExpediente)
         { 
             bool respuesta = false;
-       /*     int i = 0;
+            int i = 0;
             bool existeExpediente = false;
             while  (i<IDsExpedientes.Length && !existeExpediente){
                 if (IDsExpedientes[i] == IDExpediente){
@@ -297,8 +297,12 @@ namespace GiftEjecutor
                 }
                 ++i;
             }
-            */
+            bool actividadValida = miPerfil.existeColeccionEnPerfil(IDExpediente, IDActividad);
 
+            if (actividadValida && existeExpediente)
+            {
+                respuesta = true;
+            }
             return respuesta;
         }
     }

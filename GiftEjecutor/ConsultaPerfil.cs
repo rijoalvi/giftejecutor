@@ -29,5 +29,12 @@ namespace GiftEjecutor
             dataReader=this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, tipo, fechaActualizacion from Perfil where correlativo=" + IDPerfil + ";");
             return dataReader;
         }
+
+        public SqlDataReader buscarColeccionEnPerfil(int IDColeccion, int IDPerfil, int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select C.correlativo from ColeccionAsignada C, ActividadAsignada A where C.IDPerfil=" + IDPerfil + " and C.IDColeccion = " + IDColeccion + " and C.IDColeccion = A.IDColeccion and A.IDActividad = " + IDActividad + ";");
+            return dataReader;
+        }
     }
 }

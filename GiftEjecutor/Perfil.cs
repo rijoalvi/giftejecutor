@@ -149,5 +149,19 @@ namespace GiftEjecutor
         {
             return this.nombre;
         }
+
+        public bool existeColeccionEnPerfil(int IDExpediente, int IDActividad)
+        {
+            bool respuesta = false;
+            Expediente e = new Expediente(IDExpediente);
+            int coleccion = e.getIDColeccion();
+            SqlDataReader datos;
+            datos = this.consultaPerfil.buscarColeccionEnPerfil(coleccion, correlativo, IDActividad);
+            if (datos != null)
+            {
+                respuesta = true;
+            }
+            return respuesta;
+        }
     }
 }
