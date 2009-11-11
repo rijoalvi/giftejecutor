@@ -39,6 +39,8 @@ namespace GiftEjecutor
             this.gestiónPerfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignaciónDeExpedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconexiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonActividad = new System.Windows.Forms.Button();
             this.directorio = new System.Windows.Forms.TreeView();
             this.labelPorRealizar = new System.Windows.Forms.Label();
@@ -50,9 +52,7 @@ namespace GiftEjecutor
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desconexiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelFormulariosCreados = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -147,6 +147,21 @@ namespace GiftEjecutor
             this.asignaciónDeExpedientesToolStripMenuItem.Text = "Asignación de Expedientes";
             this.asignaciónDeExpedientesToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDeExpedientesToolStripMenuItem_Click);
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.desconexiónToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // desconexiónToolStripMenuItem
+            // 
+            this.desconexiónToolStripMenuItem.Name = "desconexiónToolStripMenuItem";
+            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.desconexiónToolStripMenuItem.Text = "Desconexión";
+            this.desconexiónToolStripMenuItem.Click += new System.EventHandler(this.desconexiónToolStripMenuItem_Click);
+            // 
             // buttonActividad
             // 
             this.buttonActividad.Location = new System.Drawing.Point(4, 307);
@@ -229,9 +244,9 @@ namespace GiftEjecutor
             this.labelTituloExp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelTituloExp.Location = new System.Drawing.Point(260, 27);
             this.labelTituloExp.Name = "labelTituloExp";
-            this.labelTituloExp.Size = new System.Drawing.Size(306, 23);
+            this.labelTituloExp.Size = new System.Drawing.Size(131, 23);
             this.labelTituloExp.TabIndex = 1;
-            this.labelTituloExp.Text = "Formularios del Expediente";
+            this.labelTituloExp.Text = "Expediente";
             // 
             // panel1
             // 
@@ -264,29 +279,14 @@ namespace GiftEjecutor
             this.listaFormularios.Size = new System.Drawing.Size(127, 199);
             this.listaFormularios.TabIndex = 21;
             // 
-            // label1
+            // labelFormulariosCreados
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(907, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Formularios creados:";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.desconexiónToolStripMenuItem});
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // desconexiónToolStripMenuItem
-            // 
-            this.desconexiónToolStripMenuItem.Name = "desconexiónToolStripMenuItem";
-            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.desconexiónToolStripMenuItem.Text = "Desconexión";
-            this.desconexiónToolStripMenuItem.Click += new System.EventHandler(this.desconexiónToolStripMenuItem_Click);
+            this.labelFormulariosCreados.AutoSize = true;
+            this.labelFormulariosCreados.Location = new System.Drawing.Point(907, 55);
+            this.labelFormulariosCreados.Name = "labelFormulariosCreados";
+            this.labelFormulariosCreados.Size = new System.Drawing.Size(104, 13);
+            this.labelFormulariosCreados.TabIndex = 22;
+            this.labelFormulariosCreados.Text = "Formularios creados:";
             // 
             // FormPrincipal
             // 
@@ -295,7 +295,7 @@ namespace GiftEjecutor
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1048, 746);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFormulariosCreados);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
             this.Controls.Add(this.directorio);
@@ -343,7 +343,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelActividadesRealizadas;
         private System.Windows.Forms.ListBox listaFormularios;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFormulariosCreados;
         private System.Windows.Forms.TreeView directorio;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDeExpedientesToolStripMenuItem;

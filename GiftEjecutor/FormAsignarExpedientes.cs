@@ -31,19 +31,20 @@ namespace GiftEjecutor
             }
         }
 
-
+        /// <summary>
+        /// Llena el comboBox de los expedientes posibles a asignar segun el usuario seleccionado.
+        /// </summary>
         private void llenarComboExpedientes()
-        {            
-            /*
+        {
             miExpediente = new Expediente("basura");
             List<Expediente> expedientes = new List<Expediente>();
-            expedientes = miExpediente.listarExpedientes();
+            expedientes = miExpediente.getTodosLosExpedientes(((Usuario)(comboUsuarios.SelectedItem)).getCorrelativo());
             comboExpedientes.Items.Clear();
+            comboExpedientes.Text = "";            
             for (int i = 0; i < expedientes.Count; i++)
             {
                 comboExpedientes.Items.Add(expedientes[i]);
-            }
-            */ 
+            }             
         }
 
         public void setPadreMDI(Ventanota v)
@@ -58,7 +59,18 @@ namespace GiftEjecutor
 
         private void botonAgregar_Click(object sender, EventArgs e)
         {
-
+            if (comboExpedientes.SelectedIndex == -1)
+            {
+                MessageBox.Show("¡Debe elegir un expediente!");
+            }
+            else
+            {
+                int idUsuario = ((Usuario)(comboUsuarios.SelectedItem)).getCorrelativo();
+                int idExpediente = ((Expediente)(comboExpedientes.SelectedItem)).getCorrelativo();
+                miExpediente.agregarAsignacion(idUsuario, idExpediente);
+                MessageBox.Show("¡El expediente ha sido asignado!");
+                comboExpedientes.SelectedIndex = -1;
+            }
         }
 
         private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)

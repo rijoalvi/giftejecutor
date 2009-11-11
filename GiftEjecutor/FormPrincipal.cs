@@ -31,12 +31,6 @@ namespace GiftEjecutor
          * static final int LISTA = 7;
          */        
         
-        public FormPrincipal()
-        {
-            InitializeComponent();
-            //arbol = new ArbolGift(directorio);           
-        }
-
         /// <summary>
         /// constructor
         /// </summary>
@@ -48,7 +42,10 @@ namespace GiftEjecutor
 
             //ControladorBD.conexionConfiguracionSeleccionada = conexionConfiguradorSeleccionada;
             InitializeComponent();
-            refrescarDirectorio();     
+            labelFormulariosCreados.Hide();
+            listaFormularios.Hide();
+            refrescarDirectorio();
+            labelTituloExp.Hide();
             user = new Usuario(idUsuario);
         }
 
@@ -236,11 +233,6 @@ namespace GiftEjecutor
             
         }
 
-        private void botonPruebaBitacora_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void directorio_DoubleClick(object sender, EventArgs e)
         {
             abrirExpediente();
@@ -288,15 +280,6 @@ namespace GiftEjecutor
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ActividadCompuesta ac = new ActividadCompuesta();
-            ac.setAtributosSegunID(38);
-            MessageBox.Show(ac.ToString());
-            FormListadoActividad fa = new FormListadoActividad(38, 999, false,null);
-            fa.Show();
         }
 
 
@@ -477,6 +460,8 @@ namespace GiftEjecutor
             }
             else
             {
+                labelTituloExp.Text = "Expediente " + this.arbol.expedienteSeleccionado().getNombre();
+                labelTituloExp.Show();
                 FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null);
                 formEsteFormulario.TopMost = true;
                 formEsteFormulario.MdiParent = this;

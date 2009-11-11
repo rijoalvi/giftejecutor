@@ -56,6 +56,19 @@ namespace GiftEjecutor
             return resultado;
         }
 
+        public SqlDataReader obtenerTodosLosExpedientes(int idUsuario)
+        {
+            String consulta = "SELECT DISTINCT Expediente.correlativo, Expediente.IDFlujo, Expediente.IDColeccion, Expediente.nombre "+
+                                "FROM Expediente, ColeccionAsignada, Perfil, Usuario "+
+                                "WHERE Usuario.correlativo = " + idUsuario +
+                                " AND Usuario.IDPerfil = Perfil.correlativo " +
+                                "AND Perfil.correlativo = ColeccionAsignada.IDPerfil " +
+                                "AND ColeccionAsignada.IDColeccion = Expediente.IDColeccion " +
+                                "ORDER BY Expediente.correlativo;";
+            SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
+            return resultado;
+        }
+
         public SqlDataReader obtenerDatosExpediente(int correlativo)
         {
             String consulta = "SELECT IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE correlativo = '" + correlativo + "';";
@@ -88,6 +101,12 @@ namespace GiftEjecutor
             return correlativo;
         }
 
+        public void agregarAsignacion(int idUsuario, int idExpediente)
+        {
+            String consulta = "INSERT INTO PermisosUsuario (IDUsuario, IDExpediente) VALUES('" + idUsuario + "', '" + idExpediente + "');";
+            this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
+
         public void modificarNombre(int correlativoExpediente, String nombre)
         {
             String consulta = "UPDATE EXPEDIENTE SET nombre = '" + nombre + "' WHERE correlativo = " + correlativoExpediente + ";";
@@ -101,5 +120,7 @@ namespace GiftEjecutor
 
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
+
+
     }
 }

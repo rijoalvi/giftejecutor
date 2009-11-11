@@ -73,6 +73,10 @@ namespace GiftEjecutor
             return this.consultaExpediente.listarExpedientes();
         }
 
+        /// <summary>
+        /// Devuelve todos los expedientes creados
+        /// </summary>
+        /// <returns></returns>
         public List<Expediente> getTodosLosExpedientes()
         {            
             SqlDataReader datos;
@@ -85,12 +89,42 @@ namespace GiftEjecutor
                     int idExp = Int32.Parse(datos.GetValue(0).ToString());
                     String nombreExp = datos.GetValue(3).ToString();
                     Expediente expTemp = new Expediente(nombreExp, idExp);
-                    expTemp.setIDFlujo(Int32.Parse(datos.GetValue(12).ToString())); 
+                    expTemp.setIDFlujo(Int32.Parse(datos.GetValue(1).ToString())); 
                     expTemp.setIDColeccion(Int32.Parse(datos.GetValue(2).ToString()));                    
                     expedientes.Add(expTemp);
                 }
             }
             return expedientes;
+        }
+
+        /// <summary>
+        /// Devuelve una lista con todos los expedientes que pueden ser asignados al usuario
+        /// </summary>
+        /// <param name="idUsuario">El usuario al cual se le quieren ver los expedientes que le pueden ser asignados</param>
+        /// <returns></returns>
+        public List<Expediente> getTodosLosExpedientes(int idUsuario)
+        {
+            SqlDataReader datos;
+            datos = consultaExpediente.obtenerTodosLosExpedientes(idUsuario);
+            List<Expediente> expedientes = new List<Expediente>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    int idExp = Int32.Parse(datos.GetValue(0).ToString());
+                    String nombreExp = datos.GetValue(3).ToString();
+                    Expediente expTemp = new Expediente(nombreExp, idExp);
+                    expTemp.setIDFlujo(Int32.Parse(datos.GetValue(1).ToString()));
+                    expTemp.setIDColeccion(Int32.Parse(datos.GetValue(2).ToString()));
+                    expedientes.Add(expTemp);
+                }
+            }
+            return expedientes;
+        }
+
+        public void agregarAsignacion(int idUsuario, int idExpediente)
+        {
+            this.consultaExpediente.agregarAsignacion(idUsuario, idExpediente);
         }
 
         public void modificarNombre()

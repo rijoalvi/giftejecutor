@@ -47,7 +47,7 @@ namespace GiftEjecutor
             if (misIds != null)
             {
                 IDsExpedientes = new int[misIds.Length];
-                for (int i = 0; i < datos.Length; ++i)
+                for (int i = 0; i < misIds.Length; ++i)
                 {
                     IDsExpedientes[i] = misIds[i];
                 }
