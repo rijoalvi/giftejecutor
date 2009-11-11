@@ -200,8 +200,10 @@ namespace GiftEjecutor
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(5).ToString());
                     fila["repetible"] = datos.GetValue(6).ToString();
 
-
-                    if (true == this.esParalela)
+                    bool yaSeEjecuto2 = false;
+                    yaSeEjecuto2 = control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente);
+                        
+                    if (this.esParalela && !yaSeEjecuto2)
                     {
                         tablaActividades.Rows.Add(fila);
                     }
