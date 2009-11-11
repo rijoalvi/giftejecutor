@@ -176,8 +176,6 @@ namespace GiftEjecutor
                 }
             }
 
-
-
             if (dataGridActividad[3, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("Compuesta"))
             {
 
@@ -198,13 +196,6 @@ namespace GiftEjecutor
                 formActividad.setPadreMDI(padreMDI);
                 formActividad.Show();
             }
-
-
-
-
-
-
-
         }
 
         private void dataGridActividad_CellClick(object sender, DataGridViewCellEventArgs e)

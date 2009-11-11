@@ -31,8 +31,8 @@ namespace GiftEjecutor
             this.buttonAgregarPerfil = new System.Windows.Forms.Button();
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.groupBoxPerfiles = new System.Windows.Forms.GroupBox();
-            this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
             this.labelIndicacion = new System.Windows.Forms.Label();
+            this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBoxPerfiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -66,12 +66,23 @@ namespace GiftEjecutor
             this.groupBoxPerfiles.Controls.Add(this.dataGridViewUsuarios);
             this.groupBoxPerfiles.Controls.Add(this.buttonEliminarPerfil);
             this.groupBoxPerfiles.Controls.Add(this.buttonAgregarPerfil);
-            this.groupBoxPerfiles.Location = new System.Drawing.Point(8, 7);
+            this.groupBoxPerfiles.Location = new System.Drawing.Point(9, 7);
             this.groupBoxPerfiles.Name = "groupBoxPerfiles";
             this.groupBoxPerfiles.Size = new System.Drawing.Size(646, 293);
             this.groupBoxPerfiles.TabIndex = 3;
             this.groupBoxPerfiles.TabStop = false;
-            this.groupBoxPerfiles.Text = "Perfiles";
+            this.groupBoxPerfiles.Text = "Usuarios";
+            // 
+            // labelIndicacion
+            // 
+            this.labelIndicacion.AutoSize = true;
+            this.labelIndicacion.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelIndicacion.Location = new System.Drawing.Point(19, 264);
+            this.labelIndicacion.Name = "labelIndicacion";
+            this.labelIndicacion.Size = new System.Drawing.Size(466, 13);
+            this.labelIndicacion.TabIndex = 3;
+            this.labelIndicacion.Text = "Para ver los datos detallados de un usuario o editarlos, haga doble click sobre e" +
+                "l usuario deseado";
             // 
             // dataGridViewUsuarios
             // 
@@ -88,18 +99,6 @@ namespace GiftEjecutor
             this.dataGridViewUsuarios.TabIndex = 0;
             this.dataGridViewUsuarios.DoubleClick += new System.EventHandler(this.dataGridViewUsuarios_DoubleClick);
             // 
-            // labelIndicacion
-            // 
-            this.labelIndicacion.AutoSize = true;
-            this.labelIndicacion.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelIndicacion.Location = new System.Drawing.Point(19, 264);
-            this.labelIndicacion.Name = "labelIndicacion";
-            this.labelIndicacion.Size = new System.Drawing.Size(504, 13);
-            this.labelIndicacion.TabIndex = 3;
-            this.labelIndicacion.Text = "Para ver los datos detallados de un usuario o editarlos, haga doble click sobre e" +
-                "l usuario que quiera editar";
-            this.labelIndicacion.Click += new System.EventHandler(this.label1_Click);
-            // 
             // FormGestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,7 +107,7 @@ namespace GiftEjecutor
             this.Controls.Add(this.groupBoxPerfiles);
             this.Name = "FormGestionUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GestionPerfiles";
+            this.Text = "Gestión de Usuarios";
             this.Load += new System.EventHandler(this.GestionUsuarios_Load);
             this.groupBoxPerfiles.ResumeLayout(false);
             this.groupBoxPerfiles.PerformLayout();

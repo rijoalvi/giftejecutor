@@ -12,6 +12,7 @@ namespace GiftEjecutor
     public partial class Ventanota : Form
     {
         FormConexiones frm;
+        Usuario usuario;
         public Ventanota()
         {
             InitializeComponent();
@@ -35,6 +36,16 @@ namespace GiftEjecutor
             frm.MdiParent = this;
             frm.setPadreMDI(this);
             frm.Show();
+        }
+
+        public void setUsuario(Usuario user)
+        {
+            usuario = user;
+        }
+
+        public Usuario getUsuario()
+        {
+            return usuario;
         }
     }
 }

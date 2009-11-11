@@ -275,6 +275,7 @@ namespace GiftEjecutor
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
+            this.ponerUsuarioEnVentanota(); //OJO BETO, AQUI ES DONDE METO EL USUARIO EN LA VENTANOTA
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -529,6 +530,11 @@ namespace GiftEjecutor
             conexiones.setPadreMDI(padreMDI);
             this.Hide();
             conexiones.Show();
+        }
+
+        public void ponerUsuarioEnVentanota()
+        {
+            padreMDI.setUsuario(user);
         }
     }
 }

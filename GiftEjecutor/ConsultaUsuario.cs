@@ -157,7 +157,16 @@ namespace GiftEjecutor
         {
             SqlDataReader dataReader = null;
 
-            dataReader = this.controladoBD.hacerConsultaEjecutor("update  Usuario set nombreUsuario = '"+ nombre +"', contrasena = '"+ contrasena +"', preguntaSecreta = '"+ pregunta +"', respuesta = '"+ respuesta +"',IDPerfil = '"+ IDPerfil + "' where correlativo = '"+ IDUsuario +"';");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("update  Usuario set nombreUsuario = '"+ nombre +"', contrasena = '"+ contrasena +"', preguntaSecreta = '"+ pregunta +"', respuesta = '"+ respuesta +"',IDPerfil = '"+ IDPerfil + "' where correlativo = "+ IDUsuario +";");
+        }
+
+        /// <summary>
+        /// Borra un usuario 
+        /// </summary>
+        public void borrarUsuario(int IDUsuario)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("delete FROM Usuario where correlativo = '" + IDUsuario + "';");
         }
     }
 }

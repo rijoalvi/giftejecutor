@@ -276,5 +276,30 @@ namespace GiftEjecutor
         {
             return correlativo;
         }
+
+        /// <summary>
+        /// borra un usuario
+        /// </summary>
+        /// <param name="IDUsuario"></param>
+        public void borrarUsuario(int IDUsuario)
+        {
+            consultaBD.borrarUsuario(IDUsuario);
+        }
+
+        bool actividadValida(int IDActividad, int IDExpediente)
+        { 
+            bool respuesta = false;
+       /*     int i = 0;
+            bool existeExpediente = false;
+            while  (i<IDsExpedientes.Length && !existeExpediente){
+                if (IDsExpedientes[i] == IDExpediente){
+                    existeExpediente = true;
+                }
+                ++i;
+            }
+            */
+
+            return respuesta;
+        }
     }
 }

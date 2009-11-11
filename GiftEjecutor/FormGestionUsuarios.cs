@@ -39,51 +39,24 @@ namespace GiftEjecutor
             nuevoUsuario.Show();
         }
 
-        private void dataGridViewPerfiles_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            /*System.Windows.Forms.DataGridViewCellStyle b = new DataGridViewCellStyle();
-            b.BackColor = System.Drawing.Color.White;
-
-            for (int j = 0; j < this.dataGridViewPerfiles.ColumnCount; j++)
-            {
-                for (int i = 0; i < this.dataGridViewPerfiles.RowCount; i++)
-                {
-                    this.dataGridViewPerfiles[j, i].Style = b;
-
-                }
-            }
-
-            System.Windows.Forms.DataGridViewCellStyle azul = new DataGridViewCellStyle();
-            azul.BackColor = System.Drawing.Color.RoyalBlue;
-            azul.ForeColor = Color.White;
-
-            for (int i = 0; i < this.dataGridViewPerfiles.ColumnCount; i++)
-            {
-                this.dataGridViewPerfiles[i, this.dataGridViewPerfiles.CurrentRow.Index].Style = azul;
-            }
-            this.buttonEliminarPerfil.Enabled = true;*/
-        }
-
         private void buttonEliminarPerfil_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Eliminar: "+this.dataGridViewPerfiles[0,this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
-            /*int IDPerfilSeleccionado = Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
-            this.perfil.deletePerfil(IDPerfilSeleccionado);
 
-            MessageBox.Show("Eliminado perfil: " + this.dataGridViewPerfiles[1, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
-            this.actulizarDataGrid();*/
+            DataGridViewRow filaSeleccionada = dataGridViewUsuarios.CurrentRow;
+            if (filaSeleccionada != null)
+            {
+                int IDUsuario = Int32.Parse(filaSeleccionada.Cells[0].Value.ToString());
+                usuario.borrarUsuario(IDUsuario);
+                this.actulizarDataGrid();
+            }
+
         }
 
-        private void buttonDetalles_Click(object sender, EventArgs e)
-        {
-            /*           //FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil();
-                      // formDetallesPerfil.Show();
-                       int IDPerfilSeleccionado = Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
-                       FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil(IDPerfilSeleccionado);
-                       formDetallesPerfil.Show();*/
-        }
-
+        /// <summary>
+        /// Aqui se edita un usuario o se abre para solo lectura
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridViewUsuarios_DoubleClick(object sender, EventArgs e)
         {
             DataGridViewRow filaSeleccionada = dataGridViewUsuarios.CurrentRow;
@@ -93,11 +66,6 @@ namespace GiftEjecutor
                 FormNuevoUsuario nuevoUsuario = new FormNuevoUsuario(IDUsuario, this);
                 nuevoUsuario.Show();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
