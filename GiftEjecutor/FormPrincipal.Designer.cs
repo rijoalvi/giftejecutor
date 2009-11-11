@@ -51,6 +51,8 @@ namespace GiftEjecutor
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconexiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +61,8 @@ namespace GiftEjecutor
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.módulosToolStripMenuItem});
+            this.módulosToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
@@ -270,6 +273,21 @@ namespace GiftEjecutor
             this.label1.TabIndex = 22;
             this.label1.Text = "Formularios creados:";
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.desconexiónToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // desconexiónToolStripMenuItem
+            // 
+            this.desconexiónToolStripMenuItem.Name = "desconexiónToolStripMenuItem";
+            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.desconexiónToolStripMenuItem.Text = "Desconexión";
+            this.desconexiónToolStripMenuItem.Click += new System.EventHandler(this.desconexiónToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,5 +347,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.TreeView directorio;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDeExpedientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem desconexiónToolStripMenuItem;
     }
 }

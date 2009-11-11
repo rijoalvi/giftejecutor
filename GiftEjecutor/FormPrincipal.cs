@@ -536,5 +536,14 @@ namespace GiftEjecutor
             asignador.setPadreMDI(padreMDI);
             asignador.Show();
         }
+
+        private void desconexiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConexiones conexiones = new FormConexiones();
+            conexiones.MdiParent = padreMDI;
+            conexiones.setPadreMDI(padreMDI);
+            this.Hide();
+            conexiones.Show();
+        }
     }
 }

@@ -61,13 +61,10 @@ namespace GiftEjecutor
             else
             {
                 FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada, idUsuario);
-
                 // formPrincipal.MdiParent = padreMDI;
                 formPrincipal.setPadreMDI(padreMDI);
                 this.Hide();
-                formPrincipal.Show();
-                //Este si lo esconde, pero entonces nunk se mata el programa, asi q no funca
-                //this.Visible = false;     
+                formPrincipal.Show();   
             }
         }
 
