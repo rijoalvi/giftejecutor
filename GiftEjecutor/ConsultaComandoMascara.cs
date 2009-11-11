@@ -29,7 +29,7 @@ namespace GiftEjecutor
         public SqlDataReader getDatosPorID(int ID)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaConfigurador("select IDComando, TipoCampoInicial, CondicionInicial, TipoCampoFinal, EstadoFinal from ComandoMascara;");
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select IDComando, TipoCampoInicial, CondicionInicial, TipoCampoFinal, EstadoFinal from ComandoMascara where ID=" + ID + ";");
             return dataReader;            
         }
 

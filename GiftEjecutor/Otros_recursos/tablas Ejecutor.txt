@@ -65,14 +65,15 @@ CREATE TABLE Perfil(
 	PRIMARY KEY(correlativo)
 );
 
---drop ColeccionAsignada Perfil;
-CREATE TABLE ColeccionAsignada(
-	correlativo		int identity(1,1) NOT NULL,
-        IDPerfil                  int,
-        IDColeccion               int
+--drop table ActividadAsignada
+CREATE TABLE ActividadAsignada(
+	correlativo					int identity(1,1) NOT NULL,
+	IDColeccionAsignada         int,
+    IDActividad					int
 	PRIMARY KEY(correlativo)
-    FOREIGN KEY(IDPerfil) REFERENCES Perfil(correlativo)
+   -- FOREIGN KEY(IDColeccionAsignada) REFERENCES ColeccionAsignada(correlativo)
 );
+
 
 --drop ActividadAsignada Perfil;
 CREATE TABLE ActividadAsignada(
