@@ -290,22 +290,27 @@ namespace GiftEjecutor
             consultaBD.borrarUsuario(IDUsuario);
         }
 
-        bool actividadValida(int IDActividad, int IDExpediente)
+        public bool actividadValida(int IDActividad, int IDExpediente)
         { 
             bool respuesta = false;
-            int i = 0;
-            bool existeExpediente = false;
-            while  (i<IDsExpedientes.Length && !existeExpediente){
-                if (IDsExpedientes[i] == IDExpediente){
-                    existeExpediente = true;
-                }
-                ++i;
-            }
-            bool actividadValida = miPerfil.existeColeccionEnPerfil(IDExpediente, IDActividad);
-
-            if (actividadValida && existeExpediente)
-            {
+            if (this.getTipo() == 0){
                 respuesta = true;
+            }
+            else{
+                int i = 0;
+                bool existeExpediente = false;
+                while  (i<IDsExpedientes.Length && !existeExpediente){
+                    if (IDsExpedientes[i] == IDExpediente){
+                        existeExpediente = true;
+                    }
+                    ++i;
+                }
+                bool actividadValida = miPerfil.existeColeccionEnPerfil(IDExpediente, IDActividad);
+
+                if (actividadValida && existeExpediente)
+                {
+                    respuesta = true;
+                }
             }
             return respuesta;
         }

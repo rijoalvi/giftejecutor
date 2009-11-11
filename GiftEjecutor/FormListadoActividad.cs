@@ -140,61 +140,69 @@ namespace GiftEjecutor
             //this.buttonEjecutarActividad.Enabled = true;
             Actividad actividadAEjecutar = new Actividad();
             int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
-
-            if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
+            if (padreMDI.getUsuario().actividadValida(IDActividad,IDExpediente))
             {
-                Controlador cont = new Controlador();
-                for (int i = 0; i<dataGridActividad.RowCount; ++i){
-                    if (i != dataGridActividad.CurrentRow.Index)
+                if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
+                {
+                    Controlador cont = new Controlador();
+                    for (int i = 0; i < dataGridActividad.RowCount; ++i)
                     {
-                        int IDActividadNOEjecutar = System.Int32.Parse(this.dataGridActividad[0, i].Value.ToString());
-                        cont.finalizarActividadBitacora(IDExpediente,IDActividadNOEjecutar);
+                        if (i != dataGridActividad.CurrentRow.Index)
+                        {
+                            int IDActividadNOEjecutar = System.Int32.Parse(this.dataGridActividad[0, i].Value.ToString());
+                            cont.finalizarActividadBitacora(IDExpediente, IDActividadNOEjecutar);
+                        }
+                    }
+                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
+                }
+
+                actividadAEjecutar.setAtributosSegunID(IDActividad);
+                actividadAEjecutar.setIDExpediente(this.IDExpediente);
+                Controlador control = new Controlador();
+                //Si es repetible
+
+
+                if (dataGridActividad[4, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
+                {
+                    //Para que se vuelva a escribir ya debe estar finalizada
+                    if (control.checkActividadRealizada(IDActividad, IDExpediente))
+                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+                }
+                //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez
+                //entonces se escribe en bitácora, si no, no se vuelve a escribir.
+                else
+                {
+                    if (!control.checkActividadIniciada(IDActividad, IDExpediente))
+                    {
+                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
                     }
                 }
-                cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
-            }
 
-            actividadAEjecutar.setAtributosSegunID(IDActividad);
-            actividadAEjecutar.setIDExpediente(this.IDExpediente);
-            Controlador control = new Controlador();
-            //Si es repetible
-
-
-            if (dataGridActividad[4, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("True", StringComparison.OrdinalIgnoreCase))
-            {
-                //Para que se vuelva a escribir ya debe estar finalizada
-                if ( control.checkActividadRealizada(IDActividad, IDExpediente) )
-                    actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
-            }
-            //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez
-            //entonces se escribe en bitácora, si no, no se vuelve a escribir.
-            else
-            {
-                if (!control.checkActividadIniciada(IDActividad, IDExpediente))
+                if (dataGridActividad[3, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("Compuesta"))
                 {
-                    actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+
+                    //     MessageBox.Show("Compuesta");
+                    //  MessageBox.Show("Simple");
+                    //  FormActividad formActividad = new FormActividad(IDActividad, IDExpediente,1);
+                    //  formActividad.Show();
+
+                    FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false, this);
+                    formListadoActividad.MdiParent = padreMDI;
+                    formListadoActividad.setPadreMDI(padreMDI);
+                    formListadoActividad.Show();
+                }
+                else
+                {
+                    //    MessageBox.Show("Simple");
+                    FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
+                    formActividad.MdiParent = padreMDI;
+                    formActividad.setPadreMDI(padreMDI);
+                    formActividad.Show();
                 }
             }
-
-            if (dataGridActividad[3, dataGridActividad.CurrentRow.Index].Value.ToString().Equals("Compuesta"))
+            else
             {
-
-           //     MessageBox.Show("Compuesta");
-              //  MessageBox.Show("Simple");
-              //  FormActividad formActividad = new FormActividad(IDActividad, IDExpediente,1);
-              //  formActividad.Show();
-
-                FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false, this);
-                formListadoActividad.MdiParent = padreMDI;
-                formListadoActividad.setPadreMDI(padreMDI);
-                formListadoActividad.Show();
-            }
-            else {
-            //    MessageBox.Show("Simple");
-                FormActividad formActividad = new FormActividad(IDActividad, IDExpediente, this);
-                formActividad.MdiParent = padreMDI;
-                formActividad.setPadreMDI(padreMDI);
-                formActividad.Show();
+                MessageBox.Show("Su cuenta no tiene los derechos suficientes para realizar esta operación");
             }
         }
 
