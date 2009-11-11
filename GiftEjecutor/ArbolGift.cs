@@ -171,6 +171,7 @@ namespace GiftEjecutor
                     }
                 }
             }
+            directorio.ExpandAll();
         }
 
         private TreeNode buscarNodoFlujo(String correlativoFlujo)
