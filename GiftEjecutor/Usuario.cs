@@ -37,6 +37,10 @@ namespace GiftEjecutor
             cargarDatosUsuario();
         }
 
+        public int[] getIDsExpedientes() {
+            return this.IDsExpedientes;
+        }
+
         private void cargarDatosUsuario()
         {
             String[] datos = consultaBD.obtenerDatos(correlativo);

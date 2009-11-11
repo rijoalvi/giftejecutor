@@ -19,5 +19,10 @@ namespace GiftEjecutor
         {
             this.Dispose();
         }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

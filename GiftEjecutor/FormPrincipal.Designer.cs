@@ -317,6 +317,7 @@ namespace GiftEjecutor
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            arbol = new ArbolGift(directorio);
         }
 
         #endregion

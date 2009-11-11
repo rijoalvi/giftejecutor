@@ -44,13 +44,15 @@ namespace GiftEjecutor
             InitializeComponent();
             labelFormulariosCreados.Hide();
             listaFormularios.Hide();
-            refrescarDirectorio();
+            
             labelTituloExp.Hide();
             user = new Usuario(idUsuario);
+            arbol.setUsuario(user);
+            refrescarDirectorio();
         }
 
         public void refrescarDirectorio() {
-            //arbol.refrescar();
+            arbol.refrescar();
         }
 
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace GiftEjecutor
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
-            refrescarDirectorio();//este es que comenteo a veces, luisk
+           // refrescarDirectorio();//este es que comenteo a veces, luisk
 
             //refrescarDirectorio();//este es que comenteo a veces, luisk
 

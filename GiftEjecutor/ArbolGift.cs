@@ -11,9 +11,14 @@ namespace GiftEjecutor
     class ArbolGift
     {
         private TreeView directorio;
+        private Usuario usuario;
 
         public ArbolGift(TreeView directorio) {
-            this.directorio = directorio;
+            this.directorio = directorio;            
+        }
+
+        public void setUsuario(Usuario usuario){
+            this.usuario = usuario;
         }
 
         public Coleccion coleccionSeleccionada() { 
@@ -46,6 +51,7 @@ namespace GiftEjecutor
             directorio.Nodes.Clear();
             Coleccion coleccion = new Coleccion("GIFT Ejecutor"/*, 0*/);
             TreeNode nodo = this.directorio.Nodes.Add("0", "GIFT Ejecutor");
+            this.directorio.TopNode = nodo;
 
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
             TreeNode nodoFlujo;
@@ -60,13 +66,52 @@ namespace GiftEjecutor
             List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
             //expediente[0] Obtiene el correlativo,                    expediente[1] Obtiene el IDFlujo
             //expediente[2] Obtiene el IDColeccion a la que pertenece, expediente[3] Obtiene el nombre del expediente
+                Boolean encontrado;
+            
+            if (usuario.getTipo() != 0)//!Admnistrador
+            {
+                for (int i = 0; i < expedientes.Count; i++) {
+                    encontrado=false;
+                    for (int k = 0; !encontrado && k < usuario.getIDsExpedientes().Length; k++) {
+                        if (usuario.getIDsExpedientes()[k] == int.Parse(expedientes[i][0]))
+                            encontrado = true;
+                    }
+                    if (!encontrado) {
+                        expedientes.RemoveAt(i);
+                        i--;
+                    }
 
+                }
+
+            }
+
+            
             for (int j = 0; j < tablaFlujos.Rows.Count; j++)
             {
-                nodoFlujo = nodo.Nodes.Add("F" + tablaFlujos.Rows[j]["IDFlujo"].ToString(), tablaFlujos.Rows[j]["nombre"].ToString());
-                nodoFlujo.Tag = new FlujoTrabajo(int.Parse(tablaFlujos.Rows[j]["IDFlujo"].ToString()), tablaFlujos.Rows[j]["nombre"].ToString(), "");
-                nodoFlujo.ForeColor = Color.Blue;
+                encontrado=false;
+                for (int k = 0; !encontrado && k < expedientes.Count; k++) {
+                    if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(expedientes[k][1].ToString()))
+                        encontrado = true;
+                }
+                if (encontrado)
+                {
+                    nodoFlujo = nodo.Nodes.Add("F" + tablaFlujos.Rows[j]["IDFlujo"].ToString(), tablaFlujos.Rows[j]["nombre"].ToString());
+                    nodoFlujo.Tag = new FlujoTrabajo(int.Parse(tablaFlujos.Rows[j]["IDFlujo"].ToString()), tablaFlujos.Rows[j]["nombre"].ToString(), "");
+                    nodoFlujo.ForeColor = Color.Blue;
+                }
+                else {                                                  //Si no esta el flujo elimino las colecciones de ese flujo
+                    for (int l = 0;l < colecciones.Count; l++) { 
+                        if(colecciones[l][3].ToString().Equals(tablaFlujos.Rows[j]["IDFlujo"].ToString())){
+                            colecciones.RemoveAt(l);
+                            l--;
+                        }
+                    }
+                }
+                    
             }
+
+  
+
             for (int i = 0; i < colecciones.Count; i++)
             {
                 Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
@@ -84,7 +129,7 @@ namespace GiftEjecutor
                 if (nodoPadre != null)
                 {
                     nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
-                    nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()),colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));                    
+                    nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()), colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
                 }
                 else
                 {
