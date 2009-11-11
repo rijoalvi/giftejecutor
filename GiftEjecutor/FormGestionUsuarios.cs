@@ -39,32 +39,6 @@ namespace GiftEjecutor
             nuevoUsuario.Show();
         }
 
-        private void dataGridViewPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-         /*   System.Windows.Forms.DataGridViewCellStyle b = new DataGridViewCellStyle();
-            b.BackColor = System.Drawing.Color.White;
-
-            for (int j = 0; j < 3; j++)
-            {
-                for (int i = 0; i < this.dataGridViewPerfiles.RowCount; i++)
-                {
-                    this.dataGridViewPerfiles[j, i].Style = b;
-
-                }
-            }
-
-            System.Windows.Forms.DataGridViewCellStyle azul = new DataGridViewCellStyle();
-            azul.BackColor = System.Drawing.Color.RoyalBlue;
-            azul.ForeColor = Color.White;
-
-            for (int i = 0; i < 3; i++)
-            {
-                this.dataGridViewPerfiles[i, this.dataGridViewPerfiles.CurrentRow.Index].Style = azul;
-            }*/
-            
-        }
-
         private void dataGridViewPerfiles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -108,6 +82,22 @@ namespace GiftEjecutor
                        int IDPerfilSeleccionado = Int32.Parse(this.dataGridViewPerfiles[0, this.dataGridViewPerfiles.CurrentRow.Index].Value.ToString());
                        FormDetallesPerfil formDetallesPerfil = new FormDetallesPerfil(IDPerfilSeleccionado);
                        formDetallesPerfil.Show();*/
+        }
+
+        private void dataGridViewUsuarios_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow filaSeleccionada = dataGridViewUsuarios.CurrentRow;
+            if (filaSeleccionada != null)
+            {
+                int IDUsuario = Int32.Parse(filaSeleccionada.Cells[0].Value.ToString());
+                FormNuevoUsuario nuevoUsuario = new FormNuevoUsuario(IDUsuario, this);
+                nuevoUsuario.Show();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

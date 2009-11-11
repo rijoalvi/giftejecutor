@@ -13,6 +13,7 @@ namespace GiftEjecutor
 
         FormGestionUsuarios gestionUsuarios;
         Usuario usuario;
+        private bool soloLectura;
         private bool estoyModificando;
 
         /// <summary>
@@ -32,6 +33,9 @@ namespace GiftEjecutor
             this.llenarComboPerfiles();
             comboPerfiles.SelectedIndex = -1;
             comboPerfiles.Refresh();
+            this.Text = "Creación de un nuevo usuario";
+            buttonEditar.Visible = false;
+            soloLectura = false;
         }
 
         /// <summary>
@@ -50,29 +54,63 @@ namespace GiftEjecutor
             textBoxPreguntaSecreta.Text = usuario.getPregunta();
             textBoxRespuesta.Text = usuario.getRespuesta();
             estoyModificando = true;
+            this.llenarComboPerfiles();
+            comboPerfiles.Refresh();
+            comboPerfiles.SelectedValue = usuario.getCorrelativoPerfil();
+            this.Text = "Edición del usuario "+ textBoxNombreUsuario.Text;
+
+
+            textBoxNombreUsuario.Enabled = false;
+            textBoxContrasena.Enabled = false;
+            textBoxConfirmaContrasena.Enabled = false;
+            textBoxPreguntaSecreta.Enabled = false;
+            textBoxRespuesta.Enabled = false;
+            comboPerfiles.Enabled = false;
+            soloLectura = true;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (!estoyModificando)
+            if (!soloLectura)
             {
-                if(textBoxContrasena.Text == textBoxConfirmaContrasena.Text){
+                if (!estoyModificando)
+                {
+                    if (textBoxContrasena.Text == textBoxConfirmaContrasena.Text)
+                    {
 
-                    DataRow selectedDataRow = ((DataRowView)comboPerfiles.SelectedItem).Row;
-                    int perfilId = Convert.ToInt32(selectedDataRow["Id"]);
+                        DataRow selectedDataRow = ((DataRowView)comboPerfiles.SelectedItem).Row;
+                        int perfilId = Convert.ToInt32(selectedDataRow["Id"]);
 
 
-                    usuario.crearNuevoUsuario(textBoxNombreUsuario.Text, textBoxContrasena.Text, textBoxPreguntaSecreta.Text, textBoxRespuesta.Text, perfilId);
+                        usuario.crearNuevoUsuario(textBoxNombreUsuario.Text, textBoxContrasena.Text, textBoxPreguntaSecreta.Text, textBoxRespuesta.Text, perfilId);
+                        gestionUsuarios.actulizarDataGrid();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡La contraseña y la confirmación no concuerdan!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("¡La contraseña y la confirmación no concuerdan!");
+                    if (textBoxContrasena.Text == textBoxConfirmaContrasena.Text)
+                    {
+                        DataRow selectedDataRow = ((DataRowView)comboPerfiles.SelectedItem).Row;
+                        int perfilId1 = Convert.ToInt32(selectedDataRow["Id"]);
+                        usuario.editarUsuario(usuario.getCorrelativo(), textBoxNombreUsuario.Text, textBoxContrasena.Text, textBoxPreguntaSecreta.Text, textBoxRespuesta.Text, perfilId1);
+                        gestionUsuarios.actulizarDataGrid();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡La contraseña y la confirmación no concuerdan!");
+                    }
                 }
             }
             else
             {
+                this.Close();
             }
-
         }
 
         private void llenarComboPerfiles()
@@ -90,6 +128,28 @@ namespace GiftEjecutor
             comboPerfiles.DataSource = dataTable;
             comboPerfiles.DisplayMember = "NombrePerfil";
             comboPerfiles.ValueMember = "Id";
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            editarComponentes();
+            buttonEditar.Visible = false;
+            soloLectura = false;
+        }
+
+        private void editarComponentes()
+        {
+            textBoxNombreUsuario.Enabled = true;
+            textBoxContrasena.Enabled = true;
+            textBoxConfirmaContrasena.Enabled = true;
+            textBoxPreguntaSecreta.Enabled = true;
+            textBoxRespuesta.Enabled = true;
+            comboPerfiles.Enabled = true;
         }
     }
 }

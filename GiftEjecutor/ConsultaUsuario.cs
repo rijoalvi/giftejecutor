@@ -32,7 +32,7 @@ namespace GiftEjecutor
         /// <returns></returns>
         public String[]obtenerDatosPrivados(int correlativo)
         {
-            String[] respuesta = { "", "" };
+            String[] respuesta = { "", "",""};
             String consulta = "SELECT contrasena, preguntaSecreta, respuesta FROM Usuario WHERE correlativo = '" + correlativo + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             if(datos.Read()) {
@@ -138,11 +138,26 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        /// <summary>
+        /// Crea un nuevo usuario con los datos enviados como parámetro
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="pregunta"></param>
+        /// <param name="respuesta"></param>
+        /// <param name="IDPerfil"></param>
         public void crearUsuario(String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
         {
             SqlDataReader dataReader = null;
 
-            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into Usuario (nombreUsuario, contrasena, preguntaSecreta, respuesta,IDPerfil) VALUES ('" + nombre + "','" + contrasena + "','" + pregunta + "','" + respuesta + "');");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into Usuario (nombreUsuario, contrasena, preguntaSecreta, respuesta,IDPerfil) VALUES ('" + nombre + "','" + contrasena + "','" + pregunta + "','" + respuesta + "','" + IDPerfil + "');");
+        }
+
+        public void editarUsuario(int IDUsuario, String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
+        {
+            SqlDataReader dataReader = null;
+
+            dataReader = this.controladoBD.hacerConsultaEjecutor("update  Usuario set nombreUsuario = '"+ nombre +"', contrasena = '"+ contrasena +"', preguntaSecreta = '"+ pregunta +"', respuesta = '"+ respuesta +"',IDPerfil = '"+ IDPerfil + "' where correlativo = '"+ IDUsuario +"';");
         }
     }
 }

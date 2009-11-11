@@ -31,18 +31,18 @@ namespace GiftEjecutor
             this.buttonAgregarPerfil = new System.Windows.Forms.Button();
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.groupBoxPerfiles = new System.Windows.Forms.GroupBox();
-            this.buttonDetalles = new System.Windows.Forms.Button();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.labelIndicacion = new System.Windows.Forms.Label();
             this.groupBoxPerfiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAgregarPerfil
             // 
-            this.buttonAgregarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarPerfil.Location = new System.Drawing.Point(575, 19);
+            this.buttonAgregarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarPerfil.Location = new System.Drawing.Point(621, 40);
             this.buttonAgregarPerfil.Name = "buttonAgregarPerfil";
-            this.buttonAgregarPerfil.Size = new System.Drawing.Size(31, 31);
+            this.buttonAgregarPerfil.Size = new System.Drawing.Size(19, 19);
             this.buttonAgregarPerfil.TabIndex = 1;
             this.buttonAgregarPerfil.Text = "+";
             this.buttonAgregarPerfil.UseVisualStyleBackColor = true;
@@ -50,65 +50,68 @@ namespace GiftEjecutor
             // 
             // buttonEliminarPerfil
             // 
-            this.buttonEliminarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarPerfil.Location = new System.Drawing.Point(575, 56);
+            this.buttonEliminarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminarPerfil.Location = new System.Drawing.Point(621, 61);
             this.buttonEliminarPerfil.Name = "buttonEliminarPerfil";
-            this.buttonEliminarPerfil.Size = new System.Drawing.Size(31, 31);
+            this.buttonEliminarPerfil.Size = new System.Drawing.Size(19, 19);
             this.buttonEliminarPerfil.TabIndex = 2;
             this.buttonEliminarPerfil.Text = "-";
+            this.buttonEliminarPerfil.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.buttonEliminarPerfil.UseVisualStyleBackColor = true;
             this.buttonEliminarPerfil.Click += new System.EventHandler(this.buttonEliminarPerfil_Click);
             // 
             // groupBoxPerfiles
             // 
-            this.groupBoxPerfiles.Controls.Add(this.buttonDetalles);
+            this.groupBoxPerfiles.Controls.Add(this.labelIndicacion);
             this.groupBoxPerfiles.Controls.Add(this.dataGridViewUsuarios);
             this.groupBoxPerfiles.Controls.Add(this.buttonEliminarPerfil);
             this.groupBoxPerfiles.Controls.Add(this.buttonAgregarPerfil);
-            this.groupBoxPerfiles.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxPerfiles.Location = new System.Drawing.Point(8, 7);
             this.groupBoxPerfiles.Name = "groupBoxPerfiles";
-            this.groupBoxPerfiles.Size = new System.Drawing.Size(646, 279);
+            this.groupBoxPerfiles.Size = new System.Drawing.Size(646, 293);
             this.groupBoxPerfiles.TabIndex = 3;
             this.groupBoxPerfiles.TabStop = false;
             this.groupBoxPerfiles.Text = "Perfiles";
-            // 
-            // buttonDetalles
-            // 
-            this.buttonDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetalles.Location = new System.Drawing.Point(575, 93);
-            this.buttonDetalles.Name = "buttonDetalles";
-            this.buttonDetalles.Size = new System.Drawing.Size(62, 31);
-            this.buttonDetalles.TabIndex = 3;
-            this.buttonDetalles.Text = "Detalles";
-            this.buttonDetalles.UseVisualStyleBackColor = true;
-            this.buttonDetalles.Click += new System.EventHandler(this.buttonDetalles_Click);
             // 
             // dataGridViewUsuarios
             // 
             this.dataGridViewUsuarios.AllowUserToAddRows = false;
             this.dataGridViewUsuarios.AllowUserToDeleteRows = false;
+            this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(22, 19);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(547, 242);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(593, 242);
             this.dataGridViewUsuarios.TabIndex = 0;
-            this.dataGridViewUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellClick);
-            this.dataGridViewUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerfiles_CellContentClick);
+            this.dataGridViewUsuarios.DoubleClick += new System.EventHandler(this.dataGridViewUsuarios_DoubleClick);
+            // 
+            // labelIndicacion
+            // 
+            this.labelIndicacion.AutoSize = true;
+            this.labelIndicacion.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelIndicacion.Location = new System.Drawing.Point(19, 264);
+            this.labelIndicacion.Name = "labelIndicacion";
+            this.labelIndicacion.Size = new System.Drawing.Size(504, 13);
+            this.labelIndicacion.TabIndex = 3;
+            this.labelIndicacion.Text = "Para ver los datos detallados de un usuario o editarlos, haga doble click sobre e" +
+                "l usuario que quiera editar";
+            this.labelIndicacion.Click += new System.EventHandler(this.label1_Click);
             // 
             // FormGestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 443);
+            this.ClientSize = new System.Drawing.Size(665, 313);
             this.Controls.Add(this.groupBoxPerfiles);
             this.Name = "FormGestionUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionPerfiles";
             this.Load += new System.EventHandler(this.GestionUsuarios_Load);
             this.groupBoxPerfiles.ResumeLayout(false);
+            this.groupBoxPerfiles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
             this.ResumeLayout(false);
 
@@ -119,7 +122,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonAgregarPerfil;
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.GroupBox groupBoxPerfiles;
-        private System.Windows.Forms.Button buttonDetalles;
         private System.Windows.Forms.DataGridView dataGridViewUsuarios;
+        private System.Windows.Forms.Label labelIndicacion;
     }
 }

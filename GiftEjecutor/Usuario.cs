@@ -191,26 +191,50 @@ namespace GiftEjecutor
             return tablaUsuarios;
         }
 
+        /// <summary>
+        /// devuelve un string con la contraseña del usuario
+        /// </summary>
+        /// <returns></returns>
         public String getContrasena() 
         {
             return contrasena;
         }
 
+        /// <summary>
+        /// devuelve la pregunta secreta del usuario
+        /// </summary>
+        /// <returns></returns>
         public String getPregunta()
         {
             return pregunta;
         }
 
+        /// <summary>
+        /// devuelve la respuesta secreta del usuario
+        /// </summary>
+        /// <returns></returns>
         public String getRespuesta()
         {
             return respuesta;
         }
 
+        /// <summary>
+        /// devuelve el nombre de usuario
+        /// </summary>
+        /// <returns></returns>
         public String getNombre()
         {
             return nombre;
         }
 
+        /// <summary>
+        /// crea un nuevo usuario en la base de datos con los parámetros enviados
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="pregunta"></param>
+        /// <param name="respuesta"></param>
+        /// <param name="IDPerfil"></param>
         public void crearNuevoUsuario(String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
         {
             consultaBD.crearUsuario(nombre, contrasena,pregunta,respuesta,IDPerfil);
@@ -219,6 +243,38 @@ namespace GiftEjecutor
         public override String ToString()
         {
             return this.nombre;
+        }
+
+        /// <summary>
+        /// devuelve el correlativo del perfil al que pertenece el usuario
+        /// </summary>
+        /// <returns></returns>
+        public int getCorrelativoPerfil()
+        {
+            return (miPerfil.getCorrelativo());
+        }
+
+        /// <summary>
+        /// Edita un usuario existente, por IDUsuario
+        /// </summary>
+        /// <param name="IDUsuario"></param>
+        /// <param name="nombre"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="pregunta"></param>
+        /// <param name="respuesta"></param>
+        /// <param name="IDPerfil"></param>
+        public void editarUsuario(int IDUsuario, String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
+        {
+            consultaBD.editarUsuario(IDUsuario, nombre, contrasena, pregunta, respuesta, IDPerfil);
+        }
+
+        /// <summary>
+        /// Devuelve el correlativo del usuario actual
+        /// </summary>
+        /// <returns></returns>
+        public int getCorrelativo()
+        {
+            return correlativo;
         }
     }
 }

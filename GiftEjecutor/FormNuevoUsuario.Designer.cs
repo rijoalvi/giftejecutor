@@ -43,6 +43,7 @@ namespace GiftEjecutor
             this.labelNombrePerfil = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.comboPerfiles = new System.Windows.Forms.ComboBox();
+            this.buttonEditar = new System.Windows.Forms.Button();
             this.groupBoxDatosUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,12 +56,13 @@ namespace GiftEjecutor
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(113, 284);
+            this.buttonCancelar.Location = new System.Drawing.Point(128, 284);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 10;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // groupBoxDatosUsuario
             // 
@@ -167,7 +169,7 @@ namespace GiftEjecutor
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(194, 284);
+            this.buttonOK.Location = new System.Drawing.Point(249, 284);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 9;
@@ -183,11 +185,22 @@ namespace GiftEjecutor
             this.comboPerfiles.Size = new System.Drawing.Size(121, 21);
             this.comboPerfiles.TabIndex = 13;
             // 
+            // buttonEditar
+            // 
+            this.buttonEditar.Location = new System.Drawing.Point(7, 284);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.TabIndex = 14;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
+            // 
             // FormNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 343);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.comboPerfiles);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.groupBoxDatosUsuario);
@@ -219,5 +232,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelRespuesta;
         private System.Windows.Forms.TextBox textBoxRespuesta;
         private System.Windows.Forms.ComboBox comboPerfiles;
+        private System.Windows.Forms.Button buttonEditar;
     }
 }
