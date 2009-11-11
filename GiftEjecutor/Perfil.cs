@@ -150,6 +150,11 @@ namespace GiftEjecutor
             return this.nombre;
         }
 
+        public void asignarColeccion(int IDColeccion) {
+            this.consultaPerfil.asignarColeccion(this.correlativo, IDColeccion);
+        }
+
+
         public bool existeColeccionEnPerfil(int IDExpediente, int IDActividad)
         {
             bool respuesta = false;
@@ -163,5 +168,6 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
+
     }
 }

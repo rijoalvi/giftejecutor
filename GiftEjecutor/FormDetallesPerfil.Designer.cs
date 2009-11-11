@@ -32,20 +32,16 @@ namespace GiftEjecutor
             this.labelTipo = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxTipo = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColleccionesAsignadas = new System.Windows.Forms.GroupBox();
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.buttonAgregarPerfil = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabColecciones = new System.Windows.Forms.TabControl();
             this.comboBoxFlujoTrabajo = new System.Windows.Forms.ComboBox();
             this.labelFlujo = new System.Windows.Forms.Label();
             this.comboBoxColecciones = new System.Windows.Forms.ComboBox();
-            this.Colecciones = new System.Windows.Forms.Label();
             this.groupBoxAsignarColecciones = new System.Windows.Forms.GroupBox();
             this.buttonAsignarColeccion = new System.Windows.Forms.Button();
-            this.buttonAsignarTodasColecciones = new System.Windows.Forms.Button();
-            this.tabColecciones = new System.Windows.Forms.TabControl();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.labelMensaje = new System.Windows.Forms.Label();
             this.ColleccionesAsignadas.SuspendLayout();
             this.groupBoxAsignarColecciones.SuspendLayout();
             this.SuspendLayout();
@@ -84,14 +80,6 @@ namespace GiftEjecutor
             this.textBoxTipo.Size = new System.Drawing.Size(121, 20);
             this.textBoxTipo.TabIndex = 3;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 127);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(129, 99);
-            this.dataGridView1.TabIndex = 4;
-            // 
             // ColleccionesAsignadas
             // 
             this.ColleccionesAsignadas.Controls.Add(this.buttonEliminarPerfil);
@@ -99,7 +87,7 @@ namespace GiftEjecutor
             this.ColleccionesAsignadas.Controls.Add(this.tabColecciones);
             this.ColleccionesAsignadas.Location = new System.Drawing.Point(51, 250);
             this.ColleccionesAsignadas.Name = "ColleccionesAsignadas";
-            this.ColleccionesAsignadas.Size = new System.Drawing.Size(529, 185);
+            this.ColleccionesAsignadas.Size = new System.Drawing.Size(639, 268);
             this.ColleccionesAsignadas.TabIndex = 5;
             this.ColleccionesAsignadas.TabStop = false;
             this.ColleccionesAsignadas.Text = "Collecciones Asignadas";
@@ -107,7 +95,7 @@ namespace GiftEjecutor
             // buttonEliminarPerfil
             // 
             this.buttonEliminarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarPerfil.Location = new System.Drawing.Point(478, 87);
+            this.buttonEliminarPerfil.Location = new System.Drawing.Point(585, 84);
             this.buttonEliminarPerfil.Name = "buttonEliminarPerfil";
             this.buttonEliminarPerfil.Size = new System.Drawing.Size(31, 31);
             this.buttonEliminarPerfil.TabIndex = 7;
@@ -117,7 +105,7 @@ namespace GiftEjecutor
             // buttonAgregarPerfil
             // 
             this.buttonAgregarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarPerfil.Location = new System.Drawing.Point(478, 50);
+            this.buttonAgregarPerfil.Location = new System.Drawing.Point(585, 47);
             this.buttonAgregarPerfil.Name = "buttonAgregarPerfil";
             this.buttonAgregarPerfil.Size = new System.Drawing.Size(31, 31);
             this.buttonAgregarPerfil.TabIndex = 6;
@@ -125,13 +113,13 @@ namespace GiftEjecutor
             this.buttonAgregarPerfil.UseVisualStyleBackColor = true;
             this.buttonAgregarPerfil.Click += new System.EventHandler(this.buttonAgregarPerfil_Click);
             // 
-            // comboBox1
+            // tabColecciones
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(346, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.tabColecciones.Location = new System.Drawing.Point(8, 28);
+            this.tabColecciones.Name = "tabColecciones";
+            this.tabColecciones.SelectedIndex = 0;
+            this.tabColecciones.Size = new System.Drawing.Size(571, 218);
+            this.tabColecciones.TabIndex = 8;
             // 
             // comboBoxFlujoTrabajo
             // 
@@ -161,18 +149,8 @@ namespace GiftEjecutor
             this.comboBoxColecciones.Size = new System.Drawing.Size(160, 21);
             this.comboBoxColecciones.TabIndex = 9;
             // 
-            // Colecciones
-            // 
-            this.Colecciones.AutoSize = true;
-            this.Colecciones.Location = new System.Drawing.Point(449, 109);
-            this.Colecciones.Name = "Colecciones";
-            this.Colecciones.Size = new System.Drawing.Size(65, 13);
-            this.Colecciones.TabIndex = 10;
-            this.Colecciones.Text = "Colecciones";
-            // 
             // groupBoxAsignarColecciones
             // 
-            this.groupBoxAsignarColecciones.Controls.Add(this.buttonAsignarTodasColecciones);
             this.groupBoxAsignarColecciones.Controls.Add(this.buttonAsignarColeccion);
             this.groupBoxAsignarColecciones.Controls.Add(this.comboBoxColecciones);
             this.groupBoxAsignarColecciones.Location = new System.Drawing.Point(51, 155);
@@ -192,34 +170,23 @@ namespace GiftEjecutor
             this.buttonAsignarColeccion.UseVisualStyleBackColor = true;
             this.buttonAsignarColeccion.Click += new System.EventHandler(this.buttonAsignarColeccion_Click);
             // 
-            // buttonAsignarTodasColecciones
+            // labelMensaje
             // 
-            this.buttonAsignarTodasColecciones.Location = new System.Drawing.Point(183, 48);
-            this.buttonAsignarTodasColecciones.Name = "buttonAsignarTodasColecciones";
-            this.buttonAsignarTodasColecciones.Size = new System.Drawing.Size(126, 23);
-            this.buttonAsignarTodasColecciones.TabIndex = 11;
-            this.buttonAsignarTodasColecciones.Text = "Asignar todas";
-            this.buttonAsignarTodasColecciones.UseVisualStyleBackColor = true;
-            // 
-            // tabColecciones
-            // 
-            this.tabColecciones.Location = new System.Drawing.Point(8, 28);
-            this.tabColecciones.Name = "tabColecciones";
-            this.tabColecciones.SelectedIndex = 0;
-            this.tabColecciones.Size = new System.Drawing.Size(455, 140);
-            this.tabColecciones.TabIndex = 8;
+            this.labelMensaje.AutoSize = true;
+            this.labelMensaje.Location = new System.Drawing.Point(135, 139);
+            this.labelMensaje.Name = "labelMensaje";
+            this.labelMensaje.Size = new System.Drawing.Size(0, 13);
+            this.labelMensaje.TabIndex = 12;
             // 
             // FormDetallesPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 447);
+            this.ClientSize = new System.Drawing.Size(716, 549);
+            this.Controls.Add(this.labelMensaje);
             this.Controls.Add(this.groupBoxAsignarColecciones);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.Colecciones);
             this.Controls.Add(this.labelFlujo);
             this.Controls.Add(this.comboBoxFlujoTrabajo);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ColleccionesAsignadas);
             this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.textBoxNombre);
@@ -229,7 +196,6 @@ namespace GiftEjecutor
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalles Perfil";
             this.Load += new System.EventHandler(this.FormDetallesPerfil_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ColleccionesAsignadas.ResumeLayout(false);
             this.groupBoxAsignarColecciones.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,18 +209,15 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelTipo;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxTipo;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox ColleccionesAsignadas;
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.Button buttonAgregarPerfil;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBoxFlujoTrabajo;
         private System.Windows.Forms.Label labelFlujo;
         private System.Windows.Forms.ComboBox comboBoxColecciones;
-        private System.Windows.Forms.Label Colecciones;
         private System.Windows.Forms.GroupBox groupBoxAsignarColecciones;
-        private System.Windows.Forms.Button buttonAsignarTodasColecciones;
         private System.Windows.Forms.Button buttonAsignarColeccion;
         private System.Windows.Forms.TabControl tabColecciones;
+        private System.Windows.Forms.Label labelMensaje;
     }
 }

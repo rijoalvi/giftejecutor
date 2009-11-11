@@ -80,7 +80,7 @@ namespace GiftEjecutor
             this.groupBoxPerfiles.Controls.Add(this.buttonAgregarPerfil);
             this.groupBoxPerfiles.Location = new System.Drawing.Point(12, 12);
             this.groupBoxPerfiles.Name = "groupBoxPerfiles";
-            this.groupBoxPerfiles.Size = new System.Drawing.Size(646, 279);
+            this.groupBoxPerfiles.Size = new System.Drawing.Size(720, 279);
             this.groupBoxPerfiles.TabIndex = 3;
             this.groupBoxPerfiles.TabStop = false;
             this.groupBoxPerfiles.Text = "Perfiles";
@@ -90,9 +90,9 @@ namespace GiftEjecutor
             this.buttonDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDetalles.Location = new System.Drawing.Point(575, 93);
             this.buttonDetalles.Name = "buttonDetalles";
-            this.buttonDetalles.Size = new System.Drawing.Size(62, 31);
+            this.buttonDetalles.Size = new System.Drawing.Size(137, 31);
             this.buttonDetalles.TabIndex = 3;
-            this.buttonDetalles.Text = "Detalles";
+            this.buttonDetalles.Text = "Asignar colecciones";
             this.buttonDetalles.UseVisualStyleBackColor = true;
             this.buttonDetalles.Click += new System.EventHandler(this.buttonDetalles_Click);
             // 
@@ -100,7 +100,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 443);
+            this.ClientSize = new System.Drawing.Size(744, 443);
             this.Controls.Add(this.groupBoxPerfiles);
             this.Name = "FormGestionPerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,11 +30,20 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        public SqlDataReader asignarColeccion(int IDPerfil, int IDColeccion)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into ColeccionAsignada (IDPerfil, IDColeccion) values (" + IDPerfil + "," + IDColeccion + ");");
+            return dataReader;
+        }
+
+
         public SqlDataReader buscarColeccionEnPerfil(int IDColeccion, int IDPerfil, int IDActividad)
         {
             SqlDataReader dataReader = null;
             dataReader = this.controladoBD.hacerConsultaEjecutor("select C.correlativo from ColeccionAsignada C, ActividadAsignada A where C.IDPerfil=" + IDPerfil + " and C.IDColeccion = " + IDColeccion + " and C.IDColeccion = A.IDColeccion and A.IDActividad = " + IDActividad + ";");
             return dataReader;
         }
+
     }
 }

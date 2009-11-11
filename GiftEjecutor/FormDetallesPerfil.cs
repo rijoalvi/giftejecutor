@@ -23,6 +23,16 @@ namespace GiftEjecutor
             perfil.setDatosPorID(IDPerfil);
             this.textBoxNombre.Text = perfil.getNombre();
             this.textBoxTipo.Text = perfil.getTipo();
+            if (this.textBoxTipo.Text.ToString().Equals("Administrador"))
+            {
+                this.groupBoxAsignarColecciones.Visible = false;
+                this.ColleccionesAsignadas.Visible = false;
+                this.comboBoxFlujoTrabajo.Visible = false;
+                this.labelFlujo.Visible = false;
+                
+                this.labelMensaje.Text = "Administrador tiene derechos sobre todo.";
+                
+            }
         }
         private void buttonAgregarPerfil_Click(object sender, EventArgs e)
         {
@@ -62,6 +72,7 @@ namespace GiftEjecutor
             {
                 comboBoxColecciones.Items.Add(c.coleccionesDeUnFlujo[i]);
             }
+            //this.comboBoxFlujoTrabajo
         }
 
         private void buttonAsignarColeccion_Click(object sender, EventArgs e)
@@ -69,11 +80,16 @@ namespace GiftEjecutor
             // tabPage=;
             if (null != this.comboBoxColecciones.SelectedItem)
             {
-                Actividad a= new Actividad();
+                Actividad actividad= new Actividad();
                 DataGridView dg = new DataGridView();
-                dg.Width = 400;
-                dg.DataSource = a.getDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
-                TabPage tabPage = new TabPage(((Coleccion)this.comboBoxColecciones.SelectedItem).getNombre());
+                dg.Width = 600;//getDataTableActividadesPorIDFlujoParaAsignaciones
+                dg.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
+                //dg.DataSource = actividad.getDataTableActividadesPorIDFlujoParaAsignaciones(this.IDFlujoSeleccionado);
+              //  dg.Columns[0].Visible = false;//para ocultar ID
+                Coleccion coleccionSeleccionada=((Coleccion)this.comboBoxColecciones.SelectedItem);
+                this.perfil.asignarColeccion(coleccionSeleccionada.getCorrelativo());
+
+                TabPage tabPage = new TabPage(coleccionSeleccionada.getNombre());
                 tabPage.Controls.Add(dg);
                 this.tabColecciones.Controls.Add(tabPage);
             }
