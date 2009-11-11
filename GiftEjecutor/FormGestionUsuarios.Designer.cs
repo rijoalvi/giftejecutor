@@ -33,6 +33,7 @@ namespace GiftEjecutor
             this.groupBoxPerfiles = new System.Windows.Forms.GroupBox();
             this.labelIndicacion = new System.Windows.Forms.Label();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxPerfiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +100,22 @@ namespace GiftEjecutor
             this.dataGridViewUsuarios.TabIndex = 0;
             this.dataGridViewUsuarios.DoubleClick += new System.EventHandler(this.dataGridViewUsuarios_DoubleClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(582, 304);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Cerrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormGestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 313);
+            this.ClientSize = new System.Drawing.Size(665, 339);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxPerfiles);
             this.Name = "FormGestionUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -123,5 +135,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.GroupBox groupBoxPerfiles;
         private System.Windows.Forms.DataGridView dataGridViewUsuarios;
         private System.Windows.Forms.Label labelIndicacion;
+        private System.Windows.Forms.Button button1;
     }
 }

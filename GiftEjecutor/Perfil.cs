@@ -164,7 +164,9 @@ namespace GiftEjecutor
             datos = this.consultaPerfil.buscarColeccionEnPerfil(coleccion, correlativo, IDActividad);
             if (datos != null)
             {
-                respuesta = true;
+                if(datos.Read()){
+                    respuesta = true;
+                }
             }
             return respuesta;
         }
