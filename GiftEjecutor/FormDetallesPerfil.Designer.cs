@@ -87,7 +87,7 @@ namespace GiftEjecutor
             this.ColleccionesAsignadas.Controls.Add(this.tabColecciones);
             this.ColleccionesAsignadas.Location = new System.Drawing.Point(51, 250);
             this.ColleccionesAsignadas.Name = "ColleccionesAsignadas";
-            this.ColleccionesAsignadas.Size = new System.Drawing.Size(639, 268);
+            this.ColleccionesAsignadas.Size = new System.Drawing.Size(639, 299);
             this.ColleccionesAsignadas.TabIndex = 5;
             this.ColleccionesAsignadas.TabStop = false;
             this.ColleccionesAsignadas.Text = "Collecciones Asignadas";
@@ -101,6 +101,7 @@ namespace GiftEjecutor
             this.buttonEliminarPerfil.TabIndex = 7;
             this.buttonEliminarPerfil.Text = "-";
             this.buttonEliminarPerfil.UseVisualStyleBackColor = true;
+            this.buttonEliminarPerfil.Click += new System.EventHandler(this.buttonEliminarPerfil_Click);
             // 
             // buttonAgregarPerfil
             // 
@@ -118,7 +119,7 @@ namespace GiftEjecutor
             this.tabColecciones.Location = new System.Drawing.Point(8, 28);
             this.tabColecciones.Name = "tabColecciones";
             this.tabColecciones.SelectedIndex = 0;
-            this.tabColecciones.Size = new System.Drawing.Size(571, 218);
+            this.tabColecciones.Size = new System.Drawing.Size(571, 256);
             this.tabColecciones.TabIndex = 8;
             // 
             // comboBoxFlujoTrabajo
@@ -182,7 +183,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 549);
+            this.ClientSize = new System.Drawing.Size(716, 565);
             this.Controls.Add(this.labelMensaje);
             this.Controls.Add(this.groupBoxAsignarColecciones);
             this.Controls.Add(this.labelFlujo);

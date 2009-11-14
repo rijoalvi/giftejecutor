@@ -36,6 +36,15 @@ namespace GiftEjecutor
             this.fechaActualizacion = new DateTime(1111, 1, 11);
 
         }
+        public Actividad(int ID, String nombre, String descripcion, int tipo)
+        {
+
+            this.ID = ID;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.tipo = tipo;
+
+        }
 
         public int getID()
         {
@@ -494,7 +503,7 @@ namespace GiftEjecutor
         /// nuevo metodo toString
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+       /* public override string ToString()
         {
             return "Nombre: " + this.nombre + "" + '\n' +
                 "Descripción: " + this.descripcion + "" + '\n' +
@@ -503,7 +512,11 @@ namespace GiftEjecutor
                 "IDExpediente: " + this.IDExpediente + "" + '\n' +
                 "Fecha Actualización: " + this.fechaActualizacion + ""// + '\n' + 
                 ;
-        }
+        }*/
+         public override string ToString()
+         {
+             return this.nombre;
+         }
 
         private string getTipo(string tipo)
         {
@@ -610,7 +623,7 @@ namespace GiftEjecutor
 
 
 
-        public DataTable getListaDataTableActividadesPorIDFlujo(int IDFlujo)
+        public List <Actividad> getListaDataTableActividadesPorIDFlujo(int IDFlujo)
         {
            /* DataTable tablaActividades = new DataTable();
             DataRow fila;
@@ -638,7 +651,7 @@ namespace GiftEjecutor
             tablaActividades.Columns.Add(descripcionActividad);
             tablaActividades.Columns.Add(tipoActividad);
             tablaActividades.Columns.Add(repetible);*/
-           /* List<Actividad> lista = new List<Actividad>();
+            List<Actividad> lista = new List<Actividad>();
 
             Controlador control = new Controlador();
 
@@ -648,17 +661,27 @@ namespace GiftEjecutor
             {
                 while (datos.Read())
                 {
-                    fila = tablaActividades.NewRow();
+                   /* fila = tablaActividades.NewRow();
                     fila["IDActividad"] = datos.GetValue(1);
                     fila["nombreActividad"] = datos.GetValue(2);
                     fila["descripcionActividad"] = datos.GetValue(3);
                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
                     fila["repetible"] = datos.GetValue(6).ToString();
-                    tablaActividades.Rows.Add(fila);
+                    tablaActividades.Rows.Add(fila);*/
+
+                   // fila = tablaActividades.NewRow();
+                    int IDActividad =Int32.Parse( datos.GetValue(1).ToString());
+                    String nombreActividad= datos.GetValue(2).ToString();
+                    String descripcionActividad = datos.GetValue(3).ToString();
+                   // int tipoActividad = Int32.Parse(datos.GetValue(4).ToString());
+                    int tipoActividad = -1;
+
+                    lista.Add(new Actividad(IDActividad, nombreActividad, descripcionActividad, tipoActividad));
+               
                 }
             }
-            return tablaActividades;*/
-            return null;
+            
+            return lista;
         }
 
 
@@ -843,5 +866,9 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
+       /* public override String ToString() {
+            return this.nombre;
+        }*/
+
     }
 }

@@ -12,12 +12,19 @@ namespace GiftEjecutor
     {
         private Perfil perfil;
         private int IDFlujoSeleccionado;
+        public ListBox listActividadesDisponibles;
+        public ListBox listActividadesPermitidasAlaColeccion;
+
+        public List<ListBox> listaListActividadesDisponibles;
+        public List<ListBox> listaListActividadesPermitidasAlaColeccion;
         public FormDetallesPerfil()
         {
             InitializeComponent();
         }
         public FormDetallesPerfil(int IDPerfil)
         {
+            listaListActividadesDisponibles = new List<ListBox>();
+            listaListActividadesPermitidasAlaColeccion = new List<ListBox>();
             InitializeComponent();
             perfil = new Perfil();
             perfil.setDatosPorID(IDPerfil);
@@ -81,22 +88,104 @@ namespace GiftEjecutor
             if (null != this.comboBoxColecciones.SelectedItem)
             {
                 Actividad actividad= new Actividad();
-                DataGridView dg = new DataGridView();
-                dg.Width = 600;//getDataTableActividadesPorIDFlujoParaAsignaciones
-                dg.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
+             //   DataGridView dg = new DataGridView();
+                listActividadesDisponibles = new ListBox();
+                listaListActividadesDisponibles.Add(listActividadesDisponibles);
+                listActividadesDisponibles.SetBounds(20, 20, 170, 160);
+
+                listActividadesPermitidasAlaColeccion = new ListBox();
+                listaListActividadesPermitidasAlaColeccion.Add(listActividadesPermitidasAlaColeccion);
+                listActividadesPermitidasAlaColeccion.SetBounds(260, 20, 170, 160);
+
+                List<Actividad> listaActividades= actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
+                for (int i = 0; i < listaActividades.Count; i++ )
+                {
+                    listActividadesDisponibles.Items.Add(listaActividades[i]);
+                }
+
+               // dg.Width = 600;//getDataTableActividadesPorIDFlujoParaAsignaciones
+               // dg.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
                 //dg.DataSource = actividad.getDataTableActividadesPorIDFlujoParaAsignaciones(this.IDFlujoSeleccionado);
               //  dg.Columns[0].Visible = false;//para ocultar ID
                 Coleccion coleccionSeleccionada=((Coleccion)this.comboBoxColecciones.SelectedItem);
                 this.perfil.asignarColeccion(coleccionSeleccionada.getCorrelativo());
 
                 TabPage tabPage = new TabPage(coleccionSeleccionada.getNombre());
-                tabPage.Controls.Add(dg);
+                tabPage.Tag = coleccionSeleccionada;
+
+                Button buttonPermitirActividad = new Button();
+                buttonPermitirActividad.Text = ">";
+                buttonPermitirActividad.SetBounds(190, 70, 40,40);
+                buttonPermitirActividad.Click += new System.EventHandler(click_PermitirActividad);
+                //this.comboBoxFlujoTrabajo.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlujoTrabajo_SelectedIndexChanged);
+
+
+
+                Button buttonDespermitirActividad = new Button();
+                buttonDespermitirActividad.SetBounds(190, 120, 40, 40);
+                buttonDespermitirActividad.Click += new System.EventHandler(click_DespermitirActividad);
+
+
+                buttonDespermitirActividad.Text = "<";
+                tabPage.Controls.Add(buttonPermitirActividad);
+                tabPage.Controls.Add(buttonDespermitirActividad);
+
+
+                tabPage.Controls.Add(listActividadesDisponibles);
+                tabPage.Controls.Add(listActividadesPermitidasAlaColeccion);
                 this.tabColecciones.Controls.Add(tabPage);
+
+                
             }
             else {
                 MessageBox.Show("Favor seleccione una colección");
             }
 
+        }
+        public void click_PermitirActividad(object sender, EventArgs e)
+        {
+           /* if (null != this.listActividadesDisponibles.SelectedItem)
+            {
+                this.listActividadesPermitidasAlaColeccion.Items.Add(this.listActividadesDisponibles.SelectedItem);
+                this.listActividadesDisponibles.Items.Remove(this.listActividadesDisponibles.SelectedItem);
+            }
+            else {
+                MessageBox.Show("Seleccione una actividad ");
+            }*/
+            //this.listActividadesDisponibles.SelectedItem
+
+            int indexTabSelected=this.tabColecciones.SelectedIndex;
+            if (null != this.listaListActividadesDisponibles[indexTabSelected].SelectedItem)
+            {
+                this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(this.listaListActividadesDisponibles[indexTabSelected].SelectedItem);
+                this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(this.listaListActividadesDisponibles[indexTabSelected].SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una actividad ");
+            }
+
+
+        }
+        public void click_DespermitirActividad(object sender, EventArgs e)
+        {
+            int indexTabSelected = this.tabColecciones.SelectedIndex;
+            if (null != this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem)
+            {
+                this.listaListActividadesDisponibles[indexTabSelected].Items.Add(this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem);
+                this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Remove(this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una actividad");
+            }
+            //this.listActividadesDisponibles.SelectedItem
+        }
+
+        private void buttonEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            TabPage tabSeleccionada = this.tabColecciones.SelectedTab;
+            MessageBox.Show("Colección seleccionada: "+( (Coleccion)tabSeleccionada.Tag).toString());
         }
     }
 }
