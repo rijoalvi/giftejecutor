@@ -43,6 +43,7 @@
     <Compile Include="ActividadSimple.cs" />
     <Compile Include="ArbolGift.cs" />
     <Compile Include="Coleccion.cs" />
+    <Compile Include="ColeccionAsignada.cs" />
     <Compile Include="Comando.cs" />
     <Compile Include="ComandoMascara.cs" />
     <Compile Include="ConfiguracionProyecto.cs" />

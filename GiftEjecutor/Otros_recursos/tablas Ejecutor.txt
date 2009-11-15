@@ -66,16 +66,15 @@ CREATE TABLE Perfil(
 );
 
 
-
-
---drop ActividadPermitida;
+--drop table ActividadPermitida;
 CREATE TABLE ActividadPermitida(
-	IDColeccionAsignada           int,
-        IDActividad               int
-        IDPerfil
+        correlativo                 int,
+		IDColeccionAsignada         int,
+        IDActividad                 int
 	PRIMARY KEY(IDColeccionAsignada)
     FOREIGN KEY(IDColeccionAsignada) REFERENCES ColeccionAsignada(correlativo)
 );
+
 
 --drop TABLE Usuario;
 CREATE TABLE Usuario(

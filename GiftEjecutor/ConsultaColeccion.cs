@@ -120,5 +120,11 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, correlativoPadre, correlativoFlujo from Coleccion where correlativo="+IDColeccion+";");
             return dataReader;
         }
+        public SqlDataReader selectTuplaPorIDColeccionYIDPerfil(int IDPerfil, int IDColeccion)//para retornar correlativo de la asignacion
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, IDPerfil, IDColeccion from ColeccionAsignada where IDPerfil=" + IDPerfil + " and IDColeccion=" + IDColeccion + ";");
+            return dataReader;
+        }
     }
 }
