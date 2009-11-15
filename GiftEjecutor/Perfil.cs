@@ -153,7 +153,10 @@ namespace GiftEjecutor
         public void asignarColeccion(int IDColeccion) {
             this.consultaPerfil.asignarColeccion(this.correlativo, IDColeccion);
         }
-
+        public void desasignarColeccion(int IDColeccion)
+        {
+            this.consultaPerfil.desasignarColeccion(this.correlativo, IDColeccion);
+        }
 
         public bool existeColeccionEnPerfil(int IDExpediente, int IDActividad)
         {

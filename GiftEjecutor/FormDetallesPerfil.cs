@@ -66,29 +66,51 @@ namespace GiftEjecutor
 
         private void comboBoxFlujoTrabajo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // MessageBox.Show(((FlujoTrabajo)(this.comboBoxFlujoTrabajo.SelectedItem)).getCorrelativo().ToString());
+            this.llenarComboColecciones();
+            this.actualizarTabControl();
+
+        }
+        public void llenarComboColecciones() {
             this.IDFlujoSeleccionado = ((FlujoTrabajo)(this.comboBoxFlujoTrabajo.SelectedItem)).getCorrelativo();
 
             Coleccion c = new Coleccion();
-            c.setColeccionesDeUnFlujo(this.IDFlujoSeleccionado);
+            c.setColeccionesDeUnFlujo(this.IDFlujoSeleccionado,this.perfil.getCorrelativo());
             comboBoxColecciones.Items.Clear();
-            if (0==c.coleccionesDeUnFlujo.Count){
+            if (0 == c.coleccionesDeUnFlujo.Count)
+            {
                 MessageBox.Show("Flujo no tiene colecciones");
             }
             for (int i = 0; i < c.coleccionesDeUnFlujo.Count; i++)
             {
                 comboBoxColecciones.Items.Add(c.coleccionesDeUnFlujo[i]);
-            }
-            //this.comboBoxFlujoTrabajo
+            }        
         }
 
         private void buttonAsignarColeccion_Click(object sender, EventArgs e)
         {
-            // tabPage=;
-            if (null != this.comboBoxColecciones.SelectedItem)
+            Coleccion coleccionSeleccionada = (((Coleccion)this.comboBoxColecciones.SelectedItem));
+            this.asignarColeccion(coleccionSeleccionada);
+            this.agregarColeccionATabControl(coleccionSeleccionada);
+
+        }
+
+        public void asignarColeccion(Coleccion coleccionAAsignar) {
+            if (null != coleccionAAsignar)
             {
-                Actividad actividad= new Actividad();
-             //   DataGridView dg = new DataGridView();
+                this.perfil.asignarColeccion(coleccionAAsignar.getCorrelativo());
+            }
+            else {
+                MessageBox.Show("Error");
+            }
+            this.llenarComboColecciones();//para que se actualize
+        }
+        public void agregarColeccionATabControl(Coleccion coleccionAAgregarAlPestanero)
+        {
+
+
+            if (null != coleccionAAgregarAlPestanero)
+            {
+                Actividad actividad = new Actividad();
                 listActividadesDisponibles = new ListBox();
                 listaListActividadesDisponibles.Add(listActividadesDisponibles);
                 listActividadesDisponibles.SetBounds(20, 20, 170, 160);
@@ -97,25 +119,24 @@ namespace GiftEjecutor
                 listaListActividadesPermitidasAlaColeccion.Add(listActividadesPermitidasAlaColeccion);
                 listActividadesPermitidasAlaColeccion.SetBounds(260, 20, 170, 160);
 
-                List<Actividad> listaActividades= actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
-                for (int i = 0; i < listaActividades.Count; i++ )
+                List<Actividad> listaActividades = actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
+                for (int i = 0; i < listaActividades.Count; i++)
                 {
                     listActividadesDisponibles.Items.Add(listaActividades[i]);
                 }
 
-               // dg.Width = 600;//getDataTableActividadesPorIDFlujoParaAsignaciones
-               // dg.DataSource = actividad.getDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
-                //dg.DataSource = actividad.getDataTableActividadesPorIDFlujoParaAsignaciones(this.IDFlujoSeleccionado);
-              //  dg.Columns[0].Visible = false;//para ocultar ID
-                Coleccion coleccionSeleccionada=((Coleccion)this.comboBoxColecciones.SelectedItem);
-                this.perfil.asignarColeccion(coleccionSeleccionada.getCorrelativo());
 
-                TabPage tabPage = new TabPage(coleccionSeleccionada.getNombre());
-                tabPage.Tag = coleccionSeleccionada;
+
+              //  Coleccion coleccionAAgregarAlPestanero = ((Coleccion)this.comboBoxColecciones.SelectedItem);
+               // this.perfil.asignarColeccion(coleccionAAgregarAlPestanero.getCorrelativo());
+
+
+                TabPage tabPage = new TabPage(coleccionAAgregarAlPestanero.getNombre());
+                tabPage.Tag = coleccionAAgregarAlPestanero;
 
                 Button buttonPermitirActividad = new Button();
                 buttonPermitirActividad.Text = ">";
-                buttonPermitirActividad.SetBounds(190, 70, 40,40);
+                buttonPermitirActividad.SetBounds(190, 70, 40, 40);
                 buttonPermitirActividad.Click += new System.EventHandler(click_PermitirActividad);
                 //this.comboBoxFlujoTrabajo.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlujoTrabajo_SelectedIndexChanged);
 
@@ -135,13 +156,16 @@ namespace GiftEjecutor
                 tabPage.Controls.Add(listActividadesPermitidasAlaColeccion);
                 this.tabColecciones.Controls.Add(tabPage);
 
-                
+
             }
-            else {
+            else
+            {
                 MessageBox.Show("Favor seleccione una colección");
             }
 
+        
         }
+
         public void click_PermitirActividad(object sender, EventArgs e)
         {
            /* if (null != this.listActividadesDisponibles.SelectedItem)
@@ -185,7 +209,36 @@ namespace GiftEjecutor
         private void buttonEliminarPerfil_Click(object sender, EventArgs e)
         {
             TabPage tabSeleccionada = this.tabColecciones.SelectedTab;
-            MessageBox.Show("Colección seleccionada: "+( (Coleccion)tabSeleccionada.Tag).toString());
+
+          //  listaListActividadesDisponibles.RemoveAt(this.tabColecciones.SelectedIndex);
+          //  listaListActividadesPermitidasAlaColeccion.RemoveAt(this.tabColecciones.SelectedIndex);
+
+            this.perfil.desasignarColeccion(((Coleccion)tabSeleccionada.Tag).getCorrelativo());
+
+            MessageBox.Show("Colección desasignada: "+( (Coleccion)tabSeleccionada.Tag).toString());
+            this.actualizarTabControl();
+            this.llenarComboColecciones();
         }
+
+
+        public void actualizarTabControl() {
+            Coleccion c = new Coleccion();
+            this.tabColecciones.TabPages.Clear();
+            this.listaListActividadesPermitidasAlaColeccion.Clear();
+            this.listaListActividadesDisponibles.Clear();
+            List<Coleccion> coleccionAsignadas = c.getListTodasColeccionesAsignadasDeUnFlujoDeUnPerfil(this.IDFlujoSeleccionado, this.perfil.getCorrelativo());
+
+            for (int i = 0; i < coleccionAsignadas.Count; i++)
+            {
+                this.agregarColeccionATabControl(coleccionAsignadas[i]);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

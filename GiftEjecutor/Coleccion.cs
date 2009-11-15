@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
-    class Coleccion
+    public class Coleccion
     {
         private String nombre;
    //     private String nombrePadre;
-        private int IDCorrelativo;
-        private int IDCorrelativoPadre; // Correlativo del padre en cero indica que esta en la raíz
+        private int Correlativo;
+        private int CorrelativoPadre; // Correlativo del padre en cero indica que esta en la raíz
         private int correlativoFlujo;
         private ConsultaColeccion consultaColeccion;
 
@@ -20,17 +20,51 @@ namespace GiftEjecutor
         {
             consultaColeccion = new ConsultaColeccion();
             this.nombre = "-1";
-            this.IDCorrelativoPadre = -1;
-            this.IDCorrelativo = -1;
+            this.CorrelativoPadre = -1;
+            this.Correlativo = -1;
         }
         public Coleccion(String nombre) {
             consultaColeccion = new ConsultaColeccion();
             this.nombre = nombre;
-            this.IDCorrelativo = -1;//IDCorrelativo;
+            this.Correlativo = -1;//IDCorrelativo;
         }
 
-        public void setColeccionesDeUnFlujo(int IDFlujo){
-            this.coleccionesDeUnFlujo = this.getListTodasColeccionesDeUnFlujo(IDFlujo);
+        public Coleccion(int IDColeccion)
+        {
+            consultaColeccion = new ConsultaColeccion();
+            this.setColeccion(IDColeccion);
+        }
+
+        public void setColeccion(int IDColeccion){
+
+         //   List<Coleccion> lista = new List<Coleccion>();
+
+
+            SqlDataReader datos;
+            datos = this.consultaColeccion.selectUnFlujo(IDColeccion);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    int correlativo = Int32.Parse(datos.GetValue(0).ToString());
+                    String nombre = datos.GetValue(1).ToString();
+                    int correlativoPadre = Int32.Parse(datos.GetValue(2).ToString());
+                    int correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());
+
+                    
+                    //lista.Add(new Coleccion(correlativo, nombre, correlativoPadre, correlativoFlujo));
+
+
+                }
+            }
+         //   return lista;        
+
+        }
+
+        public void setColeccionesDeUnFlujo(int IDFlujo,int IDPerfil){
+            //this.coleccionesDeUnFlujo = this.getListTodasColeccionesDeUnFlujo(IDFlujo);
+            this.coleccionesDeUnFlujo = this.getListTodasColeccionesNoAsignadasDeUnFlujo(IDFlujo, IDPerfil);
         }
    /*     public Coleccion(String nombre, String nombrePadre)
         {
@@ -43,26 +77,26 @@ namespace GiftEjecutor
         {
             consultaColeccion = new ConsultaColeccion();
             this.nombre = nombre;
-            this.IDCorrelativoPadre = correlativoPadre;
+            this.CorrelativoPadre = correlativoPadre;
             this.correlativoFlujo = correlativoFlujo;
-            Console.WriteLine("Correlativo Padre " + IDCorrelativoPadre);
+            Console.WriteLine("Correlativo Padre " + CorrelativoPadre);
         }
         public Coleccion(int correlativo, String nombre, int correlativoPadre, int correlativoFlujo)
         {
             consultaColeccion = new ConsultaColeccion();
-            this.IDCorrelativo = correlativo;
+            this.Correlativo = correlativo;
             this.nombre = nombre;
-            this.IDCorrelativoPadre = correlativoPadre;
+            this.CorrelativoPadre = correlativoPadre;
             this.correlativoFlujo = correlativoFlujo;
-            Console.WriteLine("Correlativo Padre " + IDCorrelativoPadre);
+            Console.WriteLine("Correlativo Padre " + CorrelativoPadre);
 
         }
         public void crearColeccion(){
-            IDCorrelativo = consultaColeccion.crearColeccion(nombre, IDCorrelativoPadre, correlativoFlujo);
+            Correlativo = consultaColeccion.crearColeccion(nombre, CorrelativoPadre, correlativoFlujo);
         }
 
         public void modificarNombre() {
-            consultaColeccion.modificarNombre(this.IDCorrelativo, this.nombre);
+            consultaColeccion.modificarNombre(this.Correlativo, this.nombre);
         }
 
         public String[] coleccionesHijas() {
@@ -78,19 +112,19 @@ namespace GiftEjecutor
             this.correlativoFlujo = correlativo;
         }
         public void setIDCorrelativoPadre(int IDPadre) {
-            this.IDCorrelativoPadre = IDPadre;
+            this.CorrelativoPadre = IDPadre;
         }
 
         public int getIDCorrelativoPadre()
         {
-            return this.IDCorrelativoPadre;
+            return this.CorrelativoPadre;
         }
         public int getCorrelativoFlujo()
         {
             return this.correlativoFlujo;
         }
         public int getCorrelativo() {
-            return this.IDCorrelativo;
+            return this.Correlativo;
         }
         public String getNombre() {
             return this.nombre;
@@ -116,6 +150,55 @@ namespace GiftEjecutor
                     int correlativoPadre = Int32.Parse(datos.GetValue(2).ToString());
                     int correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());
                     lista.Add(new Coleccion(correlativo, nombre, correlativoPadre, correlativoFlujo));
+
+
+                }
+            }
+            return lista;
+        }
+
+        public List<Coleccion> getListTodasColeccionesNoAsignadasDeUnFlujo(int IDFlujo, int IDPerfil)
+        {
+
+            List<Coleccion> lista = new List<Coleccion>();
+
+
+            SqlDataReader datos;
+            datos = this.consultaColeccion.getlistaColeccionesNoAsignadasDeUnFlujo(IDFlujo, IDPerfil);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    int correlativo = Int32.Parse(datos.GetValue(0).ToString());
+                    String nombre = datos.GetValue(1).ToString();
+               //     int correlativoPadre = Int32.Parse(datos.GetValue(2).ToString());
+                //    int correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());*/
+                   lista.Add(new Coleccion(correlativo,nombre,-1,-1));
+
+
+                }
+            }
+            return lista;
+        }
+        public List<Coleccion> getListTodasColeccionesAsignadasDeUnFlujoDeUnPerfil(int IDFlujo, int IDPerfil)
+        {
+
+            List<Coleccion> lista = new List<Coleccion>();
+
+
+            SqlDataReader datos;
+            datos = this.consultaColeccion.getlistaColeccionesAsignadasDeUnFlujoAUnPerfil(IDFlujo, IDPerfil);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    int correlativo = Int32.Parse(datos.GetValue(0).ToString());
+                    String nombre = datos.GetValue(1).ToString();
+                    //     int correlativoPadre = Int32.Parse(datos.GetValue(2).ToString());
+                    //    int correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());*/
+                    lista.Add(new Coleccion(correlativo, nombre, -1, -1));
 
 
                 }

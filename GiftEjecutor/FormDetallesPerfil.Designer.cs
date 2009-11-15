@@ -34,7 +34,6 @@ namespace GiftEjecutor
             this.textBoxTipo = new System.Windows.Forms.TextBox();
             this.ColleccionesAsignadas = new System.Windows.Forms.GroupBox();
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
-            this.buttonAgregarPerfil = new System.Windows.Forms.Button();
             this.tabColecciones = new System.Windows.Forms.TabControl();
             this.comboBoxFlujoTrabajo = new System.Windows.Forms.ComboBox();
             this.labelFlujo = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@ namespace GiftEjecutor
             this.groupBoxAsignarColecciones = new System.Windows.Forms.GroupBox();
             this.buttonAsignarColeccion = new System.Windows.Forms.Button();
             this.labelMensaje = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ColleccionesAsignadas.SuspendLayout();
             this.groupBoxAsignarColecciones.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +83,6 @@ namespace GiftEjecutor
             // ColleccionesAsignadas
             // 
             this.ColleccionesAsignadas.Controls.Add(this.buttonEliminarPerfil);
-            this.ColleccionesAsignadas.Controls.Add(this.buttonAgregarPerfil);
             this.ColleccionesAsignadas.Controls.Add(this.tabColecciones);
             this.ColleccionesAsignadas.Location = new System.Drawing.Point(51, 250);
             this.ColleccionesAsignadas.Name = "ColleccionesAsignadas";
@@ -95,24 +94,13 @@ namespace GiftEjecutor
             // buttonEliminarPerfil
             // 
             this.buttonEliminarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarPerfil.Location = new System.Drawing.Point(585, 84);
+            this.buttonEliminarPerfil.Location = new System.Drawing.Point(585, 28);
             this.buttonEliminarPerfil.Name = "buttonEliminarPerfil";
             this.buttonEliminarPerfil.Size = new System.Drawing.Size(31, 31);
             this.buttonEliminarPerfil.TabIndex = 7;
             this.buttonEliminarPerfil.Text = "-";
             this.buttonEliminarPerfil.UseVisualStyleBackColor = true;
             this.buttonEliminarPerfil.Click += new System.EventHandler(this.buttonEliminarPerfil_Click);
-            // 
-            // buttonAgregarPerfil
-            // 
-            this.buttonAgregarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarPerfil.Location = new System.Drawing.Point(585, 47);
-            this.buttonAgregarPerfil.Name = "buttonAgregarPerfil";
-            this.buttonAgregarPerfil.Size = new System.Drawing.Size(31, 31);
-            this.buttonAgregarPerfil.TabIndex = 6;
-            this.buttonAgregarPerfil.Text = "+";
-            this.buttonAgregarPerfil.UseVisualStyleBackColor = true;
-            this.buttonAgregarPerfil.Click += new System.EventHandler(this.buttonAgregarPerfil_Click);
             // 
             // tabColecciones
             // 
@@ -179,11 +167,22 @@ namespace GiftEjecutor
             this.labelMensaje.Size = new System.Drawing.Size(0, 13);
             this.labelMensaje.TabIndex = 12;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(450, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "buttonRefrestPestañas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormDetallesPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 565);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelMensaje);
             this.Controls.Add(this.groupBoxAsignarColecciones);
             this.Controls.Add(this.labelFlujo);
@@ -212,7 +211,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.TextBox textBoxTipo;
         private System.Windows.Forms.GroupBox ColleccionesAsignadas;
         private System.Windows.Forms.Button buttonEliminarPerfil;
-        private System.Windows.Forms.Button buttonAgregarPerfil;
         private System.Windows.Forms.ComboBox comboBoxFlujoTrabajo;
         private System.Windows.Forms.Label labelFlujo;
         private System.Windows.Forms.ComboBox comboBoxColecciones;
@@ -220,5 +218,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonAsignarColeccion;
         private System.Windows.Forms.TabControl tabColecciones;
         private System.Windows.Forms.Label labelMensaje;
+        private System.Windows.Forms.Button button1;
     }
 }

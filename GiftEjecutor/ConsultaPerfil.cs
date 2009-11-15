@@ -36,17 +36,23 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("insert into ColeccionAsignada (IDPerfil, IDColeccion) values (" + IDPerfil + "," + IDColeccion + ");");
             return dataReader;
         }
-        public SqlDataReader asignarActividad(int IDColeccion, int IDActividad)
+        public SqlDataReader desasignarColeccion(int IDPerfil, int IDColeccion)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into ActividadAsignada (IDColeccionAsignada, IDActividad) values (" + IDColeccion + "," + IDActividad + ");");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("delete from ColeccionAsignada where IDPerfil=" + IDPerfil + " and IDColeccion=" + IDColeccion + ";");
+            return dataReader;
+        }
+        public SqlDataReader permitirActividad(int IDColeccion, int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("insert into ActividadPermitida (IDColeccionAsignada, IDActividad) values (" + IDColeccion + "," + IDActividad + ");");
             return dataReader;
         }
 
         public SqlDataReader buscarColeccionEnPerfil(int IDColeccion, int IDPerfil, int IDActividad)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaEjecutor("select C.correlativo from ColeccionAsignada C, ActividadAsignada A where C.IDPerfil=" + IDPerfil + " and C.IDColeccion = " + IDColeccion + " and C.IDColeccion = A.IDColeccionAsignada and A.IDActividad = " + IDActividad + ";");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select C.correlativo from ColeccionAsignada C, ActividadPermitida A where C.IDPerfil=" + IDPerfil + " and C.IDColeccion = " + IDColeccion + " and C.IDColeccion = A.IDColeccionAsignada and A.IDActividad = " + IDActividad + ";");
             return dataReader;
         }
 

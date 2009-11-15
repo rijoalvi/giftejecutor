@@ -100,5 +100,25 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, correlativoPadre, correlativoFlujo from Coleccion where correlativoFlujo="+IDFlujo+";");
             return dataReader;
         }
+        public SqlDataReader getlistaColeccionesNoAsignadasDeUnFlujo(int IDFlujo, int IDPerfil)
+        {
+            SqlDataReader dataReader = null;//select  correlativo, nombre from Coleccion where correlativoFlujo=5 except select  colAsi.IDColeccion, col.nombre from ColeccionAsignada colAsi, Coleccion col where colAsi.IDColeccion=col.correlativo and col.correlativoFlujo=5 and colAsi.IDPerfil=19;
+            //dataReader = this.controladoBD.hacerConsultaEjecutor("select  correlativo, nombre from Coleccion where correlativoFlujo="+IDFlujo+" except select  colAsi.IDColeccion, col.nombre from ColeccionAsignada colAsi, Coleccion col where colAsi.IDColeccion=col.correlativo;");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select  correlativo, nombre from Coleccion where correlativoFlujo=" + IDFlujo + " except select  colAsi.IDColeccion, col.nombre from ColeccionAsignada colAsi, Coleccion col where colAsi.IDColeccion=col.correlativo and col.correlativoFlujo=" + IDFlujo + " and colAsi.IDPerfil=" + IDPerfil + ";");
+            return dataReader;
+        }
+        public SqlDataReader getlistaColeccionesAsignadasDeUnFlujoAUnPerfil(int IDFlujo, int IDPerfil)
+        {
+            SqlDataReader dataReader = null;
+
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select  colAsi.IDColeccion, col.nombre, colAsi.correlativo, colAsi.IDPerfil  from ColeccionAsignada colAsi, Coleccion col where IDPerfil="+IDPerfil+" and col.correlativo=colAsi.IDColeccion and col.correlativoFlujo=" + IDFlujo + "");
+            return dataReader;
+        }
+        public SqlDataReader selectUnFlujo(int IDColeccion)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, nombre, correlativoPadre, correlativoFlujo from Coleccion where correlativo="+IDColeccion+";");
+            return dataReader;
+        }
     }
 }
