@@ -61,12 +61,12 @@ namespace GiftEjecutor
             else
             {
                 FormPrincipal formPrincipal = new FormPrincipal(this.conexionSeleccionada, idUsuario);
-                // formPrincipal.MdiParent = padreMDI;
+                //formPrincipal.MdiParent = padreMDI;
                 formPrincipal.setPadreMDI(padreMDI);
                 this.Hide();
                 formPrincipal.Show();   
             }
-        }
+        }        
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -78,37 +78,6 @@ namespace GiftEjecutor
            System.Diagnostics.Process.Start("http://www.bluechiphosting.com/");
 
         }
-
-        /*
-        private void radioButtonConexionExternaConfigurador_CheckedChanged(object sender, EventArgs e)
-        {
-            if (true == this.radioButtonConfiguradorExterna.Checked)
-            {
-                this.conexionConfiguradorSeleccionada = CONEXION_EXTERNA;
-            }
-            else
-            {
-                this.conexionConfiguradorSeleccionada = CONEXION_ECCI;
-            }
-            System.Console.Write(conexionEjecutorSeleccionada);
-        }
-        */
-        
-        /*
-        private void radioButtonSQLServerConfigurador_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonEjecutorECCI.Checked)
-            {
-                radioButtonConfiguradorECCI.Checked = true;
-                radioButtonConfiguradorExterna.Checked = false;
-            }
-            else
-            {
-                radioButtonConfiguradorECCI.Checked = false;
-                radioButtonConfiguradorExterna.Checked = true;
-            }
-        }
-        */
           
         private void SplashForm()
         {

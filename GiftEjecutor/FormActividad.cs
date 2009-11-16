@@ -49,7 +49,7 @@ namespace GiftEjecutor
         }
 
         public void cargarDataGridComandos() {
-            Comando comando = new Comando();
+            Comando comando = new Comando(padreMDI.getUsuario());
             comando.setIDExpediente(IDExpediente);
             this.dataGridEjecutados.DataSource = comando.getDataTableComandosPorIDActividadYaRealizado(this.IDActividad);
             dataGridEjecutados.Refresh();
@@ -69,7 +69,7 @@ namespace GiftEjecutor
         private void buttonEjecutarComando_Click(object sender, EventArgs e)
         {
             //LINEA AGREGADA POR RICARDO:
-            this.comandoAEjecutar = new Comando();
+            this.comandoAEjecutar = new Comando(padreMDI.getUsuario());
             
             int fila = dataGridComandos.CurrentRow.Index;
             String strTipo = dataGridComandos[3, fila].Value.ToString();            

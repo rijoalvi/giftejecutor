@@ -16,11 +16,13 @@ namespace GiftEjecutor
         private int tipo;
         private string nombreTipo;
         private DateTime fechaActualizacion;
+        private Usuario user;
 
         private int IDExpediente;//falta cargarlo
 
-        public Comando() {
+        public Comando(Usuario user) {
             consultaComando = new ConsultaComando();
+            this.user = user;
             //this.configuracion = new ConfiguracionProyecto();
             this.ID=-1;
             this.IDFormularioATrabajar = -1;
@@ -30,6 +32,7 @@ namespace GiftEjecutor
             this.nombreTipo = ConfiguracionProyecto.VALOR_DEFECTO_TEXTO;
             this.fechaActualizacion = new DateTime(1111, 1, 11);
         }
+
         public int getID() {
             return this.ID;
         }
@@ -187,7 +190,7 @@ namespace GiftEjecutor
 
                 if (tablaComandos.Rows.Count == 0) // si no hay nada en el dataset de actividades a ejecutar es xq se llego al final
                 {
-                    control.finalizarActividadBitacora(IDExpediente, IDActividad);
+                    control.finalizarActividadBitacora(IDExpediente, IDActividad, user);
                 }
 
             }

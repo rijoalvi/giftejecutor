@@ -98,7 +98,7 @@ namespace GiftEjecutor
                 {
                     Controlador cont;
                     cont = new Controlador();
-                    cont.finalizarActividadBitacora(IDExpediente, IDFlujo);
+                    cont.finalizarActividadBitacora(IDExpediente, IDFlujo, padreMDI.getUsuario());
                     this.Close();
                 }
             }
@@ -124,7 +124,7 @@ namespace GiftEjecutor
                 {
                     Controlador cont;
                     cont = new Controlador();
-                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
+                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta, padreMDI.getUsuario());
                     miPadre.cargarDataGridActividad();
                     this.Close();
 
@@ -150,10 +150,10 @@ namespace GiftEjecutor
                         if (i != dataGridActividad.CurrentRow.Index)
                         {
                             int IDActividadNOEjecutar = System.Int32.Parse(this.dataGridActividad[0, i].Value.ToString());
-                            cont.finalizarActividadBitacora(IDExpediente, IDActividadNOEjecutar);
+                            cont.finalizarActividadBitacora(IDExpediente, IDActividadNOEjecutar, padreMDI.getUsuario());
                         }
                     }
-                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta);
+                    cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta, padreMDI.getUsuario());
                 }
 
                 actividadAEjecutar.setAtributosSegunID(IDActividad);
@@ -166,7 +166,7 @@ namespace GiftEjecutor
                 {
                     //Para que se vuelva a escribir ya debe estar finalizada
                     if (control.checkActividadRealizada(IDActividad, IDExpediente))
-                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "El usuario " + padreMDI.getUsuario() + " inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
                 }
                 //Mientras la actividad no este a medio ejecutar, osea se esta ejecutando por primera vez
                 //entonces se escribe en bitácora, si no, no se vuelve a escribir.
@@ -174,7 +174,7 @@ namespace GiftEjecutor
                 {
                     if (!control.checkActividadIniciada(IDActividad, IDExpediente))
                     {
-                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "Se inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
+                        actividadAEjecutar.insertarEnBitacora(this.IDExpediente, IDActividad, -1, -1, -1, -1, false, "El usuario " + padreMDI.getUsuario() + " inició la ejecución de la actividad " + actividadAEjecutar.getNombre() + ".");
                     }
                 }
 
@@ -273,21 +273,6 @@ namespace GiftEjecutor
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FormListadoActividad_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormListadoActividad_Enter(object sender, EventArgs e)
-        {
-            //this.cargarDataGridActividad(false);
-        }
-
-        private void FormListadoActividad_Leave(object sender, EventArgs e)
-        {
-            //this.cargarDataGridActividad(false);
         }
 
         public void setPadreMDI(Ventanota v)

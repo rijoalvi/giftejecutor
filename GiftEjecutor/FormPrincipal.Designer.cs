@@ -181,8 +181,6 @@ namespace GiftEjecutor
             this.directorio.TabIndex = 10;
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
-            this.directorio.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.directorio_NodeMouseClick);
-            this.directorio.Click += new System.EventHandler(this.directorio_Click);
             // 
             // labelPorRealizar
             // 
@@ -307,7 +305,6 @@ namespace GiftEjecutor
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GIFT Ejecutor";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);

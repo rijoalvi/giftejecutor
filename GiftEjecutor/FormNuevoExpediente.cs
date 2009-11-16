@@ -11,9 +11,9 @@ namespace GiftEjecutor
     public partial class FormNuevoExpediente : Form
     {
         private Ventanota padreMDI;
-
         Form formPrincipal;
         int correlativoColeccion;
+
         public FormNuevoExpediente(Form principal, String correlativoColeccion)
         {
             this.correlativoColeccion = int.Parse(correlativoColeccion);

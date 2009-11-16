@@ -11,19 +11,17 @@ namespace GiftEjecutor
     public partial class FormAsignarExpedientes : Form
     {
         private Ventanota padreMDI;
-        private Usuario usuarioActual;
         private Expediente miExpediente;
 
-        public FormAsignarExpedientes(Usuario user)
+        public FormAsignarExpedientes()
         {
             InitializeComponent();
-            usuarioActual = user;
             llenarComboUsuarios();
         }
 
         private void llenarComboUsuarios() {
             List<Usuario> usuarios = new List<Usuario>();
-            usuarios = usuarioActual.getTodosLosUsuarios();
+            usuarios = padreMDI.getUsuario().getTodosLosUsuarios();
             comboUsuarios.Items.Clear();
             for (int i = 0; i < usuarios.Count; i++)
             {

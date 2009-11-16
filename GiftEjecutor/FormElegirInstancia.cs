@@ -49,7 +49,6 @@ namespace GiftEjecutor
             DataColumn nombreFormulario = new DataColumn();
             DataColumn fechaCreado = new DataColumn();
 
-
             correlativo.ColumnName = "correlativo";
             correlativo.DataType = Type.GetType("System.String");
             nombreFormulario.ColumnName = "nombreFormulario";
@@ -91,7 +90,7 @@ namespace GiftEjecutor
             IDTupla = int.Parse(this.dataGridInstancias[0, this.dataGridInstancias.CurrentRow.Index].Value.ToString());
             if (tipoComando == 5) //Mascara
             {
-                ComandoMascara cm = new ComandoMascara();
+                ComandoMascara cm = new ComandoMascara(padreMDI.getUsuario());
                 cm.setAtributosComandoMascaraSegunID(IDComando);
                 //MessageBox.Show(cm.ToString());
                 ConsultaFormulario cf = new ConsultaFormulario();
@@ -99,7 +98,7 @@ namespace GiftEjecutor
 
                 cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
-                cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "Se modificó el campo " + cm.nombreCampoEfecto);
+                cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "El usuario " + padreMDI.getUsuario() + " modificó el campo " + cm.nombreCampoEfecto);
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);

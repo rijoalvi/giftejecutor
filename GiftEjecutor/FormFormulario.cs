@@ -378,7 +378,7 @@ namespace GiftEjecutor
             if (modificacion)
             {
                 actualizarTupla();
-                miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 2, IDTupla, IDForm, true, "Se modificó la instancia del formulario " + miFormulario.getNombre() + ".");
+                miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 2, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() +" modificó la instancia del formulario " + miFormulario.getNombre() + ".");
                 this.Visible = false;
             }
             else 
@@ -386,7 +386,7 @@ namespace GiftEjecutor
                 if (eliminacion)
                 {
                     miFormulario.eliminarTupla(IDTupla, miFormulario.getNombre());
-                    miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se eliminó la instancia del formulario " + miFormulario.getNombre() + ".");
+                    miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() + " eliminó la instancia del formulario " + miFormulario.getNombre() + ".");
                     MessageBox.Show("¡Se eliminó correctamente la instancia seleccionada!");
                     //refresca la ventana de los comandos d la actividad
                     miPadre.cargarDataGridComandos();
@@ -397,7 +397,7 @@ namespace GiftEjecutor
                     if (visualizacion)
                     {
                         //no hace nada solo va a bitacora
-                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "Se visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
+                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 3, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() + " visualizó la instancia del formulario" + miFormulario.getNombre() + ".");
                         //refresca la ventana de los comandos d la actividad
                         miPadre.cargarDataGridComandos();
                         this.Visible = false;
@@ -407,7 +407,7 @@ namespace GiftEjecutor
                         //ingresa la tupla
                         ingresarNuevaTupla();
                         //ingresa el ingreso a la bitacora
-                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "Se agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() + " agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
                         //refresca la ventana de los comandos d la actividad
                         if (miPadre != null)
                         {//luisk

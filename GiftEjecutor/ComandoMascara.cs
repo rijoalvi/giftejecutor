@@ -14,7 +14,8 @@ namespace GiftEjecutor
         public string valorCampoEfecto;
 
         ConsultaComandoMascara consultaComandoMascara;
-        public ComandoMascara(): base() {
+
+        public ComandoMascara(Usuario user): base(user) {
             consultaComandoMascara = new ConsultaComandoMascara();
         }
         public void setAtributosComandoMascaraSegunID(int IDComando){

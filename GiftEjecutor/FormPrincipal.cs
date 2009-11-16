@@ -15,8 +15,7 @@ namespace GiftEjecutor
         private int IDExpediente;
         private String[] IDsFormularios;
         private FormFormulario formCaratula;
-        private Usuario user;
-
+        private Usuario usuarioActual;
 
         //private ArbolGift arbol;
         /**
@@ -35,7 +34,6 @@ namespace GiftEjecutor
         /// constructor
         /// </summary>
         /// <param name="conexionSeleccionada">La coneccion a utilizar, ECCI o USA</param>
-        /// <param name="idUsuario">EL id del usuario logueado</param>
         public FormPrincipal(int conexionSeleccionada, int idUsuario)
         {
            //ControladorBD.conexionSelecciona = conexionSeleccionada;
@@ -44,10 +42,9 @@ namespace GiftEjecutor
             InitializeComponent();
             labelFormulariosCreados.Hide();
             listaFormularios.Hide();
-            
+            usuarioActual = new Usuario(idUsuario);                
             labelTituloExp.Hide();
-            user = new Usuario(idUsuario);
-            this.arbol = new ArbolGift(directorio, user);                        
+            this.arbol = new ArbolGift(directorio, usuarioActual);                        
         }
 
         public void refrescarDirectorio() {
@@ -61,15 +58,10 @@ namespace GiftEjecutor
             constructor.setPadreMDI(padreMDI);
             constructor.Show();
         }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-         
-        }
         
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-          //  refrescarDirectorio();//este comente a veces, luisk
+            refrescarDirectorio();//este comente a veces, luisk
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -81,41 +73,6 @@ namespace GiftEjecutor
             formListadoActividad.setPadreMDI(padreMDI);
             formListadoActividad.Show();
         }
-
-        
-
-        private void botonActualizarTreeView_Click(object sender, EventArgs e)
-        {
-            refrescarDirectorio();
-            /*directorio.Nodes.Clear();
-            Coleccion coleccion = new Coleccion("Raiz"/*, 0*);
-            TreeNode nodo = this.directorio.Nodes.Add("0","Raiz");
-
-            TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
-
-            List<String[]> colecciones = coleccion.listarColecciones();
-            List<String[]> expedientes = (new Expediente("0", 0,0)).listarExpedientes();
-
-            for (int i = 0; i < colecciones.Count; i++) {
-                Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
-                int correlativoPadre = int.Parse(colecciones[i][2]);
-                nodoPadre = buscarNodoPadre(colecciones[i][2],this.directorio.TopNode);//El correlativo es el key en el directorio
-                nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);
-                for (int k = 0; k < expedientes.Count; k++) { //correlativo, IDFlujo, IDColeccion, nombre
-                    if(int.Parse(nodo.Name) == int.Parse(expedientes[k][2]) ){//si la coleccion es igual a la coleccion a la que pertenece el expediente
-                        nodo.Nodes.Add("e" + expedientes[k][1], expedientes[k][3]).ForeColor = Color.Silver; ;
-
-                    }
-                
-                }
-            }/*
-          /*  for (int i = 0; i < hijas.Length; i++)
-            {
-                nodo.Nodes.Add(hijas[i]);
-            }*/
-        }
-
-        
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,10 +137,6 @@ namespace GiftEjecutor
             }            
         }
 
-
- 
-
-
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String correlativoFlujo;
@@ -222,8 +175,7 @@ namespace GiftEjecutor
                         formColeccion.Show();
                     }
                 }
-            }
-            
+            }            
         }
 
         private void directorio_DoubleClick(object sender, EventArgs e)
@@ -268,41 +220,18 @@ namespace GiftEjecutor
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
-            this.ponerUsuarioEnVentanota(); //OJO BETO, AQUI ES DONDE METO EL USUARIO EN LA VENTANOTA
+            ponerUsuarioEnVentanota();
+        }
+
+        public void ponerUsuarioEnVentanota()
+        {
+            padreMDI.setUsuario(this.usuarioActual);
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-
-     /*   private void mostrarFormularios()
-        {
-            
-                
-                //Se abre el form correspondiente
-                Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[indiceFormularios]));
-                int IDTupla = elFormulario.getIDDeLaTupla(correlativoExpediente);
-                if (IDTupla == -1)
-                {
-                    MessageBox.Show("¡El Expediente todavía no posee los datos del formulario correspondiente!");
-            
-                }
-                else
-                {
-                    FormFormulario formFormulario = new FormFormulario(elFormulario.getID(), correlativoExpediente, -1, IDTupla, 6, -1, "", null);
-            
-                    formFormulario.TopMost = true;
-                    formFormulario.MdiParent = this;
-                    formFormulario.StartPosition = FormStartPosition.Manual;
-                    formFormulario.Location = new Point(256, 25);
-                    formFormulario.Show();
-                    formActual = formFormulario;
-                }
-            }
-        }*/
-         
+        }         
 
         //ESTO ES PARA VER LA BITACORA
         private void verBitacora()
@@ -310,20 +239,6 @@ namespace GiftEjecutor
             FormVistaBitacora bit = new FormVistaBitacora(999);
             bit.MdiParent = padreMDI;
             bit.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void directorio_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void labelDetalleActividadesRealizadas_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -359,57 +274,6 @@ namespace GiftEjecutor
             }
         }
 
-        private void directorio_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-           
-        }
-
-        /*private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
-        {            
-            //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
-            Expediente expediente = arbol.expedienteSeleccionado();
-            if (expediente != null)
-            {
-                //MessageBox.Show("Soy Expediente!!!");
-                int Flujo = expediente.getCorrelativoFlujo();
-                int Expediente = expediente.getCorrelativo();
-                if (formCaratula != null)
-                    formCaratula.Dispose();
-                Expediente exp = arbol.expedienteSeleccionado();
-                if (expediente != null)
-                {
-                    //MessageBox.Show("Soy Expediente!!!");
-                    TreeNode seleccionado = directorio.SelectedNode;
-                    if (seleccionado != null && seleccionado.Name.Contains("E"))
-                    {
-                        int Flujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                        int Expediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-
-                        llenarDatosEjecucionExpediente(Expediente, Flujo);
-                    }
-
-                    //se obtienen los datos de los formularios
-                    labelTituloExp.Show();
-                    labelTituloExp.Text = "Expediente " + seleccionado.Text;
-
-                    //obtiene los datos de todos los formularios del expediente
-                    int correlativoFlujo = ((Expediente)seleccionado.Tag).getCorrelativoFlujo();
-                    IDExpediente = ((Expediente)seleccionado.Tag).getCorrelativo();
-                    ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
-                    IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
-                    //muestra el formulario caratula
-                    mostrarFormulario(0);
-                }
-                else
-                {
-                    //MessageBox.Show("No soy expediente =(");
-                    invalidarPanels();
-                }
-            }
-            
-        }*/
-
-
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
@@ -440,7 +304,6 @@ namespace GiftEjecutor
                 //MessageBox.Show("No soy expediente =(");
                 invalidarPanels();
             }
-
         }
 
         private void mostrarFormulario(int index)
@@ -467,34 +330,10 @@ namespace GiftEjecutor
             }
         }
 
-        /*
-        private void botonSigFormulario_Click(object sender, EventArgs e)
-        {
-            //llama a mostrar el sig formulario
-            mostrarFormularios();
-        }
-        */
         //Esconde los panes y Labels
         private void invalidarPanels() {
             labelTituloExp.Visible = false;
         }
-
-        /*
-        private void botonVerDisenno_Click(object sender, EventArgs e)
-        {
-            if(indiceFormularios > 0)
-                indiceFormularios--; //resta uno para q desp vuelva a verse el formulario q estaba antes...
-            //Si hubo un formulario antes, se esconde
-            if(formActual != null)
-                formActual.Visible = false;
-            Expediente expediente = arbol.expedienteSeleccionado();
-            if (expediente != null)
-            {
-                int Flujo = expediente.getCorrelativoFlujo();
-                int Exp = expediente.getCorrelativo();
-                llenarDatosEjecucionExpediente(Exp, Flujo);
-            }
-        }*/
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -510,7 +349,7 @@ namespace GiftEjecutor
 
         private void asignaciónDeExpedientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAsignarExpedientes asignador = new FormAsignarExpedientes(this.user);
+            FormAsignarExpedientes asignador = new FormAsignarExpedientes();
             asignador.MdiParent = padreMDI;
             asignador.setPadreMDI(padreMDI);
             asignador.Show();
@@ -523,11 +362,6 @@ namespace GiftEjecutor
             conexiones.setPadreMDI(padreMDI);
             this.Hide();
             conexiones.Show();
-        }
-
-        public void ponerUsuarioEnVentanota()
-        {
-            padreMDI.setUsuario(user);
         }
     }
 }

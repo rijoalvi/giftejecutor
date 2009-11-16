@@ -163,10 +163,10 @@ namespace GiftEjecutor
 
             return respuesta;
         }
-        public void finalizarActividadBitacora(int IDExpediente, int IDActividad)
+        public void finalizarActividadBitacora(int IDExpediente, int IDActividad, Usuario user)
         {
             ConsultaControlador consult = new ConsultaControlador();
-            consult.finalizarActividadBitacora(IDExpediente, IDActividad);
+            consult.finalizarActividadBitacora(IDExpediente, IDActividad, user);
         }
 
     }
