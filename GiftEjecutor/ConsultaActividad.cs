@@ -56,6 +56,13 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaConfigurador("select nombre from Actividad where correlativo=" + IDActividad + ";");
             return dataReader;
         }
+        //select IDActividad from ActividadPermitida ap where IDColeccionAsignada=77;
+        public SqlDataReader getIDActividadesPermitidasSegunColeccionAsignada(int IDColeccionAsignada)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("select IDActividad from ActividadPermitida ap where IDColeccionAsignada=" + IDColeccionAsignada + ";");
+            return dataReader;
+        }
     }
 
 }

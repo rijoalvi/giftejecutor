@@ -179,10 +179,21 @@ namespace GiftEjecutor
             //this.listActividadesDisponibles.SelectedItem
 
             int indexTabSelected=this.tabColecciones.SelectedIndex;
+
             if (null != this.listaListActividadesDisponibles[indexTabSelected].SelectedItem)
             {
-                this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(this.listaListActividadesDisponibles[indexTabSelected].SelectedItem);
-                this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(this.listaListActividadesDisponibles[indexTabSelected].SelectedItem);
+                Actividad actividadSeleccionada = (Actividad)this.listaListActividadesDisponibles[indexTabSelected].SelectedItem;
+                this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(actividadSeleccionada);
+                this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(actividadSeleccionada);
+
+
+                Coleccion coleccionSeleccionada = ((Coleccion)this.tabColecciones.SelectedTab.Tag);
+                ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
+                coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionSeleccionada.getCorrelativo());
+
+
+                MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
+                coleccionAsignada.permitirActividad(actividadSeleccionada.getID());
             }
             else
             {

@@ -64,14 +64,14 @@ CREATE TABLE Perfil(
         IDFlujo                 int
 	PRIMARY KEY(correlativo)
 );
+//se perdio la tabla de ColecciónAsignada, luisk :(
 
-
---drop table ActividadPermitida;
+drop table ActividadPermitida;
 CREATE TABLE ActividadPermitida(
-        correlativo                 int,
-		IDColeccionAsignada         int,
+        correlativo                 int identity(1,1) NOT NULL,
+        IDColeccionAsignada         int,
         IDActividad                 int
-	PRIMARY KEY(IDColeccionAsignada)
+
     FOREIGN KEY(IDColeccionAsignada) REFERENCES ColeccionAsignada(correlativo)
 );
 

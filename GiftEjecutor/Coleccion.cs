@@ -58,7 +58,7 @@ namespace GiftEjecutor
 
                 }
             }
-         //   return lista;        
+    
 
         }
 

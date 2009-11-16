@@ -126,5 +126,11 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("select correlativo, IDPerfil, IDColeccion from ColeccionAsignada where IDPerfil=" + IDPerfil + " and IDColeccion=" + IDColeccion + ";");
             return dataReader;
         }
+        public SqlDataReader permitirActividadDeUnaColeccion(int IDColeccionAsignada, int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("INSERT INTO ActividadPermitida ( IDColeccionAsignada, IDActividad) 	VALUES (" + IDColeccionAsignada + ", " + IDActividad + ");");
+            return dataReader;
+        }
     }
 }
