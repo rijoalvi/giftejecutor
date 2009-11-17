@@ -60,7 +60,7 @@ namespace GiftEjecutor
         public SqlDataReader getIDActividadesPermitidasSegunColeccionAsignada(int IDColeccionAsignada)
         {
             SqlDataReader dataReader = null;
-            dataReader = this.controladoBD.hacerConsultaConfigurador("select IDActividad from ActividadPermitida ap where IDColeccionAsignada=" + IDColeccionAsignada + ";");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("select IDActividad from ActividadPermitida ap where IDColeccionAsignada=" + IDColeccionAsignada + ";");
             return dataReader;
         }
     }

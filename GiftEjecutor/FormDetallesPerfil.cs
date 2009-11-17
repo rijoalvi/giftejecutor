@@ -68,7 +68,6 @@ namespace GiftEjecutor
         {
             this.llenarComboColecciones();
             this.actualizarTabControl();
-
         }
         public void llenarComboColecciones() {
             this.IDFlujoSeleccionado = ((FlujoTrabajo)(this.comboBoxFlujoTrabajo.SelectedItem)).getCorrelativo();
@@ -120,15 +119,44 @@ namespace GiftEjecutor
                 listActividadesPermitidasAlaColeccion.SetBounds(260, 20, 170, 160);
 
                 List<Actividad> listaActividades = actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
-                for (int i = 0; i < listaActividades.Count; i++)
+                ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
+                coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionAAgregarAlPestanero.getCorrelativo());
+                List<Actividad> listaActividadesNoAsignadas = actividad.getListaDataTableActividadesNoPermitiasPorIDFlujo(this.IDFlujoSeleccionado, coleccionAsignada.correlativo);
+                for (int i = 0; i < listaActividadesNoAsignadas.Count; i++)
                 {
-                    listActividadesDisponibles.Items.Add(listaActividades[i]);
+                    listActividadesDisponibles.Items.Add(listaActividadesNoAsignadas[i]);
                 }
+                //--------------------------------------------------------------
+               // this.actualizarListaActividadPermitidas(coleccionAAgregarAlPestanero,this.tabColecciones.TabCount-1);
 
 
 
-              //  Coleccion coleccionAAgregarAlPestanero = ((Coleccion)this.comboBoxColecciones.SelectedItem);
-               // this.perfil.asignarColeccion(coleccionAAgregarAlPestanero.getCorrelativo());
+
+                // MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
+
+
+                //************
+                List<Actividad> lista = new List<Actividad>();
+                Actividad ac = new Actividad();
+                lista = ac.getListActividadesPermitidasPorColeccionAsignada(coleccionAsignada.correlativo);
+
+                this.comboBoxPrueba.Items.Clear();
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    //this.comboBoxPrueba.Items.Add(lista[i]);
+                    listActividadesPermitidasAlaColeccion.Items.Add(lista[i]);
+            //        listActividadesDisponibles.Items.Remove(lista[i]);
+                }
+                //******************
+                //--------------------------------------------------------------
+                //--------------------------------------------------------------
+
+
+                //--------------------------------------------------------------
+
+
+                //  Coleccion coleccionAAgregarAlPestanero = ((Coleccion)this.comboBoxColecciones.SelectedItem);
+                // this.perfil.asignarColeccion(coleccionAAgregarAlPestanero.getCorrelativo());
 
 
                 TabPage tabPage = new TabPage(coleccionAAgregarAlPestanero.getNombre());
@@ -162,10 +190,35 @@ namespace GiftEjecutor
             {
                 MessageBox.Show("Favor seleccione una colección");
             }
+        }
+        public void actualizarListaActividadPermitidas(Coleccion coleccionPermitida,int index) {
+            //--------------------------------------------------------------
+            //--------------------------------------------------------------
+            //Coleccion coleccionSeleccionada = coleccionAAgregarAlPestanero;
+            ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
+            coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionPermitida.getCorrelativo());
 
+
+            // MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
+
+
+            //************
+            List<Actividad> lista = new List<Actividad>();
+            Actividad ac = new Actividad();
+            lista = ac.getListActividadesPermitidasPorColeccionAsignada(coleccionAsignada.correlativo);
+
+           // this.comboBoxPrueba.Items.Clear();
+            listaListActividadesPermitidasAlaColeccion[index].Items.Clear();
+            for (int i = 0; i < lista.Count; i++)
+            {
+             //   this.comboBoxPrueba.Items.Add(lista[i]);
+                listaListActividadesPermitidasAlaColeccion[index].Items.Add(lista[i]);
+            }
+            //******************
+            //--------------------------------------------------------------
+            //--------------------------------------------------------------
         
         }
-
         public void click_PermitirActividad(object sender, EventArgs e)
         {
            /* if (null != this.listActividadesDisponibles.SelectedItem)
@@ -183,17 +236,35 @@ namespace GiftEjecutor
             if (null != this.listaListActividadesDisponibles[indexTabSelected].SelectedItem)
             {
                 Actividad actividadSeleccionada = (Actividad)this.listaListActividadesDisponibles[indexTabSelected].SelectedItem;
-                this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(actividadSeleccionada);
+           ////////     this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(actividadSeleccionada);
                 this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(actividadSeleccionada);
-
 
                 Coleccion coleccionSeleccionada = ((Coleccion)this.tabColecciones.SelectedTab.Tag);
                 ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
                 coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionSeleccionada.getCorrelativo());
 
 
-                MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
+
+                /*
+               MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
+
+
+               //************
+               List<Actividad> lista = new List<Actividad>();
+               Actividad ac = new Actividad();
+               lista = ac.getListActividadesPermitidasPorColeccionAsignada(coleccionAsignada.correlativo);
+
+               this.comboBoxPrueba.Items.Clear();
+               for (int i = 0; i < lista.Count; i++)
+               {
+                   this.comboBoxPrueba.Items.Add(lista[i]);
+               }
+               //******************
+               //--------------------------------*/
+
+
                 coleccionAsignada.permitirActividad(actividadSeleccionada.getID());
+                this.actualizarListaActividadPermitidas(coleccionSeleccionada,this.tabColecciones.SelectedIndex);
             }
             else
             {
@@ -207,8 +278,16 @@ namespace GiftEjecutor
             int indexTabSelected = this.tabColecciones.SelectedIndex;
             if (null != this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem)
             {
+
+                Actividad actividadSeleccionada = (Actividad)this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem;
                 this.listaListActividadesDisponibles[indexTabSelected].Items.Add(this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem);
                 this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Remove(this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem);
+
+
+                Coleccion coleccionSeleccionada = ((Coleccion)this.tabColecciones.SelectedTab.Tag);
+                ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
+                coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionSeleccionada.getCorrelativo());
+                coleccionAsignada.despermitirActividad(actividadSeleccionada.getID());
             }
             else
             {
@@ -243,6 +322,7 @@ namespace GiftEjecutor
             {
                 this.agregarColeccionATabControl(coleccionAsignadas[i]);
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

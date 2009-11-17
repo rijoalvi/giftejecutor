@@ -132,5 +132,11 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("INSERT INTO ActividadPermitida ( IDColeccionAsignada, IDActividad) 	VALUES (" + IDColeccionAsignada + ", " + IDActividad + ");");
             return dataReader;
         }
+        public SqlDataReader despermitirActividadDeUnaColeccion(int IDColeccionAsignada, int IDActividad)
+        {
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaEjecutor("delete from ActividadPermitida where IDColeccionAsignada=" + IDColeccionAsignada + " and IDActividad=" + IDActividad + ";");
+            return dataReader;
+        }
     }
 }

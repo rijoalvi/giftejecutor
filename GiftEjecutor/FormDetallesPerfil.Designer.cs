@@ -42,6 +42,7 @@ namespace GiftEjecutor
             this.buttonAsignarColeccion = new System.Windows.Forms.Button();
             this.labelMensaje = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxPrueba = new System.Windows.Forms.ComboBox();
             this.ColleccionesAsignadas.SuspendLayout();
             this.groupBoxAsignarColecciones.SuspendLayout();
             this.SuspendLayout();
@@ -177,11 +178,20 @@ namespace GiftEjecutor
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comboBoxPrueba
+            // 
+            this.comboBoxPrueba.FormattingEnabled = true;
+            this.comboBoxPrueba.Location = new System.Drawing.Point(367, 47);
+            this.comboBoxPrueba.Name = "comboBoxPrueba";
+            this.comboBoxPrueba.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPrueba.TabIndex = 14;
+            // 
             // FormDetallesPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 565);
+            this.Controls.Add(this.comboBoxPrueba);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelMensaje);
             this.Controls.Add(this.groupBoxAsignarColecciones);
@@ -219,5 +229,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.TabControl tabColecciones;
         private System.Windows.Forms.Label labelMensaje;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxPrueba;
     }
 }

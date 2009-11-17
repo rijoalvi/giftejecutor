@@ -68,6 +68,11 @@ namespace GiftEjecutor
         {
             return this.descripcion;
         }
+        public Actividad(int IDActividad)
+        {
+            consultaActividad = new ConsultaActividad();
+            this.setAtributosSegunID(IDActividad);
+        }
         public virtual void setAtributosSegunID(int IDActividad)
         {
             SqlDataReader datosActividad;
@@ -677,6 +682,7 @@ namespace GiftEjecutor
                     int tipoActividad = -1;
 
                     lista.Add(new Actividad(IDActividad, nombreActividad, descripcionActividad, tipoActividad));
+                    //lista.Add(new Actividad(IDActividad));
                
                 }
             }
@@ -684,6 +690,57 @@ namespace GiftEjecutor
             return lista;
         }
 
+
+        public List<Actividad> getListaDataTableActividadesNoPermitiasPorIDFlujo(int IDFlujo, int IDColeccionAsignada)
+        {
+ 
+            List<Actividad> lista = new List<Actividad>();
+            List<Actividad> listaActividadPermitidas = this.getListActividadesPermitidasPorColeccionAsignada(IDColeccionAsignada);
+
+
+            Controlador control = new Controlador();
+
+            SqlDataReader datos;
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    /* fila = tablaActividades.NewRow();
+                     fila["IDActividad"] = datos.GetValue(1);
+                     fila["nombreActividad"] = datos.GetValue(2);
+                     fila["descripcionActividad"] = datos.GetValue(3);
+                     fila["tipoActividad"] = this.getTipo(datos.GetValue(4).ToString());
+                     fila["repetible"] = datos.GetValue(6).ToString();
+                     tablaActividades.Rows.Add(fila);*/
+
+                    // fila = tablaActividades.NewRow();
+
+
+
+                    int IDActividad = Int32.Parse(datos.GetValue(1).ToString());
+                    String nombreActividad = datos.GetValue(2).ToString();
+                    String descripcionActividad = datos.GetValue(3).ToString();
+                    // int tipoActividad = Int32.Parse(datos.GetValue(4).ToString());
+                    int tipoActividad = -1;
+                    bool actividadNoPermitida = true;
+                    for(int i=0; i<listaActividadPermitidas.Count; i++){
+                        if (IDActividad == listaActividadPermitidas[i].getID())
+                        {
+                            actividadNoPermitida = false;
+                        }
+                    }
+                    if (actividadNoPermitida)
+                    {
+                        lista.Add(new Actividad(IDActividad, nombreActividad, descripcionActividad, tipoActividad));
+                    }
+                    //lista.Add(new Actividad(IDActividad));
+
+                }
+            }
+
+            return lista;
+        }
 
 
         public DataTable getDataTableActividadesPorIDFlujoParaAsignaciones(int IDFlujo)
@@ -866,9 +923,27 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
-       /* public override String ToString() {
-            return this.nombre;
-        }*/
+
+        public List<Actividad> getListActividadesPermitidasPorColeccionAsignada(int IDColeccionAsignada)
+        {
+
+            List<Actividad> lista = new List<Actividad>();
+
+
+            SqlDataReader datos;
+            datos = this.consultaActividad.getIDActividadesPermitidasSegunColeccionAsignada(IDColeccionAsignada);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+
+                    int IDActividad = Int32.Parse(datos.GetValue(0).ToString());
+                    lista.Add(new Actividad(IDActividad));
+
+                }
+            }
+            return lista;
+        }
 
     }
 }
