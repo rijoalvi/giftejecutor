@@ -98,3 +98,11 @@ CREATE TABLE PermisosUsuario(
 	PRIMARY KEY(correlativo)
 	FOREIGN KEY(IDUsuario) REFERENCES Usuario(correlativo)
 );
+
+--drop TABLE ActividadesUsuario;
+CREATE TABLE ActividadesUsuario(
+		correlativo			int identity(1,1) NOT NULL,
+        IDUsuario			int,
+		IDActividad			int
+	PRIMARY KEY(correlativo)
+);

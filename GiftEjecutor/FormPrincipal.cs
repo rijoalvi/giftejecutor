@@ -363,5 +363,18 @@ namespace GiftEjecutor
             this.Hide();
             conexiones.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
+            pictureBox1.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
+            //Aqui se pone el 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
+            pictureBox1.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
+        }
     }
 }

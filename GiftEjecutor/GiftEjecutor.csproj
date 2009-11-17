@@ -350,6 +350,12 @@
     <None Include="Otros_recursos\Fondo.JPG" />
     <Content Include="Otros_recursos\GIFT.png" />
     <Content Include="Otros_recursos\GIFTPequeno.png" />
+    <None Include="Otros_recursos\PestañaNoInvertida.png" />
+    <None Include="Otros_recursos\PestañaInvertida.png" />
+    <None Include="Otros_recursos\PestañaNoInvertidaPrevia.png" />
+    <None Include="Otros_recursos\PestañaInvertidaInbox.png" />
+    <None Include="Otros_recursos\PestañaInvertidaPrevia.png" />
+    <None Include="Otros_recursos\PestañaNoInvertidaInbox.png" />
     <Content Include="Otros_recursos\tablas Ejecutor.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

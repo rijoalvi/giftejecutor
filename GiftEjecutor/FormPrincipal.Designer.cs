@@ -53,8 +53,12 @@ namespace GiftEjecutor
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
             this.labelFormulariosCreados = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -240,7 +244,7 @@ namespace GiftEjecutor
             this.labelTituloExp.AutoSize = true;
             this.labelTituloExp.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTituloExp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelTituloExp.Location = new System.Drawing.Point(260, 27);
+            this.labelTituloExp.Location = new System.Drawing.Point(392, 25);
             this.labelTituloExp.Name = "labelTituloExp";
             this.labelTituloExp.Size = new System.Drawing.Size(131, 23);
             this.labelTituloExp.TabIndex = 1;
@@ -286,6 +290,28 @@ namespace GiftEjecutor
             this.labelFormulariosCreados.TabIndex = 22;
             this.labelFormulariosCreados.Text = "Formularios creados:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.Image = global::GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
+            this.pictureBox1.Location = new System.Drawing.Point(253, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 25);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox2.Image = global::GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
+            this.pictureBox2.Location = new System.Drawing.Point(321, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 25);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +319,8 @@ namespace GiftEjecutor
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1048, 784);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelFormulariosCreados);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
@@ -311,6 +339,8 @@ namespace GiftEjecutor
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +374,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem desconexiónToolStripMenuItem;
         private System.Windows.Forms.TreeView directorio;
         private ArbolGift arbol;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -140,6 +140,9 @@ namespace GiftEjecutor
             //this.buttonEjecutarActividad.Enabled = true;
             Actividad actividadAEjecutar = new Actividad();
             int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
+            //if ( padreMDI.getUsuario().actividadValida(IDActividad,this.IDExpediente){
+            if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
+
             if (padreMDI.getUsuario().actividadValida(IDActividad,IDExpediente))
             {
                 if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
@@ -204,6 +207,8 @@ namespace GiftEjecutor
             {
                 MessageBox.Show("Su cuenta no tiene los derechos suficientes para realizar esta operación");
             }
+        //}
+        //else{MessageBox.Show("Su cuenta no cuenta con los derechos para ejecutar esta actividad"}
         }
 
         private void dataGridActividad_CellClick(object sender, DataGridViewCellEventArgs e)

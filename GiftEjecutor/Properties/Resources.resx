@@ -118,10 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\Fondo.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GIFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Otros_recursos\GIFT.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Otros_recursos\Fondo.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PestañaNoInvertida" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaNoInvertida.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PestañaInvertida" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaInvertida.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PestañaInvertidaInbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaInvertidaInbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PestañaInvertidaPrevia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaInvertidaPrevia.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PestañaNoInvertidaInbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaNoInvertidaInbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PestañaNoInvertidaPrevia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Otros_recursos\PestañaNoInvertidaPrevia.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
