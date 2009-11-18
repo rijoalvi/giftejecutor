@@ -105,6 +105,7 @@ namespace GiftEjecutor
             this.Name = "FormAsignarExpedientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignación de Expedientes";
+            this.Load += new System.EventHandler(this.FormAsignarExpedientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

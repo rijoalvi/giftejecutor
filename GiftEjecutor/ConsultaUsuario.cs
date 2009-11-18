@@ -327,7 +327,7 @@ namespace GiftEjecutor
                 if (datos1.Read())
                 {
                     permiso = Int32.Parse(datos1.GetValue(0).ToString());
-                    String consulta = "INSERT INTO ActividadesUsuario (PermisosUsuario(IDPermiso ,IDActividad) VALUES('" + permiso+ "', '" + IDActividad + "');";
+                    String consulta = "INSERT INTO ActividadesUsuario (IDPermiso ,IDActividad) VALUES('" + permiso+ "', '" + IDActividad + "');";
                     SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
                 }
             }

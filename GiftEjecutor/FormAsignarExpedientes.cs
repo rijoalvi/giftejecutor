@@ -16,7 +16,6 @@ namespace GiftEjecutor
         public FormAsignarExpedientes()
         {
             InitializeComponent();
-            llenarComboUsuarios();
         }
 
         private void llenarComboUsuarios() {
@@ -74,6 +73,11 @@ namespace GiftEjecutor
         private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             llenarComboExpedientes();
+        }
+
+        private void FormAsignarExpedientes_Load(object sender, EventArgs e)
+        {
+            llenarComboUsuarios();
         }
     }
 }

@@ -33,16 +33,16 @@ namespace GiftEjecutor
             this.comboExpedientes = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxActividades = new System.Windows.Forms.GroupBox();
-            this.dataGridActividadesNoSeleccionadas1 = new System.Windows.Forms.DataGridView();
-            this.dataGridActividadesSeleccionadas1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridActividadesSeleccionadas1 = new System.Windows.Forms.DataGridView();
+            this.dataGridActividadesNoSeleccionadas1 = new System.Windows.Forms.DataGridView();
             this.buttonCerrar = new System.Windows.Forms.Button();
             this.groupBoxActividades.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesNoSeleccionadas1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesSeleccionadas1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesNoSeleccionadas1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,19 +96,42 @@ namespace GiftEjecutor
             this.groupBoxActividades.TabStop = false;
             this.groupBoxActividades.Text = "Actividades";
             // 
-            // dataGridActividadesNoSeleccionadas1
+            // buttonAgregar
             // 
-            this.dataGridActividadesNoSeleccionadas1.AllowUserToAddRows = false;
-            this.dataGridActividadesNoSeleccionadas1.AllowUserToDeleteRows = false;
-            this.dataGridActividadesNoSeleccionadas1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridActividadesNoSeleccionadas1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridActividadesNoSeleccionadas1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridActividadesNoSeleccionadas1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridActividadesNoSeleccionadas1.Location = new System.Drawing.Point(7, 49);
-            this.dataGridActividadesNoSeleccionadas1.Name = "dataGridActividadesNoSeleccionadas1";
-            this.dataGridActividadesNoSeleccionadas1.Size = new System.Drawing.Size(254, 153);
-            this.dataGridActividadesNoSeleccionadas1.TabIndex = 0;
-            this.dataGridActividadesNoSeleccionadas1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActividades_CellContentClick);
+            this.buttonAgregar.Location = new System.Drawing.Point(307, 101);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(27, 23);
+            this.buttonAgregar.TabIndex = 5;
+            this.buttonAgregar.Text = "+";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(307, 130);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(27, 23);
+            this.buttonEliminar.TabIndex = 4;
+            this.buttonEliminar.Text = "-";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(377, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Asignadas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Disponibles";
             // 
             // dataGridActividadesSeleccionadas1
             // 
@@ -124,42 +147,19 @@ namespace GiftEjecutor
             this.dataGridActividadesSeleccionadas1.TabIndex = 1;
             this.dataGridActividadesSeleccionadas1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActividadesSeleccionadas1_CellContentClick);
             // 
-            // label3
+            // dataGridActividadesNoSeleccionadas1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Disponibles";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(377, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Asignadas";
-            // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.Location = new System.Drawing.Point(307, 130);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(27, 23);
-            this.buttonEliminar.TabIndex = 4;
-            this.buttonEliminar.Text = "-";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            // 
-            // buttonAgregar
-            // 
-            this.buttonAgregar.Location = new System.Drawing.Point(307, 101);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(27, 23);
-            this.buttonAgregar.TabIndex = 5;
-            this.buttonAgregar.Text = "+";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            this.dataGridActividadesNoSeleccionadas1.AllowUserToAddRows = false;
+            this.dataGridActividadesNoSeleccionadas1.AllowUserToDeleteRows = false;
+            this.dataGridActividadesNoSeleccionadas1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridActividadesNoSeleccionadas1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridActividadesNoSeleccionadas1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridActividadesNoSeleccionadas1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridActividadesNoSeleccionadas1.Location = new System.Drawing.Point(7, 49);
+            this.dataGridActividadesNoSeleccionadas1.Name = "dataGridActividadesNoSeleccionadas1";
+            this.dataGridActividadesNoSeleccionadas1.Size = new System.Drawing.Size(254, 153);
+            this.dataGridActividadesNoSeleccionadas1.TabIndex = 0;
+            this.dataGridActividadesNoSeleccionadas1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActividades_CellContentClick);
             // 
             // buttonCerrar
             // 
@@ -169,6 +169,7 @@ namespace GiftEjecutor
             this.buttonCerrar.TabIndex = 5;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
             // FormAsignacionActividades
             // 
@@ -186,8 +187,8 @@ namespace GiftEjecutor
             this.Load += new System.EventHandler(this.FormAsignacionActividades_Load);
             this.groupBoxActividades.ResumeLayout(false);
             this.groupBoxActividades.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesNoSeleccionadas1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesSeleccionadas1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridActividadesNoSeleccionadas1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
