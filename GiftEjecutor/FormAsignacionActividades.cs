@@ -106,6 +106,12 @@ namespace GiftEjecutor
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
+            int filaSeleccionada =dataGridActividadesNoSeleccionadas1.CurrentCell.RowIndex;
+            int IDActividadSeleccionada = Int32.Parse(dataGridActividadesNoSeleccionadas1[0,filaSeleccionada].Value.ToString());
+
+            String nombreActividadSeleccionada = dataGridActividadesNoSeleccionadas1[1,filaSeleccionada].Value.ToString();
+            Console.Write("\n" + nombreActividadSeleccionada + "\n");
+
 
         }
     }
