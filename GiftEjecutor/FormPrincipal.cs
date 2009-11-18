@@ -76,51 +76,45 @@ namespace GiftEjecutor
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (arbol.hayNodoSeleccionado())
-            {
-                Coleccion coleccion = arbol.coleccionSeleccionada(); 
-                if (coleccion == null) { 
-                    MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
+            if(this.usuarioActual.getTipo()==0 || usuarioActual.getTipo()==2){//si es administrador o creador
+                if (arbol.hayNodoSeleccionado())
+                {
+                    Coleccion coleccion = arbol.coleccionSeleccionada(); 
+                    if (coleccion == null) { 
+                        MessageBox.Show("Solo se pueden crear expedientes dentro de una coleccion");
+                    }
+                    else
+                    {
+                        String correlativoPadre = coleccion.getCorrelativo().ToString();// arbol.nodoSeleccionado().Name;
+                        String correlativoFlujo = coleccion.getCorrelativoFlujo().ToString();// ((Coleccion)arbol.nodoSeleccionado().Tag).getCorrelativoFlujo().ToString();
+                        FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this, correlativoPadre, correlativoFlujo);
+                        flujosConstruidos.MdiParent = padreMDI;
+                        flujosConstruidos.setPadreMDI(padreMDI);
+                        flujosConstruidos.Show();
+                    }
                 }
                 else
                 {
-                    String correlativoPadre = coleccion.getCorrelativo().ToString();// arbol.nodoSeleccionado().Name;
-                    String correlativoFlujo = coleccion.getCorrelativoFlujo().ToString();// ((Coleccion)arbol.nodoSeleccionado().Tag).getCorrelativoFlujo().ToString();
-                    FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this, correlativoPadre, correlativoFlujo);
-                    flujosConstruidos.MdiParent = padreMDI;
-                    flujosConstruidos.setPadreMDI(padreMDI);
-                    flujosConstruidos.Show();
+                    MessageBox.Show("Se debe seleccionar la colección en la que se creará la colección en el directorio");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Se debe seleccionar la colección en la que se creará la colección en el directorio");
+            }else{
+                MessageBox.Show("Es necesario ser un usuario de tipo administrador o creador para llvar a cabo esta operación");
             }
         }
 
         private void agregarColeccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.arbol.hayNodoSeleccionado())
+            if (usuarioActual.getTipo() == 0 || usuarioActual.getTipo() == 2)
             {
-                String correlativoFlujo;
-                String correlativoPadre;
-                FlujoTrabajo flujo = this.arbol.flujoSeleccionado();
-                if (flujo != null)
+                if (this.arbol.hayNodoSeleccionado())
                 {
-                    correlativoFlujo = flujo.getCorrelativo().ToString();// arbol.nodoSeleccionado().Name.Substring(1);
-                    correlativoPadre = "0"; //Tiene correlativo en 0 pues se encuentra en la raíz del flujo
-                    FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
-                    c.MdiParent = padreMDI;
-                    c.setPadreMDI(padreMDI);
-                    c.Show();
-                }
-                else
-                {
-                    Coleccion coleccion = arbol.coleccionSeleccionada();
-                    if (coleccion != null)   //if (!this.arbol.nodoSeleccionado().Name.Contains("E") && !this.arbol.nodoSeleccionado().Name.Equals("0"))
+                    String correlativoFlujo;
+                    String correlativoPadre;
+                    FlujoTrabajo flujo = this.arbol.flujoSeleccionado();
+                    if (flujo != null)
                     {
-                        correlativoFlujo = coleccion.getCorrelativoFlujo().ToString(); //((Coleccion)arbol.nodoSeleccionado().Tag).getCorrelativoFlujo().ToString();
-                        correlativoPadre = coleccion.getCorrelativo().ToString();      //arbol.nodoSeleccionado().Name;
+                        correlativoFlujo = flujo.getCorrelativo().ToString();// arbol.nodoSeleccionado().Name.Substring(1);
+                        correlativoPadre = "0"; //Tiene correlativo en 0 pues se encuentra en la raíz del flujo
                         FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
                         c.MdiParent = padreMDI;
                         c.setPadreMDI(padreMDI);
@@ -128,13 +122,30 @@ namespace GiftEjecutor
                     }
                     else
                     {
-                        MessageBox.Show("Solo es posible crear Colecciones dentro de un Flujo de trabajo o dentro de otra Colección");
+                        Coleccion coleccion = arbol.coleccionSeleccionada();
+                        if (coleccion != null)   //if (!this.arbol.nodoSeleccionado().Name.Contains("E") && !this.arbol.nodoSeleccionado().Name.Equals("0"))
+                        {
+                            correlativoFlujo = coleccion.getCorrelativoFlujo().ToString(); //((Coleccion)arbol.nodoSeleccionado().Tag).getCorrelativoFlujo().ToString();
+                            correlativoPadre = coleccion.getCorrelativo().ToString();      //arbol.nodoSeleccionado().Name;
+                            FormNuevaColeccion c = new FormNuevaColeccion(this, correlativoPadre, correlativoFlujo);
+                            c.MdiParent = padreMDI;
+                            c.setPadreMDI(padreMDI);
+                            c.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Solo es posible crear Colecciones dentro de un Flujo de trabajo o dentro de otra Colección");
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Se debe seleccionar el Flujo de trabajos o la colección en la que se creará la colección en el directorio");
                 }
             }
             else {
-                MessageBox.Show("Se debe seleccionar el Flujo de trabajos o la colección en la que se creará la colección en el directorio");
-            }            
+                MessageBox.Show("Se necesitan permisos de administrador o creador para realizar esta acciòn");
+            }
         }
 
         private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)

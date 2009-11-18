@@ -30,6 +30,10 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        public SqlDataReader obtenerColecciones(int idPerfil) {
+            return this.controladoBD.hacerConsultaEjecutor("select idColeccion from ColeccionAsignada where IDPerfil = " + idPerfil + ";");
+        }
+
         public SqlDataReader asignarColeccion(int IDPerfil, int IDColeccion)
         {
             SqlDataReader dataReader = null;

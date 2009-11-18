@@ -12,10 +12,12 @@ namespace GiftEjecutor
     {
         private TreeView directorio;
         private Usuario usuario;
-
+        private Perfil perfil;
         public ArbolGift(TreeView directorio,Usuario usuario) {
             this.directorio = directorio;
             this.usuario = usuario;
+            this.perfil = new Perfil(usuario.getCorrelativoPerfil());
+
         }
 
         public void setUsuario(Usuario usuario){
@@ -54,6 +56,8 @@ namespace GiftEjecutor
             TreeNode nodo = this.directorio.Nodes.Add("0", "GIFT Ejecutor");
             this.directorio.TopNode = nodo;
 
+            List<Coleccion> coleccionesPerfil = perfil.obtenerColecciones();
+
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
             TreeNode nodoFlujo;
             
@@ -73,7 +77,8 @@ namespace GiftEjecutor
             {
                 for (int i = 0; i < expedientes.Count; i++) {
                     encontrado=false;
-                    for (int k = 0; !encontrado && k < usuario.getIDsExpedientes().Length; k++) {
+                    int []idExp = usuario.getIDsExpedientes();
+                    for (int k = 0; !encontrado && idExp!=null && k < idExp.Length; k++) {
                         if (usuario.getIDsExpedientes()[k] == int.Parse(expedientes[i][0]))
                             encontrado = true;
                     }
@@ -83,17 +88,20 @@ namespace GiftEjecutor
                     }
 
                 }
-
             }
 
             
             for (int j = 0; j < tablaFlujos.Rows.Count; j++)
             {
-                encontrado=false;
-                for (int k = 0; !encontrado && k < expedientes.Count; k++) {
+                encontrado= usuario.getTipo()!=0? false : true;
+
+                for (int k = 0; !encontrado && k < expedientes.Count; k++) 
                     if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(expedientes[k][1].ToString()))
                         encontrado = true;
-                }
+                for(int l=0;!encontrado && l<coleccionesPerfil.Count;l++)
+                    if(tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(coleccionesPerfil[l].getCorrelativoFlujo().ToString()))
+                        encontrado = true;
+                
                 if (encontrado)
                 {
                     nodoFlujo = nodo.Nodes.Add("F" + tablaFlujos.Rows[j]["IDFlujo"].ToString(), tablaFlujos.Rows[j]["nombre"].ToString());
@@ -131,6 +139,13 @@ namespace GiftEjecutor
                 {
                     nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
                     nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()), colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
+                    Boolean valido = false;
+                    for (int k = 0; !valido && k < coleccionesPerfil.Count; k++)
+                        if (colecciones[i][0].Equals(coleccionesPerfil[k].getCorrelativo().ToString()))
+                            valido = true;
+                    if (!valido&&usuario.getTipo()!=0) {
+                        nodo.Remove();
+                    }
                 }
                 else
                 {

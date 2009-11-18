@@ -47,10 +47,10 @@ namespace GiftEjecutor
                 while (datos.Read())
                 {
 
-                    int correlativo = Int32.Parse(datos.GetValue(0).ToString());
-                    String nombre = datos.GetValue(1).ToString();
-                    int correlativoPadre = Int32.Parse(datos.GetValue(2).ToString());
-                    int correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());
+                    this.Correlativo= Int32.Parse(datos.GetValue(0).ToString());
+                    this.nombre= datos.GetValue(1).ToString();
+                    this.CorrelativoPadre = Int32.Parse(datos.GetValue(2).ToString());
+                    this.correlativoFlujo = Int32.Parse(datos.GetValue(3).ToString());
 
                     
                     //lista.Add(new Coleccion(correlativo, nombre, correlativoPadre, correlativoFlujo));

@@ -158,6 +158,22 @@ namespace GiftEjecutor
             this.consultaPerfil.desasignarColeccion(this.correlativo, IDColeccion);
         }
 
+        public List<Coleccion> obtenerColecciones() {
+            List<Coleccion> lista = new List<Coleccion>();
+            SqlDataReader datos = this.consultaPerfil.obtenerColecciones(this.correlativo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    int idColeccion = Int32.Parse(datos.GetValue(0).ToString());
+                    Coleccion nueva = new Coleccion(idColeccion);
+                    lista.Add(nueva);
+                }
+            }
+            return lista;
+        
+        }
+
         public bool existeColeccionEnPerfil(int IDExpediente, int IDActividad)
         {
             bool respuesta = false;
