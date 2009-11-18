@@ -102,7 +102,7 @@ CREATE TABLE PermisosUsuario(
 --drop TABLE ActividadesUsuario;
 CREATE TABLE ActividadesUsuario(
 		correlativo			int identity(1,1) NOT NULL,
-        IDUsuario			int,
+        IDPermiso			int,
 		IDActividad			int
 	PRIMARY KEY(correlativo)
 );

@@ -80,7 +80,7 @@ namespace GiftEjecutor
             this.buttonEjecutarActividad.BackColor = System.Drawing.Color.DarkGreen;
             this.buttonEjecutarActividad.Enabled = false;
             this.buttonEjecutarActividad.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.buttonEjecutarActividad.Location = new System.Drawing.Point(222, 261);
+            this.buttonEjecutarActividad.Location = new System.Drawing.Point(223, 261);
             this.buttonEjecutarActividad.Name = "buttonEjecutarActividad";
             this.buttonEjecutarActividad.Size = new System.Drawing.Size(195, 70);
             this.buttonEjecutarActividad.TabIndex = 2;

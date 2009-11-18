@@ -141,7 +141,7 @@ namespace GiftEjecutor
             Actividad actividadAEjecutar = new Actividad();
             int IDActividad = System.Int32.Parse(this.dataGridActividad[0, this.dataGridActividad.CurrentRow.Index].Value.ToString());
             //if ( padreMDI.getUsuario().actividadValida(IDActividad,this.IDExpediente){
-            if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
+            //if (actividadAEjecutar.getExclusiva(IDActividadCompuesta))
 
             if (padreMDI.getUsuario().actividadValida(IDActividad,IDExpediente))
             {

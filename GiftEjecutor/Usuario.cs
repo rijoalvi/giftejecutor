@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace GiftEjecutor
 {
@@ -17,6 +18,7 @@ namespace GiftEjecutor
         private String pregunta;
         private String respuesta;
         private List<Perfil> listaPerfiles;
+        private DataTable actividadesPropias;
 
         /// <summary>
         /// Constructor por defecto
@@ -56,6 +58,7 @@ namespace GiftEjecutor
                     IDsExpedientes[i] = misIds[i];
                 }
             }
+            llenarActividadesPropias();
         }
 
         public void cargarDatosPrivados()
@@ -297,22 +300,68 @@ namespace GiftEjecutor
                 respuesta = true;
             }
             else{
-                int i = 0;
-                bool existeExpediente = false;
-                while  (i<IDsExpedientes.Length && !existeExpediente){
-                    if (IDsExpedientes[i] == IDExpediente){
-                        existeExpediente = true;
-                    }
-                    ++i;
-                }
-                bool actividadValida = miPerfil.existeColeccionEnPerfil(IDExpediente, IDActividad);
-
-                if (actividadValida && existeExpediente)
+                if(this.actividadManual(IDActividad))
                 {
-                    respuesta = true;
+                    DataRow[] columna = null;
+                    columna = actividadesPropias.Select(@"IDExpediente = '" + IDActividad + "'");
+                    if (columna != null){
+                        respuesta = true;
+                    }
+                }
+                else{
+                    int i = 0;
+                    bool existeExpediente = false;
+                    while  (i<IDsExpedientes.Length && !existeExpediente){
+                        if (IDsExpedientes[i] == IDExpediente){
+                            existeExpediente = true;
+                        }
+                        ++i;
+                    }
+                    bool actividadValida = miPerfil.existeColeccionEnPerfil(IDExpediente, IDActividad);
+
+                    if (actividadValida && existeExpediente)
+                    {
+                        respuesta = true;
+                    }
                 }
             }
             return respuesta;
         }
+
+
+        /// <summary>
+        /// Llena un datatable con las actividades que tiene asignado ese usuario en especifico
+        /// </summary>
+        private void llenarActividadesPropias()
+        {
+            actividadesPropias = this.consultaBD.getActividadesExpedientesPorUsuario(correlativo);
+        }
+
+        /// <summary>
+        /// devuelve true si la actividad es manual, false si no
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
+        private bool actividadManual(int IDActividad)
+        {
+            return (this.consultaBD.actividadManual(IDActividad));
+        }
+
+        public DataTable getDataTableActividadesAsignadasPorExpediente(int IDExpediente)
+        {
+            return (this.consultaBD.getActividadesAsignadasPorExpediente(correlativo, IDExpediente));
+        }
+
+        public DataTable getDataTableActividadesNoAsignadasPorExpediente(int IDExpediente)
+        {
+            Expediente e = new Expediente(IDExpediente);
+            return (this.consultaBD.getActividadesNoAsignadasPorExpediente(miPerfil.getCorrelativo(), e.getIDColeccion()));
+        }
+
+        public void asignarActividad(int IDExpediente, int IDActividad)
+        {
+            this.consultaBD.asignarActividad(correlativo, IDExpediente, IDActividad);
+        }
+
     }
 }

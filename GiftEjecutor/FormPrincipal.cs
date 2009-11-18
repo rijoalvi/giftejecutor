@@ -376,5 +376,13 @@ namespace GiftEjecutor
             pictureBox2.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
             pictureBox1.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
         }
+
+        private void asignaciónDeActividadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAsignacionActividades activid= new FormAsignacionActividades();
+            activid.MdiParent = padreMDI;
+            activid.setPadreMDI(padreMDI);
+            activid.Show();
+        }
     }
 }

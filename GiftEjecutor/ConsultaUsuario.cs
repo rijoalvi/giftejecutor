@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 using System.Data.SqlClient;
 
@@ -168,5 +169,169 @@ namespace GiftEjecutor
             SqlDataReader dataReader = null;
             dataReader = this.controladoBD.hacerConsultaEjecutor("delete FROM Usuario where correlativo = '" + IDUsuario + "';");
         }
+
+        public DataTable getActividadesExpedientesPorUsuario(int IDUsuario)
+        {
+            DataTable tablaUsuarios = new DataTable();
+            DataRow fila;
+
+            DataColumn IDExpediente = new DataColumn();
+            DataColumn IDActividad = new DataColumn();
+
+
+            IDExpediente.ColumnName = "IDExpediente";
+            IDActividad.ColumnName = "IDActividad";
+
+
+            IDExpediente.DataType = Type.GetType("System.Int32");
+            IDActividad.DataType = Type.GetType("System.Int32");
+
+            tablaUsuarios.Columns.Add(IDExpediente);
+            tablaUsuarios.Columns.Add(IDActividad);
+
+
+            SqlDataReader datos = null;
+            datos = this.controladoBD.hacerConsultaEjecutor("Select P.IDExpediente, A.IDActividad FROM PermisosUsuario P, ActividadesUsuario A where P.IDUsuario = '" + IDUsuario + "' and A.IDPermiso = P.correlativo;");
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaUsuarios.NewRow();
+                    fila["IDExpediente"] = Int32.Parse(datos.GetValue(0).ToString());
+                    fila["IDActividad"] = Int32.Parse(datos.GetValue(1).ToString());
+                    tablaUsuarios.Rows.Add(fila);
+                }
+            }
+            return tablaUsuarios;
+        }
+
+        public SqlDataReader getActividadesPorExpediente(int IDExpediente)
+        {
+            SqlDataReader datos = null;
+            datos = this.controladoBD.hacerConsultaEjecutor("Select A.IDActividad FROM PermisosUsuario P, ActividadesUsuario A where P.IDExpediente = '" + IDExpediente + "' and A.IDPermiso = P.correlativo;");
+            return datos;
+        }
+
+        public bool actividadManual(int IDActividad)
+        {
+            SqlDataReader datos = null;
+            datos = this.controladoBD.hacerConsultaConfigurador("Select AsignacionManual from ACTIVIDAD where correlativo = " + IDActividad + ";");
+            bool respuesta = false;
+            if (datos != null)
+            {
+                if (datos.Read())
+                {
+                    String resp = datos.GetValue(0).ToString();
+                    if (resp == "true")
+                    {
+                        respuesta = true;
+                    }
+                }
+            }
+            return respuesta;
+        }
+
+        public DataTable getDataTableActividadesPorIDExpediente(int IDExpediente)
+        {
+            Expediente exp = new Expediente(IDExpediente);
+            int IDFlujo = exp.getIDFlujo();
+            Actividad actividad = new Actividad();
+            DataTable actividades = actividad.getDataTableActividadesPorIDFlujo(IDFlujo);
+            return actividades;
+        }
+
+        public DataTable getActividadesAsignadasPorExpediente(int IDUsuario, int IDExpediente)
+        {
+            DataTable tablaUsuarios = new DataTable();
+            DataRow fila;
+            DataColumn IDActividad = new DataColumn();
+            DataColumn NombreActividad = new DataColumn();
+            IDActividad.ColumnName = "IDActividad";
+            NombreActividad.ColumnName = "Nombre de la actividad";
+            IDActividad.DataType = Type.GetType("System.Int32");
+            NombreActividad.DataType = Type.GetType("System.String");
+            tablaUsuarios.Columns.Add(IDActividad);
+            tablaUsuarios.Columns.Add(NombreActividad);
+
+
+            SqlDataReader datos = null;
+            SqlDataReader datos2 = null;
+            datos = this.controladoBD.hacerConsultaEjecutor("Select A.IDActividad FROM PermisosUsuario P, ActividadesUsuario A where P.IDUsuario = '" + IDUsuario + "' and P.IDExpediente = '" + IDExpediente + "' and A.IDPermiso = P.correlativo;");
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaUsuarios.NewRow();
+                    fila["IDActividad"] = Int32.Parse(datos.GetValue(0).ToString());
+                    int IDAct = Int32.Parse(datos.GetValue(0).ToString());
+                    datos2 = this.controladoBD.hacerConsultaConfigurador("Select nombre FROM ACTIVIDAD where correlativo = '" + IDAct + "';");
+                    if (datos2 != null)
+                    {
+                        if(datos2.Read())
+                        {
+                                fila["Nombre de la actividad"] = datos2.GetValue(0).ToString();
+                                //tablaUsuarios.Rows.Add(fila);
+                        }
+                    }
+                    tablaUsuarios.Rows.Add(fila);
+                }
+            }
+            return tablaUsuarios;
+        }
+        public DataTable getActividadesNoAsignadasPorExpediente(int Perfil, int IDColeccion)
+        {
+            DataTable tablaUsuarios = new DataTable();
+            DataRow fila;
+            DataColumn IDActividad = new DataColumn();
+            DataColumn NombreActividad = new DataColumn();
+            IDActividad.ColumnName = "IDActividad";
+            NombreActividad.ColumnName = "Nombre de la actividad";
+            IDActividad.DataType = Type.GetType("System.Int32");
+            NombreActividad.DataType = Type.GetType("System.String");
+            tablaUsuarios.Columns.Add(IDActividad);
+            tablaUsuarios.Columns.Add(NombreActividad);
+
+
+            SqlDataReader datos = null;
+            SqlDataReader datos2 = null;
+            datos = this.controladoBD.hacerConsultaEjecutor("Select A.IDActividad FROM ColeccionAsignada C, ActividadPermitida A where C.IDPerfil = '" + Perfil + "' and C.IDColeccion = '" + IDColeccion + "' and A.IDColeccionAsignada = C.correlativo;");
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    fila = tablaUsuarios.NewRow();
+                    fila["IDActividad"] = Int32.Parse(datos.GetValue(0).ToString());
+                    int IDAct = Int32.Parse(datos.GetValue(0).ToString());
+                    datos2 = this.controladoBD.hacerConsultaConfigurador("Select nombre FROM ACTIVIDAD where correlativo = '" + IDAct + "';");
+                    if (datos2 != null)
+                    {
+                        if (datos2.Read())
+                        {
+                            fila["Nombre de la actividad"] = datos2.GetValue(0).ToString();
+                            //tablaUsuarios.Rows.Add(fila);
+                        }
+                    }
+                    tablaUsuarios.Rows.Add(fila);
+                }
+            }
+            return tablaUsuarios;
+        }
+
+        public void asignarActividad(int idUsuario, int idExpediente, int IDActividad)
+        {
+            string consulta1 = "Select correlativo from PermisosUsuario where IDUsuario = '"+idUsuario+"' and IDExpediente = '"+idExpediente+"'";
+            SqlDataReader datos1 = this.controladoBD.hacerConsultaEjecutor(consulta1);
+            int permiso;
+            if (datos1 != null)
+            {
+                if (datos1.Read())
+                {
+                    permiso = Int32.Parse(datos1.GetValue(0).ToString());
+                    String consulta = "INSERT INTO ActividadesUsuario (PermisosUsuario(IDPermiso ,IDActividad) VALUES('" + permiso+ "', '" + IDActividad + "');";
+                    SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+                }
+            }
+        }
+
     }
 }

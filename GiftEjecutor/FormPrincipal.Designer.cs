@@ -55,6 +55,7 @@ namespace GiftEjecutor
             this.labelFormulariosCreados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.asignaciónDeActividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -118,7 +119,8 @@ namespace GiftEjecutor
             this.constructorToolStripMenuItem,
             this.gestiónPerfilesToolStripMenuItem,
             this.gestiónDeUsuariosToolStripMenuItem,
-            this.asignaciónDeExpedientesToolStripMenuItem});
+            this.asignaciónDeExpedientesToolStripMenuItem,
+            this.asignaciónDeActividadesToolStripMenuItem});
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
             this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
@@ -162,7 +164,7 @@ namespace GiftEjecutor
             // desconexiónToolStripMenuItem
             // 
             this.desconexiónToolStripMenuItem.Name = "desconexiónToolStripMenuItem";
-            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.desconexiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.desconexiónToolStripMenuItem.Text = "Desconexión";
             this.desconexiónToolStripMenuItem.Click += new System.EventHandler(this.desconexiónToolStripMenuItem_Click);
             // 
@@ -312,6 +314,13 @@ namespace GiftEjecutor
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // asignaciónDeActividadesToolStripMenuItem
+            // 
+            this.asignaciónDeActividadesToolStripMenuItem.Name = "asignaciónDeActividadesToolStripMenuItem";
+            this.asignaciónDeActividadesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.asignaciónDeActividadesToolStripMenuItem.Text = "Asignación de Actividades";
+            this.asignaciónDeActividadesToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDeActividadesToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,5 +385,6 @@ namespace GiftEjecutor
         private ArbolGift arbol;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDeActividadesToolStripMenuItem;
     }
 }

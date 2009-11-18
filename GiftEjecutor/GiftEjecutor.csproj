@@ -69,6 +69,12 @@
     <Compile Include="ControladorBD.cs" />
     <Compile Include="ConsultaActividad.cs" />
     <Compile Include="ConsultaExpediente.cs" />
+    <Compile Include="FormAsignacionActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAsignacionActividades.Designer.cs">
+      <DependentUpon>FormAsignacionActividades.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAsignarExpedientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,10 @@
     <Compile Include="Perfil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAsignacionActividades.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAsignacionActividades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAsignarExpedientes.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormAsignarExpedientes.cs</DependentUpon>
