@@ -10,11 +10,18 @@ namespace GiftEjecutor
 {
     public partial class FormGestionPerfiles : Form
     {
+        private Ventanota padreMDI;
         Perfil perfil;
+
         public FormGestionPerfiles()
         {
             this.perfil = new Perfil();
             InitializeComponent();
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
 
         private void GestionPerfiles_Load(object sender, EventArgs e)

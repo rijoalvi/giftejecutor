@@ -10,15 +10,20 @@ namespace GiftEjecutor
 {
     public partial class FormGestionUsuarios : Form
     {
+        private Ventanota padreMDI;
         Usuario usuario;
+
         public FormGestionUsuarios()
         {
             this.usuario = new Usuario();
             InitializeComponent();
-
             //OJO, ESTO ES PARA QUE EL DATAGRID SE VEA "BONITO":
-            dataGridViewUsuarios.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
-            
+            dataGridViewUsuarios.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);            
+        }
+
+        public void setPadreMDI(Ventanota v)
+        {
+            padreMDI = v;
         }
 
         private void GestionUsuarios_Load(object sender, EventArgs e)
@@ -41,7 +46,6 @@ namespace GiftEjecutor
 
         private void buttonEliminarPerfil_Click(object sender, EventArgs e)
         {
-
             DataGridViewRow filaSeleccionada = dataGridViewUsuarios.CurrentRow;
             if (filaSeleccionada != null)
             {
@@ -49,7 +53,6 @@ namespace GiftEjecutor
                 usuario.borrarUsuario(IDUsuario);
                 this.actulizarDataGrid();
             }
-
         }
 
         /// <summary>

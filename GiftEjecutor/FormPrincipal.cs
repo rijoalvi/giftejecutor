@@ -62,6 +62,18 @@ namespace GiftEjecutor
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             refrescarDirectorio();//este comente a veces, luisk
+            revisarAdmin();
+        }
+
+        /// <summary>
+        /// Revisa si el usuario es admin, de lo contrario bloquea el menu de los módulos
+        /// </summary>
+        private void revisarAdmin()
+        {
+            //si NO es admin
+            if (usuarioActual.getTipo() != 0) {
+                módulosToolStripMenuItem.Visible = false;
+            }
         }
 
         private void buttonActividad_Click(object sender, EventArgs e)
@@ -301,7 +313,7 @@ namespace GiftEjecutor
                 //se obtienen los datos de los formularios
                 labelTituloExp.Show();
                 labelTituloExp.Text = "Expediente " + expediente.getNombre();
-
+                
                 //obtiene los datos de todos los formularios del expediente
                 int correlativoFlujo = expediente.getIDFlujo();
                 IDExpediente = expediente.getCorrelativo();
@@ -320,6 +332,8 @@ namespace GiftEjecutor
         private void mostrarFormulario(int index)
         {
             esconderLabels();
+            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
+            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
             if (formCaratula != null)
                 formCaratula.Dispose();
             //Se abre el form correspondiente
@@ -333,6 +347,7 @@ namespace GiftEjecutor
             {
                 labelTituloExp.Text = "Expediente " + this.arbol.expedienteSeleccionado().getNombre();
                 labelTituloExp.Show();
+                panelDetalleActividades.Show();
                 FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null);
                 formEsteFormulario.TopMost = true;
                 formEsteFormulario.MdiParent = this;
@@ -348,17 +363,22 @@ namespace GiftEjecutor
         private void esconderLabels() {
             labelTituloExp.Hide();
             labelAviso.Hide();
+            panelDetalleActividades.Hide();
         }
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormGestionPerfiles gp = new FormGestionPerfiles();
+            gp.MdiParent = padreMDI;
+            gp.setPadreMDI(padreMDI);
             gp.Show();
         }
 
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormGestionUsuarios usuarios = new FormGestionUsuarios();
+            usuarios.MdiParent = padreMDI;
+            usuarios.setPadreMDI(padreMDI);
             usuarios.Show();
         }
 
@@ -381,15 +401,15 @@ namespace GiftEjecutor
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
-            pictureBox1.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
+            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
+            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
             //Aqui se pone el 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
-            pictureBox1.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
+            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
+            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
         }
 
         private void asignaciónDeActividadesToolStripMenuItem_Click(object sender, EventArgs e)

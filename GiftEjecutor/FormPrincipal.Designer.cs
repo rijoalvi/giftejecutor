@@ -50,17 +50,17 @@ namespace GiftEjecutor
             this.labelActividadesPorRealizar = new System.Windows.Forms.Label();
             this.labelActividadEnCurso = new System.Windows.Forms.Label();
             this.labelTituloExp = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelDetalleActividades = new System.Windows.Forms.Panel();
             this.labelActividadesRealizadas = new System.Windows.Forms.Label();
             this.listaFormularios = new System.Windows.Forms.ListBox();
             this.labelFormulariosCreados = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxVistaPrevia = new System.Windows.Forms.PictureBox();
+            this.pictureBoxInbox = new System.Windows.Forms.PictureBox();
             this.labelAviso = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelDetalleActividades.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -260,18 +260,18 @@ namespace GiftEjecutor
             this.labelTituloExp.TabIndex = 1;
             this.labelTituloExp.Text = "Expediente";
             // 
-            // panel1
+            // panelDetalleActividades
             // 
-            this.panel1.Controls.Add(this.labelPorRealizar);
-            this.panel1.Controls.Add(this.labelActividadesRealizadas);
-            this.panel1.Controls.Add(this.labelEnCurso);
-            this.panel1.Controls.Add(this.labelActividadesPorRealizar);
-            this.panel1.Controls.Add(this.labelRealizadas);
-            this.panel1.Controls.Add(this.labelActividadEnCurso);
-            this.panel1.Location = new System.Drawing.Point(5, 778);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(967, 96);
-            this.panel1.TabIndex = 19;
+            this.panelDetalleActividades.Controls.Add(this.labelPorRealizar);
+            this.panelDetalleActividades.Controls.Add(this.labelActividadesRealizadas);
+            this.panelDetalleActividades.Controls.Add(this.labelEnCurso);
+            this.panelDetalleActividades.Controls.Add(this.labelActividadesPorRealizar);
+            this.panelDetalleActividades.Controls.Add(this.labelRealizadas);
+            this.panelDetalleActividades.Controls.Add(this.labelActividadEnCurso);
+            this.panelDetalleActividades.Location = new System.Drawing.Point(5, 778);
+            this.panelDetalleActividades.Name = "panelDetalleActividades";
+            this.panelDetalleActividades.Size = new System.Drawing.Size(967, 96);
+            this.panelDetalleActividades.TabIndex = 19;
             // 
             // labelActividadesRealizadas
             // 
@@ -300,27 +300,27 @@ namespace GiftEjecutor
             this.labelFormulariosCreados.TabIndex = 22;
             this.labelFormulariosCreados.Text = "Formularios creados:";
             // 
-            // pictureBox1
+            // pictureBoxVistaPrevia
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.Image = global::GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
-            this.pictureBox1.Location = new System.Drawing.Point(253, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 25);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxVistaPrevia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBoxVistaPrevia.Image = global::GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
+            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(253, 24);
+            this.pictureBoxVistaPrevia.Name = "pictureBoxVistaPrevia";
+            this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(69, 25);
+            this.pictureBoxVistaPrevia.TabIndex = 24;
+            this.pictureBoxVistaPrevia.TabStop = false;
+            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox2
+            // pictureBoxInbox
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox2.Image = global::GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
-            this.pictureBox2.Location = new System.Drawing.Point(321, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 25);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBoxInbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBoxInbox.Image = global::GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
+            this.pictureBoxInbox.Location = new System.Drawing.Point(321, 24);
+            this.pictureBoxInbox.Name = "pictureBoxInbox";
+            this.pictureBoxInbox.Size = new System.Drawing.Size(69, 25);
+            this.pictureBoxInbox.TabIndex = 25;
+            this.pictureBoxInbox.TabStop = false;
+            this.pictureBoxInbox.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // labelAviso
             // 
@@ -341,15 +341,15 @@ namespace GiftEjecutor
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1048, 876);
             this.Controls.Add(this.labelAviso);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxInbox);
+            this.Controls.Add(this.pictureBoxVistaPrevia);
             this.Controls.Add(this.labelFormulariosCreados);
             this.Controls.Add(this.listaFormularios);
             this.Controls.Add(this.labelTituloExp);
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDetalleActividades);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -359,10 +359,10 @@ namespace GiftEjecutor
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelDetalleActividades.ResumeLayout(false);
+            this.panelDetalleActividades.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,7 +386,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Label labelRealizadas;
         private System.Windows.Forms.Label labelTituloExp;
         private System.Windows.Forms.ToolStripMenuItem gestiónPerfilesToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelDetalleActividades;
         private System.Windows.Forms.Label labelActividadesRealizadas;
         private System.Windows.Forms.ListBox listaFormularios;
         private System.Windows.Forms.Label labelFormulariosCreados;
@@ -396,8 +396,8 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem desconexiónToolStripMenuItem;
         private System.Windows.Forms.TreeView directorio;
         private ArbolGift arbol;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxVistaPrevia;
+        private System.Windows.Forms.PictureBox pictureBoxInbox;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDeActividadesToolStripMenuItem;
         private System.Windows.Forms.Label labelAviso;
     }
