@@ -42,8 +42,8 @@ namespace GiftEjecutor
             InitializeComponent();
             labelFormulariosCreados.Hide();
             listaFormularios.Hide();
-            usuarioActual = new Usuario(idUsuario);                
-            labelTituloExp.Hide();
+            usuarioActual = new Usuario(idUsuario);
+            esconderLabels();
             this.arbol = new ArbolGift(directorio, usuarioActual);                        
         }
 
@@ -258,7 +258,7 @@ namespace GiftEjecutor
         /// <param name="IDExpediente"></param>
         private void llenarDatosEjecucionExpediente(int IDExpediente, int IDFlujo)
         {
-            invalidarPanels();
+            esconderLabels();
             //TreeNode seleccionado = arbol.nodoSeleccionado();
             //labelDetalleEjecutorial.Text = "Estado de Ejecución del Expediente " + seleccionado.Text;
             
@@ -313,12 +313,15 @@ namespace GiftEjecutor
             else
             {
                 //MessageBox.Show("No soy expediente =(");
-                invalidarPanels();
+                esconderLabels();
             }
         }
 
         private void mostrarFormulario(int index)
         {
+            esconderLabels();
+            if (formCaratula != null)
+                formCaratula.Dispose();
             //Se abre el form correspondiente
             Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[index]));
             int IDTupla = elFormulario.getIDDeLaTupla(this.IDExpediente);
@@ -342,8 +345,8 @@ namespace GiftEjecutor
         }
 
         //Esconde los panes y Labels
-        private void invalidarPanels() {
-            labelTituloExp.Visible = false;
+        private void esconderLabels() {
+            labelTituloExp.Hide();
             labelAviso.Hide();
         }
 

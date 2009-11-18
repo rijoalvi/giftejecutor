@@ -56,10 +56,7 @@ namespace GiftEjecutor
             this.labelFormulariosCreados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-<<<<<<< .mine
             this.labelAviso = new System.Windows.Forms.Label();
-=======
->>>>>>> .r183
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -325,7 +322,6 @@ namespace GiftEjecutor
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-<<<<<<< .mine
             // labelAviso
             // 
             this.labelAviso.AutoSize = true;
@@ -337,8 +333,6 @@ namespace GiftEjecutor
             this.labelAviso.TabIndex = 28;
             this.labelAviso.Text = "El expediente no posee el formulario \r\ncorrespondiente con datos.";
             // 
-=======
->>>>>>> .r183
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
