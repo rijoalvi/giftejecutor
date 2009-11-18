@@ -15,7 +15,11 @@ namespace GiftEjecutor
 
         public FormAsignarExpedientes()
         {
+<<<<<<< .mine
+            InitializeComponent();            
+=======
             InitializeComponent();
+>>>>>>> .r183
         }
 
         private void llenarComboUsuarios() {
@@ -74,10 +78,19 @@ namespace GiftEjecutor
         {
             llenarComboExpedientes();
         }
+<<<<<<< .mine
+
+        private void FormAsignarExpedientes_Load(object sender, EventArgs e)
+        {
+            //llena el combo Box
+            llenarComboUsuarios();
+        }
+=======
 
         private void FormAsignarExpedientes_Load(object sender, EventArgs e)
         {
             llenarComboUsuarios();
         }
+>>>>>>> .r183
     }
 }

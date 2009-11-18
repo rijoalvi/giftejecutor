@@ -56,6 +56,10 @@ namespace GiftEjecutor
             this.labelFormulariosCreados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+<<<<<<< .mine
+            this.labelAviso = new System.Windows.Forms.Label();
+=======
+>>>>>>> .r183
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -321,6 +325,20 @@ namespace GiftEjecutor
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+<<<<<<< .mine
+            // labelAviso
+            // 
+            this.labelAviso.AutoSize = true;
+            this.labelAviso.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAviso.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.labelAviso.Location = new System.Drawing.Point(317, 321);
+            this.labelAviso.Name = "labelAviso";
+            this.labelAviso.Size = new System.Drawing.Size(416, 46);
+            this.labelAviso.TabIndex = 28;
+            this.labelAviso.Text = "El expediente no posee el formulario \r\ncorrespondiente con datos.";
+            // 
+=======
+>>>>>>> .r183
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +346,7 @@ namespace GiftEjecutor
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1048, 876);
+            this.Controls.Add(this.labelAviso);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelFormulariosCreados);
@@ -386,5 +405,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDeActividadesToolStripMenuItem;
+        private System.Windows.Forms.Label labelAviso;
     }
 }

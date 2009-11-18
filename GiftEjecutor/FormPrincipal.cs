@@ -324,7 +324,7 @@ namespace GiftEjecutor
             int IDTupla = elFormulario.getIDDeLaTupla(this.IDExpediente);
             if (IDTupla == -1)
             {
-                MessageBox.Show("¡El Expediente todavía no posee los datos del formulario correspondiente!");
+                labelAviso.Show();
             }
             else
             {
@@ -344,6 +344,7 @@ namespace GiftEjecutor
         //Esconde los panes y Labels
         private void invalidarPanels() {
             labelTituloExp.Visible = false;
+            labelAviso.Hide();
         }
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
