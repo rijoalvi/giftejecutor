@@ -77,7 +77,7 @@ namespace GiftEjecutor
             comboBoxColecciones.Items.Clear();
             if (0 == c.coleccionesDeUnFlujo.Count)
             {
-                MessageBox.Show("Flujo no tiene colecciones");
+           //     MessageBox.Show("Flujo no tiene colecciones");
             }
             for (int i = 0; i < c.coleccionesDeUnFlujo.Count; i++)
             {
@@ -87,12 +87,17 @@ namespace GiftEjecutor
 
         private void buttonAsignarColeccion_Click(object sender, EventArgs e)
         {
-            Coleccion coleccionSeleccionada = (((Coleccion)this.comboBoxColecciones.SelectedItem));
-            this.asignarColeccion(coleccionSeleccionada);
-            this.agregarColeccionATabControl(coleccionSeleccionada);
+            //Coleccion coleccionSeleccionada = (((Coleccion)this.comboBoxColecciones.SelectedItem));
+            //this.asignarColeccion(coleccionSeleccionada);
+            //this.agregarColeccionATabControl(coleccionSeleccionada);
+            this.asignarColeccionGeneral((((Coleccion)this.comboBoxColecciones.SelectedItem)));
 
         }
-
+        public void asignarColeccionGeneral(Coleccion coleccionSeleccionada)
+        {
+            this.asignarColeccion(coleccionSeleccionada);
+            this.agregarColeccionATabControl(coleccionSeleccionada);
+        }
         public void asignarColeccion(Coleccion coleccionAAsignar) {
             if (null != coleccionAAsignar)
             {
@@ -109,14 +114,22 @@ namespace GiftEjecutor
 
             if (null != coleccionAAgregarAlPestanero)
             {
+                Label labelActividadesDiponibles = new Label();
+                labelActividadesDiponibles.SetBounds(20, 20, 170, 15);
+                labelActividadesDiponibles.Text = "Actividades disponibles";
+
+                Label labelActividadesPermitidas = new Label();
+                labelActividadesPermitidas.SetBounds(260, 20, 170, 15);
+                labelActividadesPermitidas.Text = "Actividades permitidas";
+
                 Actividad actividad = new Actividad();
                 listActividadesDisponibles = new ListBox();
                 listaListActividadesDisponibles.Add(listActividadesDisponibles);
-                listActividadesDisponibles.SetBounds(20, 20, 170, 160);
+                listActividadesDisponibles.SetBounds(20, 40, 170, 160);
 
                 listActividadesPermitidasAlaColeccion = new ListBox();
                 listaListActividadesPermitidasAlaColeccion.Add(listActividadesPermitidasAlaColeccion);
-                listActividadesPermitidasAlaColeccion.SetBounds(260, 20, 170, 160);
+                listActividadesPermitidasAlaColeccion.SetBounds(260, 40, 170, 160);
 
                 List<Actividad> listaActividades = actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
                 ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
@@ -140,7 +153,7 @@ namespace GiftEjecutor
                 Actividad ac = new Actividad();
                 lista = ac.getListActividadesPermitidasPorColeccionAsignada(coleccionAsignada.correlativo);
 
-                this.comboBoxPrueba.Items.Clear();
+               // this.comboBoxPrueba.Items.Clear();
                 for (int i = 0; i < lista.Count; i++)
                 {
                     //this.comboBoxPrueba.Items.Add(lista[i]);
@@ -166,18 +179,29 @@ namespace GiftEjecutor
                 buttonPermitirActividad.Text = ">";
                 buttonPermitirActividad.SetBounds(190, 70, 40, 40);
                 buttonPermitirActividad.Click += new System.EventHandler(click_PermitirActividad);
-                //this.comboBoxFlujoTrabajo.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlujoTrabajo_SelectedIndexChanged);
+                buttonPermitirActividad.Enabled = false;
 
 
 
                 Button buttonDespermitirActividad = new Button();
                 buttonDespermitirActividad.SetBounds(190, 120, 40, 40);
                 buttonDespermitirActividad.Click += new System.EventHandler(click_DespermitirActividad);
+                buttonDespermitirActividad.Enabled = false;
 
+                //if(this.textBoxTipo.Text.Equals("Colaborador")){
+                if (true)
+                {
+                    buttonPermitirActividad.Enabled = true;
+                    buttonDespermitirActividad.Enabled = true;
+                }
 
                 buttonDespermitirActividad.Text = "<";
                 tabPage.Controls.Add(buttonPermitirActividad);
                 tabPage.Controls.Add(buttonDespermitirActividad);
+
+
+                tabPage.Controls.Add(labelActividadesDiponibles);
+                tabPage.Controls.Add(labelActividadesPermitidas);
 
 
                 tabPage.Controls.Add(listActividadesDisponibles);
