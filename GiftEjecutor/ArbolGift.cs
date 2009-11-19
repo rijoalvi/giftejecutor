@@ -98,9 +98,9 @@ namespace GiftEjecutor
                 for (int k = 0; !encontrado && k < expedientes.Count; k++) 
                     if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(expedientes[k][1].ToString()))
                         encontrado = true;
-                for(int l=0;!encontrado && l<coleccionesPerfil.Count;l++)
+        /*        for(int l=0;!encontrado && l<coleccionesPerfil.Count;l++)
                     if(tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(coleccionesPerfil[l].getCorrelativoFlujo().ToString()))
-                        encontrado = true;
+                        encontrado = true;*/
                 
                 if (encontrado)
                 {
@@ -143,9 +143,9 @@ namespace GiftEjecutor
                     for (int k = 0; !valido && k < coleccionesPerfil.Count; k++)
                         if (colecciones[i][0].Equals(coleccionesPerfil[k].getCorrelativo().ToString()))
                             valido = true;
-                    if (!valido&&usuario.getTipo()!=0) {
+                 /*   if (!valido&&usuario.getTipo()!=0) {
                         nodo.Remove();
-                    }
+                    }*/
                 }
                 else
                 {
