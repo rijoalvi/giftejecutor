@@ -160,47 +160,6 @@ namespace GiftEjecutor
             }
         }
 
-        private void cambiarNombreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            String correlativoFlujo;
-            String correlativoPadre;
-            FlujoTrabajo flujo = arbol.flujoSeleccionado();
-            if (flujo != null)//if (this.arbol.nodoSeleccionado().Name.Contains("F"))
-            {
-                MessageBox.Show("No es posible cambiarle el nombre a un flujo de trabajo");
-            }/*else if (this.arbol.nodoSeleccionado().Name.Equals("0"))
-            {
-                MessageBox.Show("No es posible cambiarle el nombre a la raíz del directorio");
-            }*/
-            else
-            {
-                Expediente expediente = arbol.expedienteSeleccionado();
-                if (expediente != null)
-                {
-                    correlativoFlujo = expediente.getIDFlujo().ToString();
-                    correlativoPadre = expediente.getIDColeccion().ToString();
-                    String correlativoExpediente = expediente.getCorrelativo().ToString();
-                    FormFlujosConstruidos form = new FormFlujosConstruidos(this, correlativoExpediente, correlativoPadre, correlativoFlujo);
-                    form.MdiParent = padreMDI;
-                    form.setPadreMDI(padreMDI);
-                    form.Show();
-                }
-                else
-                {
-                    Coleccion coleccion = arbol.coleccionSeleccionada();
-                    if (coleccion != null)
-                    {
-                        correlativoFlujo = coleccion.getCorrelativoFlujo().ToString();
-                        correlativoPadre = coleccion.getCorrelativo().ToString();
-                        FormNuevaColeccion formColeccion = new FormNuevaColeccion(this,coleccion.getCorrelativo());
-                        formColeccion.MdiParent = padreMDI;
-                        formColeccion.setPadreMDI(padreMDI);
-                        formColeccion.Show();
-                    }
-                }
-            }            
-        }
-
         private void directorio_DoubleClick(object sender, EventArgs e)
         {
             abrirExpediente();
@@ -226,18 +185,6 @@ namespace GiftEjecutor
                 MessageBox.Show("El expediente seleccionado ya fue finalizado");
             }
 
-        }
-
-        private void eliminarBETAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TreeNode seleccionado = arbol.nodoSeleccionado();
-            Expediente expediente = arbol.expedienteSeleccionado();
-            if (expediente != null) {
-                FormEliminar eliminar = new FormEliminar(this,expediente.getNombre(),expediente.getCorrelativo().ToString(),"Expediente");
-                eliminar.MdiParent = padreMDI;
-                eliminar.setPadreMDI(padreMDI);
-                eliminar.Show();
-            }
         }
         
         public void setPadreMDI(Ventanota v)
@@ -390,15 +337,6 @@ namespace GiftEjecutor
             asignador.Show();
         }
 
-        private void desconexiónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConexiones conexiones = new FormConexiones();
-            conexiones.MdiParent = padreMDI;
-            conexiones.setPadreMDI(padreMDI);
-            this.Hide();
-            conexiones.Show();
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
@@ -418,6 +356,69 @@ namespace GiftEjecutor
             activid.MdiParent = padreMDI;
             activid.setPadreMDI(padreMDI);
             activid.Show();
+        }
+
+        private void cambiarNombreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            String correlativoFlujo;
+            String correlativoPadre;
+            FlujoTrabajo flujo = arbol.flujoSeleccionado();
+            if (flujo != null)//if (this.arbol.nodoSeleccionado().Name.Contains("F"))
+            {
+                MessageBox.Show("No es posible cambiarle el nombre a un flujo de trabajo");
+            }/*else if (this.arbol.nodoSeleccionado().Name.Equals("0"))
+            {
+                MessageBox.Show("No es posible cambiarle el nombre a la raíz del directorio");
+            }*/
+            else
+            {
+                Expediente expediente = arbol.expedienteSeleccionado();
+                if (expediente != null)
+                {
+                    correlativoFlujo = expediente.getIDFlujo().ToString();
+                    correlativoPadre = expediente.getIDColeccion().ToString();
+                    String correlativoExpediente = expediente.getCorrelativo().ToString();
+                    FormFlujosConstruidos form = new FormFlujosConstruidos(this, correlativoExpediente, correlativoPadre, correlativoFlujo);
+                    form.MdiParent = padreMDI;
+                    form.setPadreMDI(padreMDI);
+                    form.Show();
+                }
+                else
+                {
+                    Coleccion coleccion = arbol.coleccionSeleccionada();
+                    if (coleccion != null)
+                    {
+                        correlativoFlujo = coleccion.getCorrelativoFlujo().ToString();
+                        correlativoPadre = coleccion.getCorrelativo().ToString();
+                        FormNuevaColeccion formColeccion = new FormNuevaColeccion(this, coleccion.getCorrelativo());
+                        formColeccion.MdiParent = padreMDI;
+                        formColeccion.setPadreMDI(padreMDI);
+                        formColeccion.Show();
+                    }
+                }
+            }            
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TreeNode seleccionado = arbol.nodoSeleccionado();
+            Expediente expediente = arbol.expedienteSeleccionado();
+            if (expediente != null)
+            {
+                FormEliminar eliminar = new FormEliminar(this, expediente.getNombre(), expediente.getCorrelativo().ToString(), "Expediente");
+                eliminar.MdiParent = padreMDI;
+                eliminar.setPadreMDI(padreMDI);
+                eliminar.Show();
+            }
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConexiones conexiones = new FormConexiones();
+            conexiones.MdiParent = padreMDI;
+            conexiones.setPadreMDI(padreMDI);
+            this.Hide();
+            conexiones.Show();
         }
     }
 }
