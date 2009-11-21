@@ -16,6 +16,7 @@ namespace GiftEjecutor
         private String[] IDsFormularios;
         private FormFormulario formCaratula;
         private Usuario usuarioActual;
+        private Inbox inbox;
 
         //private ArbolGift arbol;
         /**
@@ -422,12 +423,9 @@ namespace GiftEjecutor
 
         private void mostrarInbox() {
             esconderVistaPrevia();
-            llenarDataGridInbox();
-        }
-
-        private void llenarDataGridInbox()
-        {
-
+            inbox = new Inbox(this.usuarioActual);
+            //tengo q crear todos los expedientes
+            //dataGridInbox.DataSource = inbox.llenarDataGridInbox(Expediente[] exps);
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)

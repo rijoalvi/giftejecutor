@@ -61,14 +61,14 @@ namespace GiftEjecutor
             this.labelAviso = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelInbox = new System.Windows.Forms.Panel();
+            this.dataGridInbox = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.panelDetalleActividades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).BeginInit();
             this.panelInbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridInbox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -357,12 +357,24 @@ namespace GiftEjecutor
             // 
             // panelInbox
             // 
-            this.panelInbox.Controls.Add(this.dataGridView1);
+            this.panelInbox.Controls.Add(this.dataGridInbox);
             this.panelInbox.Controls.Add(this.label1);
             this.panelInbox.Location = new System.Drawing.Point(257, 56);
             this.panelInbox.Name = "panelInbox";
             this.panelInbox.Size = new System.Drawing.Size(644, 573);
             this.panelInbox.TabIndex = 30;
+            // 
+            // dataGridInbox
+            // 
+            this.dataGridInbox.AllowUserToAddRows = false;
+            this.dataGridInbox.AllowUserToDeleteRows = false;
+            this.dataGridInbox.AllowUserToOrderColumns = true;
+            this.dataGridInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridInbox.Location = new System.Drawing.Point(17, 63);
+            this.dataGridInbox.Name = "dataGridInbox";
+            this.dataGridInbox.ReadOnly = true;
+            this.dataGridInbox.Size = new System.Drawing.Size(610, 295);
+            this.dataGridInbox.TabIndex = 3;
             // 
             // label1
             // 
@@ -374,18 +386,6 @@ namespace GiftEjecutor
             this.label1.Size = new System.Drawing.Size(273, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Actividades por realizar:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 63);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(610, 295);
-            this.dataGridView1.TabIndex = 3;
             // 
             // FormPrincipal
             // 
@@ -420,7 +420,7 @@ namespace GiftEjecutor
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).EndInit();
             this.panelInbox.ResumeLayout(false);
             this.panelInbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridInbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +461,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panelInbox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridInbox;
         private System.Windows.Forms.Label label1;
     }
 }

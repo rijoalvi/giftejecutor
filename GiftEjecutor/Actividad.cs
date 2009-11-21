@@ -148,14 +148,14 @@ namespace GiftEjecutor
                     {
                         tablaActividades.Rows.Add(fila);
                         //revisa si ya fue ejecutada, si no, cambia estado de "unaEjecutable"
-                        if ( !control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente))
+                        if ( !control.checkActividadRealizada((int)datos.GetValue(1), this.IDExpediente))
                             unaEjecutable = true;                        
                     }
                     //revisa si ya fue ejecutada
                     else
                     {
                         bool yaSeEjecuto;
-                        yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), IDExpediente);
+                        yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(1), this.IDExpediente);
                         if (!yaSeEjecuto && !unaEjecutable)
                         {
                             tablaActividades.Rows.Add(fila);
@@ -838,6 +838,12 @@ namespace GiftEjecutor
             return respuesta;
         }
 
+        /// <summary>
+        /// Devuelve el String con el nombre de la actividad actual del expediente
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDFlujo"></param>
+        /// <returns></returns>
         public String getActividadActual(int IDExpediente, int IDFlujo)
         {
             String respuesta = null;
@@ -873,6 +879,43 @@ namespace GiftEjecutor
             }
             return respuesta;
         }
+
+        /*
+        public String[] getActividadActual(int IDExpediente, int IDFlujo)
+        {
+            String[] respuesta = new String[2];
+            Controlador control = new Controlador();
+            bool unaEjecutable = false;
+            SqlDataReader datos;
+            //ConsultaActividaCompuesta consultaActividadCompuesta = new ConsultaActividaCompuesta();
+            //datos = consultaActividadCompuesta.getTodasActividadesHija(IDFlujo);
+            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    bool SeEjecuta;
+                    SeEjecuta = control.checkActividadIniciada((int)datos.GetValue(1), IDExpediente);
+                    if (SeEjecuta)
+                    {
+                        if (respuesta == null)
+                        {
+                            respuesta = datos.GetValue(2).ToString();
+                        }
+                        else
+                        {
+                            respuesta = respuesta + " --> " + datos.GetValue(2).ToString();
+                        }
+                    }
+                }
+            }
+            if (respuesta == null)
+            {
+                respuesta = " - Ninguna - ";
+            }
+            return respuesta;
+        }
+         */ 
 
         public String getSecuenciaActPorRealizar(int IDExpediente, int IDFlujo)
         {

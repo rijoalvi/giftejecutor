@@ -197,6 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiftConfiguradorDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Inbox.cs" />
     <Compile Include="Jerarquia.cs" />
     <Compile Include="MaestroDetalle.cs" />
     <Compile Include="FormNuevoPerfil.cs">
