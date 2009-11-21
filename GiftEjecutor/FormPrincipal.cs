@@ -246,8 +246,13 @@ namespace GiftEjecutor
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            mostrarVistaPrevia();
+        }
+
+        private void mostrarVistaPrevia()
+        {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
-         //   indiceFormularios = 0; //NO BORRAR! Beto
+            //   indiceFormularios = 0; //NO BORRAR! Beto
             Expediente expediente = arbol.expedienteSeleccionado();
             if (expediente != null)
             {
@@ -260,7 +265,7 @@ namespace GiftEjecutor
                 //se obtienen los datos de los formularios
                 labelTituloExp.Show();
                 labelTituloExp.Text = "Expediente " + expediente.getNombre();
-                
+
                 //obtiene los datos de todos los formularios del expediente
                 int correlativoFlujo = expediente.getIDFlujo();
                 IDExpediente = expediente.getCorrelativo();
@@ -337,19 +342,6 @@ namespace GiftEjecutor
             asignador.Show();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
-            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;
-            //Aqui se pone el 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
-            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
-        }
-
         private void asignaciónDeActividadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAsignacionActividades activid= new FormAsignacionActividades();
@@ -419,6 +411,48 @@ namespace GiftEjecutor
             conexiones.setPadreMDI(padreMDI);
             this.Hide();
             conexiones.Show();
+        }
+
+        private void pictureBoxInbox_Click(object sender, EventArgs e)
+        {
+            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaInbox;
+            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaPrevia;            
+            mostrarInbox();
+        }
+
+        private void mostrarInbox() {
+            esconderVistaPrevia();
+            llenarDataGridInbox();
+        }
+
+        private void llenarDataGridInbox()
+        {
+
+        }
+
+        private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
+        {
+            pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
+            pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
+            mostrarVistaPrevia();
+        }        
+
+        /// <summary>
+        /// Esconde de la vista del usuario el inbox
+        /// </summary>
+        private void esconderInbox()
+        {
+
+        }
+        
+        /// <summary>
+        /// Esconde el form caratula si esta abierto y cualquier otra informacion de la vista previa
+        /// </summary>
+        private void esconderVistaPrevia()
+        {
+            if (this.formCaratula != null)
+                this.formCaratula.Dispose();
+            esconderLabels();
         }
     }
 }

@@ -17,7 +17,6 @@ namespace GiftEjecutor
         private String contrasena;
         private String pregunta;
         private String respuesta;
-        private List<Perfil> listaPerfiles;
         private DataTable actividadesPropias;
 
         /// <summary>
@@ -259,6 +258,15 @@ namespace GiftEjecutor
         public int getCorrelativoPerfil()
         {
             return (miPerfil.getCorrelativo());
+        }
+
+        /// <summary>
+        /// Devuelve el perfil del usuario
+        /// </summary>
+        /// <returns></returns>
+        public Perfil getPerfil()
+        {
+            return this.miPerfil;
         }
 
         /// <summary>

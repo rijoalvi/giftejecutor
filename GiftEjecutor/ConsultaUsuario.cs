@@ -53,6 +53,21 @@ namespace GiftEjecutor
         public int[] obtenerIDsExpedientes(int idUsuario)
         {
             String consulta = "SELECT IDExpediente FROM PermisosUsuario WHERE IDUsuario = '" + idUsuario + "' ORDER BY IDExpediente;";
+
+            /* CONSULTA QUE BUSCA SEGUN EL PERFIL Y NO LOS ASIGNADOS
+             String consulta = "select Expediente.correlativo from USUARIO, EXPEDIENTE, COLECCIONASIGNADA " +
+                                "where USUARIO.correlativo = '9' AND " +
+                                "USUARIO.IDPerfil = COLECCIONASIGNADA.IDPerfil AND " +
+                                "COLECCIONASIGNADA.IDColeccion = EXPEDIENTE.IDColeccion;";
+              
+             ESTA HACE LAS DOS JUNTAS:
+             select Expediente.correlativo from USUARIO, EXPEDIENTE, COLECCIONASIGNADA 
+            where USUARIO.correlativo = '9' AND
+            USUARIO.IDPerfil = COLECCIONASIGNADA.IDPerfil AND
+            COLECCIONASIGNADA.IDColeccion = EXPEDIENTE.IDColeccion
+            UNION select PermisosUsuario.IDExpediente from PermisosUsuario
+            WHERE PermisosUsuario.IDUsuario = '9';
+            */
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             String IDs = "";
             while(datos.Read())

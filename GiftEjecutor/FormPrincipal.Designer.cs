@@ -60,10 +60,15 @@ namespace GiftEjecutor
             this.pictureBoxInbox = new System.Windows.Forms.PictureBox();
             this.labelAviso = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panelInbox = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.panelDetalleActividades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).BeginInit();
+            this.panelInbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -321,7 +326,7 @@ namespace GiftEjecutor
             this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(69, 25);
             this.pictureBoxVistaPrevia.TabIndex = 24;
             this.pictureBoxVistaPrevia.TabStop = false;
-            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBoxVistaPrevia_Click);
             // 
             // pictureBoxInbox
             // 
@@ -332,23 +337,55 @@ namespace GiftEjecutor
             this.pictureBoxInbox.Size = new System.Drawing.Size(69, 25);
             this.pictureBoxInbox.TabIndex = 25;
             this.pictureBoxInbox.TabStop = false;
-            this.pictureBoxInbox.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBoxInbox.Click += new System.EventHandler(this.pictureBoxInbox_Click);
             // 
             // labelAviso
             // 
             this.labelAviso.AutoSize = true;
             this.labelAviso.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAviso.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelAviso.Location = new System.Drawing.Point(317, 321);
+            this.labelAviso.Location = new System.Drawing.Point(298, 307);
             this.labelAviso.Name = "labelAviso";
-            this.labelAviso.Size = new System.Drawing.Size(416, 46);
+            this.labelAviso.Size = new System.Drawing.Size(501, 23);
             this.labelAviso.TabIndex = 28;
-            this.labelAviso.Text = "El expediente no posee el formulario \r\ncorrespondiente con datos.";
+            this.labelAviso.Text = "El expediente no ha sido inicializado todavía.";
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // panelInbox
+            // 
+            this.panelInbox.Controls.Add(this.dataGridView1);
+            this.panelInbox.Controls.Add(this.label1);
+            this.panelInbox.Location = new System.Drawing.Point(257, 56);
+            this.panelInbox.Name = "panelInbox";
+            this.panelInbox.Size = new System.Drawing.Size(644, 573);
+            this.panelInbox.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(13, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(273, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Actividades por realizar:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 63);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(610, 295);
+            this.dataGridView1.TabIndex = 3;
             // 
             // FormPrincipal
             // 
@@ -356,9 +393,10 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1048, 876);
-            this.Controls.Add(this.labelAviso);
+            this.ClientSize = new System.Drawing.Size(1048, 842);
+            this.Controls.Add(this.panelInbox);
             this.Controls.Add(this.pictureBoxInbox);
+            this.Controls.Add(this.labelAviso);
             this.Controls.Add(this.pictureBoxVistaPrevia);
             this.Controls.Add(this.labelFormulariosCreados);
             this.Controls.Add(this.listaFormularios);
@@ -380,6 +418,9 @@ namespace GiftEjecutor
             this.panelDetalleActividades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInbox)).EndInit();
+            this.panelInbox.ResumeLayout(false);
+            this.panelInbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,5 +460,8 @@ namespace GiftEjecutor
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.Panel panelInbox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }
