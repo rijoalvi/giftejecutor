@@ -137,6 +137,10 @@ namespace GiftEjecutor
             return correlativo;
         }
 
+        public String getNombreFlujo() {
+            return consultaExpediente.getNombreFlujo(this.IDFlujo);
+        }
+
         public int getIDFlujo()
         {
             return IDFlujo;

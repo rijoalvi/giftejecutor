@@ -50,6 +50,7 @@ namespace GiftEjecutor
 
         public void refrescarDirectorio() {
             arbol.refrescar();
+            mostrarInbox();
         }
 
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -285,6 +286,7 @@ namespace GiftEjecutor
         private void mostrarFormulario(int index)
         {
             esconderLabels();
+            panelDetalleActividades.Show();
             pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
             pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
             if (formCaratula != null)
@@ -300,7 +302,6 @@ namespace GiftEjecutor
             {
                 labelTituloExp.Text = "Expediente " + this.arbol.expedienteSeleccionado().getNombre();
                 labelTituloExp.Show();
-                panelDetalleActividades.Show();
                 FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null);
                 formEsteFormulario.TopMost = true;
                 formEsteFormulario.MdiParent = this;
@@ -312,11 +313,20 @@ namespace GiftEjecutor
             }
         }
 
-        //Esconde los panes y Labels
-        private void esconderLabels() {
+        //Esconde los panes y Labels d la vista previa
+        private void esconderLabels()
+        {
             labelTituloExp.Hide();
             labelAviso.Hide();
             panelDetalleActividades.Hide();
+        }
+
+        //Muestra los panes y Labels de la vista previa
+        private void mostrarLabels()
+        {
+            labelTituloExp.Show();
+            labelAviso.Show();
+            panelDetalleActividades.Show();
         }
 
         private void gestiónPerfilesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -423,26 +433,30 @@ namespace GiftEjecutor
 
         private void mostrarInbox() {
             esconderVistaPrevia();
+            panelInbox.Show();
             inbox = new Inbox(this.usuarioActual);
             //tengo q crear todos los expedientes
-            //dataGridInbox.DataSource = inbox.llenarDataGridInbox(Expediente[] exps);
+            int[] idsExps = usuarioActual.getIDsExpedientes();
+            Expediente[] exps = new Expediente[idsExps.Length];
+            for (int i = 0; i < idsExps.Length; ++i)
+            {
+                exps[i] = new Expediente(idsExps[i]);
+            }
+            dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
+            dataGridInbox.Columns[0].Visible = false;
+            dataGridInbox.Columns[2].Visible = false;
+            dataGridInbox.Columns[4].Visible = false;
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
         {
             pictureBoxInbox.Image = GiftEjecutor.Properties.Resources.PestañaNoInvertidaInbox;
             pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
+            //esconde el panel del inbox
+            panelInbox.Hide();
             mostrarVistaPrevia();
         }        
 
-        /// <summary>
-        /// Esconde de la vista del usuario el inbox
-        /// </summary>
-        private void esconderInbox()
-        {
-
-        }
-        
         /// <summary>
         /// Esconde el form caratula si esta abierto y cualquier otra informacion de la vista previa
         /// </summary>

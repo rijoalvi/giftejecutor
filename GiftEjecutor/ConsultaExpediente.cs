@@ -121,6 +121,17 @@ namespace GiftEjecutor
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        public String getNombreFlujo(int IDFlujo)
+        {
+            String consulta = "SELECT nombre From FLUJO where correlativo = '" + IDFlujo + "';";
+            SqlDataReader resultado = this.controladoBD.hacerConsultaConfigurador(consulta);
+            String nombre = "";
+            if (resultado.Read())
+            {
+                nombre = resultado.GetValue(0).ToString();
+            }
+            return nombre;
+        }
 
     }
 }

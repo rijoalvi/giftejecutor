@@ -369,6 +369,8 @@ namespace GiftEjecutor
             this.dataGridInbox.AllowUserToAddRows = false;
             this.dataGridInbox.AllowUserToDeleteRows = false;
             this.dataGridInbox.AllowUserToOrderColumns = true;
+            this.dataGridInbox.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridInbox.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridInbox.Location = new System.Drawing.Point(17, 63);
             this.dataGridInbox.Name = "dataGridInbox";

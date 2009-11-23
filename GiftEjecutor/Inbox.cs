@@ -25,6 +25,8 @@ namespace GiftEjecutor
             DataTable tablaInbox = new DataTable(); ;
             DataRow fila;
 
+            DataColumn IDFlujo = new DataColumn();
+            DataColumn NombreFlujo = new DataColumn(); 
             DataColumn IDExpediente = new DataColumn();
             DataColumn Expediente = new DataColumn();
             DataColumn IDActividad = new DataColumn();
@@ -32,6 +34,8 @@ namespace GiftEjecutor
             DataColumn descripcionActividad = new DataColumn();
             DataColumn fechaLimite = new DataColumn();
 
+            IDFlujo.ColumnName = "IDFlujo";
+            NombreFlujo.ColumnName = "NombreFlujo";
             IDExpediente.ColumnName = "IDExpediente";
             Expediente.ColumnName = "Expediente";
             IDActividad.ColumnName = "IDActividad";
@@ -39,6 +43,8 @@ namespace GiftEjecutor
             descripcionActividad.ColumnName = "descripcionActividad";
             fechaLimite.ColumnName = "fechaLimite";
 
+            IDFlujo.DataType = Type.GetType("System.String");
+            NombreFlujo.DataType = Type.GetType("System.String");
             IDExpediente.DataType = Type.GetType("System.String");
             Expediente.DataType = Type.GetType("System.String");
             IDActividad.DataType = Type.GetType("System.String");
@@ -46,6 +52,8 @@ namespace GiftEjecutor
             descripcionActividad.DataType = Type.GetType("System.String");
             fechaLimite.DataType = Type.GetType("System.String");
 
+            tablaInbox.Columns.Add(IDFlujo);
+            tablaInbox.Columns.Add(NombreFlujo);
             tablaInbox.Columns.Add(IDExpediente);
             tablaInbox.Columns.Add(Expediente);
             tablaInbox.Columns.Add(IDActividad);
@@ -62,10 +70,8 @@ namespace GiftEjecutor
                 this.actividad = new Actividad();
                 this.actividad.setIDExpediente(expedientes[i].getCorrelativo());
 
-                //******************************************************************
-                int IDFlujo = 1;
-                //******************************************************************
-                DataTable actividadesEjecutables = actividad.getDataTableActividadesEjecutablesPorIDFlujo(IDFlujo);
+                DataTable actividadesEjecutables = actividad.getDataTableActividadesEjecutablesPorIDFlujo(expedientes[i].getIDFlujo());
+                String nombreFlujo = expedientes[i].getNombreFlujo();
                 int numActividades = actividadesEjecutables.Rows.Count;
                 //Si es administrador o dueño puede ejecutar cualquier actividad
                 if (usuario.getTipo() == 0 || usuario.getTipo() == 1)
@@ -73,6 +79,8 @@ namespace GiftEjecutor
                     for (int k = 0; k < numActividades; ++k)
                     {
                         fila = tablaInbox.NewRow();
+                        fila["IDFlujo"] = expedientes[i].getIDFlujo();
+                        fila["NombreFlujo"] = nombreFlujo;
                         fila["IDExpediente"] = expedientes[i].getCorrelativo();
                         fila["Expediente"] = expedientes[i].getNombre();
                         fila["IDActividad"] = actividadesEjecutables.Rows[k][0].ToString();
@@ -95,7 +103,9 @@ namespace GiftEjecutor
                             fila["IDActividad"] = actividadesEjecutables.Rows[k][0].ToString();
                             fila["nombreActividad"] = actividadesEjecutables.Rows[k][1].ToString();
                             fila["descripcionActividad"] = actividadesEjecutables.Rows[k][2].ToString();
-                            tablaInbox.Rows.Add(fila);
+                            actividad.setID(int.Parse(actividadesEjecutables.Rows[k][0].ToString()));
+                            if(actividad.soyActividadInicial())
+                                tablaInbox.Rows.Add(fila);
                         }
                     }
                     else
@@ -112,6 +122,8 @@ namespace GiftEjecutor
                                 fila["IDActividad"] = actividadesEjecutables.Rows[k][0].ToString();
                                 fila["nombreActividad"] = actividadesEjecutables.Rows[k][1].ToString();
                                 fila["descripcionActividad"] = actividadesEjecutables.Rows[k][2].ToString();
+
+                                //FALTA LAS RESTRICCIONES DE LOS COLABORADORES
                                 tablaInbox.Rows.Add(fila);
                             }
                         }

@@ -44,6 +44,19 @@ namespace GiftEjecutor
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }
+
+        public bool soyActividadInicial(int ID)
+        {
+            String consulta = "SELECT ordenEjecucion FROM ACTIVIDAD where correlativo = '" + ID + "'";
+            SqlDataReader datos = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (datos.Read())
+            {
+                if (datos.GetValue(0).ToString().Equals("0"))
+                    return true;
+            }
+            return false;
+        }
+
         public SqlDataReader getExclusiva(int IDActividad)
         {
             SqlDataReader dataReader = null;

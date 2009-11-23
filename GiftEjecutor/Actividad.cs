@@ -34,8 +34,14 @@ namespace GiftEjecutor
             this.tipo = -1;
             this.nombreTipo = ConfiguracionProyecto.VALOR_DEFECTO_TEXTO;
             this.fechaActualizacion = new DateTime(1111, 1, 11);
-
         }
+
+        public Actividad(int IDActividad)
+        {
+            consultaActividad = new ConsultaActividad();
+            this.setAtributosSegunID(IDActividad);
+        }
+
         public Actividad(int ID, String nombre, String descripcion, int tipo)
         {
 
@@ -43,12 +49,21 @@ namespace GiftEjecutor
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.tipo = tipo;
+        }
 
+        public void setID(int elID)
+        {
+            this.ID = elID;
         }
 
         public int getID()
         {
             return this.ID;
+        }
+
+        public bool soyActividadInicial()
+        {
+            return consultaActividad.soyActividadInicial(this.ID);
         }
 
         /// <summary>
@@ -68,11 +83,7 @@ namespace GiftEjecutor
         {
             return this.descripcion;
         }
-        public Actividad(int IDActividad)
-        {
-            consultaActividad = new ConsultaActividad();
-            this.setAtributosSegunID(IDActividad);
-        }
+        
         public virtual void setAtributosSegunID(int IDActividad)
         {
             SqlDataReader datosActividad;
