@@ -203,20 +203,20 @@ namespace GiftEjecutor
                 buttonPermitirActividad.Text = ">";
                 buttonPermitirActividad.SetBounds(190, 70, 40, 40);
                 buttonPermitirActividad.Click += new System.EventHandler(click_PermitirActividad);
-                buttonPermitirActividad.Enabled = false;
+                buttonPermitirActividad.Enabled = true;
 
 
 
                 Button buttonDespermitirActividad = new Button();
                 buttonDespermitirActividad.SetBounds(190, 120, 40, 40);
                 buttonDespermitirActividad.Click += new System.EventHandler(click_DespermitirActividad);
-                buttonDespermitirActividad.Enabled = false;
+                buttonDespermitirActividad.Enabled = true;
 
-                //if(this.textBoxTipo.Text.Equals("Colaborador")){
-                if (true)
-                {
-                    buttonPermitirActividad.Enabled = true;
-                    buttonDespermitirActividad.Enabled = true;
+                if(this.textBoxTipo.Text.Equals("Dueño")){
+                //if (true)
+                
+                    buttonPermitirActividad.Enabled = false;
+                    buttonDespermitirActividad.Enabled = false;
                 }
 
                 buttonDespermitirActividad.Text = "<";
