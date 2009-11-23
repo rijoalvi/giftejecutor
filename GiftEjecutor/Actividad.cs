@@ -630,32 +630,7 @@ namespace GiftEjecutor
 
         public List <Actividad> getListaDataTableActividadesPorIDFlujo(int IDFlujo)
         {
-           /* DataTable tablaActividades = new DataTable();
-            DataRow fila;
 
-            DataColumn IDActividad = new DataColumn();
-            DataColumn nombreActividad = new DataColumn();
-            DataColumn descripcionActividad = new DataColumn();
-            DataColumn tipoActividad = new DataColumn();
-            DataColumn repetible = new DataColumn();
-
-            IDActividad.ColumnName = "IDActividad";
-            nombreActividad.ColumnName = "nombreActividad";
-            descripcionActividad.ColumnName = "descripcionActividad";
-            tipoActividad.ColumnName = "tipoActividad";
-            repetible.ColumnName = "repetible";
-
-            IDActividad.DataType = Type.GetType("System.String");
-            nombreActividad.DataType = Type.GetType("System.String");
-            descripcionActividad.DataType = Type.GetType("System.String");
-            tipoActividad.DataType = Type.GetType("System.String");
-            repetible.DataType = Type.GetType("System.String");
-
-            tablaActividades.Columns.Add(IDActividad);
-            tablaActividades.Columns.Add(nombreActividad);
-            tablaActividades.Columns.Add(descripcionActividad);
-            tablaActividades.Columns.Add(tipoActividad);
-            tablaActividades.Columns.Add(repetible);*/
             List<Actividad> lista = new List<Actividad>();
 
             Controlador control = new Controlador();

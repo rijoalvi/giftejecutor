@@ -102,6 +102,30 @@ namespace GiftEjecutor
             if (null != coleccionAAsignar)
             {
                 this.perfil.asignarColeccion(coleccionAAsignar.getCorrelativo());
+                if (this.textBoxTipo.Text.Equals("Dueño"))
+                {//Es dueño
+                    MessageBox.Show("Permitir todas las actividades");
+
+
+                    ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
+                    coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionAAsignar.getCorrelativo());
+                    Actividad actividad = new Actividad();
+                    //List<Actividad> listaTodasActividades= actividad.getListaDataTableActividadesPorIDFlujo(this.IDFlujoSeleccionado);
+
+                    List<Actividad> listaTodasActividades = actividad.getListaDataTableActividadesNoPermitiasPorIDFlujo(this.IDFlujoSeleccionado, coleccionAAsignar.getCorrelativo());
+
+                    for (int i = 0; i < listaTodasActividades.Count; i++)
+                    {
+                        coleccionAsignada.permitirActividad(((Actividad)listaTodasActividades[i]).getID());
+                    }
+                  //  coleccionAsignada.permitirActividad(actividadSeleccionada.getID());
+
+
+                }
+                if (this.textBoxTipo.Text.Equals("Creador"))
+                {//Es Colaborador
+                    MessageBox.Show("Permitir actividad inicial");
+                }
             }
             else {
                 MessageBox.Show("Error");
@@ -245,47 +269,16 @@ namespace GiftEjecutor
         }
         public void click_PermitirActividad(object sender, EventArgs e)
         {
-           /* if (null != this.listActividadesDisponibles.SelectedItem)
-            {
-                this.listActividadesPermitidasAlaColeccion.Items.Add(this.listActividadesDisponibles.SelectedItem);
-                this.listActividadesDisponibles.Items.Remove(this.listActividadesDisponibles.SelectedItem);
-            }
-            else {
-                MessageBox.Show("Seleccione una actividad ");
-            }*/
-            //this.listActividadesDisponibles.SelectedItem
-
             int indexTabSelected=this.tabColecciones.SelectedIndex;
-
             if (null != this.listaListActividadesDisponibles[indexTabSelected].SelectedItem)
             {
                 Actividad actividadSeleccionada = (Actividad)this.listaListActividadesDisponibles[indexTabSelected].SelectedItem;
-           ////////     this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].Items.Add(actividadSeleccionada);
+           
                 this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(actividadSeleccionada);
 
                 Coleccion coleccionSeleccionada = ((Coleccion)this.tabColecciones.SelectedTab.Tag);
                 ColeccionAsignada coleccionAsignada = new ColeccionAsignada();
                 coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionSeleccionada.getCorrelativo());
-
-
-
-                /*
-               MessageBox.Show("IDColeccionAsignación: " + coleccionAsignada.correlativo);
-
-
-               //************
-               List<Actividad> lista = new List<Actividad>();
-               Actividad ac = new Actividad();
-               lista = ac.getListActividadesPermitidasPorColeccionAsignada(coleccionAsignada.correlativo);
-
-               this.comboBoxPrueba.Items.Clear();
-               for (int i = 0; i < lista.Count; i++)
-               {
-                   this.comboBoxPrueba.Items.Add(lista[i]);
-               }
-               //******************
-               //--------------------------------*/
-
 
                 coleccionAsignada.permitirActividad(actividadSeleccionada.getID());
                 this.actualizarListaActividadPermitidas(coleccionSeleccionada,this.tabColecciones.SelectedIndex);
@@ -294,8 +287,6 @@ namespace GiftEjecutor
             {
                 MessageBox.Show("Seleccione una actividad ");
             }
-
-
         }
         public void click_DespermitirActividad(object sender, EventArgs e)
         {
