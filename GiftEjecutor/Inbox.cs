@@ -62,7 +62,6 @@ namespace GiftEjecutor
             tablaInbox.Columns.Add(fechaLimite);
 
             Controlador control = new Controlador();
-            SqlDataReader datos;
 
             for (int i = 0; i < expedientes.Length; ++i)
             {
@@ -98,11 +97,14 @@ namespace GiftEjecutor
                         for (int k = 0; k < numActividades; ++k)
                         {
                             fila = tablaInbox.NewRow();
+                            fila["IDFlujo"] = expedientes[i].getIDFlujo();
+                            fila["NombreFlujo"] = nombreFlujo;
                             fila["IDExpediente"] = expedientes[i].getCorrelativo();
                             fila["Expediente"] = expedientes[i].getNombre();
                             fila["IDActividad"] = actividadesEjecutables.Rows[k][0].ToString();
                             fila["nombreActividad"] = actividadesEjecutables.Rows[k][1].ToString();
                             fila["descripcionActividad"] = actividadesEjecutables.Rows[k][2].ToString();
+                            fila["fechaLimite"] = "FECHA!!!!!";
                             actividad.setID(int.Parse(actividadesEjecutables.Rows[k][0].ToString()));
                             if(actividad.soyActividadInicial())
                                 tablaInbox.Rows.Add(fila);
@@ -114,17 +116,27 @@ namespace GiftEjecutor
                         //si esta ya se ejecuto o no esta disponible no puede hacer nada, por lo q no se pone en el inbox
                         if (usuario.getTipo() == 3)
                         {
+                            DataTable actividadesPropias = usuario.getDataTableActividadesPropias();
                             for (int k = 0; k < numActividades; ++k)
                             {
                                 fila = tablaInbox.NewRow();
+                                fila["IDFlujo"] = expedientes[i].getIDFlujo();
+                                fila["NombreFlujo"] = nombreFlujo;
                                 fila["IDExpediente"] = expedientes[i].getCorrelativo();
                                 fila["Expediente"] = expedientes[i].getNombre();
                                 fila["IDActividad"] = actividadesEjecutables.Rows[k][0].ToString();
                                 fila["nombreActividad"] = actividadesEjecutables.Rows[k][1].ToString();
                                 fila["descripcionActividad"] = actividadesEjecutables.Rows[k][2].ToString();
-
-                                //FALTA LAS RESTRICCIONES DE LOS COLABORADORES
-                                tablaInbox.Rows.Add(fila);
+                                fila["fechaLimite"] = "FECHA!!!!!";
+                                //comprueba si esta actividad le pertenece al Usuario
+                                for (int j = 0; j < actividadesPropias.Rows.Count; ++j)
+                                {
+                                    //Si esta actividad pertenece al usuario se agrega, de lo contrario no.
+                                    if (actividadesPropias.Rows[j][0].ToString().Equals(expedientes[i].getCorrelativo().ToString()) && actividadesPropias.Rows[j][1].ToString().Equals(actividadesEjecutables.Rows[k][0].ToString()))
+                                    {
+                                        tablaInbox.Rows.Add(fila);
+                                    }
+                                }
                             }
                         }
                     }

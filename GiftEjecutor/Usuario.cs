@@ -68,6 +68,11 @@ namespace GiftEjecutor
             respuesta = datos[2];
         }
 
+        public DataTable getDataTableActividadesPropias()
+        {
+            return this.actividadesPropias;
+        }
+
         /// <summary>
         /// Devuelve el ID del usuario si existe, de lo contrario devuelve un -1
         /// </summary>
@@ -368,7 +373,12 @@ namespace GiftEjecutor
 
         public void asignarActividad(int IDExpediente, int IDActividad)
         {
-            this.consultaBD.asignarActividad(correlativo, IDExpediente, IDActividad);
+            this.consultaBD.asignarActividad(this.correlativo, IDExpediente, IDActividad);
+        }
+
+        public void desasignarActividad(int IDExpediente, int IDActividad)
+        {
+            this.consultaBD.desasignarActividad(this.correlativo, IDExpediente, IDActividad);
         }
 
     }

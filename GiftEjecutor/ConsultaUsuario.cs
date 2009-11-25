@@ -348,5 +348,21 @@ namespace GiftEjecutor
             }
         }
 
+        public void desasignarActividad(int idUsuario, int idExpediente, int IDActividad)
+        {
+            string consulta1 = "Select correlativo from PermisosUsuario where IDUsuario = '" + idUsuario + "' and IDExpediente = '" + idExpediente + "'";
+            SqlDataReader datos1 = this.controladoBD.hacerConsultaEjecutor(consulta1);
+            int permiso;
+            if (datos1 != null)
+            {
+                if (datos1.Read())
+                {
+                    permiso = Int32.Parse(datos1.GetValue(0).ToString());
+                    String consulta = "DELETE FROM ActividadesUsuario WHERE IDPermiso = '" + permiso + "' AND IDActividad = '" + IDActividad + "';";
+                    SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
+                }
+            }
+        }
+
     }
 }

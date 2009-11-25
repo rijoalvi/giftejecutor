@@ -255,6 +255,7 @@ namespace GiftEjecutor
         {
             //Aqui se tiene que cargar los detalles del expediente, si el nodo seleccionado es 1 expediente.
             //   indiceFormularios = 0; //NO BORRAR! Beto
+			panelInbox.Hide();            
             Expediente expediente = arbol.expedienteSeleccionado();
             if (expediente != null)
             {
@@ -446,6 +447,7 @@ namespace GiftEjecutor
             dataGridInbox.Columns[0].Visible = false;
             dataGridInbox.Columns[2].Visible = false;
             dataGridInbox.Columns[4].Visible = false;
+            dataGridInbox.Refresh();
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
@@ -454,7 +456,7 @@ namespace GiftEjecutor
             pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
             //esconde el panel del inbox
             panelInbox.Hide();
-            mostrarVistaPrevia();
+            mostrarVistaPrevia();            
         }        
 
         /// <summary>
@@ -465,6 +467,43 @@ namespace GiftEjecutor
             if (this.formCaratula != null)
                 this.formCaratula.Dispose();
             esconderLabels();
+        }
+
+        private void botonEjecutarActInbox_Click(object sender, EventArgs e)
+        {
+            //si se eligio alguna actividad
+            if (dataGridInbox.CurrentRow != null)
+            {
+                int correlativoFlujo = int.Parse(this.dataGridInbox[0, this.dataGridInbox.CurrentRow.Index].Value.ToString());
+                int correlativoExpediente = int.Parse(this.dataGridInbox[2, this.dataGridInbox.CurrentRow.Index].Value.ToString());
+                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true, null);
+                actividad.MdiParent = padreMDI;
+                actividad.setPadreMDI(padreMDI);
+                actividad.Show();
+            }
+            else {
+                MessageBox.Show("Favor elegir una actividad");                
+            }
+        }
+
+        private void botonRechazarActInbox_Click(object sender, EventArgs e)
+        {
+            //si se eligio alguna actividad
+            if (dataGridInbox.CurrentRow != null)
+            {
+                int idAct = int.Parse(this.dataGridInbox[4, this.dataGridInbox.CurrentRow.Index].Value.ToString());
+                int idExp = int.Parse(this.dataGridInbox[2, this.dataGridInbox.CurrentRow.Index].Value.ToString());
+               /* int index = dataGridInbox.CurrentRow.Index;
+                this.dataGridInbox.CurrentRow.Dispose();
+                this.dataGridInbox.Rows[index].Visible = false;
+               */ 
+                usuarioActual.desasignarActividad(idExp, idAct);
+                mostrarInbox();
+            }
+            else
+            {
+                MessageBox.Show("Favor elegir una actividad");
+            }
         }
     }
 }

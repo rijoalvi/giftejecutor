@@ -63,6 +63,8 @@ namespace GiftEjecutor
             this.panelInbox = new System.Windows.Forms.Panel();
             this.dataGridInbox = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.botonEjecutarActInbox = new System.Windows.Forms.Button();
+            this.botonRechazarActInbox = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelDetalleActividades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
@@ -357,6 +359,8 @@ namespace GiftEjecutor
             // 
             // panelInbox
             // 
+            this.panelInbox.Controls.Add(this.botonRechazarActInbox);
+            this.panelInbox.Controls.Add(this.botonEjecutarActInbox);
             this.panelInbox.Controls.Add(this.dataGridInbox);
             this.panelInbox.Controls.Add(this.label1);
             this.panelInbox.Location = new System.Drawing.Point(257, 56);
@@ -388,6 +392,26 @@ namespace GiftEjecutor
             this.label1.Size = new System.Drawing.Size(273, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Actividades por realizar:";
+            // 
+            // botonEjecutarActInbox
+            // 
+            this.botonEjecutarActInbox.Location = new System.Drawing.Point(17, 376);
+            this.botonEjecutarActInbox.Name = "botonEjecutarActInbox";
+            this.botonEjecutarActInbox.Size = new System.Drawing.Size(116, 23);
+            this.botonEjecutarActInbox.TabIndex = 4;
+            this.botonEjecutarActInbox.Text = "Ejecutar Actividad";
+            this.botonEjecutarActInbox.UseVisualStyleBackColor = true;
+            this.botonEjecutarActInbox.Click += new System.EventHandler(this.botonEjecutarActInbox_Click);
+            // 
+            // botonRechazarActInbox
+            // 
+            this.botonRechazarActInbox.Location = new System.Drawing.Point(150, 376);
+            this.botonRechazarActInbox.Name = "botonRechazarActInbox";
+            this.botonRechazarActInbox.Size = new System.Drawing.Size(116, 23);
+            this.botonRechazarActInbox.TabIndex = 5;
+            this.botonRechazarActInbox.Text = "Rechazar Actividad";
+            this.botonRechazarActInbox.UseVisualStyleBackColor = true;
+            this.botonRechazarActInbox.Click += new System.EventHandler(this.botonRechazarActInbox_Click);
             // 
             // FormPrincipal
             // 
@@ -465,5 +489,7 @@ namespace GiftEjecutor
         private System.Windows.Forms.Panel panelInbox;
         private System.Windows.Forms.DataGridView dataGridInbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button botonRechazarActInbox;
+        private System.Windows.Forms.Button botonEjecutarActInbox;
     }
 }
