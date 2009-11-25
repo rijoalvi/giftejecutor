@@ -15,6 +15,7 @@ namespace GiftEjecutor
         private int IDExpediente;
         private Comando comandoAEjecutar;
         private FormListadoActividad miPadre;
+        private bool recienInstanciado;
 
 
         public FormActividad()
@@ -45,7 +46,8 @@ namespace GiftEjecutor
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
-            this.cargarDataGridComandos();//lo movi para el constructor
+            //this.cargarDataGridComandos();//lo movi para el constructor
+            //this.Hide();
         }
 
         public void cargarDataGridComandos() {
@@ -58,9 +60,17 @@ namespace GiftEjecutor
             this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
             dataGridNoPosibles.Refresh();
             miPadre.cargarDataGridActividad();
-            if (dataGridComandos.RowCount == 0) 
+            if (dataGridComandos.RowCount == 0)
             {
-                //this.Close();
+                this.Close();
+            }
+            else
+            {
+                dataGridComandos.FirstDisplayedScrollingRowIndex = 0;
+                dataGridComandos.Refresh();
+                dataGridComandos.CurrentCell = dataGridComandos.Rows[0].Cells[0];
+                dataGridComandos.Rows[0].Selected = true;
+                ejecutarComando();
             }
         }
 
@@ -68,35 +78,40 @@ namespace GiftEjecutor
 
         private void buttonEjecutarComando_Click(object sender, EventArgs e)
         {
+            ejecutarComando();
+        }
+
+        private void ejecutarComando()
+        {
             //LINEA AGREGADA POR RICARDO:
             this.comandoAEjecutar = new Comando(padreMDI.getUsuario());
-            
+
             int fila = dataGridComandos.CurrentRow.Index;
-            String strTipo = dataGridComandos[3, fila].Value.ToString();            
+            String strTipo = dataGridComandos[3, fila].Value.ToString();
             int tipoComando = comandoAEjecutar.getTipoComando(strTipo);
             //TEMPORALES
             int IDDatos = -1;
             //FIN TEMPS
             int IDComando = Int32.Parse(dataGridComandos[0, fila].Value.ToString());
             comandoAEjecutar.setAtributosSegunID(IDComando);
-            
+
             //Mientras no sea de creacion se debe elegir con cual instancia se desea trabajar
-            if (tipoComando != 1) {
-               
+            if (tipoComando != 1)
+            {
+
                 FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad, this);
                 instancia.MdiParent = padreMDI;
                 instancia.setPadreMDI(padreMDI);
                 instancia.Show();
-            }            
+            }
             else//es de creacion
-            {                
+            {
                 FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "", this);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();
             }
-           // this.cargarDataGridComandos(); 
-
+            // this.cargarDataGridComandos(); 
         }
 
         private void dataGridComandos_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -68,7 +68,6 @@ namespace GiftEjecutor
             // buttonEjecutarComando
             // 
             this.buttonEjecutarComando.BackColor = System.Drawing.Color.DarkGreen;
-            this.buttonEjecutarComando.Enabled = false;
             this.buttonEjecutarComando.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonEjecutarComando.FlatAppearance.BorderSize = 3;
             this.buttonEjecutarComando.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;

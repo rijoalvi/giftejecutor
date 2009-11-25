@@ -27,6 +27,7 @@ CREATE TABLE EXPEDIENTE(
   IDColeccion	int NOT NULL,
   nombre		varchar(30) NOT NULL,
   eliminado		varchar(6)	NOT NULL,   ---------OJO ES UN CAMPO NUEVO, INDICA SI EL EXPEDIENTE ESTA LOGICAMENTE ELIMINADO
+  manual		varchar(6),
   PRIMARY KEY (correlativo)
 );
 
