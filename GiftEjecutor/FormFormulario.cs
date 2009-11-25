@@ -317,7 +317,9 @@ namespace GiftEjecutor
                     tabPage.Controls.Add(dg);
                     tabControl.Controls.Add(tabPage);
 
-                    dg.CellContentClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
+                    //dg.CellContentClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
+                    dg.CellClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
+                    
                 }
                 this.Controls.Add(tabControl);
 
