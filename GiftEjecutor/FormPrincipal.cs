@@ -436,18 +436,21 @@ namespace GiftEjecutor
             esconderVistaPrevia();
             panelInbox.Show();
             inbox = new Inbox(this.usuarioActual);
-            //tengo q crear todos los expedientes
-            int[] idsExps = usuarioActual.getIDsExpedientes();
-            Expediente[] exps = new Expediente[idsExps.Length];
-            for (int i = 0; i < idsExps.Length; ++i)
+            if (usuarioActual.getIDsExpedientes() != null)
             {
-                exps[i] = new Expediente(idsExps[i]);
+                //tengo q crear todos los expedientes
+                int[] idsExps = usuarioActual.getIDsExpedientes();
+                Expediente[] exps = new Expediente[idsExps.Length];
+                for (int i = 0; i < idsExps.Length; ++i)
+                {
+                    exps[i] = new Expediente(idsExps[i]);
+                }
+                dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
+                dataGridInbox.Columns[0].Visible = false;
+                dataGridInbox.Columns[2].Visible = false;
+                dataGridInbox.Columns[4].Visible = false;
+                dataGridInbox.Refresh();
             }
-            dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
-            dataGridInbox.Columns[0].Visible = false;
-            dataGridInbox.Columns[2].Visible = false;
-            dataGridInbox.Columns[4].Visible = false;
-            dataGridInbox.Refresh();
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
