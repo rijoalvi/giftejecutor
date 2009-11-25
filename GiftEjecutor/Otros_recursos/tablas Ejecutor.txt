@@ -54,6 +54,7 @@ CREATE TABLE BITACORA(
 	ejecutada		VARCHAR(6),
 	fecha			SMALLDATETIME	DEFAULT GetDate(),
 	descripcion		VARCHAR(150),
+	valida			varchar (6),
 	PRIMARY KEY(correlativo)
 );
 

@@ -33,6 +33,7 @@ namespace GiftEjecutor
             this.buttonEliminarPerfil = new System.Windows.Forms.Button();
             this.groupBoxPerfiles = new System.Windows.Forms.GroupBox();
             this.buttonDetalles = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerfiles)).BeginInit();
             this.groupBoxPerfiles.SuspendLayout();
             this.SuspendLayout();
@@ -96,11 +97,22 @@ namespace GiftEjecutor
             this.buttonDetalles.UseVisualStyleBackColor = true;
             this.buttonDetalles.Click += new System.EventHandler(this.buttonDetalles_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(648, 298);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Cerrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormGestionPerfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 443);
+            this.ClientSize = new System.Drawing.Size(744, 337);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxPerfiles);
             this.Name = "FormGestionPerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -119,5 +131,6 @@ namespace GiftEjecutor
         private System.Windows.Forms.Button buttonEliminarPerfil;
         private System.Windows.Forms.GroupBox groupBoxPerfiles;
         private System.Windows.Forms.Button buttonDetalles;
+        private System.Windows.Forms.Button button1;
     }
 }
