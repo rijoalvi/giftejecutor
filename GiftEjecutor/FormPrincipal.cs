@@ -274,8 +274,9 @@ namespace GiftEjecutor
                 IDExpediente = expediente.getCorrelativo();
                 ConstructorTablasFormularios misFormularios = new ConstructorTablasFormularios();
                 IDsFormularios = misFormularios.buscarFormularios(correlativoFlujo);
+                int idFormCaratula = misFormularios.getIDCaratula(correlativoFlujo);
                 //muestra el formulario caratula
-                mostrarFormulario(0);
+                mostrarFormulario(0, idFormCaratula);
             }
             else
             {
@@ -284,7 +285,7 @@ namespace GiftEjecutor
             }
         }
 
-        private void mostrarFormulario(int index)
+        private void mostrarFormulario(int index, int idFormCaratula)
         {
             esconderLabels();
             panelDetalleActividades.Show();
@@ -292,8 +293,16 @@ namespace GiftEjecutor
             pictureBoxVistaPrevia.Image = GiftEjecutor.Properties.Resources.PestañaInvertidaPrevia;
             if (formCaratula != null)
                 formCaratula.Dispose();
-            //Se abre el form correspondiente
-            Formulario elFormulario = new Formulario(int.Parse(IDsFormularios[index]));
+            //Se abre el form correspondiente    
+            Formulario elFormulario;
+            if (index == 0)
+            {
+                elFormulario = new Formulario(idFormCaratula);
+            }
+            else             
+            {
+                elFormulario = new Formulario(int.Parse(IDsFormularios[index]));            
+            }
             int IDTupla = elFormulario.getIDDeLaTupla(this.IDExpediente);
             if (IDTupla == -1)
             {
@@ -436,20 +445,6 @@ namespace GiftEjecutor
             esconderVistaPrevia();
             panelInbox.Show();
             inbox = new Inbox(this.usuarioActual);
-<<<<<<< .mine
-            //tengo q crear todos los expedientes
-            int[] idsExps = usuarioActual.getIDsExpedientes();
-            if(idsExps!=null){
-                Expediente[] exps = new Expediente[idsExps.Length];
-                for (int i = 0; i < idsExps.Length; ++i)
-                {
-                    exps[i] = new Expediente(idsExps[i]);
-                }
-                dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
-                dataGridInbox.Columns[0].Visible = false;
-                dataGridInbox.Columns[2].Visible = false;
-                dataGridInbox.Columns[4].Visible = false;
-=======
             if (usuarioActual.getIDsExpedientes() != null)
             {
                 //tengo q crear todos los expedientes
@@ -464,12 +459,7 @@ namespace GiftEjecutor
                 dataGridInbox.Columns[2].Visible = false;
                 dataGridInbox.Columns[4].Visible = false;
                 dataGridInbox.Refresh();
->>>>>>> .r199
             }
-<<<<<<< .mine
-            dataGridInbox.Refresh();
-=======
->>>>>>> .r199
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)

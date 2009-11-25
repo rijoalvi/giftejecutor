@@ -70,6 +70,18 @@ namespace GiftEjecutor
             return datos;            
         }
 
+        public int getIDCaratula(int idFlujo)
+        {
+            String consulta = "SELECT Comando.IDFormulario FROM Comando, MiembroActividadSimple, Flujo " +
+                            "where Flujo.correlativo = '" + idFlujo + "' " +
+                            "AND Flujo.actividadRaiz = MiembroActividadSimple.correlativoMadre " +
+                            "AND MiembroActividadSimple.CorrelativoComando = Comando.ID;";
+            SqlDataReader dato = this.controladoBD.hacerConsultaConfigurador(consulta);
+            if (dato.Read())
+                return int.Parse(dato.GetValue(0).ToString());
+            return -1;
+        }
+
         public String getNombreFormulario(String IDFormulario)
         {
             string strConsulta = "SELECT FORMULARIO.nombre " +

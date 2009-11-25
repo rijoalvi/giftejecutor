@@ -117,6 +117,11 @@ namespace GiftEjecutor
             } //fin for FORMULARIOS
         /* */
         }
+        
+        public int getIDCaratula(int idFlujo)
+        {
+            return consultaBD.getIDCaratula(idFlujo);
+        }
 
         /// <summary>
         /// Busca en la BD los formularios asociados al workflow

@@ -35,7 +35,7 @@ namespace GiftEjecutor
                 return dato.GetValue(0).ToString();
             return null;
         }
-
+                
         public String getTextoDefecto(int IDCampo)
         {
             String consulta = "SELECT textoDefecto FROM TEXTO WHERE correlativo = " + IDCampo;
