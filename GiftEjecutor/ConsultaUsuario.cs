@@ -348,7 +348,7 @@ namespace GiftEjecutor
             }
         }
 
-        public void desasignarActividad(int idUsuario, int idExpediente, int IDActividad)
+    public void desasignarActividad(int idUsuario, int idExpediente, int IDActividad)
         {
             string consulta1 = "Select correlativo from PermisosUsuario where IDUsuario = '" + idUsuario + "' and IDExpediente = '" + idExpediente + "'";
             SqlDataReader datos1 = this.controladoBD.hacerConsultaEjecutor(consulta1);

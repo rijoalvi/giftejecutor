@@ -285,7 +285,7 @@ namespace GiftEjecutor
             }
             else
             {
-                MessageBox.Show("Seleccione una actividad ");
+                MessageBox.Show("Seleccione una actividad");
             }
         }
         public void click_DespermitirActividad(object sender, EventArgs e)

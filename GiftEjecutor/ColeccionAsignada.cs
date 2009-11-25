@@ -33,6 +33,7 @@ namespace GiftEjecutor
         {
             this.consultaColeccion.permitirActividadDeUnaColeccion(this.correlativo, IDActividad);
         }
+
         public void despermitirActividad(int IDActividad)
         {
             this.consultaColeccion.despermitirActividadDeUnaColeccion(this.correlativo,IDActividad);

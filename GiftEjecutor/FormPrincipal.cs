@@ -454,6 +454,8 @@ namespace GiftEjecutor
                 {
                     exps[i] = new Expediente(idsExps[i]);
                 }
+                //dataGridInbox.RowCount = 0;
+                //dataGridInbox.DataSource = null;
                 dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
                 dataGridInbox.Columns[0].Visible = false;
                 dataGridInbox.Columns[2].Visible = false;
@@ -505,10 +507,12 @@ namespace GiftEjecutor
             {
                 int idAct = int.Parse(this.dataGridInbox[4, this.dataGridInbox.CurrentRow.Index].Value.ToString());
                 int idExp = int.Parse(this.dataGridInbox[2, this.dataGridInbox.CurrentRow.Index].Value.ToString());
-               /* int index = dataGridInbox.CurrentRow.Index;
-                this.dataGridInbox.CurrentRow.Dispose();
-                this.dataGridInbox.Rows[index].Visible = false;
-               */ 
+                
+                //int index = dataGridInbox.CurrentRow.Index;
+                /*this.dataGridInbox.SelectedRows = -1;
+                dataGridInbox.se
+                *///this.dataGridInbox.Rows[index].Visible = false;
+                
                 usuarioActual.desasignarActividad(idExp, idAct);
                 mostrarInbox();
             }
