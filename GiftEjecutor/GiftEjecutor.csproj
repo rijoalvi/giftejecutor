@@ -106,6 +106,12 @@
     <Compile Include="FormEliminar.Designer.cs">
       <DependentUpon>FormEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManual.Designer.cs">
+      <DependentUpon>FormManual.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,10 @@
     <EmbeddedResource Include="FormFlujosConstruidos.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormFlujosConstruidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManual.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormManual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNuevoExpediente.resx">
       <DependentUpon>FormNuevoExpediente.cs</DependentUpon>

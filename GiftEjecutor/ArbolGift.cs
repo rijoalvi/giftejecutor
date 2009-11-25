@@ -57,7 +57,7 @@ namespace GiftEjecutor
             this.directorio.TopNode = nodo;
 
             List<Coleccion> coleccionesPerfil = perfil.obtenerColecciones();
-
+            
             TreeNode nodoPadre = this.directorio.Nodes.Find("0", false)[0];
             TreeNode nodoFlujo;
             
@@ -71,13 +71,14 @@ namespace GiftEjecutor
             List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
             //expediente[0] Obtiene el correlativo,                    expediente[1] Obtiene el IDFlujo
             //expediente[2] Obtiene el IDColeccion a la que pertenece, expediente[3] Obtiene el nombre del expediente
-                Boolean encontrado;
-            
-            if (usuario.getTipo() != 0)//!Admnistrador
-            {
+            Boolean encontrado;
+                
+            //si no es un Admnistrador
+            if (usuario.getTipo() != 0)
+            {                               //Se buscan los expedientes que se le han asignado al usuario
+                int[] idExp = usuario.getIDsExpedientes();
                 for (int i = 0; i < expedientes.Count; i++) {
-                    encontrado=false;
-                    int []idExp = usuario.getIDsExpedientes();
+                    encontrado=false;                    
                     for (int k = 0; !encontrado && idExp!=null && k < idExp.Length; k++) {
                         if (usuario.getIDsExpedientes()[k] == int.Parse(expedientes[i][0]))
                             encontrado = true;
@@ -86,21 +87,29 @@ namespace GiftEjecutor
                         expedientes.RemoveAt(i);
                         i--;
                     }
-
                 }
             }
 
+
+            /****************************buscar los indices validos dentro de colecciones para este perfil******************/
+
+
+            Boolean[] vectorValidos = indicesColeccionesValidas(coleccionesPerfil, colecciones, expedientes);
+
+            /*******************************************************************************/
             
-            for (int j = 0; j < tablaFlujos.Rows.Count; j++)
+            for (int j = 0; j < tablaFlujos.Rows.Count; j++)// Se buscan los flujos de trabajo que tienen expedientes asignados al usuario 
             {
                 encontrado= usuario.getTipo()!=0? false : true;
-
-                for (int k = 0; !encontrado && k < expedientes.Count; k++) 
+                for (int k = 0; !encontrado && k < expedientes.Count; k++) {
                     if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(expedientes[k][1].ToString()))
                         encontrado = true;
-        /*        for(int l=0;!encontrado && l<coleccionesPerfil.Count;l++)
-                    if(tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(coleccionesPerfil[l].getCorrelativoFlujo().ToString()))
-                        encontrado = true;*/
+                }
+                for (int l = 0; !encontrado && l < coleccionesPerfil.Count; l++)
+                {
+                    if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(coleccionesPerfil[l].getCorrelativoFlujo().ToString()))
+                        encontrado = true;
+                }
                 
                 if (encontrado)
                 {
@@ -109,85 +118,127 @@ namespace GiftEjecutor
                     nodoFlujo.ForeColor = Color.Blue;
                 }
                 else {                                                  //Si no esta el flujo elimino las colecciones de ese flujo
-                    for (int l = 0;l < colecciones.Count; l++) { 
+            /*        for (int l = 0;l < colecciones.Count; l++) { 
                         if(colecciones[l][3].ToString().Equals(tablaFlujos.Rows[j]["IDFlujo"].ToString())){
                             colecciones.RemoveAt(l);
                             l--;
                         }
-                    }
-                }
-                    
-            }
-
-  
-
-            for (int i = 0; i < colecciones.Count; i++)
-            {
-                Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
-
-                int correlativoPadre = int.Parse(colecciones[i][2]);
-                if (correlativoPadre == 0)
-                {
-                    nodoPadre = buscarNodoFlujo(colecciones[i][3]);
-                }
-                else
-                {
-                    nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
-                }
-
-                if (nodoPadre != null)
-                {
-                    nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
-                    nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()), colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
-                    Boolean valido = false;
-                    for (int k = 0; !valido && k < coleccionesPerfil.Count; k++)
-                        if (colecciones[i][0].Equals(coleccionesPerfil[k].getCorrelativo().ToString()))
-                            valido = true;
-                 /*   if (!valido&&usuario.getTipo()!=0) {
-                        nodo.Remove();
                     }*/
+                    //PREGUNTAR SI SOLO SE MUESTRAN COLECCIONES DE FLUJOS DE TRABAJO QUE TENGA ASIGNADOS, SI SÍ ENTONCES ESTO SI VA.... POR CUESTIONES DE EFICIENCIA MERAMENTE                   
                 }
-                else
-                {
-                    Console.WriteLine("No se encuentra el flujo de trabajo al que pertenece la colección " + colecciones[i][1]);
-                    colecciones.Remove(colecciones[i]);
-                    nodo = null;
-                }
+            }
+            
 
-                /*String correlativoFlujo;
-                String correlativoPadre;
-                if (nodoPadre.Name.Contains("F"))
-                {
-                    correlativoFlujo = nodoPadre.Name.Substring(1);
-                    correlativoPadre = "0";
-                }else {
-                    correlativoFlujo = ((Coleccion)nodoPadre.Tag).getCorrelativoFlujo().ToString();
-                    correlativoPadre = nodoPadre.Name;
-                }*/
-                //nodo.Tag = new Coleccion(colecciones[i][0] , int.Parse(colecciones[i][2].ToString()),nodoPadre.);
+            for (int i = 0; i < colecciones.Count; i++)//Se agregan las colecciones necesarias
+            {
+                if (vectorValidos[i] == true){
+                    Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
+                    int correlativoPadre = int.Parse(colecciones[i][2]);
+                    if (correlativoPadre == 0){
+                        nodoPadre = buscarNodoFlujo(colecciones[i][3]);
+                    }
+                    else{
+                        nodoPadre = buscarNodoPadre(colecciones[i][2], this.directorio.TopNode);//El correlativo es el key en el directorio
+                    }
 
-                //  ((Coleccion)nodo.Tag).setCorrelativoFlujo(int.Parse(colecciones[i][3].ToString()));
-                for (int k = 0; k < expedientes.Count; k++)
-                {
-                    if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2]))
-                    {   //si la coleccion es igual a la coleccion a la que pertenece el expediente
-                        TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
-                        Expediente expedienteCreado = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
-                        int finalizado = expedienteCreado.yaFinalizado();
-                        if (finalizado == 1)
-                        {
-                            creado.ForeColor = Color.Red;
-                            creado.Text += " (Finalizado)";
+                    if (nodoPadre != null){
+                        nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
+                        nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()), colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
+                        /*Boolean valido = false;
+                        for (int k = 0; !valido && k < coleccionesPerfil.Count; k++){
+                            if (colecciones[i][0].Equals(coleccionesPerfil[k].getCorrelativo().ToString())){
+                                valido = true;
+                            }
                         }
-                        else
-                        {
-                            creado.ForeColor = Color.Silver;
+                     /*   if (!valido&&usuario.getTipo()!=0) {
+                            nodo.Remove();
+                        }*/
+                    }
+                    else{
+                        Console.WriteLine("No se encuentra el flujo de trabajo al que pertenece la colección " + colecciones[i][1]);
+                        colecciones.Remove(colecciones[i]);
+                        nodo = null;
+                    }                 
+                    //  ((Coleccion)nodo.Tag).setCorrelativoFlujo(int.Parse(colecciones[i][3].ToString()));
+                    for (int k = 0; k < expedientes.Count; k++){
+                        if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2])){   //si la coleccion es igual a la coleccion a la que pertenece el expediente
+                            TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
+                            Expediente expedienteCreado = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
+                            int finalizado = expedienteCreado.yaFinalizado();
+                            if (finalizado == 1){
+                                creado.ForeColor = Color.Red;
+                                creado.Text += " (Finalizado)";
+                            }
+                            else{
+                                creado.ForeColor = Color.Silver;
+                            }
+                            creado.Tag = expedienteCreado;
                         }
-                        creado.Tag = expedienteCreado;
                     }
                 }
             }
             directorio.ExpandAll();
+        }
+
+        /// <summary>
+        /// Se crea un vector de Boolean que indica cuales indices de la lista de colecciones son validas para este usuario
+        /// </summary>
+        /// <param name="coleccionesPerfil"></param>
+        /// <param name="colecciones"></param>
+        /// <param name="expedientes"></param>
+        /// <returns></returns>
+        private Boolean [] indicesColeccionesValidas(List<Coleccion> coleccionesPerfil,List<String []> colecciones,List<String []> expedientes){
+
+            /*  coleccion[0] Obtiene el correlativo,           coleccion[1] Obtiene el nombre
+               coleccion[2] Obtiene el correlativo del padre, coleccion[3] Obtiene el correlativo del flujo al que pertenece*/
+
+            Boolean []vectorValidos = new Boolean[colecciones.Count];
+            for (int i = 0; i < colecciones.Count; i++){
+                vectorValidos[i] = false;
+            }
+            int correlativo;
+            Boolean encontrado;
+            for (int i = 0; i < coleccionesPerfil.Count; i++) { //buscar los indices de las colecciones del perfil dentro de colecciones
+                encontrado = false;
+                correlativo = coleccionesPerfil[i].getCorrelativo();
+                for (int j = 0; j < colecciones.Count && !encontrado; j++) {
+                    if (correlativo == int.Parse(colecciones[j][0])/*.getCorrelativo()*/) {   //si se encuentra el correlativo se indica el indice como verdadero
+                        encontrado = true;
+                        vectorValidos[j] = true;
+                    }
+                }            
+            }
+
+            //expediente[0] Obtiene el correlativo,                    expediente[1] Obtiene el IDFlujo
+            //expediente[2] Obtiene el IDColeccion a la que pertenece, expediente[3] Obtiene el nombre del expediente
+            for (int i = 0; i < expedientes.Count; i++) { //buscar los indices de las colecciones de los expedientes que pertenecen al perfil
+                encontrado = false;
+                correlativo = int.Parse(expedientes[i][2]);//.getIDColeccion();
+                for (int j = 0; j < colecciones.Count && !encontrado; j++) {
+                    if (correlativo == int.Parse(colecciones[j][0])/*.getCorrelativo()*/){   //si se encuentra el correlativo se indica el indice como verdadero
+                        encontrado = true;
+                        vectorValidos[j] = true;
+                        coleccionesPerfil.Add(new Coleccion(int.Parse(colecciones[j][0]) ) );              //se agrega la coleccion que contiene al expediente dentro de las colecciones del perfil
+                    }
+                }            
+            }
+
+            int cantColeccionesPerfil = coleccionesPerfil.Count;         
+            for (int i = 0; i < cantColeccionesPerfil; i++){//Agregar las colecciones faltantes hasta llegar al flujo de trabajo
+                Coleccion colActual = coleccionesPerfil[i];
+                while (colActual.getIDCorrelativoPadre() != 0){ //mientras que no coleccion de primer nivel (osea la que esta directamente pegada al flujo)
+                    //se busca la coleccion que contiene la colActual
+                    encontrado=false;
+                    for (int j = 0; !encontrado && j < colecciones.Count;j++){
+                        if (colActual.getIDCorrelativoPadre() == int.Parse(colecciones[j][0])/*.getCorrelativo()*/){//Si la coleccion j es la que contiene a colActual
+                            encontrado = true;
+                            vectorValidos[j] = true;
+                            colActual = new Coleccion(int.Parse(colecciones[j][0]));
+                        }
+                    }
+                }
+            }
+            return vectorValidos;        
         }
 
         private TreeNode buscarNodoFlujo(String correlativoFlujo)

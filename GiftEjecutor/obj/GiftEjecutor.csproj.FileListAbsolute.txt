@@ -1,3 +1,36 @@
+<<<<<<< .mine
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\bin\Debug\GiftEjecutor.exe
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignacionActividades.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarExpedientes.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormGestionUsuarios.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormAsignarColeccion.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormDetallesPerfil.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormElegirInstancia.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormEliminar.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormFlujosConstruidos.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoExpediente.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormListadoActividad.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormActividad.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormConexiones.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormConstructor.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormFormulario.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevaColeccion.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoUsuario.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormPrincipal.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormVistaBitacora.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormGestionPerfiles.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormNuevoPerfil.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.Properties.Resources.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.exe
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.pdb
+C:\Users\Totan\Desktop\Gift 23 nov - copia\GiftEjecutor\obj\Debug\GiftEjecutor.FormManual.resources
+=======
 C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe.config
 C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.exe
 C:\Documents and Settings\ea60289\Desktop\ejecutor\GiftEjecutor\bin\Debug\GiftEjecutor.pdb
@@ -178,3 +211,4 @@ C:\Documents and Settings\ea61521\Desktop\luisk\GiftEjecutor\obj\Debug\GiftEjecu
 C:\Documents and Settings\ea61521\Desktop\luisk\GiftEjecutor\obj\Debug\GiftEjecutor.Splash.resources
 C:\Documents and Settings\ea61521\Desktop\luisk\GiftEjecutor\obj\Debug\GiftEjecutor.Ventanota.resources
 C:\Documents and Settings\ea61521\Desktop\luisk\GiftEjecutor\obj\Debug\GiftEjecutor.csproj.GenerateResource.Cache
+>>>>>>> .r199

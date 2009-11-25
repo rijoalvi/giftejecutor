@@ -28,7 +28,19 @@ namespace GiftEjecutor
             return correlativo;
         }
 
-
+        public void setManual(Boolean manual,int correlativo) {
+            String man;
+            if (manual == true)
+            {
+                man = "true";
+            }
+            else
+            {
+                man = "false";
+            }
+            String consulta = "UPDATE EXPEDIENTE SET manual = '" + man + "' WHERE correlativo = " + correlativo + ";";
+            this.controladoBD.hacerConsultaEjecutor(consulta);
+        }
 
         public List<String[]> listarExpedientes()
         {
@@ -94,7 +106,7 @@ namespace GiftEjecutor
             Console.Write("consulta : " + consulta);
             SqlDataReader resultado = this.controladoBD.hacerConsultaEjecutor(consulta);
             int correlativo = -1;
-            if (resultado.Read())
+            if (resultado!=null && resultado.Read())//REVISAR XFA!!!!! TOTAN!!!!
             {
                 correlativo = int.Parse(resultado.GetValue(0).ToString());
             }

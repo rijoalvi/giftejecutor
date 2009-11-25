@@ -111,6 +111,10 @@ namespace GiftEjecutor
                 {
                     Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
                     expediente.crearExpediente();
+                    FormManual manual = new FormManual(expediente.getCorrelativo());
+                    manual.Show();
+                    manual.TopMost=true;
+                    manual.StartPosition = FormStartPosition.CenterScreen;
                     FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true,null);
                     actividad.MdiParent = padreMDI;
                     actividad.setPadreMDI(padreMDI);
@@ -127,6 +131,7 @@ namespace GiftEjecutor
             else {
                 MessageBox.Show("Debe escribir un nombre para el expediente");
             }
+
             this.Dispose();
         }
 

@@ -17,7 +17,7 @@ namespace GiftEjecutor
         private FormFormulario formCaratula;
         private Usuario usuarioActual;
         private Inbox inbox;
-
+        public Boolean manual;
         //private ArbolGift arbol;
         /**
          * Para recordar!!!
@@ -104,7 +104,7 @@ namespace GiftEjecutor
                         FormFlujosConstruidos flujosConstruidos = new FormFlujosConstruidos(this, correlativoPadre, correlativoFlujo);
                         flujosConstruidos.MdiParent = padreMDI;
                         flujosConstruidos.setPadreMDI(padreMDI);
-                        flujosConstruidos.Show();
+                        flujosConstruidos.Show();                        
                     }
                 }
                 else
@@ -436,6 +436,20 @@ namespace GiftEjecutor
             esconderVistaPrevia();
             panelInbox.Show();
             inbox = new Inbox(this.usuarioActual);
+<<<<<<< .mine
+            //tengo q crear todos los expedientes
+            int[] idsExps = usuarioActual.getIDsExpedientes();
+            if(idsExps!=null){
+                Expediente[] exps = new Expediente[idsExps.Length];
+                for (int i = 0; i < idsExps.Length; ++i)
+                {
+                    exps[i] = new Expediente(idsExps[i]);
+                }
+                dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
+                dataGridInbox.Columns[0].Visible = false;
+                dataGridInbox.Columns[2].Visible = false;
+                dataGridInbox.Columns[4].Visible = false;
+=======
             if (usuarioActual.getIDsExpedientes() != null)
             {
                 //tengo q crear todos los expedientes
@@ -450,7 +464,12 @@ namespace GiftEjecutor
                 dataGridInbox.Columns[2].Visible = false;
                 dataGridInbox.Columns[4].Visible = false;
                 dataGridInbox.Refresh();
+>>>>>>> .r199
             }
+<<<<<<< .mine
+            dataGridInbox.Refresh();
+=======
+>>>>>>> .r199
         }
 
         private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
