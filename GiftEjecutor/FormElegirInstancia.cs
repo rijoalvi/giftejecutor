@@ -70,7 +70,6 @@ namespace GiftEjecutor
                     tabla.Rows.Add(fila);
                 }
             }
-
             dataGridInstancias.DataSource = tabla;
             dataGridInstancias.Columns[0].Visible = false;
         }
@@ -80,14 +79,30 @@ namespace GiftEjecutor
             return IDTupla;
         }
 
+        public int getRowCount()
+        {
+            return this.dataGridInstancias.RowCount;
+        }
+
         private void botonCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        //Se le envía el index de la fila que se desea utilizar para ejecutar el comando
+        public void setIndex(int index)
+        {
+            this.IDTupla = int.Parse(this.dataGridInstancias[0, index].Value.ToString());            
+        }
+
         private void botonEjecutar_Click(object sender, EventArgs e)
         {
-            IDTupla = int.Parse(this.dataGridInstancias[0, this.dataGridInstancias.CurrentRow.Index].Value.ToString());
+            this.IDTupla = int.Parse(this.dataGridInstancias[0, this.dataGridInstancias.CurrentRow.Index].Value.ToString());            
+            ejecutarComando();
+        }
+
+        public void ejecutarComando()
+        {
             if (tipoComando == 5) //Mascara
             {
                 ComandoMascara cm = new ComandoMascara(padreMDI.getUsuario());

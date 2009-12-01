@@ -102,7 +102,15 @@ namespace GiftEjecutor
                 FormElegirInstancia instancia = new FormElegirInstancia(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, tipoComando, comandoAEjecutar.getID(), IDActividad, this);
                 instancia.MdiParent = padreMDI;
                 instancia.setPadreMDI(padreMDI);
-                instancia.Show();
+
+                //Solo si hay mas de una instancia se muestra, si no no
+                if (instancia.getRowCount() > 1)
+                    instancia.Show();
+                else
+                {
+                    instancia.setIndex(0);
+                    instancia.ejecutarComando();
+                }
             }
             else//es de creacion
             {

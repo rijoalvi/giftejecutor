@@ -61,10 +61,10 @@ namespace GiftEjecutor
             this.labelAviso = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelInbox = new System.Windows.Forms.Panel();
+            this.botonRechazarActInbox = new System.Windows.Forms.Button();
+            this.botonEjecutarActInbox = new System.Windows.Forms.Button();
             this.dataGridInbox = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.botonEjecutarActInbox = new System.Windows.Forms.Button();
-            this.botonRechazarActInbox = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelDetalleActividades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
@@ -124,6 +124,7 @@ namespace GiftEjecutor
             this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ediciónToolStripMenuItem
             // 
@@ -368,6 +369,26 @@ namespace GiftEjecutor
             this.panelInbox.Size = new System.Drawing.Size(644, 573);
             this.panelInbox.TabIndex = 30;
             // 
+            // botonRechazarActInbox
+            // 
+            this.botonRechazarActInbox.Location = new System.Drawing.Point(150, 376);
+            this.botonRechazarActInbox.Name = "botonRechazarActInbox";
+            this.botonRechazarActInbox.Size = new System.Drawing.Size(116, 23);
+            this.botonRechazarActInbox.TabIndex = 5;
+            this.botonRechazarActInbox.Text = "Rechazar Actividad";
+            this.botonRechazarActInbox.UseVisualStyleBackColor = true;
+            this.botonRechazarActInbox.Click += new System.EventHandler(this.botonRechazarActInbox_Click);
+            // 
+            // botonEjecutarActInbox
+            // 
+            this.botonEjecutarActInbox.Location = new System.Drawing.Point(17, 376);
+            this.botonEjecutarActInbox.Name = "botonEjecutarActInbox";
+            this.botonEjecutarActInbox.Size = new System.Drawing.Size(116, 23);
+            this.botonEjecutarActInbox.TabIndex = 4;
+            this.botonEjecutarActInbox.Text = "Ejecutar Actividad";
+            this.botonEjecutarActInbox.UseVisualStyleBackColor = true;
+            this.botonEjecutarActInbox.Click += new System.EventHandler(this.botonEjecutarActInbox_Click);
+            // 
             // dataGridInbox
             // 
             this.dataGridInbox.AllowUserToAddRows = false;
@@ -392,26 +413,6 @@ namespace GiftEjecutor
             this.label1.Size = new System.Drawing.Size(273, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Actividades por realizar:";
-            // 
-            // botonEjecutarActInbox
-            // 
-            this.botonEjecutarActInbox.Location = new System.Drawing.Point(17, 376);
-            this.botonEjecutarActInbox.Name = "botonEjecutarActInbox";
-            this.botonEjecutarActInbox.Size = new System.Drawing.Size(116, 23);
-            this.botonEjecutarActInbox.TabIndex = 4;
-            this.botonEjecutarActInbox.Text = "Ejecutar Actividad";
-            this.botonEjecutarActInbox.UseVisualStyleBackColor = true;
-            this.botonEjecutarActInbox.Click += new System.EventHandler(this.botonEjecutarActInbox_Click);
-            // 
-            // botonRechazarActInbox
-            // 
-            this.botonRechazarActInbox.Location = new System.Drawing.Point(150, 376);
-            this.botonRechazarActInbox.Name = "botonRechazarActInbox";
-            this.botonRechazarActInbox.Size = new System.Drawing.Size(116, 23);
-            this.botonRechazarActInbox.TabIndex = 5;
-            this.botonRechazarActInbox.Text = "Rechazar Actividad";
-            this.botonRechazarActInbox.UseVisualStyleBackColor = true;
-            this.botonRechazarActInbox.Click += new System.EventHandler(this.botonRechazarActInbox_Click);
             // 
             // FormPrincipal
             // 

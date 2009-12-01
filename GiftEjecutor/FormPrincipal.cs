@@ -521,5 +521,10 @@ namespace GiftEjecutor
                 MessageBox.Show("Favor elegir una actividad");
             }
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

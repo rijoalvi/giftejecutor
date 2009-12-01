@@ -145,8 +145,8 @@ namespace GiftEjecutor
             SqlConnection connectionStringConfigurador = null;
             if(ControladorBD.conexionConfiguracionSeleccionada==ControladorBD.CONEXION_EXTERNA){
 
-                connectionStringConfigurador = new SqlConnection("Data Source=DESCEPTICON;Initial Catalog=bdInge1g2_g2;Integrated Security=True");
-                //connectionStringConfigurador = new SqlConnection("Data Source=GiftConfigurador.db.3946477.hostedresource.com;Initial Catalog=GiftConfigurador;Persist Security Info=True;User ID=GiftConfigurador;Password=Qwerty123");
+                //connectionStringConfigurador = new SqlConnection("Data Source=DESCEPTICON;Initial Catalog=bdInge1g2_g2;Integrated Security=True");
+                connectionStringConfigurador = new SqlConnection("Data Source=GiftConfigurador.db.3946477.hostedresource.com;Initial Catalog=GiftConfigurador;Persist Security Info=True;User ID=GiftConfigurador;Password=Qwerty123");
             }
             else
             {//Conexion ECCI
@@ -159,8 +159,8 @@ namespace GiftEjecutor
             SqlConnection connectionStringEjecutor = null;
             if (ControladorBD.conexionConfiguracionSeleccionada == ControladorBD.CONEXION_EXTERNA)
             {
-                connectionStringEjecutor = new SqlConnection("Data Source=DESCEPTICON;Initial Catalog=bdInge1g2_g2_ejecucion;Integrated Security=True");
-                //connectionStringEjecutor = new SqlConnection("Data Source=GiftEjecutor.db.3946477.hostedresource.com;Initial Catalog=GiftEjecutor;Persist Security Info=True;User ID=GiftEjecutor;Password=Qwerty123");
+                //connectionStringEjecutor = new SqlConnection("Data Source=DESCEPTICON;Initial Catalog=bdInge1g2_g2_ejecucion;Integrated Security=True");
+                connectionStringEjecutor = new SqlConnection("Data Source=GiftEjecutor.db.3946477.hostedresource.com;Initial Catalog=GiftEjecutor;Persist Security Info=True;User ID=GiftEjecutor;Password=Qwerty123");
             }
             else//Conexion ECCI
             {

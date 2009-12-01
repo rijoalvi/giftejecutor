@@ -212,6 +212,10 @@ namespace GiftEjecutor
                         //FechaHora
                         DateTimePicker fecha = new DateTimePicker();
                         fecha.Name = miembro[1];
+                        //fecha.Format = DateTimePickerFormat.Short;
+                        fecha.CustomFormat = "dd MMM yyyy";
+                        fecha.Format = DateTimePickerFormat.Custom;
+                        
                         //fecha.Text = miembro[1];
                         fecha.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         fecha.TabIndex = int.Parse(miembro[11]);
@@ -285,8 +289,6 @@ namespace GiftEjecutor
 
             if (this.visualizacion  || this.modificacion){
                 MaestroDetalle maestro = new MaestroDetalle();
-
-
                 List<String> IDFormularioMaestro = new List<String>();
                 IDFormularioMaestro = maestro.getDetallesIDs(this.IDForm);
                 String campoSolo = null;
@@ -295,12 +297,10 @@ namespace GiftEjecutor
                     Console.WriteLine(campo);
                     campoSolo += " " + campo;
                 }
-               // MessageBox.Show(campoSolo);
                 int cantidadDetalles = IDFormularioMaestro.Count / 2;
                 TabControl tabControl = new TabControl();
                 tabControl.Width = 1000;
                 tabControl.SetBounds(0, 450, 600, 150);
-            //    tabControl.SetBounds(
                 for (int i = 0; i < cantidadDetalles; i++)
                 {
                     String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
@@ -323,34 +323,7 @@ namespace GiftEjecutor
                 }
                 this.Controls.Add(tabControl);
 
-            }
-
-
-
-
-          /*  DataGridView dg = new DataGridView();
-            
-            List<String> campos = new List<String>();
-
-            int IDMaestroDetalle = 4;
-            campos = maestro.getArregloCamposDetalle(IDMaestroDetalle);
-            String campoSolo = null;
-            foreach (String campo in campos)
-            {
-                Console.WriteLine(campo);
-                campoSolo += " " + campo;
-            }
-           int IDDetalle= maestro.getIDFormularioDetalle(this.IDForm);
-
-           MessageBox.Show(IDDetalle.ToString() + campoSolo);
-            dg.SetBounds(50, 450, 400, 100);
-            dg.DataSource = maestro.getDataTableCamposDetalle(IDMaestroDetalle);
-            dg.DataSource = maestro.getDataTableDetallesDinamicos(IDMaestroDetalle);
-
-
-            //dg.SetBounds(
-            this.Controls.Add(dg);*/
-
+            }        
         }
         void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
         {
@@ -366,12 +339,6 @@ namespace GiftEjecutor
             this.buttonNuevoDetalle.Text = "Nuevo detalle " + this.nombreTablaSelecionada;
             this.buttonVerDetalle.Enabled = true;
             this.buttonVerDetalle.Text = "Ver detalle " + this.nombreTablaSelecionada +" seleccionado";
-            
-
-
-
-
-         //   this.tab
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
@@ -432,8 +399,6 @@ namespace GiftEjecutor
             //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
             //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
             //for (int k = 0; k < componentes.Length; ++k) { 
-            //insert into Vehiculo (Placa, Dueño, Estadoorden, Fecharecibido) 
-            //Values(123456, 'Beto', 'recibido', '8-9-2009');
             String ingresoTupla = "INSERT into " + nombreForm;
             //Guarda el nombre del campo en la tabla
             String nombresCampos = "(";
@@ -474,8 +439,19 @@ namespace GiftEjecutor
                         //FechaHora
                         DateTimePicker fecha = (DateTimePicker)(componentes[i]);
                         nombresCampos += fecha.Name;
+                        //fecha.CustomFormat = "MM dd yyyy";
                         String laFecha = fecha.Value.ToString();
-                        valoresCampos += "'" + laFecha.Substring(0, 10) + "'";
+                        laFecha = laFecha.Substring(0, 10);
+                        DateTime fecha2;
+                        if (DateTime.TryParse(laFecha, out fecha2))
+                        {
+                            String miFecha = fecha2.Month + "/" + fecha2.Day + "/" + fecha2.Year;
+                            valoresCampos += "'" + miFecha + "'";                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fecha definida con formato incorrecto, por favor revisar");
+                        }
                         //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
