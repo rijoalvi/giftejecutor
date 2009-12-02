@@ -598,13 +598,13 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                        /*
-                        TreeView jera = (TreeView)(componentes[i]);                        
-                        //este no sirve!!! ->
-                        consultaTupla += jera.Name " = '"+ jera.Text.ToString()+"'";                        
-                        if ((i + 1) < cant)                        
-                            consultaTupla += ", ";                                                  
-                        */
+                        TreeView jera = (TreeView)(componentes[i]);
+                        consultaTupla += "'" + jera.SelectedNode.FullPath + "'";
+                        //esto es por si quedan mas campos por ingresar
+                        if ((i + 1) < cant)
+                        {
+                            consultaTupla += ", ";
+                        } 
                         break;
                     case 7:
                         //Lista
@@ -686,15 +686,13 @@ namespace GiftEjecutor
                                 break;
                             case 6:
                                 //Jerarquia
-                                /*
-                                TreeView jera = (TreeView)(componentes[i]);                        
-                                //este no sirve!!! ->
-                                consultaTupla += jera.Name " = '"+ jera.Text.ToString()+"'";                        
-                                jera.Text = datos.GetValue(valor).ToString();                                             
+                                TreeView jera = (TreeView)(componentes[i]);
+                                jera.ExpandAll();
+                                //selecciona el nodo en la jerarquia
+                                seleccionarNodo(jera, datos.GetValue(valor).ToString());
                                 //si es comando d visualizacion
-                                if (visualizacion)
-                                    jera.ReadOnly = true;
-                                 */
+                                /*if (visualizacion)
+                                    jera.Enabled = false;*/
                                 break;
                             case 7:
                                 //Lista
@@ -713,6 +711,44 @@ namespace GiftEjecutor
                 } //fin for nombres
             }
         
+        }
+
+        private void seleccionarNodo(TreeView jera, String path)
+        {
+            //mientras no este vacío
+            for(int i = 0; i < jera.Nodes.Count; ++i)
+            {
+                if (jera.Nodes[i].FullPath.Equals(path))
+                {
+                    jera.Nodes[i].BackColor = Color.Red;
+                    i = jera.Nodes.Count;
+                }
+                //recursivamente revisa para abajo.
+                else
+                {
+                    if(jera.Nodes[i].Nodes.Count > 0)
+                        seleccionarNodoSubArbol(jera.Nodes[i], path);
+                }
+            }
+        }
+        
+        private void seleccionarNodoSubArbol(TreeNode jera, String path)
+        {
+            //mientras no este vacío
+            for (int i = 0; i < jera.Nodes.Count; ++i)
+            {
+                if (jera.Nodes[i].FullPath.Equals(path))
+                {
+                    jera.Nodes[i].BackColor = Color.Red;
+                    i = jera.Nodes.Count;
+                }
+                //recursivamente revisa para abajo.
+                else
+                {
+                    if (jera.Nodes[i].Nodes.Count > 0)
+                        seleccionarNodoSubArbol(jera.Nodes[i], path);
+                }
+            }
         }
 
 
