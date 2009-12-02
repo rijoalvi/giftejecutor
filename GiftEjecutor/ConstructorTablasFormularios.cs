@@ -34,35 +34,6 @@ namespace GiftEjecutor
                     consultaCreaTabla += nombreFormulario;
                     consultaCreaTabla += "( correlativo int identity (1,1) NOT NULL, ";
 
-                    /*
-                    //AQUI VOY A BUSCAR LOS ELEM SIMETRICOS
-                    string relaciones[][] = buscarRelacionesSimetricas(IDsFormularios);
-                    string consulta;
-                    string correlativo1;
-                    string correlativo2;
-                    int temp;
-                    
-                    while (relaciones[temp][0]!=NULL){
-
-                        correlativo1= //consultaBD.getNombreFormulario(relaciones[temp][0]); //HAY QUE HACER LA CONSULTA DE ESTO
-                        correlativo1= //select correlativo from correlativo1.toString();  //HAY QUE HACER LA CONSULTA DE ESTO
-                        
-                     correlativo2= //consultaBD.getNombreFormulario(relaciones[temp][1]); //HAY QUE HACER LA CONSULTA DE ESTO
-                     correlativo2= //select correlativo from correlativo2.toString();  //HAY QUE HACER LA CONSULTA DE ESTO
-                    
-                    
-                        if (ControladorBD.SQLSERVER == ControladorBD.conexionSelecciona)
-                        {
-                            consulta = "insert into RELACIONESSIMETRICAS (idFormulario1, idFormulario2, idRelacionConfigurador) VALUES ('" + correlativo1 + "','" + correlativo2 + "','" + relaciones[temp][2] + "')'")";
-                        }
-                        if (ControladorBD.MYSQL == ControladorBD.conexionSelecciona)
-                        {
-                            consulta = "insert into RELACIONESSIMETRICAS (idFormulario1, idFormulario2, idRelacionConfigurador) VALUES ('" + correlativo1 + "','" + correlativo2 + "','" + relaciones[temp][2] + "')'")";
-                        }
-                        consultaBD.agregarRelacionSimetrica(consulta);
-                     }                    
-                    */
-
                     //busca el ID y nombre de los tipos de campo
                     String[] IDsTiposCampo = buscarTiposCampoDelFormulario(IDsFormularios[i]);
                     for (int j = 0; j < IDsTiposCampo.Length - 1; ++j)

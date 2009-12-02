@@ -318,7 +318,7 @@ namespace GiftEjecutor
                 formEsteFormulario.TopMost = true;
                 formEsteFormulario.MdiParent = this;
                 formEsteFormulario.StartPosition = FormStartPosition.Manual;
-                formEsteFormulario.Location = new Point(256, 25);
+                formEsteFormulario.Location = new Point(256, 125);
                 formEsteFormulario.Show();
                 if (index == 0)
                     formCaratula = formEsteFormulario;

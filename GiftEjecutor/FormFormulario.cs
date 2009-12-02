@@ -252,18 +252,17 @@ namespace GiftEjecutor
                         //Jerarquia
                         //0.correlativo, 1.nombre, 2.valX, 3.valY, 4.ancho, 5.alto, 6.tipoLetra, 7.color, 
                         //8.tamanoLetra, 9.IDTipoCampo, 10.IDCampo, 11.tabIndex, 12.estiloLetra
-                        
-                        /*
+                                                
                         Jerarquia miJerarquia = new Jerarquia(int.Parse(miembro[10]));
                         TreeView jerarquia = miJerarquia.getArbol();
-                        jerarquia.Refresh();
                         jerarquia.Name = miembro[1];
                         jerarquia.SetBounds(int.Parse(miembro[2]), int.Parse(miembro[3]), int.Parse(miembro[4]), int.Parse(miembro[5]));
                         jerarquia.TabIndex = int.Parse(miembro[11]);                        
+                        jerarquia.Refresh();
                         componentes[i] = jerarquia;
                         this.Controls.Add(jerarquia);
                         nombresCamposTupla[i] = miembro[1];
-                        */ 
+                         
                         break;
                     case 7:
                         //Lista
@@ -284,8 +283,6 @@ namespace GiftEjecutor
                         break;
                 }
             }//Fin for que agrega miembros
-
-
 
             if (this.visualizacion  || this.modificacion){
                 MaestroDetalle maestro = new MaestroDetalle();
@@ -322,9 +319,10 @@ namespace GiftEjecutor
                     
                 }
                 this.Controls.Add(tabControl);
-
             }        
         }
+
+
         void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
         {
             int rowSeleccionada = ((DataGridView)sender).CurrentRow.Index;
@@ -439,13 +437,10 @@ namespace GiftEjecutor
                         //FechaHora
                         DateTimePicker fecha = (DateTimePicker)(componentes[i]);
                         nombresCampos += fecha.Name;
-
                         //MessageBox.Show(fecha.Value.ToString());
                         //MessageBox.Show(fecha.Value.ToString("MM/dd/yyyy"));
                         //String laFecha = fecha.Value.ToString("MM/dd/yyyy");
-
                         String laFecha = fecha.Value.ToString();
-
                         laFecha = laFecha.Substring(0, 10);
                         DateTime fecha2;
                         if (DateTime.TryParse(laFecha, out fecha2))
@@ -489,17 +484,17 @@ namespace GiftEjecutor
                         break;
                     case 6:
                         //Jerarquia
-                        /*
+                        
                         TreeView jera = (TreeView)(componentes[i]);
                         nombresCampos += jera.Name;
-                        valoresCampos += jera.SelectedNode.FullPath;
+                        valoresCampos += "'" + jera.SelectedNode.FullPath + "'";
                         //esto es por si quedan mas campos por ingresar
                         if ((i + 1) < cant)
                         {
                             valoresCampos += ", ";
                             nombresCampos += ", ";
                         } 
-                        */
+                        
                         break;
                     case 7:
                         //Lista
