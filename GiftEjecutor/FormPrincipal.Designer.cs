@@ -213,8 +213,10 @@ namespace GiftEjecutor
             this.directorio.Name = "directorio";
             this.directorio.Size = new System.Drawing.Size(246, 598);
             this.directorio.TabIndex = 10;
+            this.directorio.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterCollapse);
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
+            this.directorio.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterExpand);
             // 
             // labelPorRealizar
             // 
@@ -420,7 +422,7 @@ namespace GiftEjecutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1048, 784);
+            this.ClientSize = new System.Drawing.Size(1048, 776);
             this.Controls.Add(this.panelInbox);
             this.Controls.Add(this.pictureBoxInbox);
             this.Controls.Add(this.labelAviso);

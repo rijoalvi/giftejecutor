@@ -206,7 +206,8 @@ namespace GiftEjecutor
 
 
             SqlDataReader datos = null;
-            datos = this.controladoBD.hacerConsultaEjecutor("Select P.IDExpediente, A.IDActividad FROM PermisosUsuario P, ActividadesUsuario A where P.IDUsuario = '" + IDUsuario + "' and A.IDPermiso = P.correlativo;");
+            datos = this.controladoBD.hacerConsultaEjecutor("Select P.IDExpediente, A.IDActividad FROM PermisosUsuario P,ActividadesUsuario A "+
+                "where P.IDUsuario = '" + IDUsuario + "' and A.IDPermiso = P.correlativo;");//modificar aca para el datatableActividadesUsuario 
             if (datos != null)
             {
                 while (datos.Read())

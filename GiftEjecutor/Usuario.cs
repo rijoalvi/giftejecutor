@@ -351,6 +351,7 @@ namespace GiftEjecutor
         private void llenarActividadesPropias()
         {
             actividadesPropias = this.consultaBD.getActividadesExpedientesPorUsuario(correlativo);
+            
         }
 
         /// <summary>

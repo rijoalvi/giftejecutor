@@ -4,20 +4,33 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 namespace GiftEjecutor
 {
     
     
     class ArbolGift
     {
+        private ImageList listaImagenes;
         private TreeView directorio;
         private Usuario usuario;
         private Perfil perfil;
         public ArbolGift(TreeView directorio,Usuario usuario) {
             this.directorio = directorio;
             this.usuario = usuario;
+            this.listaImagenes = new ImageList();
             this.perfil = new Perfil(usuario.getCorrelativoPerfil());
 
+
+            System.Drawing.Image myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\flujo.gif");
+            listaImagenes.Images.Add("flujo",myImage);
+            myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\carpetaAbierta.jpg");
+            listaImagenes.Images.Add("carpetaAbierta",myImage);
+            myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\carpetaCerrada.jpg");
+            listaImagenes.Images.Add("carpetaCerrada",myImage);
+            myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\expediente.jpg");
+            listaImagenes.Images.Add("expediente",myImage);
+            directorio.ImageList = listaImagenes;
         }
 
         public void setUsuario(Usuario usuario){
@@ -116,6 +129,7 @@ namespace GiftEjecutor
                     nodoFlujo = nodo.Nodes.Add("F" + tablaFlujos.Rows[j]["IDFlujo"].ToString(), tablaFlujos.Rows[j]["nombre"].ToString());
                     nodoFlujo.Tag = new FlujoTrabajo(int.Parse(tablaFlujos.Rows[j]["IDFlujo"].ToString()), tablaFlujos.Rows[j]["nombre"].ToString(), "");
                     nodoFlujo.ForeColor = Color.Blue;
+                    nodo.ImageKey = "flujo";
                 }
                 else {                                                  //Si no esta el flujo elimino las colecciones de ese flujo
             /*        for (int l = 0;l < colecciones.Count; l++) { 
@@ -144,6 +158,8 @@ namespace GiftEjecutor
                     if (nodoPadre != null){
                         nodo = nodoPadre.Nodes.Add(colecciones[i][0], colecciones[i][1]);// "F" + colecciones[i][3];
                         nodo.Tag = new Coleccion(int.Parse(colecciones[i][0].ToString()), colecciones[i][1], int.Parse(colecciones[i][2].ToString()), int.Parse(colecciones[i][3]));
+                        nodo.ImageKey = "carpetaCerrada";
+                        nodo.SelectedImageKey = "carpetaAbierta";
                         /*Boolean valido = false;
                         for (int k = 0; !valido && k < coleccionesPerfil.Count; k++){
                             if (colecciones[i][0].Equals(coleccionesPerfil[k].getCorrelativo().ToString())){
@@ -174,6 +190,7 @@ namespace GiftEjecutor
                                 creado.ForeColor = Color.Silver;
                             }
                             creado.Tag = expedienteCreado;
+                            creado.ImageKey = "expediente";
                         }
                     }
                 }
@@ -322,5 +339,7 @@ namespace GiftEjecutor
             }
             return seleccionado;
         }
+
+        
     }
 }

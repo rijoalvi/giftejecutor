@@ -248,8 +248,9 @@ namespace GiftEjecutor
         }
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
-        {
+        {            
             mostrarVistaPrevia();
+            
         }
 
         private void mostrarVistaPrevia()
@@ -532,6 +533,16 @@ namespace GiftEjecutor
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void directorio_AfterCollapse(object sender, TreeViewEventArgs e)
+        {
+            
+        }
+
+        private void directorio_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+            
         }
     }
 }
