@@ -115,6 +115,7 @@ namespace GiftEjecutor
                     if (this.padreMDI.getUsuario().getTipo() == 2)
                     {//si es un creador
                         this.padreMDI.getUsuario().asignarExpediente(expediente.getCorrelativo());
+                        this.padreMDI.getUsuario().actualizarIdsExpedientes();
                     }
                     FormManual manual = new FormManual(expediente.getCorrelativo());
                     manual.Show();

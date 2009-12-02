@@ -41,12 +41,7 @@ namespace GiftEjecutor
         public int[] getIDsExpedientes() {
             return this.IDsExpedientes;
         }
-
-        private void cargarDatosUsuario()
-        {
-            String[] datos = consultaBD.obtenerDatos(correlativo);
-            nombre = datos[0];
-            miPerfil = new Perfil(int.Parse(datos[1]));
+        public void actualizarIdsExpedientes() {
             int[] misIds = consultaBD.obtenerIDsExpedientes(correlativo);
             //siempre q tenga expedientes asignados
             if (misIds != null)
@@ -57,6 +52,14 @@ namespace GiftEjecutor
                     IDsExpedientes[i] = misIds[i];
                 }
             }
+        }
+
+        private void cargarDatosUsuario()
+        {
+            String[] datos = consultaBD.obtenerDatos(correlativo);
+            nombre = datos[0];
+            miPerfil = new Perfil(int.Parse(datos[1]));
+            this.actualizarIdsExpedientes();
             llenarActividadesPropias();
         }
 
