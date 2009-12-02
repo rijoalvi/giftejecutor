@@ -313,7 +313,7 @@ namespace GiftEjecutor
                 respuesta = true;
             }
             else{
-                if(this.actividadManual(IDActividad))
+                if(this.actividadManual(IDExpediente))
                 {
                     DataRow[] columna = null;
                     columna = actividadesPropias.Select(@"IDExpediente = '" + IDActividad + "'");
@@ -355,9 +355,9 @@ namespace GiftEjecutor
         /// </summary>
         /// <param name="IDActividad"></param>
         /// <returns></returns>
-        private bool actividadManual(int IDActividad)
+        private bool actividadManual(int IDExpediente)
         {
-            return (this.consultaBD.actividadManual(IDActividad));
+            return (this.consultaBD.actividadManual(IDExpediente));
         }
 
         public DataTable getDataTableActividadesAsignadasPorExpediente(int IDExpediente)

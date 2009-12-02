@@ -58,5 +58,20 @@ namespace GiftEjecutor
             Console.WriteLine(consulta1);
             SqlDataReader datos1 = this.controladoBD.hacerConsultaEjecutor(consulta1);
         }
+
+        public bool getRepetible(int IDActividad)
+        {
+            bool respuesta = false;
+            SqlDataReader dataReader = null;
+            dataReader = this.controladoBD.hacerConsultaConfigurador("Select repetible from Actividad where correlativo =" + IDActividad + ";");
+            if (dataReader.Read())
+            {
+                if (dataReader.GetValue(0).ToString().Equals("true"))
+                {
+                    respuesta = true;
+                }
+            }
+            return respuesta;
+        }
     }
 }

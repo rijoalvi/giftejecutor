@@ -76,6 +76,8 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("select IDActividad from ActividadPermitida ap where IDColeccionAsignada=" + IDColeccionAsignada + ";");
             return dataReader;
         }
+
+        //public int actividadSiguiente (int IDActividad, int 
     }
 
 }

@@ -109,7 +109,7 @@ namespace GiftEjecutor
                 dataGridEjecutados.Columns[4].Visible = false;
                 dataGridEjecutados.Refresh();
 
-                dataGridActividad.DataSource = actividad.getDataTableActividadesEjecutablesHijasPorIDPadre(this.IDActividadCompuesta);
+                dataGridActividad.DataSource = actividad.getDataTableActividadesEjecutablesHijasPorIDPadre(this.IDActividadCompuesta, this.IDActividadCompuesta);
                 dataGridActividad.Columns[4].Visible = false;
                 dataGridActividad.Refresh();
 

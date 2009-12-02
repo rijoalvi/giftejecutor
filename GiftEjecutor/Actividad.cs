@@ -177,8 +177,9 @@ namespace GiftEjecutor
             }
             return tablaActividades;
         }
-        public DataTable getDataTableActividadesEjecutablesHijasPorIDPadre(int IDFlujo)
+        public DataTable getDataTableActividadesEjecutablesHijasPorIDPadre(int IDFlujo, int IDActividadPadre)
         {
+            Actividad actividadPadre = new Actividad(IDActividadPadre);
             DataTable tablaActividades = new DataTable();
             DataRow fila;
 
@@ -234,18 +235,15 @@ namespace GiftEjecutor
                     }
                     else
                     {
-
-
-
-
-
                         //si es repetible y cumple con requisitos, nunca se bloquea
                         if (fila["repetible"].ToString().Equals("true", StringComparison.OrdinalIgnoreCase) && !unaEjecutable)
                         {
                             tablaActividades.Rows.Add(fila);
                             //revisa si ya fue ejecutada, si no, cambia estado de "unaEjecutable"
                             if (!control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente))
-                                unaEjecutable = true;
+                                if (!actividadPadre.paralela()){ 
+                                    unaEjecutable = true;
+                                }
                         }
                         //revisa si ya fue ejecutada
                         else
@@ -500,7 +498,7 @@ namespace GiftEjecutor
                     yaSeEjecuto = control.checkActividadRealizada((int)datos.GetValue(2), IDExpediente);
                     //Si ya se ejecuto no me sirve aqui
                     //Sirven desp de una ejecutable
-                    if (!yaSeEjecuto && !unaEjecutable)
+                    if (!yaSeEjecuto && !unaEjecutable && !this.esParalela)
                     {
                         unaEjecutable = true;
                     }
@@ -972,6 +970,15 @@ namespace GiftEjecutor
                 }
             }
             return lista;
+        }
+
+        /// <summary>
+        /// dice si la actividad es paralela o no
+        /// </summary>
+        /// <returns></returns>
+        public bool paralela()
+        {
+            return this.esParalela;
         }
 
     }

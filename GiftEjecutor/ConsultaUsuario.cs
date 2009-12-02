@@ -227,10 +227,10 @@ namespace GiftEjecutor
             return datos;
         }
 
-        public bool actividadManual(int IDActividad)
+        public bool actividadManual(int IDExpediente)
         {
             SqlDataReader datos = null;
-            datos = this.controladoBD.hacerConsultaConfigurador("Select AsignacionManual from ACTIVIDAD where correlativo = " + IDActividad + ";");
+            datos = this.controladoBD.hacerConsultaEjecutor("Select manual from EXPEDIENTE where correlativo = " + IDExpediente + ";");
             bool respuesta = false;
             if (datos != null)
             {

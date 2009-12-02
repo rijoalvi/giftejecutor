@@ -31,6 +31,11 @@ namespace GiftEjecutor
                 }
             }
 
+            if (this.consultaControlador.getRepetible(IDActividad))
+            {
+                respuesta = false;
+            }
+
             return respuesta;
         }
 
