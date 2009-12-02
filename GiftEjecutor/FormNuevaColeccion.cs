@@ -53,11 +53,14 @@ namespace GiftEjecutor
             {
                 Coleccion coleccion = new Coleccion(this.correlativoColeccion, this.txtNombre.Text, correlativoPadre, correlativoFlujo);
 
-                if (modificar == 0)
+                if (modificar == 0)//Si se esta creando la coleccion
                 {
                     coleccion.crearColeccion();
+                    if(this.padreMDI.getUsuario().getTipo()==2){//si el usuario es creador
+                        this.padreMDI.getUsuario().getPerfil().asignarColeccion(coleccion.getCorrelativo());
+                    }
                 }
-                else
+                else//si se esta modificando el nombre del expediente
                 {
                     coleccion.modificarNombre();
                 }

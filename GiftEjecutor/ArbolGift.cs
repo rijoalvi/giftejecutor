@@ -101,11 +101,11 @@ namespace GiftEjecutor
             for (int j = 0; j < tablaFlujos.Rows.Count; j++)// Se buscan los flujos de trabajo que tienen expedientes asignados al usuario 
             {
                 encontrado= usuario.getTipo()!=0? false : true;
-                for (int k = 0; !encontrado && k < expedientes.Count; k++) {
+                for (int k = 0; !encontrado && k < expedientes.Count; k++) {//busca si el usuario tiene asignado un expediente del flujo de trabajo
                     if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(expedientes[k][1].ToString()))
                         encontrado = true;
                 }
-                for (int l = 0; !encontrado && l < coleccionesPerfil.Count; l++)
+                for (int l = 0; !encontrado && l < coleccionesPerfil.Count; l++)//busca si el perfil tiene asignado una coleccion del flujo de trabajo
                 {
                     if (tablaFlujos.Rows[j]["IDFlujo"].ToString().Equals(coleccionesPerfil[l].getCorrelativoFlujo().ToString()))
                         encontrado = true;
@@ -157,11 +157,12 @@ namespace GiftEjecutor
                     else{
                         Console.WriteLine("No se encuentra el flujo de trabajo al que pertenece la colección " + colecciones[i][1]);
                         colecciones.Remove(colecciones[i]);
+                        i--;
                         nodo = null;
                     }                 
                     //  ((Coleccion)nodo.Tag).setCorrelativoFlujo(int.Parse(colecciones[i][3].ToString()));
-                    for (int k = 0; k < expedientes.Count; k++){
-                        if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2])){   //si la coleccion es igual a la coleccion a la que pertenece el expediente
+                    for (int k = 0; nodo!=null && k < expedientes.Count; k++){
+                        if (/*nodo != null &&*/ int.Parse(nodo.Name) == int.Parse(expedientes[k][2])){   //si la coleccion es igual a la coleccion a la que pertenece el expediente
                             TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
                             Expediente expedienteCreado = new Expediente(int.Parse(expedientes[k][0]),expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
                             int finalizado = expedienteCreado.yaFinalizado();
@@ -201,6 +202,7 @@ namespace GiftEjecutor
             for (int i = 0; i < coleccionesPerfil.Count; i++) { //buscar los indices de las colecciones del perfil dentro de colecciones
                 encontrado = false;
                 correlativo = coleccionesPerfil[i].getCorrelativo();
+                string nombre = coleccionesPerfil[i].getNombre();
                 for (int j = 0; j < colecciones.Count && !encontrado; j++) {
                     if (correlativo == int.Parse(colecciones[j][0])/*.getCorrelativo()*/) {   //si se encuentra el correlativo se indica el indice como verdadero
                         encontrado = true;

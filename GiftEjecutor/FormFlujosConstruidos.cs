@@ -112,6 +112,10 @@ namespace GiftEjecutor
                 {
                     Expediente expediente = new Expediente(txtNombre.Text, correlativoPadre, this.correlativoFlujo/*this.IDFlujoSeleccionado*/);            
                     expediente.crearExpediente();
+                    if (this.padreMDI.getUsuario().getTipo() == 2)
+                    {//si es un creador
+                        this.padreMDI.getUsuario().asignarExpediente(expediente.getCorrelativo());
+                    }
                     FormManual manual = new FormManual(expediente.getCorrelativo());
                     manual.Show();
                     manual.TopMost=true;
@@ -123,16 +127,15 @@ namespace GiftEjecutor
                     {
                         actividad.Show();
                     }
-                    else { refrescar = false; }
+                    this.formPrincipal.refrescarDirectorio();
+                
+                
+                    //else { refrescar = false; }
                 }
                 else
                 {
                     Expediente expediente = new Expediente(txtNombre.Text, this.correlativoExpediente);
                     expediente.modificarNombre();
-                }
-                if(refrescar)
-                {
-                    this.formPrincipal.refrescarDirectorio();
                 }
                 this.Close();
             }
