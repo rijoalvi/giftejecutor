@@ -95,7 +95,7 @@ namespace GiftEjecutor
         {
             String consulta = "SELECT correlativo FROM Usuario WHERE nombreUsuario = '" + user + "' AND contrasena = '" + password + "';";
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
-            if (datos.Read())
+            if (datos!=null && datos.Read())
             {
                 return int.Parse(datos.GetValue(0).ToString());
             }

@@ -59,10 +59,11 @@ namespace GiftEjecutor
             dataGridComandos.Refresh();
             this.dataGridNoPosibles.DataSource = comando.getDataTableComandosPorIDActividadNoRealizados(this.IDActividad);
             dataGridNoPosibles.Refresh();
-            miPadre.cargarDataGridActividad();
-            if (dataGridComandos.RowCount == 0)
+            miPadre.cargarDataGridActividad(this.padreMDI.getUsuario());
+            if (dataGridComandos.RowCount == 0 )
             {
-                this.Close();
+                //this.Dispose();// Close();
+                this.buttonEjecutarComando.Enabled = false;
             }
             else
             {

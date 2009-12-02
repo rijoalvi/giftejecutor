@@ -45,7 +45,8 @@ namespace GiftEjecutor
             listaFormularios.Hide();
             usuarioActual = new Usuario(idUsuario);
             esconderLabels();
-            this.arbol = new ArbolGift(directorio, usuarioActual);                        
+            this.arbol = new ArbolGift(directorio, usuarioActual);
+            this.Text = "GIFT Ejecutor - " + usuarioActual.getNombre() + " ("+this.usuarioActual.getPerfil().getNombre()+")";         
         }
 
         public void refrescarDirectorio() {
@@ -82,7 +83,7 @@ namespace GiftEjecutor
         {
             int IDExpediente = 13;
             int IDFlujo = 4;
-            FormListadoActividad formListadoActividad = new FormListadoActividad(IDFlujo, IDExpediente, true, null);
+            FormListadoActividad formListadoActividad = new FormListadoActividad(padreMDI.getUsuario(),IDFlujo, IDExpediente, true, null);
             formListadoActividad.MdiParent = padreMDI;
             formListadoActividad.setPadreMDI(padreMDI);
             formListadoActividad.Show();
@@ -179,7 +180,7 @@ namespace GiftEjecutor
                 //MessageBox.Show("Correlativo Flujo" + correlativoFlujo);
                 int correlativoExpediente = expediente.getCorrelativo();
                 //MessageBox.Show("correlativo expediente " + correlativoExpediente);
-                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true,null);
+                FormListadoActividad actividad = new FormListadoActividad(padreMDI.getUsuario(),correlativoFlujo, correlativoExpediente, true,null);
                 actividad.MdiParent = padreMDI;
                 actividad.setPadreMDI(padreMDI);
                 actividad.Show();
@@ -490,7 +491,7 @@ namespace GiftEjecutor
             {
                 int correlativoFlujo = int.Parse(this.dataGridInbox[0, this.dataGridInbox.CurrentRow.Index].Value.ToString());
                 int correlativoExpediente = int.Parse(this.dataGridInbox[2, this.dataGridInbox.CurrentRow.Index].Value.ToString());
-                FormListadoActividad actividad = new FormListadoActividad(correlativoFlujo, correlativoExpediente, true, null);
+                FormListadoActividad actividad = new FormListadoActividad(padreMDI.getUsuario(),correlativoFlujo, correlativoExpediente, true, null);
                 actividad.MdiParent = padreMDI;
                 actividad.setPadreMDI(padreMDI);
                 actividad.Show();
@@ -520,6 +521,12 @@ namespace GiftEjecutor
             {
                 MessageBox.Show("Favor elegir una actividad");
             }
+        }
+
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

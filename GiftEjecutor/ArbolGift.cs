@@ -131,7 +131,7 @@ namespace GiftEjecutor
 
             for (int i = 0; i < colecciones.Count; i++)//Se agregan las colecciones necesarias
             {
-                if (vectorValidos[i] == true){
+                if (usuario.getTipo()==0 || vectorValidos[i] == true){
                     Console.WriteLine(colecciones[i][0] + colecciones[i][1] + colecciones[i][2]);
                     int correlativoPadre = int.Parse(colecciones[i][2]);
                     if (correlativoPadre == 0){
@@ -163,7 +163,7 @@ namespace GiftEjecutor
                     for (int k = 0; k < expedientes.Count; k++){
                         if (nodo != null && int.Parse(nodo.Name) == int.Parse(expedientes[k][2])){   //si la coleccion es igual a la coleccion a la que pertenece el expediente
                             TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
-                            Expediente expedienteCreado = new Expediente(expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
+                            Expediente expedienteCreado = new Expediente(int.Parse(expedientes[k][0]),expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
                             int finalizado = expedienteCreado.yaFinalizado();
                             if (finalizado == 1){
                                 creado.ForeColor = Color.Red;

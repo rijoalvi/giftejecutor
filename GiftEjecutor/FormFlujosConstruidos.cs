@@ -105,6 +105,7 @@ namespace GiftEjecutor
 
         private void botonCrearExpediente_Click(object sender, EventArgs e)
         {
+            Boolean refrescar=true;
             if (txtNombre.Text != null)
             {
                 if (this.modificar == 0)
@@ -115,17 +116,24 @@ namespace GiftEjecutor
                     manual.Show();
                     manual.TopMost=true;
                     manual.StartPosition = FormStartPosition.CenterScreen;
-                    FormListadoActividad actividad = new FormListadoActividad(this.correlativoFlujo, expediente.getIDExpediente(), true,null);
+                    FormListadoActividad actividad = new FormListadoActividad(padreMDI.getUsuario(),this.correlativoFlujo, expediente.getIDExpediente(), true,null);
                     actividad.MdiParent = padreMDI;
                     actividad.setPadreMDI(padreMDI);
-                    actividad.Show();
+                    if (!actividad.IsDisposed)
+                    {
+                        actividad.Show();
+                    }
+                    else { refrescar = false; }
                 }
                 else
                 {
                     Expediente expediente = new Expediente(txtNombre.Text, this.correlativoExpediente);
                     expediente.modificarNombre();
                 }
-                this.formPrincipal.refrescarDirectorio();
+                if(refrescar)
+                {
+                    this.formPrincipal.refrescarDirectorio();
+                }
                 this.Close();
             }
             else {

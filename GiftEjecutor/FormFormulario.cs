@@ -439,8 +439,13 @@ namespace GiftEjecutor
                         //FechaHora
                         DateTimePicker fecha = (DateTimePicker)(componentes[i]);
                         nombresCampos += fecha.Name;
-                        //fecha.CustomFormat = "MM dd yyyy";
+
+                        //MessageBox.Show(fecha.Value.ToString());
+                        //MessageBox.Show(fecha.Value.ToString("MM/dd/yyyy"));
+                        //String laFecha = fecha.Value.ToString("MM/dd/yyyy");
+
                         String laFecha = fecha.Value.ToString();
+
                         laFecha = laFecha.Substring(0, 10);
                         DateTime fecha2;
                         if (DateTime.TryParse(laFecha, out fecha2))

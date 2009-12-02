@@ -38,12 +38,12 @@ namespace GiftEjecutor
             }
         }
 
-        public Expediente(String nombre, int correlativoPadre,int IDFlujo)
+        public Expediente(String nombre, int correlativoPadre, int IDFlujo)
         {
             consultaExpediente = new ConsultaExpediente();
             this.nombre = nombre;
             this.IDFlujo = IDFlujo;
-            this.IDColeccion= correlativoPadre;
+            this.IDColeccion = correlativoPadre;
             this.correlativo = consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
             Actividad act = new Actividad();
             DataTable tabla = act.getDataTableActividadesEjecutablesPorIDFlujo(this.IDFlujo);
@@ -51,13 +51,34 @@ namespace GiftEjecutor
             {
                 finalizado = 1;
             }
-            else {
+            else
+            {
                 finalizado = 0;
             }
             Console.WriteLine("Correlativo Padre " + IDColeccion);
         }
 
-        public Expediente(String nombre, int correlativo) {
+        public Expediente(int correlativo,String nombre, int correlativoPadre, int IDFlujo)
+        {
+            consultaExpediente = new ConsultaExpediente();
+            this.nombre = nombre;
+            this.IDFlujo = IDFlujo;
+            this.IDColeccion = correlativoPadre;
+            this.correlativo = correlativo;// consultaExpediente.buscarCorrelativo(nombre, correlativoPadre);
+            Actividad act = new Actividad();
+            DataTable tabla = act.getDataTableActividadesEjecutablesPorIDFlujo(this.IDFlujo);
+            if (tabla.Rows.Count == 0)
+            {
+                finalizado = 1;
+            }
+            else
+            {
+                finalizado = 0;
+            }
+        }
+
+        public Expediente(String nombre, int correlativo)
+        {
             consultaExpediente = new ConsultaExpediente();
             this.nombre = nombre;
             this.correlativo = correlativo;

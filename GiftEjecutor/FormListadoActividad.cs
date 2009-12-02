@@ -19,13 +19,15 @@ namespace GiftEjecutor
         bool soyUnFlujoNoActividadCompuesta;
         ActividadCompuesta actividadCompuesta;
         FormListadoActividad miPadre;
+
         public FormListadoActividad()
         {
             InitializeComponent();
         }
         
-        public FormListadoActividad(int IDFlujo, int IDExpediente, bool soyUnFlujo, FormListadoActividad tata)
+        public FormListadoActividad(Usuario usuario,int IDFlujo, int IDExpediente, bool soyUnFlujo, FormListadoActividad tata)
         {
+           
             miPadre = tata;
             soyUnFlujoNoActividadCompuesta = soyUnFlujo;
             //Si se van a mostrar las actividades de un flujo
@@ -40,8 +42,8 @@ namespace GiftEjecutor
                 FlujoTrabajo flujo;
                 flujo = new FlujoTrabajo(IDFlujo);
                 this.labelEncabezadoActividades.Text = "Actividades del flujo ''" + flujo.getNombreFlujo() + "''";
-                this.Text = "Actividades del Flujo''" + flujo.getNombreFlujo() + "''";
-                this.cargarDataGridActividad();
+                this.Text = "Actividades del Flujo\"" + flujo.getNombreFlujo() + "\"";
+                this.cargarDataGridActividad(usuario);                
             }
             //Aqui es para mostrar actividades compuestas
             else {
@@ -54,7 +56,7 @@ namespace GiftEjecutor
 
                 this.IDExpediente = IDExpediente;
                 soyUnFlujoNoActividadCompuesta = false;
-                this.cargarDataGridActividad();           
+                this.cargarDataGridActividad(usuario);           
             }
 
 
@@ -68,7 +70,7 @@ namespace GiftEjecutor
             //this.cargarDataGridActividad();
         }
 
-        public void cargarDataGridActividad() {
+        public void cargarDataGridActividad(Usuario usuario) {
             Actividad actividad = new Actividad();
             ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
             actividadCompuesta.setAtributosDeActividadCompuesta(this.IDActividadCompuesta);
@@ -98,7 +100,7 @@ namespace GiftEjecutor
                 {
                     Controlador cont;
                     cont = new Controlador();
-                    cont.finalizarActividadBitacora(IDExpediente, IDFlujo, padreMDI.getUsuario());
+                    cont.finalizarActividadBitacora(IDExpediente, IDFlujo, usuario);//padreMDI.getUsuario());
                     this.Close();
                 }
             }
@@ -125,7 +127,7 @@ namespace GiftEjecutor
                     Controlador cont;
                     cont = new Controlador();
                     cont.finalizarActividadBitacora(IDExpediente, IDActividadCompuesta, padreMDI.getUsuario());
-                    miPadre.cargarDataGridActividad();
+                    miPadre.cargarDataGridActividad(padreMDI.getUsuario());
                     this.Close();
 
                 }
@@ -189,7 +191,7 @@ namespace GiftEjecutor
                     //  FormActividad formActividad = new FormActividad(IDActividad, IDExpediente,1);
                     //  formActividad.Show();
 
-                    FormListadoActividad formListadoActividad = new FormListadoActividad(IDActividad, IDExpediente, false, this);
+                    FormListadoActividad formListadoActividad = new FormListadoActividad(padreMDI.getUsuario(),IDActividad, IDExpediente, false, this);
                     formListadoActividad.MdiParent = padreMDI;
                     formListadoActividad.setPadreMDI(padreMDI);
                     formListadoActividad.Show();
