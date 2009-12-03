@@ -248,9 +248,9 @@ namespace GiftEjecutor
         }
 
         private void directorio_AfterSelect(object sender, TreeViewEventArgs e)
-        {            
-            mostrarVistaPrevia();
-            
+        {
+            this.arbol.cargarNodo();
+            mostrarVistaPrevia();            
         }
 
         private void mostrarVistaPrevia()
