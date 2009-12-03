@@ -185,7 +185,7 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("delete FROM Usuario where correlativo = '" + IDUsuario + "';");
         }
 
-        public DataTable getActividadesExpedientesPorUsuario(int IDUsuario)
+        public DataTable getActividadesExpedientesPorUsuario(int IDUsuario,int perfil)
         {
             DataTable tablaUsuarios = new DataTable();
             DataRow fila;
@@ -207,7 +207,7 @@ namespace GiftEjecutor
 
             SqlDataReader datos = null;
             datos = this.controladoBD.hacerConsultaEjecutor("Select P.IDExpediente, A.IDActividad FROM PermisosUsuario P,ActividadesUsuario A "+
-                "where P.IDUsuario = '" + IDUsuario + "' and A.IDPermiso = P.correlativo;");//modificar aca para el datatableActividadesUsuario 
+                "where P.IDUsuario = '" + IDUsuario + "' and A.IDPermiso = P.correlativo;");
             if (datos != null)
             {
                 while (datos.Read())
@@ -218,6 +218,33 @@ namespace GiftEjecutor
                     tablaUsuarios.Rows.Add(fila);
                 }
             }
+            //Agregar las actividades de los expedientes del perfil
+            //SqlDataReader colecciones = this.controladoBD.hacerConsultaEjecutor("select IDColeccion from ColeccionAsignada where IDPerfil;");//modificar aca para el datatableActividadesUsuario 
+            SqlDataReader colecciones = this.controladoBD.hacerConsultaEjecutor("select Ap.IdActividad, E.correlativo " +
+                                                                                "from ActividadPermitida Ap, Expediente E " +
+                                                                                "where Ap.IDColeccionAsignada = E.IDColeccion AND Ap.correlativo in " +
+                                                                                    "(" +
+                                                                                    "select Ap1.correlativo " +
+                                                                                    "from ActividadPermitida Ap1 " +
+                                                                                    "where Ap1.IDColeccionAsignada in " +
+                                                                                        "(" +
+                                                                                        "select Ca.IDColeccion " +
+                                                                                        "from ColeccionAsignada Ca " +
+                                                                                        "where Ca.IDPerfil = " + perfil +
+                                                                                        ")" +
+                                                                                    ")");
+
+            if (colecciones != null)
+            {
+                while (colecciones.Read())
+                {
+                    fila = tablaUsuarios.NewRow();
+                    fila["IDExpediente"] = Int32.Parse(colecciones.GetValue(0).ToString());
+                    fila["IDActividad"] = Int32.Parse(colecciones.GetValue(1).ToString());
+                    tablaUsuarios.Rows.Add(fila);
+                }
+            }
+
             return tablaUsuarios;
         }
 

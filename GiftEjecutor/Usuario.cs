@@ -350,7 +350,7 @@ namespace GiftEjecutor
         /// </summary>
         private void llenarActividadesPropias()
         {
-            actividadesPropias = this.consultaBD.getActividadesExpedientesPorUsuario(correlativo);
+            actividadesPropias = this.consultaBD.getActividadesExpedientesPorUsuario(correlativo,this.getPerfil().getCorrelativo());
             
         }
 
