@@ -314,7 +314,7 @@ namespace GiftEjecutor
             {
                 labelTituloExp.Text = "Expediente " + this.arbol.expedienteSeleccionado().getNombre();
                 labelTituloExp.Show();
-                FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null);
+                FormFormulario formEsteFormulario = new FormFormulario(elFormulario.getID(), this.IDExpediente, -1, IDTupla, 6, -1, "", null, -1);
                 formEsteFormulario.TopMost = true;
                 formEsteFormulario.MdiParent = this;
                 formEsteFormulario.StartPosition = FormStartPosition.Manual;

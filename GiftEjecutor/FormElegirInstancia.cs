@@ -114,7 +114,7 @@ namespace GiftEjecutor
 
                 cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
                                 
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre, -1);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();
@@ -122,7 +122,7 @@ namespace GiftEjecutor
             }
             else //Los otros
             {
-                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre);
+                FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, "", miPadre, -1);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();

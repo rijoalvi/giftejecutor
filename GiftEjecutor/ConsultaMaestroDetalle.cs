@@ -30,11 +30,11 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaConfigurador("select IDCampo, nombreCampo from CamposDetalle where IDMaestroDetalle=" + IDMaestroDetalle + ";");
             return dataReader;
         }
-        public SqlDataReader getTodoTablaDinamica(String nombreTabla)
+        public SqlDataReader getTodoTablaDinamica(String nombreTabla, int idDatosMaestro)
         {
             SqlDataReader dataReader = null;
 
-            dataReader = this.controladoBD.hacerConsultaEjecutor("select * from " + nombreTabla + ";");
+            dataReader = this.controladoBD.hacerConsultaEjecutor("SELECT * FROM " + nombreTabla + " WHERE IDMaestro = " + idDatosMaestro + ";");
             return dataReader;
         }
         public SqlDataReader getMaestroDetallesPorFormularioMaestro(int IDFormularioMaestro)

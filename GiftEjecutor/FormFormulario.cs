@@ -23,6 +23,7 @@ namespace GiftEjecutor
         private int tipoComando;//hecho por luisk
         private int IDFormularioDetalleSeleccionado;//para cuando se va a crear un detalle nuevo, saber cual?
 
+        private TabPage tabPage;
 
         private String nombreTablaSelecionada;
         private int IDFormSelecionado;
@@ -37,6 +38,7 @@ namespace GiftEjecutor
         private bool eliminacion;
         private bool noEsComando;
         private String[] nombresCamposTupla;
+        private int idMaestro;
 
         private String nombreFormDetalleSeleccionado;
 
@@ -61,7 +63,7 @@ namespace GiftEjecutor
         /// Constructor que abre un formulario que anteriormente fue llenado
         /// </summary>
         /// <param name="IDForm"></param>
-        public FormFormulario(int IDFormulario, int IDExp, int IDAct, int IDdatos, int tipoComando, int IDComando, String datosConMascara, FormActividad padre)
+        public FormFormulario(int IDFormulario, int IDExp, int IDAct, int IDdatos, int tipoComando, int IDComando, String datosConMascara, FormActividad padre, int idMaest)
         {
             InitializeComponent();
             IDForm = IDFormulario;
@@ -70,6 +72,7 @@ namespace GiftEjecutor
             IDActividad = IDAct;
             IDComandoConfig = IDComando;
             miPadre = padre;
+            this.idMaestro = idMaest;
             noEsComando = false;
             miFormulario = new Formulario(IDForm);
             this.Text = miFormulario.getNombre();
@@ -284,7 +287,17 @@ namespace GiftEjecutor
                 }
             }//Fin for que agrega miembros
 
-            if (this.visualizacion  || this.modificacion){
+
+            llenarMaestroDetalle();
+            
+
+
+        }
+
+        private void llenarMaestroDetalle()
+        {
+            if (this.visualizacion || this.modificacion)
+            {
                 MaestroDetalle maestro = new MaestroDetalle();
                 List<String> IDFormularioMaestro = new List<String>();
                 IDFormularioMaestro = maestro.getDetallesIDs(this.IDForm);
@@ -300,30 +313,29 @@ namespace GiftEjecutor
                 tabControl.SetBounds(0, 450, 600, 150);
                 for (int i = 0; i < cantidadDetalles; i++)
                 {
-                    String nombreTabla = IDFormularioMaestro[(i * 2) + 1];
-                    TabPage tabPage = new TabPage("detalles " + nombreTabla);
+                    String nombreTabla = IDFormularioMaestro[(i * 2) + 1];                    
+                    tabPage = new TabPage("detalles " + nombreTabla);
                     this.nombreFormDetalleSeleccionado = nombreTabla;
                     DataGridView dg = new DataGridView();
                     dg.BackgroundColor = Color.Beige;
                     dg.Name = nombreTabla;
                     //dg. quiero quitarle q deje editar las filas, pero no puedo... :s
                     dg.Width = 600;
-                    dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
+                    dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla, this.IDTupla);
 
                     //dg.Columns[0].Visible = false;
-                   // dg.Columns[1].Visible = false;
+                    // dg.Columns[1].Visible = false;
 
                     tabPage.Controls.Add(dg);
                     tabControl.Controls.Add(tabPage);
 
                     //dg.CellContentClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
                     dg.CellClick += new DataGridViewCellEventHandler(funcionClickDeDataGrid);
-                    
+
                 }
                 this.Controls.Add(tabControl);
-            }        
+            }
         }
-
 
         void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
         {
@@ -524,8 +536,8 @@ namespace GiftEjecutor
 
 
             } //fin for
-            valoresCampos += ")";
-            nombresCampos += ") ";
+            valoresCampos += ", " + this.idMaestro + ")";
+            nombresCampos += ", IDMaestro) ";
             ingresoTupla += nombresCampos + valoresCampos;
             Console.WriteLine(ingresoTupla);
             IDTupla = miFormulario.insertarTuplaFormulario(ingresoTupla, nombreForm);            
@@ -769,14 +781,9 @@ namespace GiftEjecutor
             this.Visible = false;
         }
 
-        private void FormFormulario_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonNuevoDetalle_Click(object sender, EventArgs e)
         {                                                                                                                                      //el 1 es de creacion
-            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, 1, this.IDComandoConfig, "", null);
+            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, 1, this.IDComandoConfig, "", null, this.IDTupla);
             formFormulario.MdiParent = padreMDI;
             formFormulario.setPadreMDI(padreMDI);                           
             formFormulario.Show();
@@ -784,10 +791,20 @@ namespace GiftEjecutor
 
         private void buttonVerDetalle_Click(object sender, EventArgs e)
         {
-            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, this.tipoComando, this.IDComandoConfig, "", null);
+            FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, this.tipoComando, this.IDComandoConfig, "", null, -1);
             formFormulario.MdiParent = padreMDI;
             formFormulario.setPadreMDI(padreMDI);
             formFormulario.Show();
+        }
+
+        private void FormFormulario_Enter(object sender, EventArgs e)
+        {
+            llenarMaestroDetalle();
+        }
+
+        private void FormFormulario_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            llenarMaestroDetalle();
         }
 
     }

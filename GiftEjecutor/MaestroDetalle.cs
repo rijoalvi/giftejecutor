@@ -128,7 +128,7 @@ namespace GiftEjecutor
         }
 
 
-        public DataTable getDataTableDetallesDinamicos(int IDMaestroDetalle,String nombreTabla)
+        public DataTable getDataTableDetallesDinamicos(int IDMaestroDetalle,String nombreTabla, int IdDatos)
         {
 
             DataTable tablaCamposDetalle = new DataTable();
@@ -196,7 +196,7 @@ namespace GiftEjecutor
 
             SqlDataReader datos=null;
             //datos = consultaMaestroDetalle.getCamposDetalleSeleccionados(IDMaestroDetalle);
-            datos = consultaMaestroDetalle.getTodoTablaDinamica(nombreTabla);
+            datos = consultaMaestroDetalle.getTodoTablaDinamica(nombreTabla, IdDatos);
 
             //int IDFormularioDetalle=-1;
             if (datos != null)

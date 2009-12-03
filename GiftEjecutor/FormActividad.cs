@@ -115,7 +115,7 @@ namespace GiftEjecutor
             }
             else//es de creacion
             {
-                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "", this);
+                FormFormulario formFormulario = new FormFormulario(comandoAEjecutar.IDFormularioATrabajar, IDExpediente, IDActividad, IDDatos, tipoComando, comandoAEjecutar.getID(), "", this, -1);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();

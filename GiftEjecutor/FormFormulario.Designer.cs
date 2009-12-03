@@ -91,7 +91,8 @@ namespace GiftEjecutor
             this.Controls.Add(this.botonAceptar);
             this.Name = "FormFormulario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.FormFormulario_Load);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.FormFormulario_MouseDoubleClick);
+            this.Enter += new System.EventHandler(this.FormFormulario_Enter);
             this.ResumeLayout(false);
 
         }
