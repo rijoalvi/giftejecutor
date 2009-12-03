@@ -220,7 +220,7 @@ namespace GiftEjecutor
             }
             //Agregar las actividades de los expedientes del perfil
             //SqlDataReader colecciones = this.controladoBD.hacerConsultaEjecutor("select IDColeccion from ColeccionAsignada where IDPerfil;");//modificar aca para el datatableActividadesUsuario 
-            SqlDataReader colecciones = this.controladoBD.hacerConsultaEjecutor("select Ap.IdActividad, E.correlativo " +
+            SqlDataReader colecciones = this.controladoBD.hacerConsultaEjecutor("select  E.correlativo  ,Ap.IdActividad " +
                                                                                 "from ActividadPermitida Ap, Expediente E " +
                                                                                 "where Ap.IDColeccionAsignada = E.IDColeccion AND Ap.correlativo in " +
                                                                                     "(" +
