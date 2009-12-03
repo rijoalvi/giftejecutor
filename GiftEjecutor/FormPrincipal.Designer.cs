@@ -213,10 +213,8 @@ namespace GiftEjecutor
             this.directorio.Name = "directorio";
             this.directorio.Size = new System.Drawing.Size(246, 598);
             this.directorio.TabIndex = 10;
-            this.directorio.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterCollapse);
             this.directorio.DoubleClick += new System.EventHandler(this.directorio_DoubleClick);
             this.directorio.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterSelect);
-            this.directorio.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.directorio_AfterExpand);
             // 
             // labelPorRealizar
             // 
@@ -274,6 +272,7 @@ namespace GiftEjecutor
             // labelTituloExp
             // 
             this.labelTituloExp.AutoSize = true;
+            this.labelTituloExp.BackColor = System.Drawing.SystemColors.Control;
             this.labelTituloExp.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTituloExp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelTituloExp.Location = new System.Drawing.Point(392, 25);
@@ -284,6 +283,7 @@ namespace GiftEjecutor
             // 
             // panelDetalleActividades
             // 
+            this.panelDetalleActividades.BackColor = System.Drawing.SystemColors.Control;
             this.panelDetalleActividades.Controls.Add(this.labelPorRealizar);
             this.panelDetalleActividades.Controls.Add(this.labelActividadesRealizadas);
             this.panelDetalleActividades.Controls.Add(this.labelEnCurso);
@@ -347,6 +347,7 @@ namespace GiftEjecutor
             // labelAviso
             // 
             this.labelAviso.AutoSize = true;
+            this.labelAviso.BackColor = System.Drawing.SystemColors.Control;
             this.labelAviso.Font = new System.Drawing.Font("Verdana", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAviso.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelAviso.Location = new System.Drawing.Point(298, 307);
@@ -362,6 +363,7 @@ namespace GiftEjecutor
             // 
             // panelInbox
             // 
+            this.panelInbox.BackColor = System.Drawing.SystemColors.Control;
             this.panelInbox.Controls.Add(this.botonRechazarActInbox);
             this.panelInbox.Controls.Add(this.botonEjecutarActInbox);
             this.panelInbox.Controls.Add(this.dataGridInbox);
@@ -423,7 +425,6 @@ namespace GiftEjecutor
             this.BackgroundImage = global::GiftEjecutor.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1048, 842);
-            this.Controls.Add(this.panelInbox);
             this.Controls.Add(this.pictureBoxInbox);
             this.Controls.Add(this.labelAviso);
             this.Controls.Add(this.pictureBoxVistaPrevia);
@@ -433,13 +434,13 @@ namespace GiftEjecutor
             this.Controls.Add(this.directorio);
             this.Controls.Add(this.buttonActividad);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panelInbox);
             this.Controls.Add(this.panelDetalleActividades);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GIFT Ejecutor";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);

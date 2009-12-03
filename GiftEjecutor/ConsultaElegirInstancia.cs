@@ -22,6 +22,7 @@ namespace GiftEjecutor
         {
             //agregue al final la comparacion con el IDForm, esta sin probar... ;)
             String consulta = "select " + nombreForm + ".correlativo, BITACORA.fecha from " + nombreForm + ", BITACORA where " + nombreForm + ".correlativo = BITACORA.IDInstaciaForm AND BITACORA.tipoComando = 1 AND BITACORA.IDExpediente = " + IDExpediente + " AND Bitacora.IDFormConfigurador = " + IDFormulario + ";";
+            Console.WriteLine(consulta);
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
             return datos;
         }        

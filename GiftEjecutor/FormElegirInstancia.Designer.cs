@@ -41,6 +41,9 @@ namespace GiftEjecutor
             this.dataGridInstancias.AllowUserToAddRows = false;
             this.dataGridInstancias.AllowUserToDeleteRows = false;
             this.dataGridInstancias.AllowUserToOrderColumns = true;
+            this.dataGridInstancias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridInstancias.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridInstancias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridInstancias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridInstancias.Location = new System.Drawing.Point(12, 63);
             this.dataGridInstancias.Name = "dataGridInstancias";

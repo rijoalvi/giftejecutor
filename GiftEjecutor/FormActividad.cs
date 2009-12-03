@@ -184,19 +184,9 @@ namespace GiftEjecutor
             this.buttonCerrar.BackColor = Color.OrangeRed;
         }
 
-        private void dataGridComandos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FormActividad_Enter(object sender, EventArgs e)
         {
             this.cargarDataGridComandos();
-        }
-
-        private void FormActividad_Leave(object sender, EventArgs e)
-        {
-        //    this.cargarDataGridComandos();
         }
 
         public void setPadreMDI(Ventanota v)

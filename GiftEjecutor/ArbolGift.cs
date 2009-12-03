@@ -324,9 +324,6 @@ namespace GiftEjecutor
                     directorio.SelectedNode.ForeColor = Color.Red;
                     directorio.SelectedNode.Text += " (Finalizado)";
                 }
-                else{
-                    directorio.SelectedNode.ForeColor = Color.Silver;
-                }
                 directorio.SelectedNode.Tag = expedienteCreado;
                 
             }

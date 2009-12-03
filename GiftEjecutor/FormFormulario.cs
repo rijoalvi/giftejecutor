@@ -125,7 +125,7 @@ namespace GiftEjecutor
                     botonAceptar.Visible = false;
                     botonCancelar.Text = "Cerrar";
                     //refresca la ventana de los comandos d la actividad
-                    miPadre.cargarDataGridComandos();
+                   // miPadre.cargarDataGridComandos();
                     MessageBox.Show("Este es el formulario resultante, luego de ejecutar el siguiente cambio del comando con máscara: \n"+ datosConMascara);
                     break;
                 case 6: //visualizacion de los formularios en el fram principal
@@ -304,6 +304,8 @@ namespace GiftEjecutor
                     TabPage tabPage = new TabPage("detalles " + nombreTabla);
                     this.nombreFormDetalleSeleccionado = nombreTabla;
                     DataGridView dg = new DataGridView();
+                    dg.BackgroundColor = Color.Beige;
+                    dg.Name = nombreTabla;
                     //dg. quiero quitarle q deje editar las filas, pero no puedo... :s
                     dg.Width = 600;
                     dg.DataSource = maestro.getDataTableDetallesDinamicos(Int32.Parse(IDFormularioMaestro[i * 2]), nombreTabla);
@@ -327,16 +329,18 @@ namespace GiftEjecutor
         {
             int rowSeleccionada = ((DataGridView)sender).CurrentRow.Index;
 
-            this.nombreTablaSelecionada = ((DataGridView)sender)[0, rowSeleccionada].Value.ToString();
+            this.nombreTablaSelecionada = ((DataGridView)sender).Name.ToString();
             ConsultaFormulario cf = new ConsultaFormulario();
             this.IDFormSelecionado = cf.getIDFormularioPorNombre(this.nombreTablaSelecionada);
-            this.IDDatosSeleccionados = Int32.Parse(((DataGridView)sender)[1, rowSeleccionada].Value.ToString());
-            MessageBox.Show(" " + this.nombreTablaSelecionada + " ID: " + this.IDFormSelecionado + " IDDatos: " + this.IDDatosSeleccionados);
-
+            if ( !((DataGridView)sender)[1, rowSeleccionada].Value.ToString().Equals("") )
+            {
+                this.IDDatosSeleccionados = Int32.Parse(((DataGridView)sender)[1, rowSeleccionada].Value.ToString());
+                // MessageBox.Show(" " + this.nombreTablaSelecionada + " ID: " + this.IDFormSelecionado + " IDDatos: " + this.IDDatosSeleccionados);
+                this.buttonVerDetalle.Enabled = true;
+                this.buttonVerDetalle.Text = "Ver detalle " + this.nombreTablaSelecionada + " seleccionado";
+            }
             this.buttonNuevoDetalle.Enabled = true;
             this.buttonNuevoDetalle.Text = "Nuevo detalle " + this.nombreTablaSelecionada;
-            this.buttonVerDetalle.Enabled = true;
-            this.buttonVerDetalle.Text = "Ver detalle " + this.nombreTablaSelecionada +" seleccionado";
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
@@ -374,7 +378,10 @@ namespace GiftEjecutor
                         //ingresa la tupla
                         ingresarNuevaTupla();
                         //ingresa el ingreso a la bitacora
-                        miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() + " agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        if (padreMDI != null)
+                        {
+                            miFormulario.insertarEnBitacora(IDExpediente, IDActividad, IDComandoConfig, 1, IDTupla, IDForm, true, "El usuario " + padreMDI.getUsuario() + " agregó una nueva instancia del formulario " + miFormulario.getNombre() + ".");
+                        }
                         //refresca la ventana de los comandos d la actividad
                         if (miPadre != null)
                         {//luisk
@@ -770,12 +777,16 @@ namespace GiftEjecutor
         private void buttonNuevoDetalle_Click(object sender, EventArgs e)
         {                                                                                                                                      //el 1 es de creacion
             FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, 1, this.IDComandoConfig, "", null);
+            formFormulario.MdiParent = padreMDI;
+            formFormulario.setPadreMDI(padreMDI);                           
             formFormulario.Show();
         }
 
         private void buttonVerDetalle_Click(object sender, EventArgs e)
         {
             FormFormulario formFormulario = new FormFormulario(this.IDFormSelecionado, this.IDExpediente, this.IDActividad, this.IDDatosSeleccionados, this.tipoComando, this.IDComandoConfig, "", null);
+            formFormulario.MdiParent = padreMDI;
+            formFormulario.setPadreMDI(padreMDI);
             formFormulario.Show();
         }
 

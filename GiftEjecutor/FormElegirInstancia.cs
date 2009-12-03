@@ -103,6 +103,7 @@ namespace GiftEjecutor
 
         public void ejecutarComando()
         {
+            //esto es para arreglar la pulga del comando con mnascara ejecutandose antes de tiempo
             if (tipoComando == 5) //Mascara
             {
                 ComandoMascara cm = new ComandoMascara(padreMDI.getUsuario());
@@ -112,12 +113,12 @@ namespace GiftEjecutor
                 //cf.actualizarUnCampoSegunID(IDDatos, cf.getNombreFormulario(comandoAEjecutar.IDFormularioATrabajar), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
 
                 cf.actualizarUnCampoSegunID(IDTupla, miFormulario.getNombre(), cm.nombreCampoEfecto, cm.valorCampoEfecto, "varchar");
-
-                cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "El usuario " + padreMDI.getUsuario() + " modificó el campo " + cm.nombreCampoEfecto);
+                                
                 FormFormulario formFormulario = new FormFormulario(IDFormulario, IDExpediente, IDActividad, IDTupla, tipoComando, IDComando, cf.ToString(), miPadre);
                 formFormulario.MdiParent = padreMDI;
                 formFormulario.setPadreMDI(padreMDI);
                 formFormulario.Show();
+                cf.insertarEnBitacora(IDExpediente, IDActividad, IDComando, tipoComando, IDTupla, IDFormulario, true, "El usuario " + padreMDI.getUsuario() + " modificó el campo " + cm.nombreCampoEfecto);
             }
             else //Los otros
             {

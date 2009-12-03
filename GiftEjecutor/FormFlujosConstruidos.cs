@@ -29,13 +29,11 @@ namespace GiftEjecutor
             this.correlativoPadre = int.Parse(correlativoPadre);
             this.correlativoFlujo = int.Parse(correlativoFlujo);
             //this.formPrincipal = principal;
-            modificar = 0;
-            
-            /////
-            
+            modificar = 0;            
+            /////            
             IDFlujoSeleccionado = -1;
             llenarDataGrid();
-            
+            this.txtNombre.Focus();
         }
 
         /// <summary>
@@ -57,7 +55,7 @@ namespace GiftEjecutor
             this.label2.Text = "Digite el nuevo nombre del expediente";
             IDFlujoSeleccionado = -1;
             llenarDataGrid();
-
+            this.txtNombre.Focus();
         }
         /// <summary>
         /// Llena el data grid con los datos de los flujos construidos

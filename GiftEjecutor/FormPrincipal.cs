@@ -50,8 +50,7 @@ namespace GiftEjecutor
         }
 
         public void refrescarDirectorio() {
-            arbol.refrescar();
-            mostrarInbox();
+            arbol.refrescar();            
         }
 
         private void constructorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,6 +65,7 @@ namespace GiftEjecutor
         {
             refrescarDirectorio();//este comente a veces, luisk
             revisarAdmin();
+            mostrarInbox();
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace GiftEjecutor
 
         private void agregarExpedienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(this.usuarioActual.getTipo()==0 || usuarioActual.getTipo()==2){//si es administrador o creador
+            if(this.usuarioActual.getTipo()==0 || this.usuarioActual.getTipo()==2){//si es administrador o creador
                 if (arbol.hayNodoSeleccionado())
                 {
                     Coleccion coleccion = arbol.coleccionSeleccionada(); 
@@ -458,11 +458,15 @@ namespace GiftEjecutor
                 }
                 //dataGridInbox.RowCount = 0;
                 //dataGridInbox.DataSource = null;
+                dataGridInbox = new DataGridView();
                 dataGridInbox.DataSource = inbox.llenarDataGridInbox(exps);
-                dataGridInbox.Columns[0].Visible = false;
-                dataGridInbox.Columns[2].Visible = false;
-                dataGridInbox.Columns[4].Visible = false;
-                dataGridInbox.Refresh();
+                if (dataGridInbox.Rows.Count > 0)
+                {
+                    dataGridInbox.Columns[0].Visible = false;
+                    dataGridInbox.Columns[2].Visible = false;
+                    dataGridInbox.Columns[4].Visible = false;
+                    dataGridInbox.Refresh();
+                }
             }
         }
 
@@ -524,25 +528,9 @@ namespace GiftEjecutor
             }
         }
 
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void directorio_AfterCollapse(object sender, TreeViewEventArgs e)
-        {
-            
-        }
-
-        private void directorio_AfterExpand(object sender, TreeViewEventArgs e)
-        {
-            
         }
     }
 }

@@ -65,7 +65,6 @@ namespace GiftEjecutor
             this.dataGridComandos.Size = new System.Drawing.Size(469, 110);
             this.dataGridComandos.TabIndex = 1;
             this.dataGridComandos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellClick);
-            this.dataGridComandos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridComandos_CellContentClick);
             // 
             // buttonEjecutarComando
             // 
@@ -215,7 +214,6 @@ namespace GiftEjecutor
             this.Text = "Comandos";
             this.Load += new System.EventHandler(this.FormActividad_Load);
             this.Enter += new System.EventHandler(this.FormActividad_Enter);
-            this.Leave += new System.EventHandler(this.FormActividad_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComandos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEjecutados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNoPosibles)).EndInit();
