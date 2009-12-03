@@ -46,7 +46,7 @@ namespace GiftEjecutor
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
-            //this.cargarDataGridComandos();//lo movi para el constructor
+            this.cargarDataGridComandos();//lo movi para el constructor
             //this.Hide();
         }
 
@@ -62,7 +62,7 @@ namespace GiftEjecutor
             miPadre.cargarDataGridActividad(this.padreMDI.getUsuario());
             if (dataGridComandos.RowCount == 0 )
             {
-                //this.Dispose();// Close();
+                 Close();
                 this.buttonEjecutarComando.Enabled = false;
             }
             else

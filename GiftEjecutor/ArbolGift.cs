@@ -76,18 +76,15 @@ namespace GiftEjecutor
             
             DataTable tablaFlujos = (new FlujoTrabajo()).getFlujosConstruidos();
 
-            MessageBox.Show("1");
             List<String[]> colecciones = coleccion.listarColecciones();
             /*  coleccion[0] Obtiene el correlativo,           coleccion[1] Obtiene el nombre
                 coleccion[2] Obtiene el correlativo del padre, coleccion[3] Obtiene el correlativo del flujo al que pertenece*/
 
-            MessageBox.Show("2");
             List<String[]> expedientes = (new Expediente("0", 0, 0)).listarExpedientes();
             //expediente[0] Obtiene el correlativo,                    expediente[1] Obtiene el IDFlujo
             //expediente[2] Obtiene el IDColeccion a la que pertenece, expediente[3] Obtiene el nombre del expediente
             Boolean encontrado;
 
-            MessageBox.Show("3");
             //si no es un Admnistrador
             if (usuario.getTipo() != 0)
             {                               //Se buscan los expedientes que se le han asignado al usuario
@@ -104,15 +101,13 @@ namespace GiftEjecutor
                     }
                 }
             }
-            MessageBox.Show("4");
-
+            
             /****************************buscar los indices validos dentro de colecciones para este perfil******************/
 
 
             Boolean[] vectorValidos = indicesColeccionesValidas(coleccionesPerfil, colecciones, expedientes);
 
             /*******************************************************************************/
-            MessageBox.Show("5");
             for (int j = 0; j < tablaFlujos.Rows.Count; j++)// Se buscan los flujos de trabajo que tienen expedientes asignados al usuario 
             {
                 encontrado= usuario.getTipo()!=0? false : true;
@@ -144,7 +139,6 @@ namespace GiftEjecutor
                 }
             }
 
-            MessageBox.Show("6");
             for (int i = 0; i < colecciones.Count; i++)//Se agregan las colecciones necesarias
             {
                 if (usuario.getTipo()==0 || vectorValidos[i] == true){
@@ -187,7 +181,6 @@ namespace GiftEjecutor
                     }
                 }
             }
-            MessageBox.Show("7");
             directorio.ExpandAll();
         }
 
@@ -322,11 +315,7 @@ namespace GiftEjecutor
         }
 
         public void cargarNodo() {
-            if(directorio.SelectedNode.Tag == null)
-                MessageBox.Show("True");
-            else
-                MessageBox.Show("false");
-
+            
             if (directorio.SelectedNode!=null && directorio.SelectedNode.Name.Contains("E") && directorio.SelectedNode.Tag == null) {
                 Expediente expedienteCreado = new Expediente(int.Parse(directorio.SelectedNode.Name.Substring(1)));
                 //Expediente(int.Parse(expedientes[k][0]),expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));

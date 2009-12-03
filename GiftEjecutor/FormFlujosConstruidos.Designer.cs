@@ -55,14 +55,14 @@ namespace GiftEjecutor
             this.dataGridFlujos.AllowUserToOrderColumns = true;
             this.dataGridFlujos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridFlujos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridFlujos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridFlujos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridFlujos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridFlujos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridFlujos.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridFlujos.Location = new System.Drawing.Point(27, 80);
             this.dataGridFlujos.Name = "dataGridFlujos";
             this.dataGridFlujos.ReadOnly = true;
-            this.dataGridFlujos.Size = new System.Drawing.Size(371, 43);
+            this.dataGridFlujos.Size = new System.Drawing.Size(371, 112);
             this.dataGridFlujos.TabIndex = 1;
             this.dataGridFlujos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFlujos_CellContentClick);
             // 
@@ -70,7 +70,7 @@ namespace GiftEjecutor
             // 
             this.botonCrearExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCrearExpediente.ForeColor = System.Drawing.Color.DarkGreen;
-            this.botonCrearExpediente.Location = new System.Drawing.Point(233, 234);
+            this.botonCrearExpediente.Location = new System.Drawing.Point(233, 292);
             this.botonCrearExpediente.Name = "botonCrearExpediente";
             this.botonCrearExpediente.Size = new System.Drawing.Size(75, 23);
             this.botonCrearExpediente.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace GiftEjecutor
             // 
             this.botonCancelar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCancelar.ForeColor = System.Drawing.Color.Firebrick;
-            this.botonCancelar.Location = new System.Drawing.Point(323, 234);
+            this.botonCancelar.Location = new System.Drawing.Point(323, 292);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
             this.botonCancelar.TabIndex = 3;
@@ -92,7 +92,7 @@ namespace GiftEjecutor
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(25, 193);
+            this.txtNombre.Location = new System.Drawing.Point(25, 251);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 20);
             this.txtNombre.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace GiftEjecutor
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(22, 165);
+            this.label2.Location = new System.Drawing.Point(22, 223);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 13);
             this.label2.TabIndex = 4;
@@ -112,7 +112,7 @@ namespace GiftEjecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 311);
+            this.ClientSize = new System.Drawing.Size(432, 332);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
