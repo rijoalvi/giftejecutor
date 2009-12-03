@@ -39,14 +39,14 @@ namespace GiftEjecutor
 
             this.labelEncabezadoComando.Text = "Comandos de la Actividad ''" + actividadSimple.nombre+"''";
             this.Text = "Comandos de la Actividad ''" + actividadSimple.nombre + "''";
-            //this.cargarDataGridComandos();//lo quite de FormActividad_Load, luisk // NO puede estar aqui, porque no se le ha establecido el MDI Parent todavia
+            
         }
         //si es actividad compuesta
 
 
         private void FormActividad_Load(object sender, EventArgs e)
         {
-            this.cargarDataGridComandos();//lo movi para el constructor
+            //this.cargarDataGridComandos();//lo movi para el constructor
             //this.Hide();
         }
 
@@ -62,7 +62,7 @@ namespace GiftEjecutor
             miPadre.cargarDataGridActividad(this.padreMDI.getUsuario());
             if (dataGridComandos.RowCount == 0 )
             {
-                 Close();
+                 this.Close();
                 this.buttonEjecutarComando.Enabled = false;
             }
             else
@@ -196,7 +196,7 @@ namespace GiftEjecutor
 
         private void FormActividad_Leave(object sender, EventArgs e)
         {
-            this.cargarDataGridComandos();
+        //    this.cargarDataGridComandos();
         }
 
         public void setPadreMDI(Ventanota v)
