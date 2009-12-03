@@ -465,6 +465,7 @@ namespace GiftEjecutor
                     dataGridInbox.Columns[0].Visible = false;
                     dataGridInbox.Columns[2].Visible = false;
                     dataGridInbox.Columns[4].Visible = false;
+                    dataGridInbox.Columns[7].Visible = false; //esta es la fecha, de momento no esta funcionando.
                     dataGridInbox.Refresh();
                 }
             }
