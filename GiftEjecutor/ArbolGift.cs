@@ -22,7 +22,7 @@ namespace GiftEjecutor
             this.perfil = new Perfil(usuario.getCorrelativoPerfil());
 
 
-            System.Drawing.Image myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\flujo.gif");
+            System.Drawing.Image myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\flujo.jpg");
             listaImagenes.Images.Add("flujo",myImage);
             myImage = Image.FromFile(System.Environment.CurrentDirectory + @"\carpetaAbierta.jpg");
             listaImagenes.Images.Add("carpetaAbierta",myImage);
@@ -187,6 +187,7 @@ namespace GiftEjecutor
                         if (/*nodo != null &&*/ int.Parse(nodo.Name) == int.Parse(expedientes[k][2])){   //si la coleccion es igual a la coleccion a la que pertenece el expediente
                             TreeNode creado = nodo.Nodes.Add("E" + expedientes[k][0], expedientes[k][3]);
                             creado.ImageKey = "expediente";
+                            creado.SelectedImageKey = "expediente";
                         }
                     }
                 }
@@ -326,7 +327,7 @@ namespace GiftEjecutor
 
         public void cargarNodo() {
             
-            if (directorio.SelectedNode!=null && directorio.SelectedNode.Name.Contains("E") && directorio.SelectedNode.Tag == null) {
+            if  (directorio.SelectedNode!=null && directorio.SelectedNode.Name.Contains("E") && directorio.SelectedNode.Tag == null) {
                 Expediente expedienteCreado = new Expediente(int.Parse(directorio.SelectedNode.Name.Substring(1)));
                 //Expediente(int.Parse(expedientes[k][0]),expedientes[k][3], int.Parse(nodo.Name), int.Parse(expedientes[k][1]));
                 int finalizado = expedienteCreado.yaFinalizado();
