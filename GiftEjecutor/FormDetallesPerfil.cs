@@ -212,12 +212,7 @@ namespace GiftEjecutor
                 buttonDespermitirActividad.Click += new System.EventHandler(click_DespermitirActividad);
                 buttonDespermitirActividad.Enabled = true;
 
-                if(this.textBoxTipo.Text.Equals("Dueño")){
-                //if (true)
                 
-                    buttonPermitirActividad.Enabled = false;
-                    buttonDespermitirActividad.Enabled = false;
-                }
 
                 buttonDespermitirActividad.Text = "<";
                 tabPage.Controls.Add(buttonPermitirActividad);
@@ -232,7 +227,18 @@ namespace GiftEjecutor
                 tabPage.Controls.Add(listActividadesPermitidasAlaColeccion);
                 this.tabColecciones.Controls.Add(tabPage);
 
-
+                if (this.textBoxTipo.Text.Equals("Dueño") || this.textBoxTipo.Text.Equals("Creador"))
+                {
+                    //if (true)
+                    this.tabColecciones.SelectedTab = tabPage;
+                    if (this.textBoxTipo.Text.Equals("Creador") && listaActividadesNoAsignadas.Count > 0 && listActividadesPermitidasAlaColeccion.Items.Count < 1)
+                    {
+                        listActividadesDisponibles.SetSelected(0, true);
+                        permitirActividad();
+                    }
+                    buttonPermitirActividad.Enabled = false;
+                    buttonDespermitirActividad.Enabled = false;
+                }
             }
             else
             {
@@ -269,11 +275,16 @@ namespace GiftEjecutor
         }
         public void click_PermitirActividad(object sender, EventArgs e)
         {
-            int indexTabSelected=this.tabColecciones.SelectedIndex;
+            permitirActividad();
+        }
+
+        private void permitirActividad()
+        {
+            int indexTabSelected = this.tabColecciones.SelectedIndex;
             if (null != this.listaListActividadesDisponibles[indexTabSelected].SelectedItem)
             {
                 Actividad actividadSeleccionada = (Actividad)this.listaListActividadesDisponibles[indexTabSelected].SelectedItem;
-           
+
                 this.listaListActividadesDisponibles[indexTabSelected].Items.Remove(actividadSeleccionada);
 
                 Coleccion coleccionSeleccionada = ((Coleccion)this.tabColecciones.SelectedTab.Tag);
@@ -281,13 +292,14 @@ namespace GiftEjecutor
                 coleccionAsignada.setDatosPorPerfilYColeccion(this.perfil.getCorrelativo(), coleccionSeleccionada.getCorrelativo());
 
                 coleccionAsignada.permitirActividad(actividadSeleccionada.getID());
-                this.actualizarListaActividadPermitidas(coleccionSeleccionada,this.tabColecciones.SelectedIndex);
+                this.actualizarListaActividadPermitidas(coleccionSeleccionada, this.tabColecciones.SelectedIndex);
             }
             else
             {
                 MessageBox.Show("Seleccione una actividad");
             }
         }
+
         public void click_DespermitirActividad(object sender, EventArgs e)
         {
             int indexTabSelected = this.tabColecciones.SelectedIndex;

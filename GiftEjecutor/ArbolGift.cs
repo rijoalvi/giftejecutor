@@ -91,10 +91,20 @@ namespace GiftEjecutor
                 int[] idExp = usuario.getIDsExpedientes();
                 for (int i = 0; i < expedientes.Count; i++) {
                     encontrado=false;                    
-                    for (int k = 0; !encontrado && idExp!=null && k < idExp.Length; k++) {
+                    for (int k = 0; !encontrado && idExp!=null && k < idExp.Length; k++) {// si se le asigno directamente
                         if (usuario.getIDsExpedientes()[k] == int.Parse(expedientes[i][0]))
+                        {
                             encontrado = true;
+                        }
                     }
+                    for (int k = 0; !encontrado && k < coleccionesPerfil.Count;k++ )
+                    {
+                        if (int.Parse(expedientes[i][2]) == coleccionesPerfil[k].getCorrelativo())
+                        {
+                            encontrado = true;
+                        }
+                    }
+
                     if (!encontrado) {
                         expedientes.RemoveAt(i);
                         i--;
