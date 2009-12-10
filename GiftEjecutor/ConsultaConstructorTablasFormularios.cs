@@ -5,14 +5,8 @@ using System.Text;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
-    /// <summary>
-    /// Hereda de clase consulta donde esta el "ControladorBD"
-    /// </summary>
     class ConsultaConstructorTablasFormularios : Consulta
     {
-
-
-        
 
         /// <summary>
         /// Devuelve los IDs de todos los formularios que forman parte del flujo de trabajo

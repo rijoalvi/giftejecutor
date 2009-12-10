@@ -7,15 +7,28 @@ using System.Data;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena una relación maestro detalle entre dos formularios.
+    /// </summary>
     class MaestroDetalle
     {
         public String nombreFormDetalle;
         public DataTable tablaCamposDetalle;
         ConsultaMaestroDetalle consultaMaestroDetalle;
+
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public MaestroDetalle()
         {
             consultaMaestroDetalle = new ConsultaMaestroDetalle();
         }
+
+        /// <summary>
+        /// Devuelve el id del formularo detalle para el maestro que recibe de parámetro
+        /// </summary>
+        /// <param name="IDFormularioMaestro"></param>
+        /// <returns></returns>
         public int getIDFormularioDetalle(int IDFormularioMaestro){
           //  consultaMaestroDetalle = new ConsultaMaestroDetalle();
 
@@ -82,6 +95,12 @@ namespace GiftEjecutor
         public SqlDataReader getDatosFormularioPorID() {
             return null;
         }
+
+        /// <summary>
+        /// Devuelve el DataTable con todos los campos del detalle, para el maestro que recibe de parametro
+        /// </summary>
+        /// <param name="IDMaestroDetalle"></param>
+        /// <returns></returns>
         public DataTable getDataTableCamposDetalle(int IDMaestroDetalle)
         {
 
@@ -127,7 +146,13 @@ namespace GiftEjecutor
             return tablaCamposDetalle;
         }
 
-
+        /// <summary>
+        /// Devuelve los detalles del formulario dinámico
+        /// </summary>
+        /// <param name="IDMaestroDetalle"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="IdDatos"></param>
+        /// <returns></returns>
         public DataTable getDataTableDetallesDinamicos(int IDMaestroDetalle,String nombreTabla, int IdDatos)
         {
 
@@ -222,6 +247,8 @@ namespace GiftEjecutor
             }
             return tablaCamposDetalle;
         }
+
+
         public List<String> getArregloCamposDetalle(int IDMaestroDetalle)
         {
 
@@ -273,7 +300,11 @@ namespace GiftEjecutor
             return campos;
         }
 
-
+        /// <summary>
+        /// Devuelve una lista de los IDs de los detalles para el maestro
+        /// </summary>
+        /// <param name="IDMaestroDetalle"></param>
+        /// <returns></returns>
         public List<String> getDetallesIDs(int IDMaestroDetalle)
         {
 

@@ -6,6 +6,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que hereda de Actividad, contiene metodos y miembros específicos para las actividades compuestas
+    /// </summary>
     class ActividadCompuesta: Actividad
     {
         public bool miEsParalela;
@@ -16,21 +19,30 @@ namespace GiftEjecutor
         /// Devuelve el dataTable con las actividades hijas de una actividad segun su ID
         /// </summary>
         /// <param name="IDFlujo"></param>
-        /// <returns></returns>
-        /// 
-
+        /// <returns></returns>                
         public ActividadCompuesta() {
             consultaActividadCompuesta = new ConsultaActividaCompuesta();
         }
+
+        /// <summary>
+        /// Llena sus atributos segun el ID
+        /// </summary>
+        /// <param name="IDActividad"></param>
         public void setAtributosPorID(int IDActividad) {
             base.setAtributosSegunID(IDActividad);
             this.setAtributosDeActividadCompuesta(IDActividad);
         
         }
+
+        /// <summary>
+        /// Modifica el ToString para que se muestre el nombre de la actividad, pero tambíén si es paralela y exlcusiva
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString() + "[esParalela: " + this.miEsParalela + "] [esExclusiva: " + miEsExclusiva + "]";
         }
+
         public override void setAtributosSegunID(int IDActividad)
         {
             base.setAtributosSegunID(IDActividad);
@@ -48,6 +60,7 @@ namespace GiftEjecutor
             }
 
         }
+
         public void setAtributosDeActividadCompuesta(int IDActividad){
             SqlDataReader datosActividad=null;
 
@@ -66,10 +79,11 @@ namespace GiftEjecutor
             }
         }
 
-       /* public void setAtributosSegunID(int IDActividad)
-        {
-
-        }*/
+        /// <summary>
+        /// Obtiene el DataTable de todas las actividades hijas
+        /// </summary>
+        /// <param name="IDActividadPadre"></param>
+        /// <returns></returns>
         public DataTable getDataTableTodasActividadesHija(int IDActividadPadre)
         {
             DataTable tablaActividades = new DataTable();
@@ -120,6 +134,11 @@ namespace GiftEjecutor
             return tablaActividades;
         }
 
+        /// <summary>
+        /// Indica el tipo de la actividad
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
         private string getTipo(string tipo)
         {
             switch (tipo)

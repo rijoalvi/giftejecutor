@@ -7,19 +7,30 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena los datos de las actividades posibles a ejecutar 
+    /// </summary>
     class Inbox
     {
-
         private Actividad actividad;
         private ConsultaActividad consultaActividad;
         private Usuario usuario;
         //private int IDFlujo;
 
+        /// <summary>
+        /// Constructor a partir de un usuario
+        /// </summary>
+        /// <param name="user">El usuario para el cual se le construye el Inbox</param>
         public Inbox(Usuario user) {
             consultaActividad = new ConsultaActividad();
             this.usuario = user;
         }
 
+        /// <summary>
+        /// Llena los datos del dataTable para los expedientes asigandos
+        /// </summary>
+        /// <param name="expedientes"></param>
+        /// <returns></returns>
         public DataTable llenarDataGridInbox(Expediente[] expedientes)
         {
             DataTable tablaInbox = new DataTable(); ;
@@ -142,24 +153,6 @@ namespace GiftEjecutor
                     }
                 }
             }
-            /*
-            //esto nos indica si ya se agrego una actividad a ejecutables x lo tanto las siguientes no tienen suficientes requisitos
-            bool unaEjecutable = false;
-            datos = consultaActividad.getTodasActividadesPorIDFlujo(IDFlujo);
-            if (datos != null)
-            {
-                while (datos.Read())
-                {
-                    fila = tablaActividades.NewRow();
-                    fila["IDExpediente"] = datos.GetValue(1);
-                    fila["Expediente"] = datos.GetValue(2);
-                    fila["IDActividad"] = datos.GetValue(3);
-                    fila["nombreActividad"] = this.getTipo(datos.GetValue(4).ToString());
-                    fila["descripcionActividad"] = datos.GetValue(6).ToString();
-
-                    tablaActividades.Rows.Add(fila);
-                }
-            }*/
             return tablaInbox;
         }
     }

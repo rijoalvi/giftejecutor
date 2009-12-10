@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que maneja las colecciones de los flujos, sobre las cuales se acomodan los expedientes.
+    /// </summary>
     public class Coleccion
     {
         private String nombre;
@@ -16,6 +19,9 @@ namespace GiftEjecutor
 
         public List<Coleccion> coleccionesDeUnFlujo;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public Coleccion()
         {
             consultaColeccion = new ConsultaColeccion();
@@ -29,12 +35,16 @@ namespace GiftEjecutor
             this.Correlativo = -1;//IDCorrelativo;
         }
 
+        /// <summary>
+        /// Constructor que recibe el ID de la colección que se desea abrir
+        /// </summary>
+        /// <param name="IDColeccion"></param>
         public Coleccion(int IDColeccion)
         {
             consultaColeccion = new ConsultaColeccion();
             this.setColeccion(IDColeccion);
         }
-
+                
         public void setColeccion(int IDColeccion){
 
          //   List<Coleccion> lista = new List<Coleccion>();
@@ -54,25 +64,15 @@ namespace GiftEjecutor
 
                     
                     //lista.Add(new Coleccion(correlativo, nombre, correlativoPadre, correlativoFlujo));
-
-
                 }
-            }
-    
-
+            }    
         }
 
         public void setColeccionesDeUnFlujo(int IDFlujo,int IDPerfil){
             //this.coleccionesDeUnFlujo = this.getListTodasColeccionesDeUnFlujo(IDFlujo);
             this.coleccionesDeUnFlujo = this.getListTodasColeccionesNoAsignadasDeUnFlujo(IDFlujo, IDPerfil);
         }
-   /*     public Coleccion(String nombre, String nombrePadre)
-        {
-            consultaColeccion = new ConsultaColeccion();
-            this.nombre = nombre;
-            this.nombrePadre = nombrePadre;
-        }
-        */
+
         public Coleccion(String nombre, int correlativoPadre,int correlativoFlujo)
         {
             consultaColeccion = new ConsultaColeccion();
@@ -91,47 +91,89 @@ namespace GiftEjecutor
             Console.WriteLine("Correlativo Padre " + CorrelativoPadre);
 
         }
+
+        /// <summary>
+        /// Crea una nueva colección en BD
+        /// </summary>
         public void crearColeccion(){
             Correlativo = consultaColeccion.crearColeccion(nombre, CorrelativoPadre, correlativoFlujo);
         }
 
+        /// <summary>
+        /// Cambia el nombre de la colección
+        /// </summary>
         public void modificarNombre() {
             consultaColeccion.modificarNombre(this.Correlativo, this.nombre);
         }
 
+        /// <summary>
+        /// Indica cuales son las colecciones hijas
+        /// </summary>
+        /// <returns></returns>
         public String[] coleccionesHijas() {
             return this.consultaColeccion.coleccionesHijas(nombre/*, nombrePadre*/);
         }
 
+        /// <summary>
+        /// Lista todas las colecciones almacenadas
+        /// </summary>
+        /// <returns></returns>
         public List<String[]> listarColecciones() {
             //List<String[]> lista = new List<string[]>();
             return this.consultaColeccion.listarColecciones();
         
         }
+
+        /// <summary>
+        /// Indica el correlativo del flujo a la cual pertenece la coleccion
+        /// </summary>
+        /// <param name="correlativo"></param>
         public void setCorrelativoFlujo(int correlativo) {
             this.correlativoFlujo = correlativo;
         }
+
+        /// <summary>
+        /// Indica el correlativo de la colección padre
+        /// </summary>
+        /// <param name="IDPadre"></param>
         public void setIDCorrelativoPadre(int IDPadre) {
             this.CorrelativoPadre = IDPadre;
         }
 
+        /// <summary>
+        /// Devuelve el ID de la colección padre
+        /// </summary>
+        /// <returns></returns>
         public int getIDCorrelativoPadre()
         {
             return this.CorrelativoPadre;
         }
+
+        /// <summary>
+        /// Devuelve el ID del flujo al cual pertenece
+        /// </summary>
+        /// <returns></returns>
         public int getCorrelativoFlujo()
         {
             return this.correlativoFlujo;
         }
+
+        /// <summary>
+        /// Devuelve el correlativo de la colección
+        /// </summary>
+        /// <returns></returns>
         public int getCorrelativo() {
             return this.Correlativo;
         }
+
+        /// <summary>
+        /// Obtiene el nombre
+        /// </summary>
+        /// <returns></returns>
         public String getNombre() {
             return this.nombre;
         }
-        public String toString() {
-            return this.nombre;
-        }
+
         public List<Coleccion> getListTodasColeccionesDeUnFlujo(int IDFlujo)
         {
 
@@ -181,6 +223,7 @@ namespace GiftEjecutor
             }
             return lista;
         }
+
         public List<Coleccion> getListTodasColeccionesAsignadasDeUnFlujoDeUnPerfil(int IDFlujo, int IDPerfil)
         {
 
@@ -205,6 +248,11 @@ namespace GiftEjecutor
             }
             return lista;
         }
+
+        /// <summary>
+        /// Modifica el toString para que se observe el nombre
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.nombre;

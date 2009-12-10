@@ -4,20 +4,29 @@ using System.Text;
 
 using System.Data;
 using System.Data.SqlClient;
-//using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que se encarga de construir los formularios para poder ejecutar el flujo
+    /// </summary>
     class ConstructorTablasFormularios
     {
         ConsultaConstructorTablasFormularios consultaBD;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public ConstructorTablasFormularios()
         {
             //consultaBD = ConsultaConstructorTablasFormularios.getInstancia();
             consultaBD = new ConsultaConstructorTablasFormularios();
         }
 
+        /// <summary>
+        /// Construye las tablas para todos los formularios del flujo
+        /// </summary>
+        /// <param name="IDWorkflow"></param>
         public void construirTablas(String IDWorkflow) {
             String[] IDsFormularios = buscarFormularios(int.Parse(IDWorkflow));
             String nombreFormulario = "";
@@ -89,6 +98,11 @@ namespace GiftEjecutor
         /* */
         }
         
+        /// <summary>
+        /// Devuelve el ID del formulario caratula
+        /// </summary>
+        /// <param name="idFlujo"></param>
+        /// <returns></returns>
         public int getIDCaratula(int idFlujo)
         {
             return consultaBD.getIDCaratula(idFlujo);
@@ -129,6 +143,11 @@ namespace GiftEjecutor
             return IDs;
         }
 
+        /// <summary>
+        /// Devuelve los tipos de campo del formulario
+        /// </summary>
+        /// <param name="IDForm"></param>
+        /// <returns></returns>
         public String[] buscarTiposCampoDelFormulario(String IDForm)
         {
             SqlDataReader datos = consultaBD.getIDsTiposCampo(IDForm);
@@ -188,27 +207,16 @@ namespace GiftEjecutor
         }
 
 
-
+        /// <summary>
+        /// Indica que el flujo se encuentra activo para no volver a crear sus tablas
+        /// </summary>
+        /// <param name="IDFlujo"></param>
         public void agregarFlujoTablaFlujos(int IDFlujo){
             string consulta = "";
             consulta = "insert into FLUJOSACTIVOS (idflujo, activo) VALUES ('" + IDFlujo + "','"+ 0 +"')";            
             consultaBD.agregarFlujoConstruido(consulta);
         }
-
-        public string[][] buscarRelacionesSimetricas(string[] formulariosActivos){
-            /* MAE RICARDO ESTO NO COMPILA
-            int fila = 0;
-            int columna = 0;
-            string resultado[][];
-            while (fila < formulariosActivos.Length)
-            {
-                //necesito buscar en SIMETRICOS todos en los que IDForm1 sea = formulariosActivos[fila]
-                //y meter en resultado[fila][columna] el IDForm1, IDForm2, y correlativo de SIMETRICOS que use. 
-            }
-            return resultado;
-             */
-            return null;
-        }
+     
 
     }
 }

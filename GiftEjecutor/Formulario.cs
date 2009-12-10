@@ -9,7 +9,9 @@ using System.Windows.Forms;
 namespace GiftEjecutor
 {
     
-
+    /// <summary>
+    /// Clase que almacena todos los datos de un formulario, sus miembros y valores
+    /// </summary>
     public class Formulario
     {
         //Miembros
@@ -184,11 +186,20 @@ namespace GiftEjecutor
             return consultaBD.getTextoDefecto(IDCampo);
         }
 
+        /// <summary>
+        /// Obtiene el valor inicial de un incremental
+        /// </summary>
+        /// <param name="IDCampo"></param>
+        /// <returns></returns>
         public String getValInicial(int IDCampo)
         {
             return consultaBD.getValInicialIncremental(IDCampo);
         }
 
+        /// <summary>
+        /// Devuelve el ID del formulario
+        /// </summary>
+        /// <returns></returns>
         public int getID()
         {
             return IDForm;
@@ -230,10 +241,19 @@ namespace GiftEjecutor
             return miembros;
         }
 
+        /// <summary>
+        /// Obtiene el tamaño maximo de un texto
+        /// </summary>
+        /// <param name="IDCampo"></param>
+        /// <returns></returns>
         public int getMaxLengthTexto(int IDCampo) {
             return consultaBD.getMaxLengthTexto(IDCampo);
         }
 
+        /// <summary>
+        /// Obtiene el nombre del formulario
+        /// </summary>
+        /// <returns></returns>
         public String getNombre() {
             return nombre;
         }
@@ -248,11 +268,29 @@ namespace GiftEjecutor
             return consultaBD.ejecutarConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Inserta una tupla nueva del formulario actual
+        /// </summary>
+        /// <param name="ingresoTupla"></param>
+        /// <param name="nombreTabla"></param>
+        /// <returns></returns>
         public int insertarTuplaFormulario(String ingresoTupla, String nombreTabla)
         {
             return consultaBD.insertarInstanciaFormulario(ingresoTupla, nombreTabla);
         }
 
+        /// <summary>
+        /// Almacena en bitácora la ejecución de algun comando sobre el formulario
+        /// </summary>
+        /// <param name="IDExp"></param>
+        /// <param name="IDAct"></param>
+        /// <param name="IDCom"></param>
+        /// <param name="tipoCom"></param>
+        /// <param name="IDInstForm"></param>
+        /// <param name="IDFormConfig"></param>
+        /// <param name="ejec"></param>
+        /// <param name="descripcion"></param>
+        /// <returns></returns>
         public SqlDataReader insertarEnBitacora(int IDExp, int IDAct, int IDCom, int tipoCom, int IDInstForm, int IDFormConfig, bool ejec, String descripcion)
         {
             return consultaBD.insertarEnBitacora(IDExp, IDAct, IDCom, tipoCom, IDInstForm, IDFormConfig, ejec, descripcion);

@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 using System.Data;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena los datos de un comando que actúa sobre un formulario
+    /// </summary>
     class Comando
     {
        // private ConfiguracionProyecto configuracion;
@@ -20,6 +23,10 @@ namespace GiftEjecutor
 
         private int IDExpediente;//falta cargarlo
 
+        /// <summary>
+        /// Constructor por defecto, que solamente recibe al usuario logueado en el sistema
+        /// </summary>
+        /// <param name="user"></param>
         public Comando(Usuario user) {
             consultaComando = new ConsultaComando();
             this.user = user;
@@ -33,20 +40,44 @@ namespace GiftEjecutor
             this.fechaActualizacion = new DateTime(1111, 1, 11);
         }
 
+        /// <summary>
+        /// Devuelve el ID del comando
+        /// </summary>
+        /// <returns></returns>
         public int getID() {
             return this.ID;
         }
+
+        /// <summary>
+        /// Indica sobre que expediente va a trabajar el comando
+        /// </summary>
+        /// <param name="IDExpediente"></param>
         public void setIDExpediente(int IDExpediente) {
             this.IDExpediente = IDExpediente;
         }
+
+        /// <summary>
+        /// Indica el nombre del comando
+        /// </summary>
+        /// <returns></returns>
         public string getNombre()
         {
             return this.nombre;
         }
+
+        /// <summary>
+        /// Indica la descripcion del comando
+        /// </summary>
+        /// <returns></returns>
         public string getDescripcion()
         {
             return this.descripcion;
         }
+
+        /// <summary>
+        /// Llena todos los atributos del comando segun el ID recibido
+        /// </summary>
+        /// <param name="IDComando"></param>
         public void setAtributosSegunID(int IDComando){
           SqlDataReader datosComando;
 
@@ -67,6 +98,11 @@ namespace GiftEjecutor
           }
         }
 
+        /// <summary>
+        /// Devuelve un dataTable con todos los comandos ya ejecutados para la actividad
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public DataTable getDataTableComandosPorIDActividadYaRealizado(int IDActividad)
         {
             DataTable tablaComandos = new DataTable();
@@ -126,6 +162,11 @@ namespace GiftEjecutor
             return tablaComandos;
         }
 
+        /// <summary>
+        /// Devuelve un dataTable con todos los comandos de la actividad
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public DataTable getDataTableComandosPorIDActividad(int IDActividad)
         {
             DataTable tablaComandos = new DataTable();
@@ -197,6 +238,12 @@ namespace GiftEjecutor
             return tablaComandos;
         }
 
+
+        /// <summary>
+        /// Devuelve un dataTable con todos los comandos no ejecutados para la actividad
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public DataTable getDataTableComandosPorIDActividadNoRealizados(int IDActividad)
         {
             DataTable tablaComandos = new DataTable();
@@ -323,6 +370,11 @@ namespace GiftEjecutor
 
         /// <summary>
         /// Recibe un string de tipo comando, y le devuelve el int del tipo
+        /// 1 - Comando de Crear
+        /// 2 - Comando de Modificar
+        /// 3 - Comando de visualizar
+        /// 4 - Comando de borrar
+        /// 5 - Comando con Máscara
         /// </summary>
         /// <param name="tipo"></param>
         /// <returns></returns>
@@ -341,6 +393,12 @@ namespace GiftEjecutor
             return -1;            
         }
 
+        /// <summary>
+        /// Indica si ya no quedan más comando por ejecutar de la actividad para el expediente
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public bool terminoActividad(int IDActividad, int IDExpediente)
         {
             bool respuesta = false;
@@ -357,7 +415,10 @@ namespace GiftEjecutor
             return respuesta;
         }
 
-
+        /// <summary>
+        /// Modifica el toString, para desplegar todos los datos del comando.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Nombre: " + this.nombre + ""+'\n'+

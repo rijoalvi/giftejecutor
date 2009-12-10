@@ -7,6 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena los valores de un TreeView para utilizarlo en los formularios
+    /// </summary>
     class Jerarquia
     {
         //instancia de la clase que realiza las consultas a la BD
@@ -16,6 +19,10 @@ namespace GiftEjecutor
         private int IDNodoRaiz;
         private TreeView miArbol;
 
+        /// <summary>
+        /// Constructor que abre todos los datos de la jerarquia que recibe de parámetro su ID
+        /// </summary>
+        /// <param name="IDJera"></param>
         public Jerarquia(int IDJera) {
             consultaBD = new ConsultaJerarquia();
             IDJerarquia = IDJera;            
@@ -59,7 +66,12 @@ namespace GiftEjecutor
             }
         }
 
-        public TreeNode llenarSubArbol(int ID)
+        /// <summary>
+        /// LLena el subarbol
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        private TreeNode llenarSubArbol(int ID)
         {
             String IDsHijos;
             String[] trimIDsHijos;
@@ -107,6 +119,10 @@ namespace GiftEjecutor
             return consultaBD.getIDsHijos(IDNodo);
         }
 
+        /// <summary>
+        /// Devuelve el TreeView de la jerarquía
+        /// </summary>
+        /// <returns></returns>
         public TreeView getArbol() {
             return miArbol;
         }

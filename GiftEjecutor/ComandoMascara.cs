@@ -4,6 +4,9 @@ using System.Text;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena los datos necesarios para realizar un comando con máscara
+    /// </summary>
     class ComandoMascara: Comando
     {
         int ID;

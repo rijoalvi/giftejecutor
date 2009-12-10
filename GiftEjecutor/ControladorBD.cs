@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase encargada de realizar las consultas a la Base de Datos, es la que posee las configuraciones de como accederlas
+    /// </summary>
     class ControladorBD
     {//MySqlConnection mySqlConexion = new MySqlConnection("datasource=grupoingegift5.bluechiphosting.com;username=grupoin2_user;password=Qwerty123;database=grupoin2_GiftBD");
         //public const int MYSQL = 1;
@@ -94,7 +97,11 @@ namespace GiftEjecutor
 */
 
 
-        //por default es sqlServer
+        /// <summary>
+        /// Realiza una consulta en la BD del configurador
+        /// </summary>
+        /// <param name="sentencia"></param>
+        /// <returns></returns>
         public SqlDataReader hacerConsultaConfigurador(string sentencia)
         {
             SqlDataReader datos = null;
@@ -115,6 +122,11 @@ namespace GiftEjecutor
             return datos;
         }
 
+        /// <summary>
+        /// Realiza una consulta en la BD del ejecutor
+        /// </summary>
+        /// <param name="sentencia"></param>
+        /// <returns></returns>
         public SqlDataReader hacerConsultaEjecutor(string sentencia)
         {
             SqlDataReader datos = null;
@@ -140,6 +152,7 @@ namespace GiftEjecutor
             return datos;
         }
 
+
         public SqlConnection getConnectionConfigurador()
         {
             SqlConnection connectionStringConfigurador = null;
@@ -154,6 +167,7 @@ namespace GiftEjecutor
             }
             return connectionStringConfigurador;
         }
+
         public SqlConnection getConnectionStringEjecutor()
         {
             SqlConnection connectionStringEjecutor = null;

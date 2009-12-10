@@ -8,13 +8,21 @@ using System.Drawing.Imaging;
 namespace GiftEjecutor
 {
     
-    
+    /// <summary>
+    /// Clase que almacena las colecciones y expedientes que se muestran en el arbol principal.
+    /// </summary>
     class ArbolGift
     {
         private ImageList listaImagenes;
         private TreeView directorio;
         private Usuario usuario;
         private Perfil perfil;
+
+        /// <summary>
+        /// Constructor que recibe el árbol al cual se le van a agregar los datos y el usuario logueado
+        /// </summary>
+        /// <param name="directorio"></param>
+        /// <param name="usuario"></param>
         public ArbolGift(TreeView directorio,Usuario usuario) {
             this.directorio = directorio;
             this.usuario = usuario;
@@ -37,6 +45,10 @@ namespace GiftEjecutor
             this.usuario = usuario;
         }
 
+        /// <summary>
+        /// Devuelve la colección seleccionada
+        /// </summary>
+        /// <returns></returns>
         public Coleccion coleccionSeleccionada() { 
             Coleccion coleccion = null;
             if (directorio.SelectedNode != null && !(directorio.SelectedNode.Name.Contains("F") || directorio.SelectedNode.Name.Equals("0") || directorio.SelectedNode.Name.Contains("E")))
@@ -46,6 +58,10 @@ namespace GiftEjecutor
             return coleccion;
         }
 
+        /// <summary>
+        /// Devuelve el Flujo de trabajo seleccionado
+        /// </summary>
+        /// <returns></returns>
         public FlujoTrabajo flujoSeleccionado() {
             FlujoTrabajo flujo = null;
             if (directorio.SelectedNode!=null && this.directorio.SelectedNode.Name.Contains("F")) {
@@ -54,6 +70,10 @@ namespace GiftEjecutor
             return flujo;
         }
 
+        /// <summary>
+        /// Devuelve el expediente seleccionado
+        /// </summary>
+        /// <returns></returns>
         public Expediente expedienteSeleccionado() {
             Expediente exp = null;
             if (directorio.SelectedNode!=null && directorio.SelectedNode.Name.Contains("E")) {
@@ -62,6 +82,9 @@ namespace GiftEjecutor
             return exp;
         }
 
+        /// <summary>
+        /// Vuelve a cargar los datos del árbol
+        /// </summary>
         public void refrescar()
         {
             directorio.Nodes.Clear();
@@ -257,6 +280,11 @@ namespace GiftEjecutor
             return vectorValidos;        
         }
 
+        /// <summary>
+        /// Devuelve el Nodo al cual pertenece el flujo
+        /// </summary>
+        /// <param name="correlativoFlujo"></param>
+        /// <returns></returns>
         private TreeNode buscarNodoFlujo(String correlativoFlujo)
         {
             TreeNode nodoActual = directorio.TopNode;
@@ -280,6 +308,12 @@ namespace GiftEjecutor
             return nodoPadre;
         }
 
+        /// <summary>
+        /// Devuelve el nodo padre del actual
+        /// </summary>
+        /// <param name="correlativoPadre"></param>
+        /// <param name="nodoActual"></param>
+        /// <returns></returns>
         private TreeNode buscarNodoPadre(String correlativoPadre, TreeNode nodoActual)
         {
             //int encontrado = 0;
@@ -325,6 +359,9 @@ namespace GiftEjecutor
             return nodoPadre;
         }
 
+        /// <summary>
+        /// Llena los datos del nodo con el expediente
+        /// </summary>
         public void cargarNodo() {
             
             if  (directorio.SelectedNode!=null && directorio.SelectedNode.Name.Contains("E") && directorio.SelectedNode.Tag == null) {
@@ -341,10 +378,18 @@ namespace GiftEjecutor
             
         }
 
+        /// <summary>
+        /// Devuelve el nodo seleccionado
+        /// </summary>
+        /// <returns></returns>
         private TreeNode nodoSeleccionado() {
             return directorio.SelectedNode;
         }
 
+        /// <summary>
+        /// Indica si hay un nodo seleccionado
+        /// </summary>
+        /// <returns></returns>
         public Boolean hayNodoSeleccionado() {
             Boolean seleccionado = true;
             if (directorio.SelectedNode == null) {

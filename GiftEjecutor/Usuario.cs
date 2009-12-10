@@ -7,6 +7,9 @@ using System.Drawing;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que almacena usuarios. Se relaciona con un perfil.
+    /// </summary>
     public class Usuario
     {
         private ConsultaUsuario consultaBD;
@@ -38,9 +41,17 @@ namespace GiftEjecutor
             cargarDatosUsuario();
         }
 
+        /// <summary>
+        /// Devuelve los IDs de los expedientes que tiene asignados
+        /// </summary>
+        /// <returns></returns>
         public int[] getIDsExpedientes() {
             return this.IDsExpedientes;
         }
+
+        /// <summary>
+        /// Actualiza los IDs de los expedientes asignados
+        /// </summary>
         public void actualizarIdsExpedientes() {
             int[] misIds = consultaBD.obtenerIDsExpedientes(correlativo);
             //siempre q tenga expedientes asignados
@@ -63,6 +74,7 @@ namespace GiftEjecutor
             llenarActividadesPropias();
         }
 
+
         public void cargarDatosPrivados()
         {
             String[] datos = consultaBD.obtenerDatosPrivados(correlativo);
@@ -71,6 +83,10 @@ namespace GiftEjecutor
             respuesta = datos[2];
         }
 
+        /// <summary>
+        /// Devuelve el DataTable de las actividades asignadas a él
+        /// </summary>
+        /// <returns></returns>
         public DataTable getDataTableActividadesPropias()
         {
             return this.actividadesPropias;
@@ -111,6 +127,10 @@ namespace GiftEjecutor
             return tipoInt;
         }
 
+        /// <summary>
+        /// Asigna un expediente al usuario
+        /// </summary>
+        /// <param name="idExpediente"></param>
         public void asignarExpediente(int idExpediente) {
             consultaBD.asignarExpediente(correlativo, idExpediente);
         }
@@ -309,6 +329,7 @@ namespace GiftEjecutor
             consultaBD.borrarUsuario(IDUsuario);
         }
 
+
         public bool actividadValida(int IDActividad, int IDExpediente)
         { 
             bool respuesta = false;
@@ -364,22 +385,42 @@ namespace GiftEjecutor
             return (this.consultaBD.actividadManual(IDExpediente));
         }
 
+        /// <summary>
+        /// Devuelve las actividades asignadas para un expediente en particular
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public DataTable getDataTableActividadesAsignadasPorExpediente(int IDExpediente)
         {
             return (this.consultaBD.getActividadesAsignadasPorExpediente(correlativo, IDExpediente));
         }
 
+        /// <summary>
+        /// Devuelve las actividades NO asignadas para un expediente en particular
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public DataTable getDataTableActividadesNoAsignadasPorExpediente(int IDExpediente)
         {
             Expediente e = new Expediente(IDExpediente);
             return (this.consultaBD.getActividadesNoAsignadasPorExpediente(miPerfil.getCorrelativo(), e.getIDColeccion()));
         }
 
+        /// <summary>
+        /// ASigna una actividad al usuario
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDActividad"></param>
         public void asignarActividad(int IDExpediente, int IDActividad)
         {
             this.consultaBD.asignarActividad(this.correlativo, IDExpediente, IDActividad);
         }
 
+        /// <summary>
+        /// Le desaigna una actividad
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDActividad"></param>
         public void desasignarActividad(int IDExpediente, int IDActividad)
         {
             this.consultaBD.desasignarActividad(this.correlativo, IDExpediente, IDActividad);

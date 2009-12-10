@@ -6,17 +6,22 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que posee todos los detalles de un flujo de trabajo
+    /// </summary>
     class FlujoTrabajo
     {
         ConsultaFlujoTrabajo consultaFlujoTrabajo;
-
         int correlativo;
         String nombre;
         String descripcion;
         String fechaActualizacion;
-
         public List<FlujoTrabajo> flujosTrabajo;//para cuando quiero recibir todos los flujos
 
+        /// <summary>
+        /// Llena todos los datos del flujo según su ID
+        /// </summary>
+        /// <param name="IDPerfil"></param>
         public void setDatosPorID(int IDPerfil)
         {
             SqlDataReader datos;
@@ -25,13 +30,10 @@ namespace GiftEjecutor
             {
                 while (datos.Read())
                 {
-
                     this.correlativo = Int32.Parse( datos.GetValue(0).ToString()) ;
                     this.nombre = datos.GetValue(1).ToString();
                     this.descripcion = datos.GetValue(2).ToString();
                     this.fechaActualizacion = datos.GetValue(3).ToString();
-
-
                 }
             }
 
@@ -44,13 +46,18 @@ namespace GiftEjecutor
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
         }
 
-
-
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FlujoTrabajo() {
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
             this.flujosTrabajo = this.getListaTodosLosFlujosDeTrabajo();
         }
 
+        /// <summary>
+        /// Constructor que recibe el ID
+        /// </summary>
+        /// <param name="correlativoFlujo"></param>
         public FlujoTrabajo(int correlativoFlujo) {
             this.correlativo = correlativoFlujo;
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
@@ -62,11 +69,11 @@ namespace GiftEjecutor
             consultaFlujoTrabajo = new ConsultaFlujoTrabajo();
             this.setDatosPorID(IDFlujo);
         }
+
         /// <summary>
         /// Devuelve un dataTable con todos los datos del flujo de trabajo instanciado
         /// </summary>
-        /// <returns></returns>
-        
+        /// <returns></returns>        
         public DataTable getDataTableFlujoDeTrabajo() {
             
             String [] datos = consultaFlujoTrabajo.getDatosFlujo(this.correlativo);
@@ -100,6 +107,10 @@ namespace GiftEjecutor
         
         }
 
+        /// <summary>
+        /// Obtiene el nombre del flujo
+        /// </summary>
+        /// <returns></returns>
         public String getNombreFlujo()
         {
             String[] datos = consultaFlujoTrabajo.getDatosFlujo(this.correlativo);
@@ -149,7 +160,6 @@ namespace GiftEjecutor
         }
 
 
-
         public List<FlujoTrabajo> getListaTodosLosFlujosDeTrabajo()
         {
             List<FlujoTrabajo> lista = new List<FlujoTrabajo>();
@@ -168,8 +178,6 @@ namespace GiftEjecutor
             }
             return lista;
         }
-
-
 
         public DataTable getFlujoTrabajo(int correlativo)
         {
@@ -204,6 +212,7 @@ namespace GiftEjecutor
             }
             return tabla;
         }
+
         /// <summary>
         /// Devuelve una tabla con los flujos ya construidos
         /// </summary>
@@ -275,10 +284,19 @@ namespace GiftEjecutor
             }
             return todosFlujos;    
         }
+
+        /// <summary>
+        /// Devuelve el ID del flujo
+        /// </summary>
+        /// <returns></returns>
         public int getCorrelativo() {
             return this.correlativo;
         }
 
+        /// <summary>
+        /// Sobreescribe el método to String, para que devuelva el nombre
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return this.nombre;

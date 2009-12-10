@@ -4,7 +4,6 @@ using System.Text;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
-    
     class ActividadSimple
     {
         public string nombre;

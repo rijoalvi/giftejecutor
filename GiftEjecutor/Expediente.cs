@@ -5,6 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que mantiene los datos de un expediente
+    /// </summary>
     public class Expediente
     {
         private String nombre;
@@ -89,6 +92,10 @@ namespace GiftEjecutor
             correlativo = consultaExpediente.crearExpediente(nombre, IDColeccion, IDFlujo);
         }
 
+        /// <summary>
+        /// Lista todos los expedientes creados
+        /// </summary>
+        /// <returns></returns>
         public List<String[]> listarExpedientes()
         {
             return this.consultaExpediente.listarExpedientes();
@@ -143,24 +150,41 @@ namespace GiftEjecutor
             return expedientes;
         }
 
+        /// <summary>
+        /// Asigna al usuario recibido de parámetro el expediente
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idExpediente"></param>
         public void agregarAsignacion(int idUsuario, int idExpediente)
         {
             this.consultaExpediente.agregarAsignacion(idUsuario, idExpediente);
         }
 
+        /// <summary>
+        /// Modifica el nombre del expediente
+        /// </summary>
         public void modificarNombre()
         {
             this.consultaExpediente.modificarNombre(this.correlativo, this.nombre);
         }
 
+        /// <summary>
+        /// Devuelve el ID del expediente
+        /// </summary>
+        /// <returns></returns>
         public int getIDExpediente()
         {
             return correlativo;
         }
 
+        /// <summary>
+        /// Devuelve el nombre del flujo
+        /// </summary>
+        /// <returns></returns>
         public String getNombreFlujo() {
             return consultaExpediente.getNombreFlujo(this.IDFlujo);
         }
+
 
         public int getIDFlujo()
         {
@@ -172,31 +196,50 @@ namespace GiftEjecutor
             this.IDFlujo = elID;
         }
 
+        /// <summary>
+        /// Asigna la coleccion a la cual pertenece el expediente
+        /// </summary>
+        /// <param name="elID"></param>
         public void setIDColeccion(int elID)
         {
             this.IDColeccion = elID;
         }
 
+        /// <summary>
+        /// Indica a que colección pertenece
+        /// </summary>
+        /// <returns></returns>
         public int getIDColeccion() {
             return this.IDColeccion;
         }
 
+        /// <summary>
+        /// Devuelve el nombre del expediente
+        /// </summary>
+        /// <returns></returns>
         public String getNombre() {
             return this.nombre;
         }
 
-        public String toString() {
-            return this.nombre;
-        }
-
+        /// <summary>
+        /// Indica el ID del expediente
+        /// </summary>
+        /// <returns></returns>
         public int getCorrelativo() {
             return this.correlativo;
         }
 
+        /// <summary>
+        /// Elimina el expediente
+        /// </summary>
         public void eliminar() {
             this.consultaExpediente.eliminarExpediente(this.correlativo, this.nombre);
         }
 
+        /// <summary>
+        /// Indica si el expediente ya fue finalizado
+        /// </summary>
+        /// <returns></returns>
         public int yaFinalizado() {
             if (this.finalizado == 0)
             {

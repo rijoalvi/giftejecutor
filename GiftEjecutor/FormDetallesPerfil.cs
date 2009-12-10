@@ -332,7 +332,7 @@ namespace GiftEjecutor
 
             this.perfil.desasignarColeccion(((Coleccion)tabSeleccionada.Tag).getCorrelativo());
 
-            MessageBox.Show("Colección desasignada: "+( (Coleccion)tabSeleccionada.Tag).toString());
+            MessageBox.Show("Colección desasignada: "+( (Coleccion)tabSeleccionada.Tag).ToString());
             this.actualizarTabControl();
             this.llenarComboColecciones();
         }

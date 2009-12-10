@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que contiene los datos de una actividad de un flujo de trabajo
+    /// </summary>
     class Actividad
     {
         // private ConfiguracionProyecto configuracion;
