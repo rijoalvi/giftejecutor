@@ -4,8 +4,16 @@ using System.Text;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos de las actividades Compuestas
+    /// </summary>
     class ConsultaActividaCompuesta:Consulta
     {
+        /// <summary>
+        /// Obtiene todas las activdades hijas
+        /// </summary>
+        /// <param name="IDActividadPadre"></param>
+        /// <returns></returns>
         public SqlDataReader getTodasActividadesHija(int IDActividadPadre)
         {
             SqlDataReader dataReader = null;
@@ -15,6 +23,11 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        /// <summary>
+        /// Obtiene lsos datos extendidos de la actividad
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public SqlDataReader getDatosExtendidosPorID(int IDActividad)
         {
             SqlDataReader dataReader = null;

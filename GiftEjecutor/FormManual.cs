@@ -8,9 +8,18 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la elección sobre la forma de asignar actividades para el expediente
+    /// </summary>
     public partial class FormManual : Form
     {
+
         int idExp;
+
+        /// <summary>
+        /// Constructor que recibe el ID del expediente
+        /// </summary>
+        /// <param name="idExpediente"></param>
         public FormManual(int idExpediente)
         {
             idExp = idExpediente;

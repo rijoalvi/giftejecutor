@@ -9,10 +9,17 @@ using System.Threading;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana principal que se utiliza de fondo para las otras ventanas, esto hace que se tenga solamente una ventana abierta a la vez.
+    /// </summary>
     public partial class Ventanota : Form
     {
         FormConexiones frm;
         Usuario usuario;
+
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public Ventanota()
         {
             InitializeComponent();
@@ -38,11 +45,19 @@ namespace GiftEjecutor
             frm.Show();
         }
 
+        /// <summary>
+        /// Asigna un usuario a la ventana, esto se utiliza para mantener los datos del usuario logueado
+        /// </summary>
+        /// <param name="user"></param>
         public void setUsuario(Usuario user)
         {
             usuario = user;
         }
 
+        /// <summary>
+        /// Devuelve el usuario logueado
+        /// </summary>
+        /// <returns></returns>
         public Usuario getUsuario()
         {
             return usuario;

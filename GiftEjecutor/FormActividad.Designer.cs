@@ -154,7 +154,6 @@ namespace GiftEjecutor
             this.labelComandosSinEjecutar.Size = new System.Drawing.Size(243, 14);
             this.labelComandosSinEjecutar.TabIndex = 0;
             this.labelComandosSinEjecutar.Text = "Comandos pendientes de ejecución:";
-            this.labelComandosSinEjecutar.Click += new System.EventHandler(this.labelComandosSinEjecutar_Click);
             // 
             // labelEncabezadoComando
             // 

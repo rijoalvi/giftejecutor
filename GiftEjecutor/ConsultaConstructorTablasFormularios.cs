@@ -5,6 +5,9 @@ using System.Text;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos del constructor de tablas
+    /// </summary>
     class ConsultaConstructorTablasFormularios : Consulta
     {
 
@@ -64,6 +67,11 @@ namespace GiftEjecutor
             return datos;            
         }
 
+        /// <summary>
+        /// Obtiene el ID del formulario carátula
+        /// </summary>
+        /// <param name="idFlujo"></param>
+        /// <returns></returns>
         public int getIDCaratula(int idFlujo)
         {
             String consulta = "SELECT Comando.IDFormulario FROM Comando, MiembroActividadSimple, Flujo " +
@@ -76,6 +84,11 @@ namespace GiftEjecutor
             return -1;
         }
 
+        /// <summary>
+        /// Obtiene el nombre del formulario
+        /// </summary>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
         public String getNombreFormulario(String IDFormulario)
         {
             string strConsulta = "SELECT FORMULARIO.nombre " +
@@ -111,6 +124,10 @@ namespace GiftEjecutor
             return largo;
         }
 
+        /// <summary>
+        /// Crea la tabla
+        /// </summary>
+        /// <param name="consulta"></param>
         public void crearTablaFormulario(String consulta)
         {
             this.controladoBD.hacerConsultaEjecutor(consulta);

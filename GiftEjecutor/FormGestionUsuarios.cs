@@ -8,11 +8,17 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que muestra todos los usuarios
+    /// </summary>
     public partial class FormGestionUsuarios : Form
     {
         private Ventanota padreMDI;
         Usuario usuario;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormGestionUsuarios()
         {
             this.usuario = new Usuario();
@@ -21,6 +27,10 @@ namespace GiftEjecutor
             dataGridViewUsuarios.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);            
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
@@ -30,6 +40,10 @@ namespace GiftEjecutor
         {
             this.actulizarDataGrid();
         }
+
+        /// <summary>
+        /// Actualiza la lista de usuarios
+        /// </summary>
         public void actulizarDataGrid(){
             this.dataGridViewUsuarios.DataSource = this.usuario.getDataTableTodosUsuarios();
             this.dataGridViewUsuarios.Columns[0].Visible = false;

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite mostrar lso formularios
+    /// </summary>
     public partial class FormFormulario : Form
     {
         private Ventanota padreMDI;
@@ -337,7 +340,7 @@ namespace GiftEjecutor
             }
         }
 
-        void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
+        private void funcionClickDeDataGrid(object sender, DataGridViewCellEventArgs e)
         {
             int rowSeleccionada = ((DataGridView)sender).CurrentRow.Index;
 
@@ -770,7 +773,10 @@ namespace GiftEjecutor
             }
         }
 
-
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

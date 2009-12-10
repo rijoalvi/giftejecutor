@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos del usuario
+    /// </summary>
     class ConsultaUsuario : Consulta
     {
 
@@ -135,6 +138,10 @@ namespace GiftEjecutor
             SqlDataReader datos = this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Devuelve todos los usuarios
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader obtenerTodosLosUsuarios()
         {
             String consulta = "SELECT correlativo FROM Usuario ORDER BY correlativo;";
@@ -169,6 +176,15 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("insert into Usuario (nombreUsuario, contrasena, preguntaSecreta, respuesta,IDPerfil) VALUES ('" + nombre + "','" + contrasena + "','" + pregunta + "','" + respuesta + "','" + IDPerfil + "');");
         }
 
+        /// <summary>
+        /// Edita los datos del usuario
+        /// </summary>
+        /// <param name="IDUsuario"></param>
+        /// <param name="nombre"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="pregunta"></param>
+        /// <param name="respuesta"></param>
+        /// <param name="IDPerfil"></param>
         public void editarUsuario(int IDUsuario, String nombre, String contrasena, String pregunta, String respuesta, int IDPerfil)
         {
             SqlDataReader dataReader = null;
@@ -185,6 +201,12 @@ namespace GiftEjecutor
             dataReader = this.controladoBD.hacerConsultaEjecutor("delete FROM Usuario where correlativo = '" + IDUsuario + "';");
         }
 
+        /// <summary>
+        /// Devuelve las actividades de los expedientes del usuario
+        /// </summary>
+        /// <param name="IDUsuario"></param>
+        /// <param name="perfil"></param>
+        /// <returns></returns>
         public DataTable getActividadesExpedientesPorUsuario(int IDUsuario,int perfil)
         {
             DataTable tablaUsuarios = new DataTable();
@@ -248,6 +270,11 @@ namespace GiftEjecutor
             return tablaUsuarios;
         }
 
+        /// <summary>
+        /// Devuelve la actividades del expediente
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public SqlDataReader getActividadesPorExpediente(int IDExpediente)
         {
             SqlDataReader datos = null;
@@ -255,6 +282,11 @@ namespace GiftEjecutor
             return datos;
         }
 
+        /// <summary>
+        /// Indica si la asignacion de actividades es manual
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public bool actividadManual(int IDExpediente)
         {
             SqlDataReader datos = null;
@@ -274,6 +306,11 @@ namespace GiftEjecutor
             return respuesta;
         }
 
+        /// <summary>
+        /// Devuelve las actividades para el expediente
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public DataTable getDataTableActividadesPorIDExpediente(int IDExpediente)
         {
             Expediente exp = new Expediente(IDExpediente);
@@ -283,6 +320,12 @@ namespace GiftEjecutor
             return actividades;
         }
 
+        /// <summary>
+        /// Devuelve la actividades asignadas para el expediente
+        /// </summary>
+        /// <param name="IDUsuario"></param>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public DataTable getActividadesAsignadasPorExpediente(int IDUsuario, int IDExpediente)
         {
             DataTable tablaUsuarios = new DataTable();
@@ -321,6 +364,13 @@ namespace GiftEjecutor
             }
             return tablaUsuarios;
         }
+
+        /// <summary>
+        /// Devuelve las actividades no asignadas al expediente
+        /// </summary>
+        /// <param name="Perfil"></param>
+        /// <param name="IDColeccion"></param>
+        /// <returns></returns>
         public DataTable getActividadesNoAsignadasPorExpediente(int Perfil, int IDColeccion)
         {
             DataTable tablaUsuarios = new DataTable();
@@ -360,6 +410,12 @@ namespace GiftEjecutor
             return tablaUsuarios;
         }
 
+        /// <summary>
+        /// Asigna una actividad al usuario
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idExpediente"></param>
+        /// <param name="IDActividad"></param>
         public void asignarActividad(int idUsuario, int idExpediente, int IDActividad)
         {
             string consulta1 = "Select correlativo from PermisosUsuario where IDUsuario = '"+idUsuario+"' and IDExpediente = '"+idExpediente+"'";
@@ -376,7 +432,13 @@ namespace GiftEjecutor
             }
         }
 
-    public void desasignarActividad(int idUsuario, int idExpediente, int IDActividad)
+        /// <summary>
+        /// Desasigna una actividad
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idExpediente"></param>
+        /// <param name="IDActividad"></param>
+        public void desasignarActividad(int idUsuario, int idExpediente, int IDActividad)
         {
             string consulta1 = "Select correlativo from PermisosUsuario where IDUsuario = '" + idUsuario + "' and IDExpediente = '" + idExpediente + "'";
             SqlDataReader datos1 = this.controladoBD.hacerConsultaEjecutor(consulta1);

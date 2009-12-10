@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos de los comandos
+    /// </summary>
     class ConsultaComando:Consulta
     {
         /// <summary>
@@ -31,6 +34,11 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        /// <summary>
+        /// Obtiene el ID del comando
+        /// </summary>
+        /// <param name="nombreComando"></param>
+        /// <returns></returns>
         public SqlDataReader getIDComando(string nombreComando)
         {
             SqlDataReader dataReader = null;

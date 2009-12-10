@@ -8,10 +8,16 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que le permite al  usuario elegir cual flujo deseaconstruir
+    /// </summary>
     public partial class FormConstructor : Form
     {
         private Ventanota padreMDI;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormConstructor()
         {
             InitializeComponent();
@@ -65,14 +71,13 @@ namespace GiftEjecutor
             this.Dispose();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
-        }
-
-        private void dataGridFlujosTrabajo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

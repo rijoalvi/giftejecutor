@@ -10,6 +10,9 @@ namespace GiftEjecutor
 {
     public partial class FormAsignarColeccion : Form
     {
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormAsignarColeccion()
         {
             InitializeComponent();
@@ -18,11 +21,6 @@ namespace GiftEjecutor
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void buttonOK_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

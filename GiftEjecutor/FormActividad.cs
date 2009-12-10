@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que muestra los comandos de una actividad
+    /// </summary>
     public partial class FormActividad : Form
     {
         private Ventanota padreMDI;
@@ -17,11 +20,20 @@ namespace GiftEjecutor
         private FormListadoActividad miPadre;
         private bool recienInstanciado;
 
-
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormActividad()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Constructor que inicializa sus valores
+        /// </summary>
+        /// <param name="IDAct"></param>
+        /// <param name="IDExp"></param>
+        /// <param name="padre"></param>
         public FormActividad(int IDAct, int IDExp, FormListadoActividad padre)
         {
 
@@ -50,6 +62,9 @@ namespace GiftEjecutor
             //this.Hide();
         }
 
+        /// <summary>
+        /// Llena los datagrids
+        /// </summary>
         public void cargarDataGridComandos() {
             Comando comando = new Comando(padreMDI.getUsuario());
             comando.setIDExpediente(IDExpediente);
@@ -189,14 +204,13 @@ namespace GiftEjecutor
             this.cargarDataGridComandos();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
-        }
-
-        private void labelComandosSinEjecutar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que muestra las actividades de un flujo, o las actividades de una actividad compuesta
+    /// </summary>
     public partial class FormListadoActividad : Form
     {
         private Ventanota padreMDI;
@@ -20,11 +23,22 @@ namespace GiftEjecutor
         ActividadCompuesta actividadCompuesta;
         FormListadoActividad miPadre;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormListadoActividad()
         {
             InitializeComponent();
         }
-        
+
+        /// <summary>
+        /// Constructor que recibe datos para inicializar
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="IDFlujo"></param>
+        /// <param name="IDExpediente"></param>
+        /// <param name="soyUnFlujo"></param>
+        /// <param name="tata"></param>
         public FormListadoActividad(Usuario usuario,int IDFlujo, int IDExpediente, bool soyUnFlujo, FormListadoActividad tata)
         {
            
@@ -70,6 +84,10 @@ namespace GiftEjecutor
             //this.cargarDataGridActividad();
         }
 
+        /// <summary>
+        /// Llena los datos de los datagrids
+        /// </summary>
+        /// <param name="usuario"></param>
         public void cargarDataGridActividad(Usuario usuario) {
             Actividad actividad = new Actividad();
             ActividadCompuesta actividadCompuesta = new ActividadCompuesta();
@@ -282,6 +300,10 @@ namespace GiftEjecutor
             this.Close();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

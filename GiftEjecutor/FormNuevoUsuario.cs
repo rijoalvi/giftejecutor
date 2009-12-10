@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permita la inserción de un nuevo usuario
+    /// </summary>
     public partial class FormNuevoUsuario : Form
     {
 
@@ -17,7 +20,7 @@ namespace GiftEjecutor
         private bool estoyModificando;
 
         /// <summary>
-        /// este constructor es para crear un nuevo usuario.
+        /// Constructor para crear un nuevo usuario.
         /// </summary>
         public FormNuevoUsuario(FormGestionUsuarios f)
         {

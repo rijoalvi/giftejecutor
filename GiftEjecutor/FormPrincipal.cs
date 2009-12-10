@@ -9,6 +9,9 @@ using System.Windows;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana principal que muestra la interfaz inicial luego se ingresar un usuario
+    /// </summary>
     public partial class FormPrincipal : Form
     {
         private Ventanota padreMDI;
@@ -32,7 +35,7 @@ namespace GiftEjecutor
          */        
         
         /// <summary>
-        /// constructor
+        /// constructor que le indica la conección a la base de datos y el usuario
         /// </summary>
         /// <param name="conexionSeleccionada">La coneccion a utilizar, ECCI o USA</param>
         public FormPrincipal(int conexionSeleccionada, int idUsuario)
@@ -49,6 +52,9 @@ namespace GiftEjecutor
             this.Text = "GIFT Ejecutor - " + usuarioActual.getNombre() + " ("+this.usuarioActual.getPerfil().getNombre()+")";         
         }
 
+        /// <summary>
+        /// refresca el arbol
+        /// </summary>
         public void refrescarDirectorio() {
             arbol.refrescar();            
         }
@@ -190,12 +196,19 @@ namespace GiftEjecutor
 
         }
         
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
             ponerUsuarioEnVentanota();
         }
 
+        /// <summary>
+        /// Agrega el usuario a la ventana de fondo, para que lo utilicen las demás ventanas
+        /// </summary>
         public void ponerUsuarioEnVentanota()
         {
             padreMDI.setUsuario(this.usuarioActual);

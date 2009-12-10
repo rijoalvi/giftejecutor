@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la creación de nuevas colecciones
+    /// </summary>
     public partial class FormNuevaColeccion : Form
     {
         private Ventanota padreMDI;
@@ -17,6 +20,13 @@ namespace GiftEjecutor
         int correlativoFlujo;
         int modificar;
         int correlativoColeccion;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="principal"></param>
+        /// <param name="correlativoPadre"></param>
+        /// <param name="correlativoFlujo"></param>
         public FormNuevaColeccion(FormPrincipal principal, String correlativoPadre, String correlativoFlujo)
         {
             this.correlativoPadre = int.Parse(correlativoPadre);           
@@ -26,6 +36,11 @@ namespace GiftEjecutor
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="principal"></param>
+        /// <param name="correlativoColeccion"></param>
         public FormNuevaColeccion(FormPrincipal principal, int correlativoColeccion) {
             this.formPrincipal = principal;
             this.correlativoColeccion = correlativoColeccion;
@@ -77,6 +92,10 @@ namespace GiftEjecutor
             this.Close();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

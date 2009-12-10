@@ -8,15 +8,25 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la vista de la bitácora
+    /// </summary>
     public partial class FormVistaBitacora : Form
     {
         private Ventanota padreMDI;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormVistaBitacora()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor que abre la bitácora para un expediente específico
+        /// </summary>
+        /// <param name="IDExpediente"></param>
         public FormVistaBitacora(int IDExpediente)
         {
             InitializeComponent();
@@ -29,8 +39,6 @@ namespace GiftEjecutor
             String nomExpediente = consulta.buscarNombreExpediente(IDExpediente);
             this.labelEncabezadoBitacora.Text = "Bitácora del Expediente ''" + nomExpediente + "''";
             this.Text = "Bitácora del Expediente ''" + nomExpediente + "''";
-
-
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
@@ -38,6 +46,10 @@ namespace GiftEjecutor
             this.Close();
         }
 
+        /// <summary>
+        /// Asigna el padreMDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

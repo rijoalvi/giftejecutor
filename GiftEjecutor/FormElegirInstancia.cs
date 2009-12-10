@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite al usuario elegir cuál de las diferentes instancias de un mismo formulario desea abrir
+    /// </summary>
     public partial class FormElegirInstancia : Form
     {
         private Ventanota padreMDI;
@@ -23,6 +26,15 @@ namespace GiftEjecutor
         private ConsultaElegirInstancia consultaBD;
         private Formulario miFormulario;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="IDForm"></param>
+        /// <param name="IDExp"></param>
+        /// <param name="tipoComando"></param>
+        /// <param name="IDComando"></param>
+        /// <param name="IDActividad"></param>
+        /// <param name="padre"></param>
         public FormElegirInstancia(int IDForm, int IDExp, int tipoComando, int IDComando, int IDActividad, FormActividad padre)
         {
             //cm.nombreCampoEfecto, cm.valorCampoEfecto
@@ -74,11 +86,19 @@ namespace GiftEjecutor
             dataGridInstancias.Columns[0].Visible = false;
         }
 
+        /// <summary>
+        /// Devuelve el ID de la tupla
+        /// </summary>
+        /// <returns></returns>
         public int getIDTupla()
         {
             return IDTupla;
         }
 
+        /// <summary>
+        /// Indica cuantas filas existen
+        /// </summary>
+        /// <returns></returns>
         public int getRowCount()
         {
             return this.dataGridInstancias.RowCount;
@@ -89,7 +109,10 @@ namespace GiftEjecutor
             this.Dispose();
         }
 
-        //Se le envía el index de la fila que se desea utilizar para ejecutar el comando
+        /// <summary>
+        /// Se le envía el index de la fila que se desea utilizar para ejecutar el comando
+        /// </summary>
+        /// <param name="index"></param>
         public void setIndex(int index)
         {
             this.IDTupla = int.Parse(this.dataGridInstancias[0, index].Value.ToString());            
@@ -101,6 +124,9 @@ namespace GiftEjecutor
             ejecutarComando();
         }
 
+        /// <summary>
+        /// Manda a ejecutar el comando al formFormulario
+        /// </summary>
         public void ejecutarComando()
         {
             //esto es para arreglar la pulga del comando con mnascara ejecutandose antes de tiempo
@@ -130,6 +156,10 @@ namespace GiftEjecutor
             this.Hide();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

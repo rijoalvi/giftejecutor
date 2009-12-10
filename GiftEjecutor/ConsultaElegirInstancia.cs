@@ -6,9 +6,16 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos del componente Elegir instancia
+    /// </summary>
     class ConsultaElegirInstancia : Consulta
     {
-
+        /// <summary>
+        /// Obtiene el nombre del formulario
+        /// </summary>
+        /// <param name="IDForm"></param>
+        /// <returns></returns>
         public String getNombreFormulario(int IDForm)
         {
             String consulta = "SELECT nombre FROM FORMULARIO WHERE correlativo = " + IDForm;
@@ -18,6 +25,13 @@ namespace GiftEjecutor
             return null;
         }
 
+        /// <summary>
+        /// Obtiene los datos del formulario
+        /// </summary>
+        /// <param name="nombreForm"></param>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDFormulario"></param>
+        /// <returns></returns>
         public SqlDataReader getDatosFormuario(String nombreForm, int IDExpediente, int IDFormulario)
         {
             //agregue al final la comparacion con el IDForm, esta sin probar... ;)

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la eliminación de nodos del árbol
+    /// </summary>
     public partial class FormEliminar : Form
     {
         Expediente expediente;
@@ -15,6 +18,9 @@ namespace GiftEjecutor
         FormPrincipal principal;
         private Ventanota padreMDI;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormEliminar()
         {
             InitializeComponent();
@@ -47,6 +53,10 @@ namespace GiftEjecutor
             
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

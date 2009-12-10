@@ -8,12 +8,20 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permita la creación de nuevos expedientes
+    /// </summary>
     public partial class FormNuevoExpediente : Form
     {
         private Ventanota padreMDI;
         Form formPrincipal;
         int correlativoColeccion;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="principal"></param>
+        /// <param name="correlativoColeccion"></param>
         public FormNuevoExpediente(Form principal, String correlativoColeccion)
         {
             this.correlativoColeccion = int.Parse(correlativoColeccion);
@@ -44,6 +52,10 @@ namespace GiftEjecutor
             this.Close();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

@@ -194,7 +194,6 @@ namespace GiftEjecutor
             this.Name = "FormConexiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.FormConexiones_Load);
             this.groupBoxConexiones.ResumeLayout(false);
             this.groupBoxConexiones.PerformLayout();
             this.ResumeLayout(false);

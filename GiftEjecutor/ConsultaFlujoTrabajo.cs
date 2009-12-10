@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
-
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos de los flujos de trabajo
+    /// </summary>
     class ConsultaFlujoTrabajo : Consulta
     {
 
@@ -30,8 +32,10 @@ namespace GiftEjecutor
             return dato;
         }
 
-
-
+        /// <summary>
+        /// obtiene todos los flujos de trabajo
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader getTodosLosFlujosTrabajo()
         {
             SqlDataReader dataReader = null;
@@ -41,6 +45,11 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        /// <summary>
+        /// Obtiene los datos del flujo
+        /// </summary>
+        /// <param name="IDFlujo"></param>
+        /// <returns></returns>
         public SqlDataReader selectFlujoTrabajoPorID(int IDFlujo)
         {
             SqlDataReader dataReader = null;
@@ -49,6 +58,10 @@ namespace GiftEjecutor
             return dataReader;
         }
 
+        /// <summary>
+        /// Obtiene los flujos ya construidos
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader getFlujosConstruidos()
         {
             SqlDataReader dataReader = null;

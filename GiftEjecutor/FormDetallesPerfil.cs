@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite elegir características específicas sobre el perfil.
+    /// </summary>
     public partial class FormDetallesPerfil : Form
     {
         private Perfil perfil;
@@ -17,10 +20,19 @@ namespace GiftEjecutor
 
         public List<ListBox> listaListActividadesDisponibles;
         public List<ListBox> listaListActividadesPermitidasAlaColeccion;
+
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormDetallesPerfil()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Constructor que abre un perfil
+        /// </summary>
+        /// <param name="IDPerfil"></param>
         public FormDetallesPerfil(int IDPerfil)
         {
             listaListActividadesDisponibles = new List<ListBox>();
@@ -69,7 +81,8 @@ namespace GiftEjecutor
             this.llenarComboColecciones();
             this.actualizarTabControl();
         }
-        public void llenarComboColecciones() {
+
+        private void llenarComboColecciones() {
             this.IDFlujoSeleccionado = ((FlujoTrabajo)(this.comboBoxFlujoTrabajo.SelectedItem)).getCorrelativo();
 
             Coleccion c = new Coleccion();
@@ -93,12 +106,14 @@ namespace GiftEjecutor
             this.asignarColeccionGeneral((((Coleccion)this.comboBoxColecciones.SelectedItem)));
 
         }
-        public void asignarColeccionGeneral(Coleccion coleccionSeleccionada)
+
+        private void asignarColeccionGeneral(Coleccion coleccionSeleccionada)
         {
             this.asignarColeccion(coleccionSeleccionada);
             this.agregarColeccionATabControl(coleccionSeleccionada);
         }
-        public void asignarColeccion(Coleccion coleccionAAsignar) {
+
+        private void asignarColeccion(Coleccion coleccionAAsignar) {
             if (null != coleccionAAsignar)
             {
                 this.perfil.asignarColeccion(coleccionAAsignar.getCorrelativo());
@@ -132,7 +147,8 @@ namespace GiftEjecutor
             }
             this.llenarComboColecciones();//para que se actualize
         }
-        public void agregarColeccionATabControl(Coleccion coleccionAAgregarAlPestanero)
+
+        private void agregarColeccionATabControl(Coleccion coleccionAAgregarAlPestanero)
         {
 
 
@@ -245,7 +261,8 @@ namespace GiftEjecutor
                 MessageBox.Show("Favor seleccione una colección");
             }
         }
-        public void actualizarListaActividadPermitidas(Coleccion coleccionPermitida,int index) {
+
+        private void actualizarListaActividadPermitidas(Coleccion coleccionPermitida,int index) {
             //--------------------------------------------------------------
             //--------------------------------------------------------------
             //Coleccion coleccionSeleccionada = coleccionAAgregarAlPestanero;
@@ -273,7 +290,8 @@ namespace GiftEjecutor
             //--------------------------------------------------------------
         
         }
-        public void click_PermitirActividad(object sender, EventArgs e)
+
+        private void click_PermitirActividad(object sender, EventArgs e)
         {
             permitirActividad();
         }
@@ -300,7 +318,7 @@ namespace GiftEjecutor
             }
         }
 
-        public void click_DespermitirActividad(object sender, EventArgs e)
+        private void click_DespermitirActividad(object sender, EventArgs e)
         {
             int indexTabSelected = this.tabColecciones.SelectedIndex;
             if (null != this.listaListActividadesPermitidasAlaColeccion[indexTabSelected].SelectedItem)
@@ -338,7 +356,7 @@ namespace GiftEjecutor
         }
 
 
-        public void actualizarTabControl() {
+        private void actualizarTabControl() {
             Coleccion c = new Coleccion();
             this.tabColecciones.TabPages.Clear();
             this.listaListActividadesPermitidasAlaColeccion.Clear();
@@ -349,11 +367,6 @@ namespace GiftEjecutor
             {
                 this.agregarColeccionATabControl(coleccionAsignadas[i]);
             }
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
 

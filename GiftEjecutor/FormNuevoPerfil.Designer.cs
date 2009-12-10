@@ -66,7 +66,6 @@ namespace GiftEjecutor
             this.textBoxNombrePerfil.Name = "textBoxNombrePerfil";
             this.textBoxNombrePerfil.Size = new System.Drawing.Size(149, 20);
             this.textBoxNombrePerfil.TabIndex = 0;
-            this.textBoxNombrePerfil.TextChanged += new System.EventHandler(this.textBoxNombrePerfil_TextChanged);
             // 
             // labelNombrePerfil
             // 
@@ -76,7 +75,6 @@ namespace GiftEjecutor
             this.labelNombrePerfil.Size = new System.Drawing.Size(44, 13);
             this.labelNombrePerfil.TabIndex = 4;
             this.labelNombrePerfil.Text = "Nombre";
-            this.labelNombrePerfil.Click += new System.EventHandler(this.labelNombrePerfil_Click);
             // 
             // groupBoxTipo
             // 

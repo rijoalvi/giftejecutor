@@ -8,12 +8,18 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la asignacion de actividades a un usuario
+    /// </summary>
     public partial class FormAsignacionActividades : Form
     {
         private Ventanota padreMDI;
         private Expediente miExpediente;
         private Usuario usuarioEnEdicion;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormAsignacionActividades()
         {
             InitializeComponent();

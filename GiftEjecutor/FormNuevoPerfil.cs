@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la creación de nuevos perfiles
+    /// </summary>
     public partial class FormNuevoPerfil : Form
     {
         FormGestionPerfiles gestionPerfiles;
@@ -16,6 +19,11 @@ namespace GiftEjecutor
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="gestionPerfiles"></param>
         public FormNuevoPerfil(FormGestionPerfiles gestionPerfiles)
         {
             InitializeComponent();
@@ -55,6 +63,11 @@ namespace GiftEjecutor
             }
 
         }
+
+        /// <summary>
+        /// Revisa que todos los campos hayan sido digitados correctamente por el usuario
+        /// </summary>
+        /// <returns></returns>
         public bool camposValidos(){
             if (this.textBoxNombrePerfil.Text.Equals("")){
                 this.mostrarError();
@@ -63,6 +76,10 @@ namespace GiftEjecutor
 
             return true;
         }
+
+        /// <summary>
+        /// Muestra un error indicando que los datos no son válidos
+        /// </summary>
         public void mostrarError() {
             MessageBox.Show("Datos no válidos");
         }
@@ -72,14 +89,5 @@ namespace GiftEjecutor
             this.Dispose();
         }
 
-        private void textBoxNombrePerfil_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombrePerfil_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

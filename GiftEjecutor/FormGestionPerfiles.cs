@@ -8,17 +8,28 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que lista todos los perfiles creados
+    /// </summary>
     public partial class FormGestionPerfiles : Form
     {
         private Ventanota padreMDI;
         Perfil perfil;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormGestionPerfiles()
         {
             this.perfil = new Perfil();
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// ASigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
@@ -28,6 +39,10 @@ namespace GiftEjecutor
         {
             this.actulizarDataGrid();
         }
+
+        /// <summary>
+        /// Actualiza la lista
+        /// </summary>
         public void actulizarDataGrid(){
             this.dataGridViewPerfiles.DataSource = this.perfil.getDataTableTodosPerfiles();
             this.dataGridViewPerfiles.Columns[0].Visible = false;

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite al usuario realizar el login
+    /// </summary>
     public partial class FormConexiones : Form
     {
         private Ventanota padreMDI;
@@ -18,6 +21,10 @@ namespace GiftEjecutor
 
         private int conexionSeleccionada = CONEXION_EXTERNA;// por default
         //private int conexionConfiguradorSeleccionada = CONEXION_EXTERNA;
+
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormConexiones()
         {
             InitializeComponent();
@@ -86,14 +93,13 @@ namespace GiftEjecutor
             newSplashForm.Dispose();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
-        }
-
-        private void FormConexiones_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -5,9 +5,18 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos de los expedientes
+    /// </summary>
     class ConsultaExpediente : Consulta
     {
-        /*Si se retorna un -1 indica que no se pudo crear debido a que ya existia una coleccion con ese nombre en esa Coleccion*/
+        /// <summary>
+        /// Crea un expediente
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="correlativoColeccion"></param>
+        /// <param name="IDFlujo"></param>
+        /// <returns>Si se retorna un -1 indica que no se pudo crear debido a que ya existia una coleccion con ese nombre en esa Coleccion</returns>
         public int crearExpediente(String nombre, int correlativoColeccion,int IDFlujo){
             int correlativo = -1;
             String consulta = "Select correlativo From EXPEDIENTE where nombre = '" + nombre +
@@ -28,6 +37,11 @@ namespace GiftEjecutor
             return correlativo;
         }
 
+        /// <summary>
+        /// Asigna si al expediente se le asignan las actividades manuales o automáticas
+        /// </summary>
+        /// <param name="manual"></param>
+        /// <param name="correlativo"></param>
         public void setManual(Boolean manual,int correlativo) {
             String man;
             if (manual == true)
@@ -42,6 +56,10 @@ namespace GiftEjecutor
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Lista los expedientes
+        /// </summary>
+        /// <returns></returns>
         public List<String[]> listarExpedientes()
         {
             /****************************************************Probar con la base de datos***********************************************/
@@ -61,6 +79,10 @@ namespace GiftEjecutor
             return lista;
         }
 
+        /// <summary>
+        /// Obtiene todos los expedientes
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader obtenerTodosLosExpedientes()
         {
             String consulta = "SELECT correlativo, IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE eliminado = 'False';";
@@ -68,6 +90,11 @@ namespace GiftEjecutor
             return resultado;
         }
 
+        /// <summary>
+        /// Obtiene todos los expedientes del usuario
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
         public SqlDataReader obtenerTodosLosExpedientes(int idUsuario)
         {
             String consulta = "SELECT DISTINCT Expediente.correlativo, Expediente.IDFlujo, Expediente.IDColeccion, Expediente.nombre "+
@@ -81,6 +108,11 @@ namespace GiftEjecutor
             return resultado;
         }
 
+        /// <summary>
+        /// Obtiene los datos del expediente
+        /// </summary>
+        /// <param name="correlativo"></param>
+        /// <returns></returns>
         public SqlDataReader obtenerDatosExpediente(int correlativo)
         {
             String consulta = "SELECT IDFlujo, IDColeccion, nombre From EXPEDIENTE WHERE correlativo = '" + correlativo + "';";
@@ -88,6 +120,11 @@ namespace GiftEjecutor
             return resultado;
         }
 
+        /// <summary>
+        /// Obtiene el nombre del expediente
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public String buscarNombreExpediente(int IDExpediente)
         {
             String consulta = "SELECT nombre From EXPEDIENTE where correlativo ="+ IDExpediente +";";
@@ -101,6 +138,12 @@ namespace GiftEjecutor
             return nombreExpediente;
         }
 
+        /// <summary>
+        /// Obtiene el correlativo
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="correlativoColeccion"></param>
+        /// <returns></returns>
         public int buscarCorrelativo(String nombre, int correlativoColeccion) {
             String consulta = "SELECT correlativo From EXPEDIENTE where nombre = '" + nombre + "' AND IDColeccion = "+correlativoColeccion+";";
             Console.Write("consulta : " + consulta);
@@ -113,18 +156,33 @@ namespace GiftEjecutor
             return correlativo;
         }
 
+        /// <summary>
+        /// Agrega una asignación
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="idExpediente"></param>
         public void agregarAsignacion(int idUsuario, int idExpediente)
         {
             String consulta = "INSERT INTO PermisosUsuario (IDUsuario, IDExpediente) VALUES('" + idUsuario + "', '" + idExpediente + "');";
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Modifica el nombre
+        /// </summary>
+        /// <param name="correlativoExpediente"></param>
+        /// <param name="nombre"></param>
         public void modificarNombre(int correlativoExpediente, String nombre)
         {
             String consulta = "UPDATE EXPEDIENTE SET nombre = '" + nombre + "' WHERE correlativo = " + correlativoExpediente + ";";
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Elimina un expediente
+        /// </summary>
+        /// <param name="correlativo"></param>
+        /// <param name="nombre"></param>
         public void eliminarExpediente(int correlativo, String nombre) {
             String consulta = "UPDATE EXPEDIENTE SET eliminado = 'True' WHERE correlativo = " + correlativo +
                               "; INSERT INTO BITACORA(IDExpediente,IDActividad,IDComando,tipoComando,IDInstaciaForm,IDFormConfigurador," +
@@ -133,6 +191,11 @@ namespace GiftEjecutor
             this.controladoBD.hacerConsultaEjecutor(consulta);
         }
 
+        /// <summary>
+        /// Obtiene el nombre del flujo
+        /// </summary>
+        /// <param name="IDFlujo"></param>
+        /// <returns></returns>
         public String getNombreFlujo(int IDFlujo)
         {
             String consulta = "SELECT nombre From FLUJO where correlativo = '" + IDFlujo + "';";

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que muestra los flujos ya construidos para poder eliminarlos si se desea
+    /// </summary>
     public partial class FormFlujosConstruidos : Form
     {
         int IDFlujoSeleccionado;
@@ -21,6 +24,12 @@ namespace GiftEjecutor
         /***************************/
         private Ventanota padreMDI;
 
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="principal"></param>
+        /// <param name="correlativoPadre"></param>
+        /// <param name="correlativoFlujo"></param>
         public FormFlujosConstruidos(FormPrincipal principal,String correlativoPadre, String correlativoFlujo)
         {
             InitializeComponent();
@@ -145,6 +154,10 @@ namespace GiftEjecutor
             this.Dispose();
         }
 
+        /// <summary>
+        /// Asigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;

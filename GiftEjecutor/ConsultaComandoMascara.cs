@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que realiza los accesos a Base de Datos del comando con máscara
+    /// </summary>
     class ConsultaComandoMascara : Consulta
     {
         /// <summary>

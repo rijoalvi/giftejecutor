@@ -6,14 +6,29 @@ using System.Data;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Clase que controla el flujo de actividades y de comandos para un expediente
+    /// </summary>
     class Controlador
     {
         ConsultaControlador consultaControlador;
+
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public Controlador()
+
         {
 
         }
 
+        /// <summary>
+        /// Revisa si el comando fue o no realizado ya
+        /// </summary>
+        /// <param name="idComando"></param>
+        /// <param name="expediente"></param>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public bool checkComandoRealizado(int idComando, int expediente, int IDActividad)
         {
             bool respuesta;
@@ -89,6 +104,11 @@ namespace GiftEjecutor
             return iniciada;
         }
 
+        /// <summary>
+        /// Devuelve el dataTable con todos los datos de la bitácora
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public DataTable getDataTableBitacora(int IDExpediente)
         {
             DataTable tablaComandos = new DataTable();
@@ -124,6 +144,11 @@ namespace GiftEjecutor
             return tablaComandos;
         }
 
+        /// <summary>
+        /// Indica cual fue el ñultimo comando ejecutado por el expediente
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <returns></returns>
         public int getUltimoComandoEjecutado(int IDExpediente)
         {
             consultaControlador = new ConsultaControlador();
@@ -140,6 +165,11 @@ namespace GiftEjecutor
             return respuesta;
         }
 
+        /// <summary>
+        /// Indica cuál es el ultimo comando de la actividad
+        /// </summary>
+        /// <param name="IDActividad"></param>
+        /// <returns></returns>
         public int getUltimoComandoReal(int IDActividad)
         {
             consultaControlador = new ConsultaControlador();
@@ -168,6 +198,13 @@ namespace GiftEjecutor
 
             return respuesta;
         }
+
+        /// <summary>
+        /// Escribe en bitácora el final de ejecución de una actividad.
+        /// </summary>
+        /// <param name="IDExpediente"></param>
+        /// <param name="IDActividad"></param>
+        /// <param name="user"></param>
         public void finalizarActividadBitacora(int IDExpediente, int IDActividad, Usuario user)
         {
             ConsultaControlador consult = new ConsultaControlador();

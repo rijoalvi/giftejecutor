@@ -8,11 +8,17 @@ using System.Windows.Forms;
 
 namespace GiftEjecutor
 {
+    /// <summary>
+    /// Ventana que permite la asignación de expedientes a un usuario en particular
+    /// </summary>
     public partial class FormAsignarExpedientes : Form
     {
         private Ventanota padreMDI;
         private Expediente miExpediente;
 
+        /// <summary>
+        /// Constructor por omisión
+        /// </summary>
         public FormAsignarExpedientes()
         {
             InitializeComponent();            
@@ -44,6 +50,10 @@ namespace GiftEjecutor
             }             
         }
 
+        /// <summary>
+        /// ASigna el padre MDI
+        /// </summary>
+        /// <param name="v"></param>
         public void setPadreMDI(Ventanota v)
         {
             padreMDI = v;
